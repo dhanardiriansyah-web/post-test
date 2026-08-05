@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Aljabar Dasar (Soal 1-80) - Interactive Assessment</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']], 
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar styling */
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pb-20 selection:bg-indigo-200">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-4">
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMP / SMA</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">Aljabar Dasar</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2">UJIAN ALJABAR DASAR</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Model Soal: Isian Singkat (Jawaban Bilangan Bulat 0–999)</p>
+            
+            <div class="bg-indigo-50/70 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Umum Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Bacalah setiap soal dengan teliti sebelum memasukkan jawaban.</li>
+                    <li><strong>Jawaban:</strong> Tuliskan jawaban berupa <strong>bilangan bulat (angka 0–999)</strong>.</li>
+                    <li>Waktu Pengerjaan: <strong>45 Menit</strong> untuk 10 soal isian singkat.</li>
+                    <li>Bobot Nilai: <strong>10 Poin per jawaban benar</strong> (Nilai Maksimal: 100 Poin).</li>
+                    <li>Karakter selain angka (titik, koma, huruf) akan dibersihkan secara otomatis.</li>
+                    <li>Pembahasan dan kunci jawaban lengkap dapat diakses setelah mengumpulkan ujian.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Bagian 1</p>
+                    <p class="text-xs font-black">Substitusi Variabel</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Bagian 2</p>
+                    <p class="text-xs font-black">Penyederhanaan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Bagian 3</p>
+                    <p class="text-xs font-black">Sifat Distributif</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Bagian 4</p>
+                    <p class="text-xs font-black">Persamaan Linear</p>
+                </div>
+            </div>
+
+            <button onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section">
+        <!-- Sticky Top Header & Timer -->
+        <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                <div>
+                    <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN ALJABAR DASAR</h1>
+                    <p class="text-xs text-slate-500 font-semibold hidden sm:block">Model Isian Singkat (Jawaban Bilangan Bulat 0-999)</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                    <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                        45:00
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 mt-6">
+            <!-- Navigation Panel for 10 Questions -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                <div class="flex justify-between items-center mb-2.5">
+                    <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Soal (1–10)</p>
+                    <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 10</span>
+                </div>
+                <div class="grid grid-cols-5 sm:grid-cols-10 gap-2" id="nav-container">
+                    <!-- Nav buttons dynamically injected by JS -->
+                </div>
+            </div>
+
+            <!-- Quiz Slide Container -->
+            <form id="quiz-form" onsubmit="event.preventDefault();">
+                <div id="slides-container">
+                    <!-- Dynamic Question Slides -->
+                </div>
+
+                <!-- Bottom Navigation Controls -->
+                <div class="flex justify-between items-center mt-6">
+                    <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+                        &#8592; Sebelum
+                    </button>
+                    <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2">
+                        <span>Soal Berikutnya</span> &#8594;
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Pengumpulan</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian ini?</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Ujian</button>
+                <button onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & NILAI UJIAN</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah laporan hasil pengerjaan dan kunci jawaban resmi Ujian Aljabar Dasar.</p>
+                        
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Nilai</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105">
+                <span>Lihat Pembahasan Lengkap</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Pembahasan Lengkap & Kunci Jawaban</h3>
+                    <p class="text-sm text-slate-500">Evaluasi lembar pengerjaan Anda dengan langkah-langkah penyelesaian rinci.</p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition">Semua Soal (<span id="cnt-all">10</span>)</button>
+                    <button onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition">Benar (<span id="cnt-correct">0</span>)</button>
+                    <button onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Verified Questions Data Array (10 Questions with verified answers and explanations)
+        const questionsData = [
+            {
+                id: 1,
+                section: "Bagian 1: Substitusi Sederhana",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Substitusi Satu Variabel</p>
+                    <p class="mb-4">Jika nilai $p = 4$, berapakah nilai dari $2p + 5$?</p>
+                `,
+                correctAnswer: 13,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Substitusikan nilai $p = 4$ ke dalam bentuk aljabar $2p + 5$:
+                            $$2(4) + 5$$
+                        </li>
+                        <li>Kalikan terlebih dahulu: $2 \\times 4 = 8$.</li>
+                        <li>Tambahkan dengan $5$:
+                            $$8 + 5 = \\mathbf{13}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 2,
+                section: "Bagian 1: Substitusi Dua Variabel",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Substitusi Dua Variabel</p>
+                    <p class="mb-4">Jika $a = 4$ dan $b = 3$, berapakah nilai dari $2a + 3b$?</p>
+                `,
+                correctAnswer: 17,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Substitusikan nilai $a = 4$ dan $b = 3$ ke dalam ekspresi:
+                            $$2(4) + 3(3)$$
+                        </li>
+                        <li>Hitung perkalian masing-masing suku:
+                            $$2 \\times 4 = 8 \\quad \\text{dan} \\quad 3 \\times 3 = 9$$
+                        </li>
+                        <li>Jumlahkan kedua hasil:
+                            $$8 + 9 = \\mathbf{17}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 3,
+                section: "Bagian 1: Substitusi Pangkat",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Substitusi Kuadrat & Dua Variabel</p>
+                    <p class="mb-4">Jika $x = 5$ dan $y = 3$, hitunglah nilai dari $x^2 + 2y$.</p>
+                `,
+                correctAnswer: 31,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Substitusikan $x = 5$ dan $y = 3$ ke dalam persamaan $x^2 + 2y$:
+                            $$5^2 + 2(3)$$
+                        </li>
+                        <li>Hitung kuadrat dan perkalian:
+                            $$5^2 = 25 \\quad \\text{dan} \\quad 2(3) = 6$$
+                        </li>
+                        <li>Jumlahkan hasil:
+                            $$25 + 6 = \\mathbf{31}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 4,
+                section: "Bagian 2: Penyederhanaan & Substitusi",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Penggabungan Suku Sejenis</p>
+                    <p class="mb-4">Berapakah nilai dari bentuk aljabar $(8m - 3) + (2m - 5)$ jika nilai $m = 6$?</p>
+                `,
+                correctAnswer: 52,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Sederhanakan terlebih dahulu bentuk aljabar dengan menggabungkan suku-suku sejenis:
+                            $$(8m + 2m) + (-3 - 5) = 10m - 8$$
+                        </li>
+                        <li>Substitusikan nilai $m = 6$ ke dalam bentuk sederhana $10m - 8$:
+                            $$10(6) - 8 = 60 - 8 = \\mathbf{52}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 5,
+                section: "Bagian 3: Sifat Distributif",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Perkalian Distributif</p>
+                    <p class="mb-4">Tentukan nilai dari $5(2x + 3)$ apabila $x = 7$.</p>
+                `,
+                correctAnswer: 85,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Substitusikan $x = 7$ ke dalam kurung:
+                            $$2(7) + 3 = 14 + 3 = 17$$
+                        </li>
+                        <li>Kalikan hasil dengan $5$:
+                            $$5 \\times 17 = \\mathbf{85}$$
+                        </li>
+                        <li><em>Atau menggunakan distributif:</em> $10x + 15 = 10(7) + 15 = 70 + 15 = \\mathbf{85}$.</li>
+                    </ol>
+                `
+            },
+            {
+                id: 6,
+                section: "Bagian 3: Perkalian Dua Suku",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Perkalian Suku Dua</p>
+                    <p class="mb-4">Hitunglah nilai dari hasil perkalian $(x + 2)(x + 3)$ jika $x = 10$.</p>
+                `,
+                correctAnswer: 156,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Substitusikan nilai $x = 10$ langsung ke setiap faktor:
+                            $$(10 + 2)(10 + 3) = 12 \\times 13$$
+                        </li>
+                        <li>Hitung hasil perkalian dua bilangan tersebut:
+                            $$12 \\times 13 = \\mathbf{156}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 7,
+                section: "Bagian 4: Persamaan Satu Langkah",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Persamaan Linear Dasar</p>
+                    <p class="mb-4">Tentukan nilai $a$ (bilangan bulat) yang memenuhi persamaan $4a = 180$.</p>
+                `,
+                correctAnswer: 45,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Bagi kedua ruas persamaan dengan $4$ untuk mengisolasi variabel $a$:
+                            $$a = \\frac{180}{4}$$
+                        </li>
+                        <li>Hitung pembagian:
+                            $$a = \\mathbf{45}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 8,
+                section: "Bagian 4: Persamaan Dua Langkah",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Persamaan Linear 2 Langkah</p>
+                    <p class="mb-4">Tentukan nilai $x$ yang memenuhi persamaan linear $2x + 15 = 87$.</p>
+                `,
+                correctAnswer: 36,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Kurangkan $15$ dari kedua ruas persamaan:
+                            $$2x = 87 - 15 \\implies 2x = 72$$
+                        </li>
+                        <li>Bagi kedua ruas dengan $2$:
+                            $$x = \\frac{72}{2} = \\mathbf{36}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 9,
+                section: "Bagian 4: Persamaan Dua Ruas",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Persamaan Variabel di Kedua Ruas</p>
+                    <p class="mb-4">Nilai $m$ yang memenuhi persamaan $5m - 12 = 2m + 24$ adalah...</p>
+                `,
+                correctAnswer: 12,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Pindahkan suku berpangkat sama (kelompokkan variabel di ruas kiri dan konstanta di ruas kanan):
+                            $$5m - 2m = 24 + 12$$
+                        </li>
+                        <li>Sederhanakan kedua ruas:
+                            $$3m = 36$$
+                        </li>
+                        <li>Bagi kedua ruas dengan $3$:
+                            $$m = \\frac{36}{3} = \\mathbf{12}$$
+                        </li>
+                    </ol>
+                `
+            },
+            {
+                id: 10,
+                section: "Bagian 4: Persamaan dengan Tanda Kurung",
+                points: 10,
+                question: `
+                    <p class="font-bold mb-2">[10 Poin] Persamaan Linear Berkurung</p>
+                    <p class="mb-4">Selesaikan persamaan $3(k + 4) = 75$. Berapakah nilai $k$?</p>
+                `,
+                correctAnswer: 21,
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Bagi kedua ruas dengan $3$:
+                            $$k + 4 = \\frac{75}{3} \\implies k + 4 = 25$$
+                        </li>
+                        <li>Kurangkan $4$ dari kedua ruas:
+                            $$k = 25 - 4 = \\mathbf{21}$$
+                        </li>
+                    </ol>
+                `
+            }
+        ];
+
+        // Global State
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {}; // Stores normalized user text answers: { 1: 13, 2: 17, ... }
+        let questionEvaluation = [];
+        let timeLeft = 45 * 60; // 45 minutes in seconds
+        let timerInterval;
+        let isSubmitted = false;
+
+        // On DOM Loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.section}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Soal ${qNum} dari ${totalQuestions} (+10 Poin)</span>
+                        </div>
+
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[260px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-lg leading-relaxed mb-4">${q.question}</div>
+                            </div>
+
+                            <!-- Input Box -->
+                            <div class="mt-6 pt-6 border-t border-slate-100">
+                                <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Jawaban Akhir Berupa Bilangan Bulat (0–999):</label>
+                                <div class="flex items-center gap-3 max-w-sm">
+                                    <input type="text" id="input-q${qNum}" placeholder="Ketik angka..." 
+                                        class="w-full text-lg font-black font-mono px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-600 focus:bg-white focus:outline-none transition-all shadow-inner"
+                                        oninput="onAnswerInput(${qNum}, this.value)">
+                                    <button type="button" onclick="clearInput(${qNum})" class="px-3 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-xs transition">Hapus</button>
+                                </div>
+                                <p class="text-[11px] text-slate-400 mt-1.5">*Karakter selain angka akan dibersihkan secara otomatis.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-10 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax) MathJax.typesetPromise();
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) { // < 5 mins remaining
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            document.getElementById(`slide-${n}`).classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Lembar Ujian</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function normalizeInput(val) {
+            if (!val) return null;
+            const cleaned = val.toString().replace(/[^\d]/g, '');
+            return cleaned.length > 0 ? parseInt(cleaned, 10) : null;
+        }
+
+        function onAnswerInput(qNum, val) {
+            const normalized = normalizeInput(val);
+            if (normalized !== null && !isNaN(normalized)) {
+                userAnswers[qNum] = normalized;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            // Update Nav Button styling
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (userAnswers[qNum] !== undefined) {
+                btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                btn.classList.remove('bg-slate-50', 'text-slate-600');
+            } else {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                btn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            // Update Answered Counter
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearInput(qNum) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = '';
+            onAnswerInput(qNum, '');
+        }
+
+        function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Konfirmasi Pengumpulan Ujian";
+            document.getElementById('modal-message').innerText = "Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian sekarang? Jawaban tidak dapat diubah setelah kumpul.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Ujian</button>
+                <button onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Waktu pengerjaan 45 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalScore = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    totalScore += q.points;
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            // Update Summary Stats
+            const maxScore = totalQuestions * 10;
+            const percentage = ((totalScore / maxScore) * 100).toFixed(0);
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            // Render Solutions Review
+            renderReviewCards('all');
+
+            if (window.MathJax) MathJax.typesetPromise();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> KOSONG (0 Poin)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR (+10 Poin)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH (0 Poin)</span>`;
+                }
+
+                const userAnsText = (userAns !== null) ? userAns : '<em>Kosong</em>';
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Soal #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Jawaban Anda:</p>
+                                    <p class="font-black font-mono text-2xl ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsText}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-indigo-800 mb-1">Kunci Jawaban Resmi:</p>
+                                    <p class="font-black font-mono text-2xl text-indigo-700">${q.correctAnswer}</p>
+                                </div>
+                            </div>
+
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Rinci & Solusi Langkah demi Langkah:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
