@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Modul Kaidah Pencacahan (HOTS & SNBT Calibrated Hikma)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']], 
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pb-20 selection:bg-indigo-200">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-4">
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMA / Wajib</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">Kaidah Pencacahan</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2">UJIAN MODUL KAIDAH PENCACAHAN (HOTS UTBK-SNBT)</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">15 Soal</p>
+            
+            <div class="bg-indigo-50/70 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Semua soal (Soal 1–15) berbentuk <strong>Isian Singkat</strong>. </li>
+                    <li>Ketikkan jawaban akhir berupa <strong>bilangan bulat positif</strong> pada kotak yang tersedia.</li>
+                    <li>Waktu Pengerjaan: <strong>50 Menit</strong> untuk 15 soal.</li>
+                    <li>Gambar pada soal bersih tanpa clue/spoiler jawaban. Diagram dengan rumus pembahasan lengkap tersedia di bagian Pembahasan.</li>
+                    <li>Pembahasan dan langkah-langkah penyelesaian rinci dapat diakses setelah mengumpulkan ujian.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 1</p>
+                    <p class="text-xs font-black">Aturan Penjumlahan & Perkalian</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 2</p>
+                    <p class="text-xs font-black">Permutasi & Siklis</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 3</p>
+                    <p class="text-xs font-black">Unsur Sama & Grid</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 4</p>
+                    <p class="text-xs font-black">Persamaan Faktorial</p>
+                </div>
+            </div>
+
+            <button onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section">
+        <!-- Sticky Top Header & Timer -->
+        <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                <div>
+                    <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MODUL KAIDAH PENCACAHAN (HOTS)</h1>
+                    <p class="text-xs text-slate-500 font-semibold hidden sm:block">15 Soal Isian Singkat Bilangan Bulat</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                    <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                        50:00
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 mt-6">
+            <!-- Navigation Panel for 15 Questions -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                <div class="flex justify-between items-center mb-2.5">
+                    <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Soal (1–15)</p>
+                    <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 15</span>
+                </div>
+                <div class="grid grid-cols-5 sm:grid-cols-15 gap-1.5" id="nav-container">
+                    <!-- Nav buttons dynamically injected by JS -->
+                </div>
+            </div>
+
+            <!-- Quiz Slide Container -->
+            <form id="quiz-form" onsubmit="event.preventDefault();">
+                <div id="slides-container">
+                    <!-- Dynamic Question Slides -->
+                </div>
+
+                <!-- Bottom Navigation Controls -->
+                <div class="flex justify-between items-center mt-6">
+                    <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+                        &#8592; Sebelum
+                    </button>
+                    <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2">
+                        <span>Soal Berikutnya</span> &#8594;
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Pengumpulan</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian ini?</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Ujian</button>
+                <button onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & NILAI UJIAN</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah laporan hasil pengerjaan dan kunci jawaban resmi Modul Kaidah Pencacahan.</p>
+                        
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Nilai</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105">
+                <span>Lihat Pembahasan Lengkap</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Pembahasan Lengkap & Kunci Jawaban</h3>
+                    <p class="text-sm text-slate-500">Evaluasi lembar pengerjaan Anda dengan langkah-langkah penyelesaian rinci.</p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition">Semua Soal (<span id="cnt-all">15</span>)</button>
+                    <button onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition">Benar (<span id="cnt-correct">0</span>)</button>
+                    <button onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 15 HOTS Questions on Kaidah Pencacahan - Calibrated for UTBK-SNBT / TKA SMA
+        const questionsData = [
+            {
+                id: 1,
+                type: 'short',
+                section: "Materi: Persamaan Faktorial",
+                question: "Tentukan nilai dari bilangan bulat positif $n$ yang memenuhi persamaan faktorial berikut:<br>$$\\frac{(n+1)! + n!}{(n-1)!} = 48$$",
+                correctAnswer: "6",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Faktorkan pembilang menggunakan sifat faktorial $(n+1)! = (n+1)n(n-1)!$ dan $n! = n(n-1)!$:<br>
+                        $(n+1)! + n! = (n-1)! \\cdot [(n+1)n + n] = (n-1)! \\cdot [n^2 + 2n]$.</li>
+                        <li>Sederhanakan pecahan dengan membagi $(n-1)!$ pada pembilang dan penyebut:<br>
+                        $$\\frac{(n-1)!(n^2 + 2n)}{(n-1)!} = n^2 + 2n = 48$$</li>
+                        <li>Bentuk persamaan kuadrat $n^2 + 2n - 48 = 0$.</li>
+                        <li>Faktorkan: $(n - 6)(n + 8) = 0$.</li>
+                        <li>Karena $n$ harus berupa bilangan bulat positif, maka nilai $n$ yang memenuhi adalah $n = 6$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 6</p>
+                `
+            },
+            {
+                id: 2,
+                type: 'short',
+                section: "Materi: Aturan Perkalian & Penjumlahan (Penyusunan Angka)",
+                question: "Banyaknya bilangan bulat positif kurang dari $1000$ yang dapat dibentuk dari angka-angka $\\{0, 1, 2, 3, 4, 5, 6\\}$ tanpa ada angka yang berulang dan bernilai genap adalah...",
+                correctAnswer: "129",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <p class="mb-2">Bilangan bulat positif $< 1000$ terdiri dari bilangan 1-angka, 2-angka, dan 3-angka.</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li><strong>Bilangan 1-angka:</strong> Angka genap positif adalah $\\{2, 4, 6\\}$ $\\implies \\mathbf{3}$ bilangan.</li>
+                        <li><strong>Bilangan 2-angka ($AB$):</strong>
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>Satuan $B = 0$: $A$ dapat diisi $\\{1,2,3,4,5,6\\}$ (6 pilihan) $\\implies 6 \\times 1 = 6$.</li>
+                                <li>Satuan $B \\in \\{2, 4, 6\\}$ (3 pilihan): $A$ dapat diisi selain 0 dan $B$ (5 pilihan) $\\implies 5 \\times 3 = 15$.</li>
+                                <li>Total 2-angka $= 6 + 15 = \\mathbf{21}$ bilangan.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Bilangan 3-angka ($ABC$):</strong>
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>Satuan $C = 0$: $A$ (6 pilihan), $B$ (5 pilihan) $\\implies 6 \\times 5 \\times 1 = 30$.</li>
+                                <li>Satuan $C \\in \\{2, 4, 6\\}$ (3 pilihan): $A$ selain 0 dan $C$ (5 pilihan), $B$ tersisa (5 pilihan termasuk 0) $\\implies 5 \\times 5 \\times 3 = 75$.</li>
+                                <li>Total 3-angka $= 30 + 75 = \\mathbf{105}$ bilangan.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Total Keseluruhan:</strong> $3 + 21 + 105 = \\mathbf{129}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 129</p>
+                `
+            },
+            {
+                id: 3,
+                type: 'short',
+                section: "Materi: Permutasi Siklis Berdampingan & Terpisah",
+                question: "Sebuah panitia terdiri dari 8 orang (3 orang Divisi A, 3 orang Divisi B, dan 2 orang Divisi C) mengadakan rapat meja bundar. Anggota Divisi C harus selalu duduk berdampingan, sedangkan anggota Divisi A tidak boleh ada yang duduk berdampingan satu sama lain. Berapa banyak susunan posisi duduk melingkar yang mungkin?<br><svg class=\"mx-auto my-5 max-w-full h-auto drop-shadow\" viewBox=\"0 0 520 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"520\" height=\"300\" rx=\"14\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1.2\"/><circle cx=\"260\" cy=\"155\" r=\"85\" fill=\"#f8fafc\" stroke=\"#4338ca\" stroke-width=\"1.8\" stroke-dasharray=\"5 3\"/><circle cx=\"260\" cy=\"155\" r=\"50\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\" stroke-width=\"1\"/><text x=\"260\" y=\"159\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" font-style=\"italic\" fill=\"#334155\">Meja Bundar</text><g transform=\"translate(260, 36)\"><rect x=\"-55\" y=\"-18\" width=\"110\" height=\"36\" rx=\"8\" fill=\"#ffe4e6\" stroke=\"#b91c1c\" stroke-width=\"1.8\"/><text x=\"0\" y=\"5\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#991b1b\">Anggota Divisi C</text></g><g transform=\"translate(365, 155)\"><circle r=\"18\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"0\" y=\"4\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"12\" font-style=\"italic\" font-weight=\"bold\" fill=\"#1e40af\">B₁</text></g><g transform=\"translate(260, 260)\"><circle r=\"18\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"0\" y=\"4\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"12\" font-style=\"italic\" font-weight=\"bold\" fill=\"#1e40af\">B₂</text></g><g transform=\"translate(155, 155)\"><circle r=\"18\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"0\" y=\"4\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"12\" font-style=\"italic\" font-weight=\"bold\" fill=\"#1e40af\">B₃</text></g><g transform=\"translate(325, 90)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" fill=\"#9a3412\">Celah</text></g><g transform=\"translate(325, 220)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" fill=\"#9a3412\">Celah</text></g><g transform=\"translate(195, 220)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" fill=\"#9a3412\">Celah</text></g><g transform=\"translate(195, 90)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" fill=\"#9a3412\">Celah</text></g></svg>",
+                correctAnswer: "288",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian & Diagram Pembahasan:</p>
+                    <svg class=\"mx-auto my-5 max-w-full h-auto drop-shadow\" viewBox=\"0 0 520 310\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"520\" height=\"310\" rx=\"14\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1.2\"/><rect x=\"15\" y=\"12\" width=\"185\" height=\"24\" rx=\"6\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\" stroke-width=\"1\"/><text x=\"107\" y=\"28\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\">P(4,3) cara menempatkan Divisi A</text><circle cx=\"260\" cy=\"165\" r=\"85\" fill=\"#f8fafc\" stroke=\"#4338ca\" stroke-width=\"1.8\" stroke-dasharray=\"5 3\"/><circle cx=\"260\" cy=\"165\" r=\"50\" fill=\"#f1f5f9\" stroke=\"#cbd5e1\" stroke-width=\"1\"/><text x=\"260\" y=\"169\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" font-style=\"italic\" fill=\"#334155\">Meja Bundar</text><g transform=\"translate(260, 48)\"><rect x=\"-60\" y=\"-22\" width=\"120\" height=\"44\" rx=\"10\" fill=\"#ffe4e6\" stroke=\"#b91c1c\" stroke-width=\"1.8\"/><text x=\"0\" y=\"-4\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#991b1b\">Blok Divisi C</text><text x=\"0\" y=\"12\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"10\" font-style=\"italic\" fill=\"#991b1b\">(C₁, C₂) → 2! cara</text></g><g transform=\"translate(365, 165)\"><circle r=\"18\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"0\" y=\"4\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"12\" font-style=\"italic\" font-weight=\"bold\" fill=\"#1e40af\">B₁</text></g><g transform=\"translate(260, 270)\"><circle r=\"18\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"0\" y=\"4\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"12\" font-style=\"italic\" font-weight=\"bold\" fill=\"#1e40af\">B₂</text></g><g transform=\"translate(155, 165)\"><circle r=\"18\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"0\" y=\"4\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"12\" font-style=\"italic\" font-weight=\"bold\" fill=\"#1e40af\">B₃</text></g><g transform=\"translate(325, 100)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" font-weight=\"bold\" fill=\"#9a3412\">Celah 1</text></g><g transform=\"translate(325, 230)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" font-weight=\"bold\" fill=\"#9a3412\">Celah 2</text></g><g transform=\"translate(195, 230)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" font-weight=\"bold\" fill=\"#9a3412\">Celah 3</text></g><g transform=\"translate(195, 100)\"><circle r=\"13\" fill=\"#fef3c7\" stroke=\"#c2410c\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/><text x=\"0\" y=\"3\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" font-weight=\"bold\" fill=\"#9a3412\">Celah 4</text></g></svg>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Kelompokkan 2 orang Divisi C menjadi 1 blok $C_{blok}$. Banyak susunan internal $C_{blok} = 2! = 2$.</li>
+                        <li>Elemen non-A terdiri dari $B_1, B_2, B_3$, dan $C_{blok}$ (total 4 elemen).</li>
+                        <li>Susun 4 elemen non-A secara melingkar: $(4 - 1)! = 3! = 6$ cara.</li>
+                        <li>Total cara menyusun non-A $= 6 \\cdot 2 = 12$ cara.</li>
+                        <li>Menyusun 4 elemen melingkar menyediakan 4 celah di antara mereka. Masukkan 3 anggota Divisi A ke dalam 4 celah tersebut agar tidak ada anggota Divisi A yang berdampingan: $P(4, 3) = 4 \\cdot 3 \\cdot 2 = 24$ cara.</li>
+                        <li>Banyak susunan total $= 12 \\cdot 24 = \\mathbf{288}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 288</p>
+                `
+            },
+            {
+                id: 4,
+                type: 'short',
+                section: "Materi: Permutasi Unsur Sama & Grid (Kalibrasi Level UTBK-SNBT)",
+                question: "Sebuah robot bergerak dari titik $(0,0)$ menuju titik $(5,4)$ pada bidang kartesius dengan hanya bergerak ke Kanan (K) atau Atas (A). Terdapat rintangan di titik $(2,2)$ sehingga robot tidak boleh melewati titik rintangan tersebut. Berapa banyak jalur terpendek yang dapat dilalui oleh robot?<br><svg class=\"mx-auto my-5 max-w-full h-auto drop-shadow\" viewBox=\"0 0 460 290\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"460\" height=\"290\" rx=\"12\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"1.2\"/><g stroke=\"#cbd5e1\" stroke-width=\"1.2\"><line x1=\"70\" y1=\"230\" x2=\"390\" y2=\"230\"/><line x1=\"70\" y1=\"185\" x2=\"390\" y2=\"185\"/><line x1=\"70\" y1=\"140\" x2=\"390\" y2=\"140\"/><line x1=\"70\" y1=\"95\" x2=\"390\" y2=\"95\"/><line x1=\"70\" y1=\"50\" x2=\"390\" y2=\"50\"/><line x1=\"70\" y1=\"230\" x2=\"70\" y2=\"50\"/><line x1=\"134\" y1=\"230\" x2=\"134\" y2=\"50\"/><line x1=\"198\" y1=\"230\" x2=\"198\" y2=\"50\"/><line x1=\"262\" y1=\"230\" x2=\"262\" y2=\"50\"/><line x1=\"326\" y1=\"230\" x2=\"326\" y2=\"50\"/><line x1=\"390\" y1=\"230\" x2=\"390\" y2=\"50\"/></g><text x=\"70\" y=\"252\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">0</text><text x=\"134\" y=\"252\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">1</text><text x=\"198\" y=\"252\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">2</text><text x=\"262\" y=\"252\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">3</text><text x=\"326\" y=\"252\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">4</text><text x=\"390\" y=\"252\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">5</text><text x=\"52\" y=\"234\" text-anchor=\"end\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">0</text><text x=\"52\" y=\"189\" text-anchor=\"end\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">1</text><text x=\"52\" y=\"144\" text-anchor=\"end\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">2</text><text x=\"52\" y=\"99\" text-anchor=\"end\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">3</text><text x=\"52\" y=\"54\" text-anchor=\"end\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" fill=\"#475569\">4</text><circle cx=\"70\" cy=\"230\" r=\"12\" fill=\"#15803d\" stroke=\"#166534\" stroke-width=\"1.8\"/><text x=\"70\" y=\"234\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" font-style=\"italic\" fill=\"#ffffff\">S</text><rect x=\"35\" y=\"262\" width=\"70\" height=\"18\" rx=\"4\" fill=\"#d1fae5\" stroke=\"#86efac\" stroke-width=\"1\"/><text x=\"70\" y=\"274\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532d\">Start (0,0)</text><circle cx=\"390\" cy=\"50\" r=\"12\" fill=\"#1d4ed8\" stroke=\"#1e40af\" stroke-width=\"1.8\"/><text x=\"390\" y=\"54\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" font-style=\"italic\" fill=\"#ffffff\">F</text><rect x=\"355\" y=\"20\" width=\"70\" height=\"18\" rx=\"4\" fill=\"#dbeafe\" stroke=\"#93c5fd\" stroke-width=\"1\"/><text x=\"390\" y=\"32\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#1e40af\">Finish (5,4)</text><circle cx=\"198\" cy=\"140\" r=\"14\" fill=\"#b91c1c\" stroke=\"#991b1b\" stroke-width=\"1.8\"/><text x=\"198\" y=\"144\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" font-style=\"italic\" fill=\"#ffffff\">X</text><rect x=\"150\" y=\"112\" width=\"96\" height=\"18\" rx=\"4\" fill=\"#ffe4e6\" stroke=\"#fca5a5\" stroke-width=\"1\"/><text x=\"198\" y=\"124\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#991b1b\">Rintangan X(2,2)</text></svg>",
+                correctAnswer: "66",
+                explanation: `
+                    <div class="mb-3 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-medium">
+                        <strong>📌 Laporan Audit Hikma & Revisi Rohmat:</strong> Soal sebelumnya memiliki 2 rintangan ($X$ dan $Y$) yang tergolong level <strong>OSN Olimpiade</strong>. Untuk menyesuaikan standar <strong>UTBK-SNBT / TKA SMA</strong>, rintangan dikalibrasi menjadi rintangan tunggal $X(2,2)$ agar waktu pengerjaan tetap ideal (1–2 menit per soal).
+                    </div>
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian & Diagram Pembahasan:</p>
+                    <svg class="mx-auto my-5 max-w-full h-auto drop-shadow" viewBox="0 0 460 290" xmlns="http://www.w3.org/2000/svg"><defs><marker id="tikz-arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/></marker></defs><rect width="460" height="290" rx="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/><g stroke="#cbd5e1" stroke-width="1.2"><line x1="70" y1="230" x2="390" y2="230"/><line x1="70" y1="185" x2="390" y2="185"/><line x1="70" y1="140" x2="390" y2="140"/><line x1="70" y1="95" x2="390" y2="95"/><line x1="70" y1="50" x2="390" y2="50"/><line x1="70" y1="230" x2="70" y2="50"/><line x1="134" y1="230" x2="134" y2="50"/><line x1="198" y1="230" x2="198" y2="50"/><line x1="262" y1="230" x2="262" y2="50"/><line x1="326" y1="230" x2="326" y2="50"/><line x1="390" y1="230" x2="390" y2="50"/></g><path d="M 70 230 L 70 140 L 198 140 L 390 140 L 390 50" fill="none" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 3"/><text x="70" y="252" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">0</text><text x="134" y="252" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">1</text><text x="198" y="252" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">2</text><text x="262" y="252" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">3</text><text x="326" y="252" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">4</text><text x="390" y="252" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">5</text><text x="52" y="234" text-anchor="end" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">0</text><text x="52" y="189" text-anchor="end" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">1</text><text x="52" y="144" text-anchor="end" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">2</text><text x="52" y="99" text-anchor="end" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">3</text><text x="52" y="54" text-anchor="end" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" fill="#475569">4</text><circle cx="70" cy="230" r="12" fill="#15803d" stroke="#166534" stroke-width="1.8"/><text x="70" y="234" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" font-style="italic" fill="#ffffff">S</text><rect x="35" y="262" width="70" height="18" rx="4" fill="#d1fae5" stroke="#86efac" stroke-width="1"/><text x="70" y="274" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="10" font-weight="bold" fill="#14532d">Start (0,0)</text><circle cx="390" cy="50" r="12" fill="#1d4ed8" stroke="#1e40af" stroke-width="1.8"/><text x="390" y="54" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" font-style="italic" fill="#ffffff">F</text><rect x="355" y="20" width="70" height="18" rx="4" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/><text x="390" y="32" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="10" font-weight="bold" fill="#1e40af">Finish (5,4)</text><circle cx="198" cy="140" r="14" fill="#b91c1c" stroke="#991b1b" stroke-width="1.8"/><text x="198" y="144" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="11" font-weight="bold" font-style="italic" fill="#ffffff">X</text><rect x="150" y="112" width="96" height="18" rx="4" fill="#ffe4e6" stroke="#fca5a5" stroke-width="1"/><text x="198" y="124" text-anchor="middle" font-family="Latin Modern Math, Computer Modern, serif" font-size="10" font-weight="bold" fill="#991b1b">Terlarang X(2,2)</text></svg>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Total seluruh jalur tanpa rintangan dari $(0,0)$ ke $(5,4)$ (5 K, 4 A):<br>
+                        $$\\frac{9!}{5!4!} = \\frac{362880}{120 \\cdot 24} = 126\\text{ jalur}$$</li>
+                        <li>Jalur terlarang yang MENGHUBUNGKAN rintangan $X(2,2)$:<br>
+                        $$[(0,0) \\to (2,2)] \\times [(2,2) \\to (5,4)] = \\frac{4!}{2!2!} \\times \\frac{5!}{3!2!} = 6 \\times 10 = 60\\text{ jalur}$$</li>
+                        <li>Banyaknya jalur valid (menghindari rintangan $X$):<br>
+                        $$\\text{Total Jalur} - \\text{Jalur melalui } X = 126 - 60 = \\mathbf{66}$$</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 66</p>
+                `
+            },
+            {
+                id: 5,
+                type: 'short',
+                section: "Materi: Permutasi dengan Unsur Berulang & Posisi Terlarang",
+                question: "Berapa banyak kata sandi 5-huruf berbeda yang dapat dibentuk dari huruf-huruf pada kata \"MANDIRI\" dengan syarat huruf 'I' tidak boleh berada di posisi paling depan (posisi ke-1) maupun posisi paling belakang (posisi ke-5)?",
+                correctAnswer: "660",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <p class="mb-2">Huruf penyusun \"MANDIRI\": M(1), A(1), N(1), D(1), R(1), I(2). Total 7 huruf (6 jenis).</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li><strong>Total susunan 5-huruf tanpa syarat:</strong>
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>Tanpa huruf I berulang (5 huruf dari 6 jenis): \\binom{6}{5} \\times 5! = 6 \\times 120 = 720$.</li>
+                                <li>Dengan 2 huruf I (pilih 3 huruf lain dari 5): \\binom{5}{3} \\times \\frac{5!}{2!} = 10 \\times 60 = 600$.</li>
+                                <li>Total $= 720 + 600 = 1320$.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Banyaknya kata dengan 'I' di posisi ke-1 ($P_1$):</strong>
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>4 sisa posisi tanpa 'I' lagi: $P(5,4) = 120$.</li>
+                                <li>4 sisa posisi mengandung 1 'I': \\binom{5}{3} \\times 4! = 10 \\times 24 = 240$.</li>
+                                <li>Total $|P_1| = 120 + 240 = 360$. Dengan simetri, $|P_5| = 360$.</li>
+                            </ul>
+                        </li>
+                        <li><strong>'I' di posisi ke-1 DAN ke-5 ($P_1 \\cap P_5$):</strong> 3 posisi tengah diisi dari 5 huruf berbeda $= P(5,3) = 60$.</li>
+                        <li><strong>Total kata terlarang:</strong> $|P_1| + |P_5| - |P_1 \\cap P_5| = 360 + 360 - 60 = 660$.</li>
+                        <li><strong>Kata valid:</strong> $1320 - 660 = \\mathbf{660}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 660</p>
+                `
+            },
+            {
+                id: 6,
+                type: 'short',
+                section: "Materi: Permutasi Jabatan Bersyarat",
+                question: "Dari 10 pengurus OSIS (6 laki-laki dan 4 perempuan) akan dipilih pengurus inti yang terdiri dari Ketua, Wakil Ketua, Sekretaris, dan Bendahara. Jika Ketua harus laki-laki, Bendahara harus perempuan, dan tidak ada jabatan rangkap, berapa banyak susunan pengurus inti yang dapat dibentuk?",
+                correctAnswer: "1344",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Pilih Ketua (harus laki-laki): 6 pilihan.</li>
+                        <li>Pilih Bendahara (harus perempuan): 4 pilihan.</li>
+                        <li>Sisa orang yang belum mendapat jabatan $= 10 - 2 = 8$ orang.</li>
+                        <li>Pilih Sekretaris dari 8 orang tersisa: 8 pilihan.</li>
+                        <li>Pilih Wakil Ketua dari 7 orang tersisa: 7 pilihan.</li>
+                        <li>Total susunan $= 6 \\cdot 4 \\cdot 8 \\cdot 7 = \\mathbf{1344}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 1344</p>
+                `
+            },
+            {
+                id: 7,
+                type: 'short',
+                section: "Materi: Permutasi Kelompok dengan Pembatas Posisi",
+                question: "Terdapat 4 buku Matematika berbeda, 3 buku Fisika berbeda, dan 2 buku Kimia berbeda yang akan disusun sejajar di rak. Jika buku sejenis harus dikelompokkan bersama, dan kelompok buku Kimia tidak boleh berada di posisi paling pinggir rak, berapa banyak susunan buku yang dapat dibuat?<br><svg class=\"mx-auto my-5 max-w-full h-auto drop-shadow\" viewBox=\"0 0 460 180\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"460\" height=\"180\" rx=\"12\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"1.2\"/><line x1=\"30\" y1=\"140\" x2=\"430\" y2=\"140\" stroke=\"#78350f\" stroke-width=\"4\" stroke-linecap=\"round\"/><g transform=\"translate(45, 45)\"><rect x=\"0\" y=\"0\" width=\"110\" height=\"90\" rx=\"6\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"55\" y=\"52\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#1e40af\">Matematika</text></g><g transform=\"translate(175, 45)\"><rect x=\"0\" y=\"0\" width=\"110\" height=\"90\" rx=\"6\" fill=\"#ffe4e6\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"55\" y=\"52\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#991b1b\">Kimia</text></g><g transform=\"translate(305, 45)\"><rect x=\"0\" y=\"0\" width=\"110\" height=\"90\" rx=\"6\" fill=\"#d1fae5\" stroke=\"#15803d\" stroke-width=\"1.5\"/><text x=\"55\" y=\"52\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#14532d\">Fisika</text></g></svg>",
+                correctAnswer: "576",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian & Diagram Pembahasan:</p>
+                    <svg class=\"mx-auto my-5 max-w-full h-auto drop-shadow\" viewBox=\"0 0 460 200\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"460\" height=\"200\" rx=\"12\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"1.2\"/><line x1=\"30\" y1=\"150\" x2=\"430\" y2=\"150\" stroke=\"#78350f\" stroke-width=\"4\" stroke-linecap=\"round\"/><g transform=\"translate(45, 45)\"><rect x=\"0\" y=\"0\" width=\"110\" height=\"95\" rx=\"6\" fill=\"#e0edff\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/><text x=\"55\" y=\"35\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#1e40af\">Matematika</text><rect x=\"20\" y=\"50\" width=\"70\" height=\"22\" rx=\"4\" fill=\"#bfdbfe\" stroke=\"#60a5fa\" stroke-width=\"1\"/><text x=\"55\" y=\"65\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" font-style=\"italic\" fill=\"#1d4ed8\">4 Buku (4!)</text></g><g transform=\"translate(175, 45)\"><rect x=\"0\" y=\"0\" width=\"110\" height=\"95\" rx=\"6\" fill=\"#ffe4e6\" stroke=\"#b91c1c\" stroke-width=\"2\"/><text x=\"55\" y=\"30\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#991b1b\">Kimia</text><rect x=\"20\" y=\"42\" width=\"70\" height=\"22\" rx=\"4\" fill=\"#fecdd3\" stroke=\"#f87171\" stroke-width=\"1\"/><text x=\"55\" y=\"57\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" font-style=\"italic\" fill=\"#be123c\">2 Buku (2!)</text><rect x=\"8\" y=\"68\" width=\"94\" height=\"18\" rx=\"4\" fill=\"#fca5a5\"/><text x=\"55\" y=\"80\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"9\" font-weight=\"bold\" fill=\"#7f1d1d\">[ Wajib Posisi Tengah ]</text></g><g transform=\"translate(305, 45)\"><rect x=\"0\" y=\"0\" width=\"110\" height=\"95\" rx=\"6\" fill=\"#d1fae5\" stroke=\"#15803d\" stroke-width=\"1.5\"/><text x=\"55\" y=\"35\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#14532d\">Fisika</text><rect x=\"20\" y=\"50\" width=\"70\" height=\"22\" rx=\"4\" fill=\"#a7f3d0\" stroke=\"#4ade80\" stroke-width=\"1\"/><text x=\"55\" y=\"65\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"11\" font-weight=\"bold\" font-style=\"italic\" fill=\"#047857\">3 Buku (3!)</text></g><path d=\"M 100 32 Q 230 12 360 32\" fill=\"none\" stroke=\"#4338ca\" stroke-width=\"1.8\" stroke-dasharray=\"4 2\"/><text x=\"230\" y=\"20\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#3730a3\">Pertukaran Blok M ↔ F (2 cara)</text></svg>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Hitung permutasi internal setiap kelompok buku:
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>Matematika: $4! = 24$ cara.</li>
+                                <li>Fisika: $3! = 6$ cara.</li>
+                                <li>Kimia: $2! = 2$ cara.</li>
+                            </ul>
+                        </li>
+                        <li>Susun 3 kelompok $(M, F, K)$ sebagai blok tunggal. Karena kelompok Kimia ($K$) tidak boleh di pinggir, maka kelompok $K$ wajib di tengah (posisi ke-2).</li>
+                        <li>Banyak susunan urutan kelompok yang memenuhi $= 2$ cara (yaitu $M-K-F$ atau $F-K-M$).</li>
+                        <li>Total susunan $= 2 \\cdot 24 \\cdot 6 \\cdot 2 = \\mathbf{576}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 576</p>
+                `
+            },
+            {
+                id: 8,
+                type: 'short',
+                section: "Materi: Persamaan Permutasi & Faktorial",
+                question: "Jika diketahui $P(n, 4) = 12 \\cdot P(n, 2)$, tentukan nilai dari $(n - 1)!$",
+                correctAnswer: "120",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Tuliskan rumus permutasi $P(n, r) = \\frac{n!}{(n-r)!}$:<br>
+                        $$n(n-1)(n-2)(n-3) = 12 \\cdot n(n-1)$$</li>
+                        <li>Karena $n \\ge 4$, nilai $n(n-1) \\neq 0$, bagi kedua ruas dengan $n(n-1)$:<br>
+                        $$(n-2)(n-3) = 12$$</li>
+                        <li>Sederhanakan persamaan kuadrat: $n^2 - 5n + 6 = 12 \\implies n^2 - 5n - 6 = 0$.</li>
+                        <li>Faktorkan: $(n - 6)(n + 1) = 0 \\implies n = 6$.</li>
+                        <li>Hitung nilai $(n - 1)! = (6 - 1)! = 5! = 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = \\mathbf{120}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 120</p>
+                `
+            },
+            {
+                id: 9,
+                type: 'short',
+                section: "Materi: Aturan Penjumlahan & Perkalian Rute",
+                question: "Seseorang ingin bepergian dari kota A ke kota D. Rute jalan yang tersedia:<br>• A ke B: 3 jalan<br>• A ke C: 2 jalan<br>• B ke D: 4 jalan<br>• C ke D: 3 jalan<br>• B ke C: 2 jalan (dua arah)<br>Jika setiap kota hanya boleh dikunjungi paling banyak satu kali, berapa banyak pilihan rute perjalanan dari kota A ke kota D?<br><svg class=\"mx-auto my-5 max-w-full h-auto drop-shadow\" viewBox=\"0 0 460 240\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"tikz-arrow-route\" viewBox=\"0 0 10 10\" refX=\"6\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#4338ca\"/></marker></defs><rect width=\"460\" height=\"240\" rx=\"12\" fill=\"#ffffff\" stroke=\"#94a3b8\" stroke-width=\"1.2\"/><path d=\"M 70 120 Q 150 40 230 60\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2.2\" marker-end=\"url(#tikz-arrow-route)\"/><rect x=\"135\" y=\"55\" width=\"50\" height=\"18\" rx=\"4\" fill=\"#e0edff\" stroke=\"#93c5fd\" stroke-width=\"1\"/><text x=\"160\" y=\"67\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#1e40af\">3 jalan</text><path d=\"M 70 120 Q 150 200 230 180\" fill=\"none\" stroke=\"#15803d\" stroke-width=\"2.2\" marker-end=\"url(#tikz-arrow-route)\"/><rect x=\"135\" y=\"165\" width=\"50\" height=\"18\" rx=\"4\" fill=\"#d1fae5\" stroke=\"#6ee7b7\" stroke-width=\"1\"/><text x=\"160\" y=\"177\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532d\">2 jalan</text><path d=\"M 230 60 Q 310 40 390 120\" fill=\"none\" stroke=\"#1d4ed8\" stroke-width=\"2.2\" marker-end=\"url(#tikz-arrow-route)\"/><rect x=\"295\" y=\"55\" width=\"50\" height=\"18\" rx=\"4\" fill=\"#e0edff\" stroke=\"#93c5fd\" stroke-width=\"1\"/><text x=\"320\" y=\"67\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#1e40af\">4 jalan</text><path d=\"M 230 180 Q 310 200 390 120\" fill=\"none\" stroke=\"#15803d\" stroke-width=\"2.2\" marker-end=\"url(#tikz-arrow-route)\"/><rect x=\"295\" y=\"165\" width=\"50\" height=\"18\" rx=\"4\" fill=\"#d1fae5\" stroke=\"#6ee7b7\" stroke-width=\"1\"/><text x=\"320\" y=\"177\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532d\">3 jalan</text><line x1=\"230\" y1=\"60\" x2=\"230\" y2=\"180\" stroke=\"#c2410c\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><rect x=\"175\" y=\"111\" width=\"110\" height=\"18\" rx=\"4\" fill=\"#fef3c7\" stroke=\"#fde047\" stroke-width=\"1\"/><text x=\"230\" y=\"123\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"10\" font-weight=\"bold\" fill=\"#9a3412\">2 jalan (B ↔ C)</text><circle cx=\"70\" cy=\"120\" r=\"20\" fill=\"#4338ca\" stroke=\"#312e81\" stroke-width=\"1.8\"/><text x=\"70\" y=\"125\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"14\" font-weight=\"bold\" font-style=\"italic\" fill=\"#ffffff\">A</text><circle cx=\"230\" cy=\"60\" r=\"20\" fill=\"#1d4ed8\" stroke=\"#1e40af\" stroke-width=\"1.8\"/><text x=\"230\" y=\"65\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"14\" font-weight=\"bold\" font-style=\"italic\" fill=\"#ffffff\">B</text><circle cx=\"230\" cy=\"180\" r=\"20\" fill=\"#15803d\" stroke=\"#166534\" stroke-width=\"1.8\"/><text x=\"230\" y=\"185\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"14\" font-weight=\"bold\" font-style=\"italic\" fill=\"#ffffff\">C</text><circle cx=\"390\" cy=\"120\" r=\"20\" fill=\"#4338ca\" stroke=\"#312e81\" stroke-width=\"1.8\"/><text x=\"390\" y=\"125\" text-anchor=\"middle\" font-family=\"Latin Modern Math, Computer Modern, 'Times New Roman', serif\" font-size=\"14\" font-weight=\"bold\" font-style=\"italic\" fill=\"#ffffff\">D</text></svg>",
+                correctAnswer: "52",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <p class="mb-2">Daftar semua variasi jalur tanpa mengulangi kota:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Jalur $A \\to B \\to D$: $3 \\cdot 4 = 12$ rute.</li>
+                        <li>Jalur $A \\to C \\to D$: $2 \\cdot 3 = 6$ rute.</li>
+                        <li>Jalur $A \\to B \\to C \\to D$: $3 \\cdot 2 \\cdot 3 = 18$ rute.</li>
+                        <li>Jalur $A \\to C \\to B \\to D$: $2 \\cdot 2 \\cdot 4 = 16$ rute.</li>
+                        <li>Gunakan Aturan Penjumlahan untuk total seluruh rute:<br>
+                        $$12 + 6 + 18 + 16 = \\mathbf{52}$$</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 52</p>
+                `
+            },
+            {
+                id: 10,
+                type: 'short',
+                section: "Materi: Permutasi Siklis dengan Komplementer",
+                question: "Tujuh orang yang terdiri dari Ayah, Ibu, dan 5 orang anaknya akan makan bersama mengelilingi meja bundar. Berapa banyak susunan posisi duduk yang mungkin jika Ayah dan Ibu TIDAK BOLEH duduk berdampingan?",
+                correctAnswer: "480",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Hitung total susunan melingkar 7 orang tanpa syarat:<br>
+                        $$(7 - 1)! = 6! = 720$$</li>
+                        <li>Hitung susunan di mana Ayah dan Ibu DUDUK BERDAMPINGAN:<br>
+                        Anggap (Ayah, Ibu) sebagai 1 elemen. Maka ada 6 elemen yang disusun melingkar: $(6 - 1)! = 5! = 120$.<br>
+                        Ayah dan Ibu dapat bertukar posisi internal: $2! = 2$ cara.<br>
+                        Total berdampingan $= 120 \\cdot 2 = 240$.</li>
+                        <li>Hitung susunan Ayah dan Ibu TIDAK berdampingan (metode komplementer):<br>
+                        $$720 - 240 = \\mathbf{480}$$</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 480</p>
+                `
+            },
+            {
+                id: 11,
+                type: 'short',
+                section: "Materi: Pembentukan Bilangan Genap Bersyarat",
+                question: "Tentukan banyaknya bilangan genap 4-angka yang nilainya lebih besar dari $5000$ dan disusun dari angka-angka $\\{1, 2, 3, 5, 6, 7, 8\\}$ tanpa ada angka yang berulang.",
+                correctAnswer: "200",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <p class="mb-2">Bentuk bilangan $ABCD$. Syarat: $A \\in \\{5, 6, 7, 8\\}$ dan $D \\in \\{2, 6, 8\\}$ (genap).</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li><strong>Kasus 1: $A$ bernilai GENAP ($A \\in \\{6, 8\\}$, 2 pilihan)</strong>
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>Pilih $D$ dari genap tersisa: 2 pilihan.</li>
+                                <li>Pilih $B$ dari 5 angka tersisa: 5 pilihan.</li>
+                                <li>Pilih $C$ dari 4 angka tersisa: 4 pilihan.</li>
+                                <li>Total Kasus 1 $= 2 \\cdot 2 \\cdot 5 \\cdot 4 = 80$.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Kasus 2: $A$ bernilai GANJIL ($A \\in \\{5, 7\\}$, 2 pilihan)</strong>
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>Pilih $D$ dari angka genap $\\{2, 6, 8\\}$: 3 pilihan.</li>
+                                <li>Pilih $B$ dari 5 angka tersisa: 5 pilihan.</li>
+                                <li>Pilih $C$ dari 4 angka tersisa: 4 pilihan.</li>
+                                <li>Total Kasus 2 $= 2 \\cdot 3 \\cdot 5 \\cdot 4 = 120$.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Total Keseluruhan:</strong> $80 + 120 = \\mathbf{200}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 200</p>
+                `
+            },
+            {
+                id: 12,
+                type: 'short',
+                section: "Materi: Permutasi dengan Unsur Sama (Kelompok Vokal)",
+                question: "Berapa banyak kata (susunan huruf) 8-huruf berbeda yang dapat dibentuk dari kata \"GELATINE\" sedemikian rupa sehingga semua huruf vokal selalu berkumpul menjadi satu kelompok?",
+                correctAnswer: "1440",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Identifikasi huruf penyusun: Konsonan $= \\{G, L, T, N\\}$ (4 huruf), Vokal $= \\{E, A, I, E\\}$ (4 huruf, 2 buah 'E').</li>
+                        <li>Kelompokkan vokal menjadi 1 blok $V_{blok}$. Sekarang ada 5 elemen yang disusun: G, L, T, N, dan $V_{blok}$.<br>
+                        Banyak susunan 5 elemen $= 5! = 120$.</li>
+                        <li>Hitung permutasi internal dalam blok vokal $(E, A, I, E)$ dengan unsur berulang:<br>
+                        $$\\frac{4!}{2!} = \\frac{24}{2} = 12$$</li>
+                        <li>Total susunan kata $= 120 \\cdot 12 = \\mathbf{1440}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 1440</p>
+                `
+            },
+            {
+                id: 13,
+                type: 'short',
+                section: "Materi: Sederhana Persamaan Faktorial",
+                question: "Tentukan nilai bilangan bulat $n$ yang memenuhi persamaan faktorial berikut:<br>$$\\frac{n!}{(n-3)!} = 2 \\cdot \\frac{(n-1)!}{(n-4)!}$$",
+                correctAnswer: "6",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Jabarkan faktorial pada ruas kiri dan kanan:<br>
+                        Ruas kiri: $\\frac{n!}{(n-3)!} = n(n-1)(n-2)$.<br>
+                        Ruas kanan: $2 \\cdot \\frac{(n-1)!}{(n-4)!} = 2(n-1)(n-2)(n-3)$.</li>
+                        <li>Samakan kedua ruas:<br>
+                        $$n(n-1)(n-2) = 2(n-1)(n-2)(n-3)$$</li>
+                        <li>Karena $n \\ge 4$, maka $(n-1)(n-2) \\neq 0$. Bagi kedua ruas dengan $(n-1)(n-2)$:<br>
+                        $$n = 2(n - 3)$$</li>
+                        <li>Selesaikan persamaan linear:<br>
+                        $n = 2n - 6 \\implies n = \\mathbf{6}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 6</p>
+                `
+            },
+            {
+                id: 14,
+                type: 'short',
+                section: "Materi: Permutasi Elemen Tidak Berdampingan",
+                question: "Terdapat 6 bendera dengan warna yang berbeda, salah satunya berwarna Merah dan satu lagi berwarna Putih. Bendera-bendera tersebut akan dipasang sejajar pada sebuah tiang. Berapa banyak susunan bendera yang dapat dibuat jika bendera Merah dan Putih TIDAK BOLEH dipasang berdampingan?",
+                correctAnswer: "480",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Hitung total susunan 6 bendera tanpa syarat: $6! = 720$.</li>
+                        <li>Hitung susunan di mana bendera Merah dan Putih BERDAMPINGAN:<br>
+                        Anggap (Merah, Putih) sebagai 1 elemen. Susun 5 elemen: $5! = 120$.<br>
+                        Tukar posisi internal Merah-Putih: $2! = 2$.<br>
+                        Total berdampingan $= 120 \\cdot 2 = 240$.</li>
+                        <li>Hitung susunan TIDAK berdampingan (komplementer):<br>
+                        $$720 - 240 = \\mathbf{480}$$</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 480</p>
+                `
+            },
+            {
+                id: 15,
+                type: 'short',
+                section: "Materi: Aturan Perkalian & Sifat Paritas",
+                question: "Tentukan banyaknya bilangan bulat 3-angka $abc$ (dengan $a \\neq 0$) sedemikian sehingga $a + b + c$ merupakan bilangan genap.",
+                correctAnswer: "450",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Angka $a \\in \\{1, 2, 3, 4, 5, 6, 7, 8, 9\\}$ (9 pilihan).</li>
+                        <li>Angka $b \\in \\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\\}$ (10 pilihan).</li>
+                        <li>Untuk setiap pasangan $(a, b)$ tertentu:
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>Jika $(a + b)$ genap, agar $a + b + c$ genap maka $c$ harus genap $\\implies c \\in \\{0, 2, 4, 6, 8\\}$ (5 pilihan).</li>
+                                <li>Jika $(a + b)$ ganjil, agar $a + b + c$ genap maka $c$ harus ganjil $\\implies c \\in \\{1, 3, 5, 7, 9\\}$ (5 pilihan).</li>
+                            </ul>
+                        </li>
+                        <li>Dalam semua kasus, selalu ada tepat 5 pilihan angka $c$ yang memenuhi.</li>
+                        <li>Total bilangan 3-angka dengan jumlah digit genap $= 9 \\cdot 10 \\cdot 5 = \\mathbf{450}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 450</p>
+                `
+            }
+        ];
+
+        // Global State
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {}; // Stores answers: { 1: '6', 2: '129', ... }
+        let questionEvaluation = [];
+        let timeLeft = 50 * 60; // 50 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        // On DOM Loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const badgeClass = "bg-blue-100 text-blue-900 border-blue-200";
+
+                const inputSectionHTML = `
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Jawaban Akhir (Bilangan Bulat) :</label>
+                        <div class="flex items-center gap-3 max-w-sm">
+                            <input type="text" id="input-q${qNum}" placeholder="Ketik angka..." 
+                                class="w-full text-lg font-black font-mono px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-600 focus:bg-white focus:outline-none transition-all shadow-inner"
+                                oninput="onShortInput(${qNum}, this.value)">
+                            <button type="button" onclick="clearShortInput(${qNum})" class="px-3 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-xs transition">Hapus</button>
+                        </div>
+                    </div>
+                `;
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.section}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Soal ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[260px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-xl font-semibold leading-relaxed mb-4">${q.question}</div>
+                            </div>
+                            ${inputSectionHTML}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax) MathJax.typesetPromise();
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            document.getElementById(`slide-${n}`).classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Lembar Ujian</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function onShortInput(qNum, val) {
+            const cleaned = val.replace(/[^\d]/g, '');
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = cleaned;
+
+            if (cleaned.length > 0) {
+                userAnswers[qNum] = cleaned;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            updateNavState(qNum);
+        }
+
+        function clearShortInput(qNum) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = '';
+            delete userAnswers[qNum];
+            updateNavState(qNum);
+        }
+
+        function updateNavState(qNum) {
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (userAnswers[qNum] !== undefined) {
+                btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                btn.classList.remove('bg-slate-50', 'text-slate-600');
+            } else {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                btn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Konfirmasi Pengumpulan Ujian";
+            document.getElementById('modal-message').innerText = "Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian sekarang? Jawaban tidak dapat diubah setelah kumpul.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Ujian</button>
+                <button onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Waktu pengerjaan 50 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalCorrect = 0;
+            let totalIncorrect = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                const isCorrect = (userAns !== null && userAns.toString().trim() === q.correctAnswer.toString().trim());
+
+                if (isCorrect) {
+                    totalCorrect++;
+                } else {
+                    totalIncorrect++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const pointsPerQuestion = (100 / totalQuestions);
+            const totalScore = Math.round(totalCorrect * pointsPerQuestion);
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = totalCorrect;
+            document.getElementById('incorrect-count').innerText = totalIncorrect;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = totalCorrect;
+            document.getElementById('cnt-wrong').innerText = totalIncorrect;
+
+            renderReviewCards('all');
+
+            if (window.MathJax) MathJax.typesetPromise();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> KOSONG</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                const userAnsDisplay = userAns !== null ? userAns : '<em>Kosong</em>';
+                const keyDisplay = q.correctAnswer;
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Soal #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base font-semibold text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Jawaban Anda:</p>
+                                    <p class="font-black text-lg ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsDisplay}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-indigo-800 mb-1">Kunci Jawaban Resmi:</p>
+                                    <p class="font-black text-lg text-indigo-700">${keyDisplay}</p>
+                                </div>
+                            </div>
+
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Rinci & Solusi Langkah demi Langkah:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
