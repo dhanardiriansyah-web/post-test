@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Soal HOTS Matematika - Tipe Kecukupan Data (Data Sufficiency)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']], 
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar styling */
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pb-20 selection:bg-indigo-200">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-4">
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-3xl w-full border-t-8 border-indigo-600">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Tes Asesmen Matematika</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">Tipe Kecukupan Data</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2">PAKET SOAL HOTS MATEMATIKA</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Latihan Ujian Masuk Perguruan Tinggi & Asesmen Kemampuan Akademik</p>
+            
+            <div class="bg-indigo-50/70 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Umum Opsi Jawaban Kecukupan Data:
+                </h2>
+                <p class="text-xs md:text-sm text-indigo-950 leading-relaxed font-medium">
+                    Setiap soal menyajikan sebuah pertanyaan dan dua buah pernyataan (1) dan (2). Pilihlah opsi jawaban dari kriteria berikut:
+                </p>
+                <div class="space-y-2 text-xs md:text-sm text-slate-700 bg-white p-4 rounded-xl border border-indigo-100">
+                    <p><strong>(A)</strong> Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup.</p>
+                    <p><strong>(B)</strong> Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup.</p>
+                    <p><strong>(C)</strong> DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup.</p>
+                    <p><strong>(D)</strong> Pernyataan (1) SAJA cukup atau pernyataan (2) SAJA cukup untuk menjawab pertanyaan.</p>
+                    <p><strong>(E)</strong> Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Jumlah Soal</p>
+                    <p class="text-sm font-black">10 Soal HOTS</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Waktu Tes</p>
+                    <p class="text-sm font-black">45 Menit</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Format Jawaban</p>
+                    <p class="text-sm font-black">Pilihan Ganda (A-E)</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Nilai Maksimal</p>
+                    <p class="text-sm font-black">100 Poin</p>
+                </div>
+            </div>
+
+            <button onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section">
+        <!-- Sticky Top Header & Timer -->
+        <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                <div>
+                    <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">PAKET SOAL HOTS MATEMATIKA</h1>
+                    <p class="text-xs text-slate-500 font-semibold hidden sm:block">Tipe Kecukupan Data (Data Sufficiency)</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                    <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                        45:00
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 mt-6">
+            <!-- Navigation Panel for 10 Questions -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                <div class="flex justify-between items-center mb-2.5">
+                    <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Soal (1–10)</p>
+                    <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 10</span>
+                </div>
+                <div class="grid grid-cols-5 sm:grid-cols-10 gap-2" id="nav-container">
+                    <!-- Nav buttons dynamically injected by JS -->
+                </div>
+            </div>
+
+            <!-- Quiz Slide Container -->
+            <form id="quiz-form" onsubmit="event.preventDefault();">
+                <div id="slides-container">
+                    <!-- Dynamic Question Slides -->
+                </div>
+
+                <!-- Bottom Navigation Controls -->
+                <div class="flex justify-between items-center mt-6">
+                    <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+                        &#8592; Sebelumnya
+                    </button>
+                    <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2">
+                        <span>Soal Berikutnya</span> &#8594;
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan dan mengumpulkan lembar jawaban ujian? Jawaban tidak dapat diubah setelah dikumpulkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Soal</button>
+                <button onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Jawaban</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & SKOR</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah laporan hasil evaluasi dan kunci jawaban serta pembahasan lengkap untuk setiap nomor soal.</p>
+                        
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Nilai</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105">
+                <span>Lihat Pembahasan Lengkap</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Pembahasan Detil & Kunci Jawaban</h3>
+                    <p class="text-sm text-slate-500">Evaluasi lembar jawaban Anda dengan analisis pembahasan terstruktur.</p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition">Semua (<span id="cnt-all">10</span>)</button>
+                    <button onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition">Benar (<span id="cnt-correct">0</span>)</button>
+                    <button onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Standard Options for Data Sufficiency Questions
+        const standardOptions = [
+            { key: "A", text: "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup." },
+            { key: "B", text: "Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup." },
+            { key: "C", text: "DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup." },
+            { key: "D", text: "Pernyataan (1) SAJA cukup atau pernyataan (2) SAJA cukup untuk menjawab pertanyaan." },
+            { key: "E", text: "Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan." }
+        ];
+
+        // Data Array derived from LaTeX Source Code
+        const questionsData = [
+            // Question 1
+            {
+                id: 1,
+                section: "Soal 1 (Geometri Lingkaran & Segitiga)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Diberikan sebuah segitiga $ABC$ yang ketiga titik sudutnya terletak pada lingkaran berpusat di $O$. Berapakah luas segitiga $ABC$?</p>
+                    
+                    <div class="flex justify-center my-4">
+                        <svg width="240" height="220" viewBox="-110 -110 220 220" class="bg-white rounded-2xl shadow-sm border border-slate-100">
+                            <!-- Circle -->
+                            <circle cx="0" cy="0" r="80" fill="#f0f9ff" stroke="#184c78" stroke-width="2.5" />
+                            <!-- Triangle ABC (Points A(-80,0), B(80,0), C(-22.4,-76.8) lie exactly on circle radius 80) -->
+                            <polygon points="-80,0 80,0 -22.4,-76.8" fill="rgba(24, 76, 120, 0.15)" stroke="#184c78" stroke-width="2.5" />
+                            <!-- Height line from C to AB -->
+                            <line x1="-22.4" y1="-76.8" x2="-22.4" y2="0" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" />
+                            <!-- Points and Labels -->
+                            <circle cx="0" cy="0" r="4" fill="#184c78" />
+                            <text x="0" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="#184c78">O</text>
+                            
+                            <circle cx="-80" cy="0" r="4" fill="#184c78" />
+                            <text x="-90" y="5" text-anchor="end" font-size="13" font-weight="bold" fill="#184c78">A</text>
+                            
+                            <circle cx="80" cy="0" r="4" fill="#184c78" />
+                            <text x="90" y="5" text-anchor="start" font-size="13" font-weight="bold" fill="#184c78">B</text>
+                            
+                            <circle cx="-22.4" cy="-76.8" r="4" fill="#184c78" />
+                            <text x="-22.4" y="-88" text-anchor="middle" font-size="13" font-weight="bold" fill="#184c78">C</text>
+                        </svg>
+                    </div>
+
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) Jari-jari lingkaran $R = 5\\text{ cm}$.</p>
+                        <p>(2) Panjang sisi-sisi segitiga adalah $AC = 6\\text{ cm}$, $BC = 8\\text{ cm}$, dan $AB = 10\\text{ cm}$.</p>
+                    </div>
+                `,
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 1:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Menentukan nilai pasti luas $\\Delta ABC$.</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $R = 5\\text{ cm}$. Hanya diketahui jari-jari lingkaran luar, bentuk segitiga di dalam lingkaran belum diketahui sehingga luasnya tidak unik. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $AC = 6\\text{ cm}, BC = 8\\text{ cm}, AB = 10\\text{ cm}$. Karena $6^2 + 8^2 = 10^2$, segitiga $ABC$ merupakan segitiga siku-siku di $C$. Luas segitiga dapat ditentukan secara pasti: $L = \\frac{1}{2} \\cdot 6 \\cdot 8 = 24\\text{ cm}^2$. Data <strong>CUKUP</strong>.</li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (B)</p>
+                `
+            },
+            // Question 2
+            {
+                id: 2,
+                section: "Soal 2 (Aljabar & Persamaan Kuadrat)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Apakah kedua akar dari persamaan kuadrat $x^2 + ax + b = 0$ bernilai real dan positif?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) $a < 0$ dan $b > 0$.</p>
+                        <p>(2) $a^2 - 4b > 0$.</p>
+                    </div>
+                `,
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 2:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Agar $x_1, x_2$ real dan positif, harus dipenuhi 3 syarat:
+                            <br>1) Diskriminan $D = a^2 - 4b \\ge 0$, 2) $x_1 + x_2 = -a > 0 \\implies a < 0$, 3) $x_1 x_2 = b > 0$.
+                        </li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $a < 0, b > 0$. Kita tahu $x_1+x_2 > 0$ dan $x_1 x_2 > 0$, namun kita <strong>belum tahu</strong> apakah $D \\ge 0$. Contoh: Jika $a=-2, b=5$, $D = 4 - 20 = -16 < 0$ (akar imajiner). Jika $a=-5, b=2$, $D = 25 - 8 = 17 > 0$ (akar real positif). <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $a^2 - 4b > 0$. Hanya menjamin akar real, tanda akar tidak diketahui. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Penggabungan (1) + (2):</strong> Dari (1) $a < 0 \\implies$ sum $>0$, $b > 0 \\implies$ product $>0$. Dari (2) $D > 0 \\implies$ akar real dan berbeda. Karena akar real, perkalian positif, dan penjumlahan positif, maka kedua akar pasti positif real. <strong>CUKUP</strong>.</li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (C)</p>
+                `
+            },
+            // Question 3
+            {
+                id: 3,
+                section: "Soal 3 (Teori Bilangan & Keterbagian)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Apakah bilangan bulat positif $n$ habis dibagi 36?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) $n$ habis dibagi 6 dan 9.</p>
+                        <p>(2) $n^2$ habis dibagi 108.</p>
+                    </div>
+                `,
+                correctAnswer: "E",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 3:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Apakah $n$ kelipatan 36?</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $n$ habis dibagi 6 dan 9 $\\implies n$ habis dibagi $\\text{KPK}(6,9) = 18$. $n$ bisa $18$ (TIDAK habis dibagi 36) atau $36$ (YA habis dibagi 36). <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $n^2$ habis dibagi $108 = 2^2 \\times 3^3$. Faktor prima $n^2$ harus memiliki pangkat minimal $2^2 \\cdot 3^3$, sehingga $n$ harus memiliki faktor minimal $2^1 \\cdot 3^2 = 18$. Jadi $n$ kelipatan 18. Nilai $n$ bisa $18$ atau $36$. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Penggabungan (1) + (2):</strong> Kedua pernyataan sama-sama hanya menyimpulkan bahwa $n$ adalah kelipatan 18. $n$ bisa $18, 36, 54, 72, \\dots$. Jawaban bisa YA atau TIDAK. <strong>TIDAK CUKUP</strong>.</li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (E)</p>
+                `
+            },
+            // Question 4
+            {
+                id: 4,
+                section: "Soal 4 (Aljabar & Pertidaksamaan Kuadrat)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Apakah pertidaksamaan kuadrat $x^2 - px + q < 0$ memiliki himpunan penyelesaian bilangan real?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) $p^2 - 4q > 0$.</p>
+                        <p>(2) $p > 0$ dan $q > 0$.</p>
+                    </div>
+                `,
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 4:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Pertidaksamaan kuadrat $x^2 - px + q < 0$ memiliki himpunan penyelesaian bilangan real jika dan hanya jika grafik parabola $y = x^2 - px + q$ memotong sumbu-$x$ di dua titik berbeda, yang mensyaratkan diskriminan $D = p^2 - 4q > 0$.</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $p^2 - 4q > 0 \\implies D > 0$. Karena $D > 0$, parabola pasti memotong sumbu-$x$ sehingga pasti ada nilai $x$ yang memenuhi pertidaksamaan. Jawaban pasti "YA". Data <strong>CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $p > 0$ dan $q > 0$. Contoh: Jika $p=1, q=5$, maka $D = 1 - 20 = -16 < 0$ (jawaban "TIDAK"). Jika $p=5, q=1$, maka $D = 25 - 4 = 21 > 0$ (jawaban "YA"). Jawaban belum pasti. <strong>TIDAK CUKUP</strong>.</li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (A)</p>
+                `
+            },
+            // Question 5
+            {
+                id: 5,
+                section: "Soal 5 (Geometri Dimensi Tiga & Bangun Ruang)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Diberikan sebuah kubus $ABCD.EFGH$ dengan panjang rusuk $s\\text{ cm}$. Berapakah jarak dari titik $H$ ke garis $AC$?</p>
+                    
+                    <div class="flex justify-center my-4">
+                        <svg width="260" height="200" viewBox="0 0 240 180" class="bg-white rounded-2xl shadow-sm border border-slate-100">
+                            <!-- Cube Edges -->
+                            <!-- Back hidden lines -->
+                            <line x1="30" y1="150" x2="80" y2="115" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4" />
+                            <line x1="80" y1="115" x2="200" y2="115" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4" />
+                            <line x1="80" y1="115" x2="80" y2="15" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4" />
+                            
+                            <!-- Visible Edges -->
+                            <!-- Front Face -->
+                            <line x1="30" y1="150" x2="150" y2="150" stroke="#334155" stroke-width="2" />
+                            <line x1="150" y1="150" x2="150" y2="50" stroke="#334155" stroke-width="2" />
+                            <line x1="150" y1="50" x2="30" y2="50" stroke="#334155" stroke-width="2" />
+                            <line x1="30" y1="50" x2="30" y2="150" stroke="#334155" stroke-width="2" />
+                            
+                            <!-- Top Face -->
+                            <line x1="30" y1="50" x2="80" y2="15" stroke="#334155" stroke-width="2" />
+                            <line x1="80" y1="15" x2="200" y2="15" stroke="#334155" stroke-width="2" />
+                            <line x1="200" y1="15" x2="150" y2="50" stroke="#334155" stroke-width="2" />
+                            
+                            <!-- Right Face -->
+                            <line x1="150" y1="150" x2="200" y2="115" stroke="#334155" stroke-width="2" />
+                            <line x1="200" y1="115" x2="200" y2="15" stroke="#334155" stroke-width="2" />
+
+                            <!-- Red Line AC (Dashed diagonal) -->
+                            <line x1="30" y1="150" x2="200" y2="115" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" />
+                            
+                            <!-- Blue Line HO to Midpoint O(115, 132.5) -->
+                            <line x1="80" y1="15" x2="115" y2="132.5" stroke="#2563eb" stroke-width="2.5" />
+
+                            <!-- Point O (Exact midpoint of AC) -->
+                            <circle cx="115" cy="132.5" r="3.5" fill="#2563eb" />
+
+                            <!-- Vertex Labels -->
+                            <text x="18" y="165" font-size="12" font-weight="bold" fill="#1e293b">A</text>
+                            <text x="156" y="165" font-size="12" font-weight="bold" fill="#1e293b">B</text>
+                            <text x="210" y="120" font-size="12" font-weight="bold" fill="#1e293b">C</text>
+                            <text x="68" y="112" font-size="12" font-weight="bold" fill="#64748b">D</text>
+                            <text x="18" y="50" font-size="12" font-weight="bold" fill="#1e293b">E</text>
+                            <text x="156" y="45" font-size="12" font-weight="bold" fill="#1e293b">F</text>
+                            <text x="210" y="15" font-size="12" font-weight="bold" fill="#1e293b">G</text>
+                            <text x="80" y="8" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">H</text>
+                            <text x="125" y="148" font-size="12" font-weight="bold" fill="#2563eb">O</text>
+                        </svg>
+                    </div>
+
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) Luas permukaan kubus $ABCD.EFGH$ adalah $150\\text{ cm}^2$.</p>
+                        <p>(2) Keliling alas $ABCD$ adalah $20\\text{ cm}$.</p>
+                    </div>
+                `,
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 5:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Pada kubus $ABCD.EFGH$ dengan panjang rusuk $s$, segitiga $AHC$ merupakan segitiga sama sisi dengan panjang sisi $s\\sqrt{2}$. Jarak dari titik $H$ ke garis $AC$ adalah tinggi segitiga $AHC$, yaitu $d = \\frac{s}{2}\\sqrt{6}$. Nilai $d$ dapat ditentukan secara unik jika panjang rusuk $s$ diketahui.</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> Luas permukaan $L = 6s^2 = 150 \\implies s^2 = 25 \\implies s = 5\\text{ cm}$. Maka $d = \\frac{5}{2}\\sqrt{6}\\text{ cm}$. Nilai jarak terdefinisi secara pasti! Data <strong>CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> Keliling alas $K = 4s = 20 \\implies s = 5\\text{ cm}$. Maka $d = \\frac{5}{2}\\sqrt{6}\\text{ cm}$. Nilai jarak juga terdefinisi secara pasti! Data <strong>CUKUP</strong>.</li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (D)</p>
+                `
+            },
+            // Question 6
+            {
+                id: 6,
+                section: "Soal 6 (Barisan Aritmetika)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Diketahui $u_1, u_2, u_3, \\dots$ adalah suku-suku barisan aritmetika dengan beda $b \\neq 0$. Berapakah nilai dari suku ke-10 ($u_{10}$)?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) $u_1 \\cdot u_{19} = 100$.</p>
+                        <p>(2) $u_4 + u_{16} = 50$.</p>
+                    </div>
+                `,
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 6:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Suku ke-10 barisan aritmetika adalah $u_{10} = a + 9b$.</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $u_1 \\cdot u_{19} = (u_{10} - 9b)(u_{10} + 9b) = u_{10}^2 - 81b^2 = 100$. Karena nilai beda $b$ belum diketahui, $u_{10}$ tidak dapat ditentukan secara unik. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $u_4 + u_{16} = (a + 3b) + (a + 15b) = 2a + 18b = 2(a + 9b) = 2 u_{10}$.
+                            <br>Karena $u_4 + u_{16} = 50 \\implies 2 u_{10} = 50 \\implies u_{10} = 25$. Nilai $u_{10}$ diperoleh secara pasti! <strong>CUKUP</strong>.
+                        </li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (B)</p>
+                `
+            },
+            // Question 7
+            {
+                id: 7,
+                section: "Soal 7 (Statistika Data Tunggal)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Suatu himpunan data terdiri dari 5 bilangan bulat positif berbeda yang telah diurutkan dari yang terkecil hingga terbesar: $a, b, c, d, e$. Berapakah rata-rata (mean) dari kelima bilangan tersebut?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) Jangkauan (<em>range</em>) data adalah 8 dan median data adalah 10.</p>
+                        <p>(2) $a + e = 20$ dan $b + d = 20$.</p>
+                    </div>
+                `,
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 7:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Data $a < b < c < d < e$. Rata-rata $\\bar{x} = \\frac{a + b + c + d + e}{5}$.</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> Range $e - a = 8$, Median $c = 10$. Banyak kemungkinan nilai $a,b,d,e$. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $a + e = 20$ dan $b + d = 20 \\implies a + b + d + e = 40$. Namun median $c$ tidak diketahui. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Penggabungan (1) + (2):</strong> Dari (1) diperoleh $c = 10$. Dari (2) diperoleh $a + b + d + e = 40$. Maka total jumlah data $S = 40 + 10 = 50$.
+                            <br>Sehingga rata-rata $\\bar{x} = \\frac{50}{5} = 10$. Data <strong>CUKUP</strong>.
+                        </li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (C)</p>
+                `
+            },
+            // Question 8
+            {
+                id: 8,
+                section: "Soal 8 (Peluang & Kombinatorika)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Sebuah kotak berisi $R$ bola merah dan $B$ bola biru ($R + B \\ge 2$). Dua bola diambil secara acak sekaligus dari dalam kotak. Apakah peluang terambilnya dua bola berwarna sama lebih dari $\\frac{1}{2}$?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) $R = B + 1$.</p>
+                        <p>(2) Semua bola di dalam kotak berwarna merah ($B = 0$) dan jumlah bola $R \\ge 2$.</p>
+                    </div>
+                `,
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 8:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Pertanyaan apakah $P(\\text{sama}) > \\frac{1}{2}$?</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $R = B + 1$. Misal $B = k$, maka $R = k+1$. Total bola $N = 2k+1$.
+                            $$P(\\text{sama}) = \\frac{(k+1)k + k(k-1)}{(2k+1)(2k)} = \\frac{k(2k)}{(2k+1)(2k)} = \\frac{k}{2k+1}$$
+                            Untuk semua $k \\in \\mathbb{Z}^+$, nilai $\\frac{k}{2k+1} < \\frac{1}{2}$. Jadi $P(\\text{sama})$ pasti <strong>TIDAK</strong> pernah lebih dari $\\frac{1}{2}$. Karena memberikan jawaban pasti "TIDAK", data <strong>CUKUP</strong>.
+                        </li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $B = 0$ dan $R \\ge 2$. Karena tidak ada bola biru, maka dua bola yang terambil pasti keduanya berwarna merah, sehingga $P(\\text{sama}) = 1 > \\frac{1}{2}$. Karena memberikan jawaban pasti "YA", data <strong>CUKUP</strong>.</li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (D)</p>
+                `
+            },
+            // Question 9
+            {
+                id: 9,
+                section: "Soal 9 (Transformasi Geometri & Matriks)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Titik $P(x,y)$ ditransformasikan oleh matriks $M = \\begin{pmatrix} a & 0 \\\\ 0 & b \\end{pmatrix}$ menghasilkan titik $P'(x', y')$. Apakah titik hasil transformasi $P'$ terletak di Kuadran I?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) $x \\cdot y > 0$.</p>
+                        <p>(2) $a \\cdot b > 0$.</p>
+                    </div>
+                `,
+                correctAnswer: "E",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 9:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> $P'(x', y') = (ax, by)$. Agar $P'$ terletak di Kuadran I, haruslah $x' > 0$ dan $y' > 0$.</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $x \\cdot y > 0 \\implies x,y$ bertanda sama (keduanya positif atau keduanya negatif). Tanpa nilai $a$ dan $b$, koordinat $P'$ tidak dapat dipastikan. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $a \\cdot b > 0 \\implies a,b$ bertanda sama (keduanya positif atau keduanya negatif). Tanpa koordinat $P(x,y)$, koordinat $P'$ tidak dapat dipastikan. <strong>TIDAK CUKUP</strong>.</li>
+                        <li><strong>Penggabungan (1) + (2):</strong>
+                            <br>• Jika $x,y > 0$ dan $a,b > 0 \\implies x' = ax > 0, y' = by > 0$ ($P'$ di Kuadran I $\\implies$ "YA").
+                            <br>• Jika $x,y > 0$ dan $a,b < 0 \\implies x' = ax < 0, y' = by < 0$ ($P'$ di Kuadran III $\\implies$ "TIDAK").
+                            <br>Karena masih menghasilkan dua kemungkinan jawaban (bisa YA atau TIDAK), maka penggabungan data tetap <strong>TIDAK CUKUP</strong>.
+                        </li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (E)</p>
+                `
+            },
+            // Question 10
+            {
+                id: 10,
+                section: "Soal 10 (Sistem Persamaan & Pertidaksamaan)",
+                points: 10,
+                question: `
+                    <p class="font-semibold text-slate-800 mb-3">Apakah $x + y > 0$?</p>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-sm font-medium space-y-1 my-3">
+                        <p>(1) $x > 2$ dan $y > 1$.</p>
+                        <p>(2) $x - y = 4$.</p>
+                    </div>
+                `,
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Pembahasan Soal 10:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2 text-sm text-slate-700">
+                        <li><strong>Analisis Soal:</strong> Pertanyaan apakah $x + y > 0$?</li>
+                        <li><strong>Pernyataan (1) SAJA:</strong> $x > 2$ dan $y > 1$. Jumlahkan kedua pertidaksamaan: $x + y > 2 + 1 = 3$. Karena $x + y > 3$, maka sudah pasti $x + y > 0$. Jawabannya pasti "YA". Data <strong>CUKUP</strong>.</li>
+                        <li><strong>Pernyataan (2) SAJA:</strong> $x - y = 4 \\implies x = y + 4$. Maka $x + y = 2y + 4$. Nilai $x+y$ bisa bernilai positif (misal $y=0 \\implies x+y=4$) atau negatif (misal $y=-10 \\implies x+y=-16$). Data <strong>TIDAK CUKUP</strong>.</li>
+                    </ul>
+                    <p class="font-bold text-teal-700 mt-2">Jawaban Singkat: (A)</p>
+                `
+            }
+        ];
+
+        // Global State Variables
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 45 * 60; // 45 minutes in seconds
+        let timerInterval;
+        let isSubmitted = false;
+
+        // On DOM Content Loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                
+                let optionsHTML = '';
+                standardOptions.forEach(opt => {
+                    optionsHTML += `
+                        <label class="flex items-start gap-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-indigo-50/50 hover:border-indigo-300 transition cursor-pointer select-none">
+                            <input type="radio" name="question-${qNum}" value="${opt.key}" 
+                                class="mt-0.5 w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300"
+                                onchange="onAnswerSelect(${qNum}, '${opt.key}')">
+                            <div class="text-sm text-slate-800 leading-snug">
+                                <strong class="text-indigo-900 font-bold">(${opt.key})</strong> ${opt.text}
+                            </div>
+                        </label>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="bg-indigo-100 text-indigo-900 border-indigo-200 text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.section}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Soal ${qNum} dari ${totalQuestions} (+10 Poin)</span>
+                        </div>
+
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[300px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-lg leading-relaxed mb-4">${q.question}</div>
+                            </div>
+
+                            <!-- Multiple Choice Options -->
+                            <div class="mt-4 pt-4 border-t border-slate-100">
+                                <p class="text-xs font-black text-slate-500 uppercase tracking-wider mb-3">Pilih Opsi Jawaban:</p>
+                                <div class="space-y-2.5">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-10 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax) MathJax.typesetPromise();
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) { // < 5 mins remaining
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            document.getElementById(`slide-${n}`).classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Ujian</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function onAnswerSelect(qNum, value) {
+            userAnswers[qNum] = value;
+
+            // Update Nav Button styling
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (userAnswers[qNum] !== undefined) {
+                btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                btn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            // Update Answered Counter
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerText = "Apakah Anda yakin ingin menyelesaikan ujian? Jawaban Anda akan dihitung secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Soal</button>
+                <button onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Jawaban</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 45 menit telah berakhir. Lembar jawaban Anda sedang dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalScore = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    totalScore += q.points;
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            // Update Summary Stats
+            const maxScore = totalQuestions * 10;
+            const percentage = ((totalScore / maxScore) * 100).toFixed(0);
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            // Render Solutions Review
+            renderReviewCards('all');
+
+            if (window.MathJax) MathJax.typesetPromise();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB (0 Poin)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR (+10 Poin)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH (0 Poin)</span>`;
+                }
+
+                const userAnsText = (userAns !== null) ? `(${userAns})` : '<em>Kosong</em>';
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Jawaban Anda:</p>
+                                    <p class="font-black font-mono text-2xl ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsText}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-indigo-800 mb-1">Kunci Jawaban Resmi:</p>
+                                    <p class="font-black font-mono text-2xl text-indigo-700">(${q.correctAnswer})</p>
+                                </div>
+                            </div>
+
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Detil:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
