@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Modul Pecahan - Soal Cerita Tingkat Lanjut</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']], 
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] 
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pb-20 selection:bg-indigo-200">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-4">
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SD / Primary Math</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">Bab 2: Pecahan</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2">UJIAN MODUL PECAHAN (SOAL CERITA)</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">15 Soal Isian Singkat (Jawaban Bilangan Bulat)</p>
+            
+            <div class="bg-indigo-50/70 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Semua soal (Soal 1–15) berbentuk <strong>Isian Singkat</strong>.</li>
+                    <li>Ketikkan jawaban akhir berupa <strong>bilangan bulat positif</strong> pada kotak yang tersedia.</li>
+                    <li>Waktu Pengerjaan: <strong>45 Menit</strong> untuk 15 soal.</li>
+                    <li>Bobot Nilai: Masing-masing soal bernilai poin seimbang (Nilai Maksimal: 100).</li>
+                    <li>Pembahasan dan langkah-langkah penyelesaian rinci dapat diakses setelah mengumpulkan ujian.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 1</p>
+                    <p class="text-xs font-black">Bagian dari Sisa</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 2</p>
+                    <p class="text-xs font-black">Model Satuan/Unit</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 3</p>
+                    <p class="text-xs font-black">Rasio & Perbandingan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 4</p>
+                    <p class="text-xs font-black">Kerja Mundur</p>
+                </div>
+            </div>
+
+            <button onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section">
+        <!-- Sticky Top Header & Timer -->
+        <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                <div>
+                    <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MODUL PECAHAN (BAB 2)</h1>
+                    <p class="text-xs text-slate-500 font-semibold hidden sm:block">15 Soal Isian Singkat Bilangan Bulat</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                    <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                        45:00
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 mt-6">
+            <!-- Navigation Panel for 15 Questions -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                <div class="flex justify-between items-center mb-2.5">
+                    <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Soal (1–15)</p>
+                    <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 15</span>
+                </div>
+                <div class="grid grid-cols-5 sm:grid-cols-15 gap-1.5" id="nav-container">
+                    <!-- Nav buttons dynamically injected by JS -->
+                </div>
+            </div>
+
+            <!-- Quiz Slide Container -->
+            <form id="quiz-form" onsubmit="event.preventDefault();">
+                <div id="slides-container">
+                    <!-- Dynamic Question Slides -->
+                </div>
+
+                <!-- Bottom Navigation Controls -->
+                <div class="flex justify-between items-center mt-6">
+                    <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+                        &#8592; Sebelum
+                    </button>
+                    <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2">
+                        <span>Soal Berikutnya</span> &#8594;
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Pengumpulan</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian ini?</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Ujian</button>
+                <button onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & NILAI UJIAN</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah laporan hasil pengerjaan dan kunci jawaban resmi Modul Pecahan Bab 2.</p>
+                        
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Nilai</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105">
+                <span>Lihat Pembahasan Lengkap</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Pembahasan Lengkap & Kunci Jawaban</h3>
+                    <p class="text-sm text-slate-500">Evaluasi lembar pengerjaan Anda dengan langkah-langkah penyelesaian rinci.</p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition">Semua Soal (<span id="cnt-all">10</span>)</button>
+                    <button onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition">Benar (<span id="cnt-correct">0</span>)</button>
+                    <button onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // First 10 Practice Questions from Modul Pecahan Bab 2 (All Short Answer Integer)
+        const questionsData = [
+            {
+                id: 1,
+                type: 'short',
+                section: "Soal Latihan 1: Cokelat Ny. Lee",
+                question: "Ny. Lee membeli sekotak cokelat. Ia memberikan $\\frac{1}{3}$ bagian cokelat kepada putranya dan $\\frac{1}{4}$ dari sisanya kepada putrinya. Jika ia masih memiliki $18$ cokelat tersisa, berapa banyak cokelat yang ada di dalam kotak pada awalnya?",
+                correctAnswer: "36",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Bagian untuk putra = $\\frac{1}{3} = \\frac{2}{6}$. Sisa pertama = $1 - \\frac{1}{3} = \\frac{2}{3}$.</li>
+                        <li>Bagian untuk putri = $\\frac{1}{4} \\times \\frac{2}{3} = \\frac{2}{12} = \\frac{1}{6}$.</li>
+                        <li>Sisa akhir = $1 - \\left(\\frac{1}{3} + \\frac{1}{6}\\right) = 1 - \\frac{3}{6} = \\frac{1}{2}$ bagian.</li>
+                        <li>$\\frac{1}{2}$ bagian $= 18 \\text{ cokelat} \\implies \\text{Total awal} = 18 \\times 2 = \\mathbf{36}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 36</p>
+                `
+            },
+            {
+                id: 2,
+                type: 'short',
+                section: "Soal Latihan 2: Berat Wadah Air",
+                question: "Sebuah wadah yang terisi penuh air memiliki berat $12\\text{ kg}$. Ketika $\\frac{3}{5}$ dari air tersebut dituangkan keluar, berat wadah beserta sisa airnya menjadi $7{,}2\\text{ kg}$. Berapa berat wadah kosong tersebut (dalam $\\text{kg}$)?",
+                correctAnswer: "4",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Berat $\\frac{3}{5}$ air yang dituangkan $= 12 - 7{,}2 = 4{,}8\\text{ kg}$.</li>
+                        <li>Berat $\\frac{1}{5}$ air $= 4{,}8 \\div 3 = 1{,}6\\text{ kg}$.</li>
+                        <li>Berat total air ($\\frac{5}{5}$) $= 5 \\times 1{,}6 = 8\\text{ kg}$.</li>
+                        <li>Berat wadah kosong $= 12 - 8 = \\mathbf{4}\\text{ kg}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 4</p>
+                `
+            },
+            {
+                id: 3,
+                type: 'short',
+                section: "Soal Latihan 3: Uang Belanja John",
+                question: "John membelanjakan $\\frac{2}{7}$ dari uangnya untuk membeli buku dan $\\frac{1}{3}$ dari sisa uangnya untuk membeli permainan. Jika ia memiliki sisa uang sebesar $\\$40$, berapa banyak uang yang ia miliki pada awalnya (dalam $\\$$)?",
+                correctAnswer: "84",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Sisa setelah membeli buku $= 1 - \\frac{2}{7} = \\frac{5}{7}$.</li>
+                        <li>Bagian untuk permainan $= \\frac{1}{3} \\times \\frac{5}{7} = \\frac{5}{21}$.</li>
+                        <li>Sisa akhir $= \\frac{5}{7} - \\frac{5}{21} = \\frac{10}{21}$ bagian $= \\$40$.</li>
+                        <li>$1\\text{ bagian} \\left(\\frac{1}{21}\\right) = \\$40 \\div 10 = \\$4 \\implies \\text{Uang awal } (21\\text{ bagian}) = 21 \\times 4 = \\mathbf{84}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 84</p>
+                `
+            },
+            {
+                id: 4,
+                type: 'short',
+                section: "Soal Latihan 4: Anak di Klub",
+                question: "Jumlah anak laki-laki di sebuah klub adalah $\\frac{2}{5}$ dari jumlah anak perempuan. Jika $12$ anak laki-laki bergabung dengan klub tersebut, maka jumlah anak laki-laki dan perempuan menjadi sama banyak. Berapa total anak yang ada di klub tersebut pada akhirnya?",
+                correctAnswer: "40",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Rasio awal: Laki-laki $= 2\\text{ unit}$, Perempuan $= 5\\text{ unit}$. Selisih $= 3\\text{ unit}$.</li>
+                        <li>$3\\text{ unit} = 12\\text{ anak} \\implies 1\\text{ unit} = 4\\text{ anak}$.</li>
+                        <li>Pada akhirnya, laki-laki $=$ perempuan $= 5\\text{ unit} = 5 \\times 4 = 20\\text{ anak}$.</li>
+                        <li>Total anak pada akhirnya $= 20 + 20 = \\mathbf{40}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 40</p>
+                `
+            },
+            {
+                id: 5,
+                type: 'short',
+                section: "Soal Latihan 5: Siswa Naik Mobil/Bus",
+                question: "Sebanyak $\\frac{1}{3}$ dari seluruh siswa pergi ke sekolah naik bus. Sebanyak $\\frac{1}{4}$ dari sisa siswa pergi ke sekolah naik mobil. Jika ada $90$ siswa yang pergi ke sekolah naik mobil, berapa total siswa yang ada di sekolah tersebut?",
+                correctAnswer: "540",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Sisa setelah naik bus $= 1 - \\frac{1}{3} = \\frac{2}{3} = \\frac{8}{12}$.</li>
+                        <li>Naik mobil $= \\frac{1}{4} \\times \\frac{8}{12} = \\frac{2}{12} = \\frac{1}{6}$ dari total siswa.</li>
+                        <li>$\\frac{1}{6}\\text{ total} = 90 \\implies \\text{Total siswa} = 90 \\times 6 = \\mathbf{540}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 540</p>
+                `
+            },
+            {
+                id: 6,
+                type: 'short',
+                section: "Soal Latihan 6: Koin Timothy & Pearly",
+                question: "Timothy memiliki koin sebanyak $\\frac{5}{8}$ dari jumlah koin Pearly. Setelah Pearly memberikan $\\frac{1}{4}$ dari koinnya kepada Timothy, Timothy menjadi memiliki $10$ koin lebih banyak daripada Pearly. Berapa banyak koin yang dimiliki Timothy pada awalnya?",
+                correctAnswer: "50",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Awal: Pearly $= 8\\text{ unit}$, Timothy $= 5\\text{ unit}$.</li>
+                        <li>Pearly memberi $\\frac{1}{4} \\times 8 = 2\\text{ unit}$ ke Timothy.</li>
+                        <li>Akhir: Pearly $= 6\\text{ unit}$, Timothy $= 7\\text{ unit}$.</li>
+                        <li>Selisih akhir $= 7 - 6 = 1\\text{ unit} = 10\\text{ koin}$.</li>
+                        <li>Koin Timothy awal $= 5\\text{ unit} = 5 \\times 10 = \\mathbf{50}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 50</p>
+                `
+            },
+            {
+                id: 7,
+                type: 'short',
+                section: "Soal Latihan 7: Kartu Esther & Richard",
+                question: "Esther memiliki kartu $5$ kali lebih banyak daripada Richard. Esther memberikan $\\frac{1}{4}$ dari kartunya kepada Richard. Kemudian, Richard memberikan $\\frac{1}{6}$ dari kartu yang dimilikinya saat itu kembali kepada Esther. Pada akhirnya, Esther memiliki $90$ kartu lebih banyak daripada Richard. Berapa banyak kartu yang dimiliki Esther pada awalnya?",
+                correctAnswer: "200",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Awal: Richard $= 12\\text{ unit}$, Esther $= 60\\text{ unit}$ (rasio $1 : 5$).</li>
+                        <li>Esther beri $\\frac{1}{4} \\times 60 = 15\\text{ unit} \\implies$ Esther $= 45\\text{u}$, Richard $= 27\\text{u}$.</li>
+                        <li>Richard beri $\\frac{1}{6} \\times 27 = 4{,}5\\text{ unit} \\implies$ Richard $= 22{,}5\\text{u}$, Esther $= 49{,}5\\text{u}$.</li>
+                        <li>Selisih $= 49{,}5 - 22{,}5 = 27\\text{ unit} = 90 \\implies 1\\text{ unit} = \\frac{90}{27} = \\frac{10}{3}$.</li>
+                        <li>Kartu Esther awal $= 60\\text{ unit} = 60 \\times \\frac{10}{3} = \\mathbf{200}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 200</p>
+                `
+            },
+            {
+                id: 8,
+                type: 'short',
+                section: "Soal Latihan 8: Perangko Samuel & Jill",
+                question: "Samuel dan Jill memiliki total $576$ perangko. Samuel memberikan $\\frac{1}{7}$ dari perangkonya kepada Jill. Kemudian, Jill memberikan $\\frac{1}{4}$ dari total perangko yang ia miliki saat itu kepada Samuel. Pada akhirnya, keduanya memiliki jumlah perangko yang sama banyak. Berapakah selisih jumlah perangko yang mereka masing-masing miliki pada awalnya?",
+                correctAnswer: "128",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian (Kerja Mundur):</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Akhir: Samuel $= 288$, Jill $= 288$ ($576 \\div 2$).</li>
+                        <li>Sebelum Jill beri $\\frac{1}{4}$ perangkonya: Sisa Jill ($\\frac{3}{4}$) $= 288 \\implies$ Jill $= 384$, beri $96$ ke Samuel.</li>
+                        <li>Sebelum terima $96$, Samuel punya $288 - 96 = 192$.</li>
+                        <li>Sisa Samuel ($\\frac{6}{7}$) $= 192 \\implies$ Samuel awal $= 192 \\div 6 \\times 7 = 224$.</li>
+                        <li>Jill awal $= 576 - 224 = 352$.</li>
+                        <li>Selisih awal $= 352 - 224 = \\mathbf{128}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 128</p>
+                `
+            },
+            {
+                id: 9,
+                type: 'short',
+                section: "Soal Latihan 9: Stiker Henry & Daisy",
+                question: "Sebanyak $\\frac{2}{3}$ dari stiker Henry sama dengan $\\frac{1}{4}$ dari stiker Daisy. Selisih jumlah stiker yang mereka miliki adalah $135$ stiker. Berapa total stiker yang mereka miliki bersama-sama?",
+                correctAnswer: "297",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>$\\frac{2}{3}\\text{ Henry} = \\frac{2}{8}\\text{ Daisy} \\implies \\text{Rasio Henry : Daisy} = 3 : 8$.</li>
+                        <li>Selisih $= 8 - 3 = 5\\text{ unit} = 135 \\implies 1\\text{ unit} = 27$.</li>
+                        <li>Total stiker $= 3 + 8 = 11\\text{ unit} = 11 \\times 27 = \\mathbf{297}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 297</p>
+                `
+            },
+            {
+                id: 10,
+                type: 'short',
+                section: "Soal Latihan 10: Uang Beth & Joanne",
+                question: "Beth dan Joanne memiliki uang total sebesar $\\$2880$. Beth memberikan $\\frac{1}{4}$ dari uangnya kepada Joanne. Kemudian, Joanne memberikan $\\frac{1}{3}$ dari total uang yang ia miliki saat itu kepada Beth. Pada akhirnya, kedua anak perempuan tersebut memiliki jumlah uang yang sama banyak. Berapa banyak uang yang dimiliki Beth pada awalnya (dalam $\\$$)?",
+                correctAnswer: "960",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian (Kerja Mundur):</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Akhir: Total $\\$2880 \\implies$ Beth $= \\$1440$, Joanne $= \\$1440$.</li>
+                        <li>Sebelum Joanne beri $\\frac{1}{3}$ uangnya: Sisa Joanne ($\\frac{2}{3}$) $= \\$1440 \\implies$ Joanne punya $\\$2160$, memberi $\\$720$ ke Beth.</li>
+                        <li>Sebelum terima $\\$720$, Beth punya $\\$1440 - \\$720 = \\$720$.</li>
+                        <li>Sebelum Beth beri $\\frac{1}{4}$ uangnya: Sisa Beth ($\\frac{3}{4}$) $= \\$720 \\implies$ Beth awal $= \\$720 \\div 3 \\times 4 = \\mathbf{960}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 960</p>
+                `
+            },
+            {
+                id: 11,
+                type: 'short',
+                section: "Soal Latihan 11: Kombinasi Ball Bearing",
+                question: "Satu bantalan peluru (ball bearing) berukuran besar memiliki berat $1\\frac{1}{2}$ kali berat bantalan peluru berukuran kecil. Tentukan berapa banyak kombinasi pasangan bantalan peluru kecil dan besar yang mungkin untuk menyeimbangkan berat dari $10$ bantalan peluru kecil.",
+                correctAnswer: "4",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Hubungan berat: $1\\text{ Besar} = 1{,}5\\text{ Kecil} \\implies 2\\text{ Besar} = 3\\text{ Kecil}$.</li>
+                        <li>Target berat setara $10\\text{ Kecil}$.</li>
+                        <li>Kombinasi pasangan (Kecil, Besar) yang memenuhi:
+                            <ul class="list-disc list-inside ml-4 my-1">
+                                <li>(10 kecil, 0 besar)</li>
+                                <li>(7 kecil, 2 besar)</li>
+                                <li>(4 kecil, 4 besar)</li>
+                                <li>(1 kecil, 6 besar)</li>
+                            </ul>
+                        </li>
+                        <li>Banyaknya kombinasi yang mungkin $= \\mathbf{4}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 4</p>
+                `
+            },
+            {
+                id: 12,
+                type: 'short',
+                section: "Soal Latihan 12: Gaji Matthew",
+                question: "Matthew membelanjakan $\\$3000$ dari gajinya untuk membeli sebuah pendingin ruangan (AC) dan $\\frac{1}{5}$ dari sisa gajinya untuk membeli sepasang sepatu. Jika ia masih memiliki $\\frac{2}{5}$ dari total gajinya pada akhirnya, berapakah besar gaji Matthew seluruhnya (dalam $\\$$)?",
+                correctAnswer: "6000",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Sisa setelah membeli sepatu $= \\frac{4}{5} \\times (G - 3000)$.</li>
+                        <li>Diketahui sisa tersebut $= \\frac{2}{5} \\times G$.</li>
+                        <li>$\\frac{4}{5} \\times (G - 3000) = \\frac{2}{5} \\times G \\implies 4(G - 3000) = 2G$.</li>
+                        <li>$4G - 12000 = 2G \\implies 2G = 12000 \\implies G = \\mathbf{6000}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 6000</p>
+                `
+            },
+            {
+                id: 13,
+                type: 'short',
+                section: "Soal Tantangan 1: Stiker Ann",
+                question: "Ann memiliki sejumlah stiker. Ia memberikan $\\frac{1}{2}$ bagian stikernya kepada Betty. Kemudian, ia memberikan $\\frac{1}{8}$ dari sisanya kepada Sammy. Ketika bertemu Paul, ia memberinya $\\frac{1}{7}$ dari sisanya. Selanjutnya, ia membagi sisa stiker yang ada sama rata dengan Mary. Ann menyisakan $12$ stiker pada akhirnya. Berapa banyak stiker yang dimiliki Ann pada awalnya?",
+                correctAnswer: "64",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian (Kerja Mundur):</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Sebelum dibagi sama rata dengan Mary $= 12 \\times 2 = 24$.</li>
+                        <li>Sebelum beri $\\frac{1}{7}$ ke Paul (Sisa $\\frac{6}{7} = 24$) $= 24 \\div 6 \\times 7 = 28$.</li>
+                        <li>Sebelum beri $\\frac{1}{8}$ ke Sammy (Sisa $\\frac{7}{8} = 28$) $= 28 \\div 7 \\times 8 = 32$.</li>
+                        <li>Sebelum beri $\\frac{1}{2}$ ke Betty $= 32 \\times 2 = \\mathbf{64}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 64</p>
+                `
+            },
+            {
+                id: 14,
+                type: 'short',
+                section: "Soal Tantangan 2: Uang Donasi Gavin",
+                question: "Gavin memiliki sejumlah uang. Ia mendonasikan $\\frac{1}{2}$ dari uangnya kepada African Wildlife Foundation. Kemudian, ia memberikan $\\frac{1}{4}$ dari sisanya kepada Palang Merah. Selanjutnya, ia memberikan $\\frac{1}{3}$ dari sisanya kepada Mercy Corps, dan $\\frac{1}{2}$ dari sisanya kepada Dana Global. Gavin menyisakan $\\$625$ pada akhirnya. Berapa banyak uang yang ia miliki pada awalnya (dalam $\\$$)?",
+                correctAnswer: "5000",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian (Kerja Mundur):</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Sebelum Dana Global $= 625 \\times 2 = \\$1250$.</li>
+                        <li>Sebelum Mercy Corps (Sisa $\\frac{2}{3} = 1250$) $= 1250 \\div 2 \\times 3 = \\$1875$.</li>
+                        <li>Sebelum Palang Merah (Sisa $\\frac{3}{4} = 1875$) $= 1875 \\div 3 \\times 4 = \\$2500$.</li>
+                        <li>Sebelum African Wildlife Foundation $= 2500 \\times 2 = \\mathbf{5000}$.</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 5000</p>
+                `
+            },
+            {
+                id: 15,
+                type: 'short',
+                section: "Soal Tantangan 3: Tanaman Air Kolam",
+                question: "Tanaman air yang tumbuh di atas permukaan sebuah kolam menutupi permukaan kolam dua kali lebih luas setiap harinya dibandingkan hari sebelumnya. Jika tanaman tersebut menutupi seluruh permukaan kolam secara penuh pada hari ke-20, pada hari ke berapakah $\\frac{1}{4}$ dari permukaan kolam tertutupi oleh tanaman tersebut?",
+                correctAnswer: "18",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian (Kerja Mundur):</p>
+                    <ol class="list-decimal list-inside space-y-1.5 my-2">
+                        <li>Hari ke-20 $= 1$ bagian penuh.</li>
+                        <li>Hari ke-19 $= \\frac{1}{2}$ bagian (separuh dari hari ke-20).</li>
+                        <li>Hari ke-18 $= \\frac{1}{4}$ bagian (separuh dari hari ke-19).</li>
+                    </ol>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 18</p>
+                `
+            }
+        ];
+
+        // Global State
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {}; // Stores answers: { 1: '36', 2: '4', ... }
+        let questionEvaluation = [];
+        let timeLeft = 45 * 60; // 45 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        // On DOM Loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const badgeClass = "bg-blue-100 text-blue-900 border-blue-200";
+
+                const inputSectionHTML = `
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Jawaban Akhir (Bilangan Bulat) :</label>
+                        <div class="flex items-center gap-3 max-w-sm">
+                            <input type="text" id="input-q${qNum}" placeholder="Ketik angka..." 
+                                class="w-full text-lg font-black font-mono px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-600 focus:bg-white focus:outline-none transition-all shadow-inner"
+                                oninput="onShortInput(${qNum}, this.value)">
+                            <button type="button" onclick="clearShortInput(${qNum})" class="px-3 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-xs transition">Hapus</button>
+                        </div>
+                    </div>
+                `;
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.section}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Soal ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[260px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-xl font-semibold leading-relaxed mb-4">${q.question}</div>
+                            </div>
+                            ${inputSectionHTML}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax) MathJax.typesetPromise();
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            document.getElementById(`slide-${n}`).classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Lembar Ujian</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function onShortInput(qNum, val) {
+            const cleaned = val.replace(/[^\d]/g, '');
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = cleaned;
+
+            if (cleaned.length > 0) {
+                userAnswers[qNum] = cleaned;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            updateNavState(qNum);
+        }
+
+        function clearShortInput(qNum) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = '';
+            delete userAnswers[qNum];
+            updateNavState(qNum);
+        }
+
+        function updateNavState(qNum) {
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (userAnswers[qNum] !== undefined) {
+                btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                btn.classList.remove('bg-slate-50', 'text-slate-600');
+            } else {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                btn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Konfirmasi Pengumpulan Ujian";
+            document.getElementById('modal-message').innerText = "Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian sekarang? Jawaban tidak dapat diubah setelah kumpul.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition">Kembali ke Ujian</button>
+                <button onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Waktu pengerjaan 45 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalCorrect = 0;
+            let totalIncorrect = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                const isCorrect = (userAns !== null && userAns.toString().trim() === q.correctAnswer.toString().trim());
+
+                if (isCorrect) {
+                    totalCorrect++;
+                } else {
+                    totalIncorrect++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const pointsPerQuestion = (100 / totalQuestions);
+            const totalScore = Math.round(totalCorrect * pointsPerQuestion);
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = totalCorrect;
+            document.getElementById('incorrect-count').innerText = totalIncorrect;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = totalCorrect;
+            document.getElementById('cnt-wrong').innerText = totalIncorrect;
+
+            renderReviewCards('all');
+
+            if (window.MathJax) MathJax.typesetPromise();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> KOSONG</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                const userAnsDisplay = userAns !== null ? userAns : '<em>Kosong</em>';
+                const keyDisplay = q.correctAnswer;
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Soal #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base font-semibold text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Jawaban Anda:</p>
+                                    <p class="font-black text-lg ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsDisplay}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-indigo-800 mb-1">Kunci Jawaban Resmi:</p>
+                                    <p class="font-black text-lg text-indigo-700">${keyDisplay}</p>
+                                </div>
+                            </div>
+
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Rinci & Solusi Langkah demi Langkah:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax) MathJax.typesetPromise();
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
