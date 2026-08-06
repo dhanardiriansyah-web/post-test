@@ -50,7 +50,7 @@
                 <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
                     <li>Semua soal (Soal 1–15) berbentuk <strong>Isian Singkat</strong>.</li>
                     <li>Ketikkan jawaban akhir berupa <strong>bilangan bulat positif</strong> pada kotak yang tersedia.</li>
-                    <li>Waktu Pengerjaan: <strong>45 Menit</strong> untuk 15 soal.</li>
+                    <li>Waktu Pengerjaan: <strong>50 Menit</strong> untuk 15 soal.</li>
                     <li>Bobot Nilai: Masing-masing soal bernilai poin seimbang (Nilai Maksimal: 100).</li>
                     <li>Pembahasan dan langkah-langkah penyelesaian rinci dapat diakses setelah mengumpulkan ujian.</li>
                 </ul>
@@ -94,7 +94,7 @@
                 <div class="flex items-center gap-3">
                     <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
                     <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
-                        45:00
+                        50:00
                     </div>
                 </div>
             </div>
@@ -479,7 +479,7 @@
         let currentQuestion = 1;
         let userAnswers = {}; // Stores answers: { 1: '36', 2: '4', ... }
         let questionEvaluation = [];
-        let timeLeft = 45 * 60; // 45 minutes
+        let timeLeft = 50 * 60; // 50 minutes
         let timerInterval;
         let isSubmitted = false;
 
@@ -669,7 +669,7 @@
         function showTimeUpModal() {
             document.getElementById('modal-title').innerText = "Waktu Habis!";
             document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
-            document.getElementById('modal-message').innerText = "Waktu pengerjaan 45 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-message').innerText = "Waktu pengerjaan 50 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
             document.getElementById('modal-actions').innerHTML = `
                 <button onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition">Lihat Hasil & Pembahasan</button>
             `;
