@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Test Matematika HOTS - Pecahan, Persentase, Rasio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN (Fits in viewport) -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <!-- Main Card -->
+        <div class="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 text-[11px] font-black rounded-full uppercase tracking-wider">Matematika SD / Primary Math</span>
+                <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-[11px] font-black rounded-full uppercase tracking-wider">Post-Test Evaluasi HOTS</span>
+            </div>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-black text-center text-slate-900 mb-1">POST-TEST MATEMATIKA HOTS</h1>
+            <p class="text-center text-slate-500 font-semibold mb-4 text-xs md:text-sm">20 Soal Isian Singkat Bilangan Bulat (0–999)</p>
+            
+            <div class="bg-indigo-50/70 p-4 rounded-xl md:rounded-2xl mb-4 border border-indigo-100 shadow-sm space-y-2">
+                <h2 class="font-bold text-indigo-900 flex items-center text-xs md:text-sm">
+                    <svg class="w-4 h-4 mr-1.5 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs text-indigo-950 space-y-1 leading-relaxed">
+                    <li>Semua soal (Soal 1–20) berbentuk <strong>Isian Singkat</strong>.</li>
+                    <li>Ketikkan jawaban akhir berupa bilangan bulat positif (0–999) pada kotak yang tersedia.</li>
+                    <li>Waktu Pengerjaan: <strong>50 Menit</strong> untuk 20 soal.</li>
+                    <li>Pembahasan rinci langkah demi langkah tersedia setelah lembar tes dikumpulkan.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 text-center text-xs font-bold mb-5">
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Topik A</p>
+                    <p class="text-[11px] font-black">Pecahan</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Topik B</p>
+                    <p class="text-[11px] font-black">Persentase</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Topik C</p>
+                    <p class="text-[11px] font-black">Rasio</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Topik D</p>
+                    <p class="text-[11px] font-black">Integrasi HOTS</p>
+                </div>
+            </div>
+
+            <button type="button" id="start-btn" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-base md:text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <footer class="w-full py-2.5 md:py-3 text-center text-xs text-slate-600">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">POST-TEST MATEMATIKA HOTS</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">20 Soal Isian Singkat Bilangan Bulat</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            50:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 20 Questions -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-2.5">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Soal (1–20)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 20</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-20 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelum
+                        </button>
+                        <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                            <span>Soal Berikutnya</span> &#8594;
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Pengumpulan Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian ini?</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali ke Ujian</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & NILAI UJIAN</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah laporan hasil pengerjaan dan kunci jawaban resmi Post-Test Matematika HOTS.</p>
+            
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Nilai</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                <span>Lihat Pembahasan Lengkap</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Pembahasan Lengkap & Kunci Jawaban</h3>
+                    <p class="text-sm text-slate-500">Evaluasi lembar pengerjaan Anda dengan langkah-langkah penyelesaian rinci.</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">20</span>)</button>
+                    <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                    <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                type: 'short',
+                section: "Topik A: Pecahan",
+                question: "Andi memiliki sejumlah koin. Ia memberikan $\\frac{2}{5}$ dari koinnya kepada Budi. Kemudian, $\\frac{1}{3}$ dari sisa koinnya diberikan kepada Candra. Setelah itu, ia memberikan $\\frac{1}{4}$ dari sisa baru tersebut kepada Dedi. Terakhir, ia membagi sisa koin yang ada secara merata antara Eko dan dirinya sendiri. Jika Andi akhirnya menyisakan 45 koin, berapa banyak koin yang dimiliki Andi pada awalnya?",
+                correctAnswer: "300",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian (Working Backwards):</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Sisa koin sebelum dibagi rata dengan Eko $= 45 \\times 2 = 90$ koin.</li>
+                        <li>Sebelum diberikan $\\frac{1}{4}$ ke Dedi (sisa $\\frac{3}{4}$) $= 90 \\div 3 \\times 4 = 120$ koin.</li>
+                        <li>Sebelum diberikan $\\frac{1}{3}$ ke Candra (sisa $\\frac{2}{3}$) $= 120 \\div 2 \\times 3 = 180$ koin.</li>
+                        <li>Sebelum diberikan $\\frac{2}{5}$ ke Budi (sisa $\\frac{3}{5}$) $= 180 \\div 3 \\times 5 = \\mathbf{300}$ koin.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 300</p>
+                `
+            },
+            {
+                id: 2,
+                type: 'short',
+                section: "Topik A: Pecahan",
+                question: "Sebuah tangki besar yang terisi penuh dengan minyak memiliki berat total $850\\text{ kg}$. Ketika $\\frac{3}{8}$ bagian dari minyak tersebut dituangkan keluar, berat tangki beserta sisa minyaknya menjadi $580\\text{ kg}$. Berapakah berat tangki kosong tersebut (dalam $\\text{kg}$)?",
+                correctAnswer: "130",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Berat $\\frac{3}{8}$ minyak $= 850 - 580 = 270\\text{ kg}$.</li>
+                        <li>Berat total minyak ($\\frac{8}{8}$) $= 270 \\div 3 \\times 8 = 720\\text{ kg}$.</li>
+                        <li>Berat tangki kosong $= 850 - 720 = \\mathbf{130}\\text{ kg}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 130</p>
+                `
+            },
+            {
+                id: 3,
+                type: 'short',
+                section: "Topik A: Pecahan",
+                question: "Boni dan Caca membawa total $720$ kelereng. Boni memberikan $\\frac{1}{6}$ dari kelerengnya kepada Caca. Kemudian, Caca memberikan $\\frac{1}{5}$ dari total kelereng yang ia miliki saat itu kepada Boni. Setelah kedua transaksi tersebut, jumlah kelereng Boni dan Caca menjadi sama banyak. Berapakah selisih jumlah kelereng yang mereka miliki pada awalnya?",
+                correctAnswer: "72",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian (Kerja Mundur):</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Akhir: Total $720 \\implies$ Boni $= 360$, Caca $= 360$.</li>
+                        <li>Sebelum Caca memberi $\\frac{1}{5}$ kelerengnya (sisa $\\frac{4}{5} = 360$) $\\implies$ Caca $= 450$ (memberi $90$ ke Boni).</li>
+                        <li>Sebelum terima $90$, Boni $= 360 - 90 = 270$.</li>
+                        <li>Sebelum Boni memberi $\\frac{1}{6}$ kelerengnya (sisa $\\frac{5}{6} = 270$) $\\implies$ Boni awal $= 270 \\div 5 \\times 6 = 324$.</li>
+                        <li>Caca awal $= 720 - 324 = 396$.</li>
+                        <li>Selisih awal $= 396 - 324 = \\mathbf{72}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 72</p>
+                `
+            },
+            {
+                id: 4,
+                type: 'short',
+                section: "Topik A: Pecahan",
+                question: "Pak Budi membaca sebuah buku tebal. Pada hari pertama ia membaca $\\frac{1}{6}$ bagian buku. Pada 4 hari berikutnya, ia membaca halaman dengan jumlah yang sama setiap hari. Setelah 5 hari membaca, pecahan dari buku yang belum dibaca adalah $\\frac{7}{15}$ bagian. Jika sisa halaman yang belum dibaca tersebut adalah $336$ halaman, berapa total halaman buku tersebut?",
+                correctAnswer: "720",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Pecahan belum dibaca $= \\frac{7}{15}$ bagian $= 336$ halaman.</li>
+                        <li>Total halaman buku $= 336 \\div 7 \\times 15 = \\mathbf{720}$ halaman.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 720</p>
+                `
+            },
+            {
+                id: 5,
+                type: 'short',
+                section: "Topik A: Pecahan",
+                question: "Di sebuah minimarket, $\\frac{3}{8}$ dari jumlah botol jus apel sama dengan $\\frac{2}{5}$ dari jumlah botol jus jeruk. Selisih jumlah botol jus apel dan jus jeruk di toko tersebut adalah $25$ botol. Berapakah total jumlah botol jus apel dan jus jeruk di toko tersebut?",
+                correctAnswer: "775",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$\\frac{3}{8}\\text{ Apel} = \\frac{2}{5}\\text{ Jeruk} \\implies \\text{Rasio Apel : Jeruk} = (2 \\times 8) : (3 \\times 5) = 16 : 15$.</li>
+                        <li>Selisih $= 16 - 15 = 1\\text{ unit} = 25\\text{ botol}$.</li>
+                        <li>Total botol $= (16 + 15) \\times 25 = 31 \\times 25 = \\mathbf{775}$ botol.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 775</p>
+                `
+            },
+            {
+                id: 6,
+                type: 'short',
+                section: "Topik A: Pecahan",
+                question: "Di sebuah perpustakaan, jumlah dari $\\frac{1}{3}$ buku cerita dan $\\frac{2}{7}$ buku sains adalah $140$ buku. Sementara itu, jumlah dari $\\frac{2}{3}$ buku cerita dan $\\frac{3}{7}$ buku sains adalah $220$ buku. Berapakah total gabungan buku cerita dan buku sains di perpustakaan tersebut?",
+                correctAnswer: "480",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Persamaan (1): $\\frac{1}{3}C + \\frac{2}{7}S = 140$. Persamaan (2): $\\frac{2}{3}C + \\frac{3}{7}S = 220$.</li>
+                        <li>Kalikan (1) dengan 2 $\\implies \\frac{2}{3}C + \\frac{4}{7}S = 280$.</li>
+                        <li>Kurangkan dengan (2) $\\implies \\frac{1}{7}S = 60 \\implies S = 420$ (buku sains).</li>
+                        <li>Substitusi ke (1) $\\implies \\frac{1}{3}C + 120 = 140 \\implies C = 60$ (buku cerita).</li>
+                        <li>Total buku $= 420 + 60 = \\mathbf{480}$ buku.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 480</p>
+                `
+            },
+            {
+                id: 7,
+                type: 'short',
+                section: "Topik B: Persentase",
+                question: "Harga sebuah barang elektronik mengalami kenaikan $20\\%$ pada tahun 2023. Pada tahun 2024, harganya naik lagi sebesar $25\\%$. Pada awal tahun 2025, terjadi diskon sebesar $40\\%$ dari harga tahun 2024. Jika harga setelah diskon pada tahun 2025 adalah Rp540 (dalam ribuan rupiah), berapakah harga awal barang tersebut sebelum kenaikan tahun 2023 (dalam ribuan rupiah)?",
+                correctAnswer: "600",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misalkan harga awal $= H_0$.</li>
+                        <li>Harga akhir $= H_0 \\times 1{,}20 \\times 1{,}25 \\times 0{,}60 = 0{,}90 H_0$.</li>
+                        <li>$0{,}90 H_0 = 540 \\implies H_0 = 540 \\div 0{,}90 = \\mathbf{600}$ (ribuan rupiah).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 600</p>
+                `
+            },
+            {
+                id: 8,
+                type: 'short',
+                section: "Topik B: Persentase",
+                question: "Sebuah wadah berisi $600\\text{ gram}$ larutan gula dengan kadar gula $15\\%$. Pemiliknya memanaskan larutan tersebut sehingga sebagian air menguap dan kadar gula dalam larutan naik menjadi $25\\%$. Berapa gram air yang telah menguap dari larutan tersebut?",
+                correctAnswer: "240",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Massa gula konstan $= 15\\% \\times 600 = 90\\text{ gram}$.</li>
+                        <li>Kadar gula baru $= 25\\% = \\frac{1}{4}$ larutan baru.</li>
+                        <li>Massa larutan baru $= 90 \\times 4 = 360\\text{ gram}$.</li>
+                        <li>Air menguap $= 600 - 360 = \\mathbf{240}\\text{ gram}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 240</p>
+                `
+            },
+            {
+                id: 9,
+                type: 'short',
+                section: "Topik B: Persentase",
+                question: "Sebuah toko pakaian menjual jaket. Jika toko memberikan diskon $10\\%$ dari harga label, toko mendapat untung Rp80 (dalam ribuan rupiah). Namun, jika toko memberikan diskon $20\\%$ dari harga label, toko mengalami kerugian sebesar Rp20 (dalam ribuan rupiah). Berapakah modal (harga pokok) jaket tersebut dalam ribuan rupiah?",
+                correctAnswer: "820",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>(1) $0{,}90 L - M = 80$ dan (2) $0{,}80 L - M = -20$.</li>
+                        <li>Kurangkan (1) - (2) $\\implies 0{,}10 L = 100 \\implies L = 1000$ (harga label).</li>
+                        <li>Substitusi $L = 1000 \\implies 0{,}90(1000) - M = 80 \\implies 900 - M = 80 \\implies M = \\mathbf{820}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 820</p>
+                `
+            },
+            {
+                id: 10,
+                type: 'short',
+                section: "Topik B: Persentase",
+                question: "Di sebuah klub olahraga, terdapat $400$ anggota. Sebanyak $30\\%$ dari anggota tersebut adalah perempuan. Ketika beberapa anggota perempuan baru bergabung, persentase anggota perempuan di klub tersebut meningkat menjadi $44\\%$. Berapa banyak anggota perempuan baru yang bergabung?",
+                correctAnswer: "100",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Anggota laki-laki konstan $= 70\\% \\times 400 = 280$ orang.</li>
+                        <li>Laki-laki mewakili $100\\% - 44\\% = 56\\%$ dari total anggota baru.</li>
+                        <li>Total anggota baru $= 280 \\div 0{,}56 = 500$ orang.</li>
+                        <li>Perempuan baru $= 500 - 400 = \\mathbf{100}$ orang.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 100</p>
+                `
+            },
+            {
+                id: 11,
+                type: 'short',
+                section: "Topik B: Persentase",
+                question: "Penghasilan Pak Anton $25\\%$ lebih tinggi dari penghasilan Pak Budi. Penghasilan Pak Candra $20\\%$ lebih rendah dari penghasilan Pak Budi. Jika total penghasilan ketiga orang tersebut adalah Rp610 (dalam puluhan ribu rupiah), berapakah penghasilan Pak Anton dalam puluhan ribu rupiah?",
+                correctAnswer: "250",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misal Budi $= 100u \\implies$ Anton $= 125u$, Candra $= 80u$.</li>
+                        <li>Total $= 125u + 100u + 80u = 305u = 610 \\implies 1u = 2$.</li>
+                        <li>Penghasilan Anton $= 125 \\times 2 = \\mathbf{250}$ (puluhan ribu rupiah).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 250</p>
+                `
+            },
+            {
+                id: 12,
+                type: 'short',
+                section: "Topik B: Persentase",
+                question: "Sebuah gudang memiliki $800$ barang, $65\\%$ di antaranya adalah barang jenis A dan sisanya barang jenis B. Setelah sejumlah barang jenis A terjual, persentase barang jenis A yang tersisa di gudang berkurang menjadi $30\\%$ dari total barang yang tersisa. Berapa banyak barang jenis A yang terjual?",
+                correctAnswer: "400",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Barang B konstan $= (100\\% - 65\\%) \\times 800 = 35\\% \\times 800 = 280$ unit.</li>
+                        <li>Setelah A terjual, B menjadi $100\\% - 30\\% = 70\\%$ dari sisa total.</li>
+                        <li>Total sisa di gudang $= 280 \\div 0{,}70 = 400$ unit.</li>
+                        <li>Barang A terjual $= 800 - 400 = \\mathbf{400}$ unit.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 400</p>
+                `
+            },
+            {
+                id: 13,
+                type: 'short',
+                section: "Topik C: Rasio",
+                question: "Rasio jumlah kelereng merah dan kelereng biru dalam sebuah kotak adalah $5 : 3$. Setelah $36$ kelereng merah diambil dan $12$ kelereng biru ditambahkan ke dalam kotak, rasio kelereng merah dan biru menjadi $1 : 1$. Berapakah total kelereng merah dan biru di dalam kotak pada awalnya?",
+                correctAnswer: "192",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Awal: Merah $= 5x$, Biru $= 3x$.</li>
+                        <li>$\\frac{5x - 36}{3x + 12} = \\frac{1}{1} \\implies 5x - 36 = 3x + 12 \\implies 2x = 48 \\implies x = 24$.</li>
+                        <li>Total awal $= 8x = 8 \\times 24 = \\mathbf{192}$ kelereng.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 192</p>
+                `
+            },
+            {
+                id: 14,
+                type: 'short',
+                section: "Topik C: Rasio",
+                question: "Rasio tabungan Amir dan Bima adalah $4 : 5$, sedangkan rasio tabungan Bima dan Ciko adalah $6 : 7$. Jika selisih tabungan Ciko dan Amir adalah Rp220 (dalam ribuan rupiah), berapakah jumlah tabungan Bima dalam ribuan rupiah?",
+                correctAnswer: "600",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Amir : Bima $= 4 : 5 = 24 : 30$ dan Bima : Ciko $= 6 : 7 = 30 : 35 \\implies$ Amir : Bima : Ciko $= 24 : 30 : 35$.</li>
+                        <li>Selisih Ciko - Amir $= 35u - 24u = 11u = 220 \\implies 1u = 20$.</li>
+                        <li>Tabungan Bima $= 30u = 30 \\times 20 = \\mathbf{600}$ (ribuan rupiah).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 600</p>
+                `
+            },
+            {
+                id: 15,
+                type: 'short',
+                section: "Topik C: Rasio",
+                question: "Dito dan Erik masing-masing memiliki sejumlah uang dengan rasio $7 : 4$. Jika Dito memberikan Rp90 (dalam ribuan rupiah) kepada Erik, maka rasio uang Dito dan Erik menjadi $5 : 6$. Berapakah total uang Dito dan Erik seluruhnya dalam ribuan rupiah?",
+                correctAnswer: "495",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Awal Dito : Erik $= 7 : 4$ (total $11u$). Akhir Dito : Erik $= 5 : 6$ (total $11u$).</li>
+                        <li>Perubahan Dito $= 7u - 5u = 2u = 90 \\implies 1u = 45$.</li>
+                        <li>Total uang $= 11u = 11 \\times 45 = \\mathbf{495}$ (ribuan rupiah).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 495</p>
+                `
+            },
+            {
+                id: 16,
+                type: 'short',
+                section: "Topik C: Rasio",
+                question: "Lilin P dan Lilin Q menyala bersamaan dengan panjang awal yang berbeda. Lilin P dapat terbakar habis dalam waktu $8\\text{ jam}$, sedangkan Lilin Q terbakar habis dalam waktu $12\\text{ jam}$. Setelah terbakar selama $3\\text{ jam}$, tinggi kedua lilin menjadi persis sama. Berapakah panjang awal Lilin P dalam $\\text{cm}$ jika panjang awal Lilin Q adalah $70\\text{ cm}$?",
+                correctAnswer: "84",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Sisa Lilin P setelah $3\\text{ jam} = (1 - \\frac{3}{8}) P = \\frac{5}{8} P$.</li>
+                        <li>Sisa Lilin Q setelah $3\\text{ jam} = (1 - \\frac{3}{12}) Q = \\frac{3}{4} Q$.</li>
+                        <li>Karena sisa sama: $\\frac{5}{8} P = \\frac{3}{4} Q \\implies P = \\frac{6}{5} Q$.</li>
+                        <li>Jika $Q = 70\\text{ cm} \\implies P = \\frac{6}{5} \\times 70 = \\mathbf{84}\\text{ cm}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 84</p>
+                `
+            },
+            {
+                id: 17,
+                type: 'short',
+                section: "Topik C: Rasio",
+                question: "Tiga wadah A, B, dan C masing-masing berisi air dengan rasio $5 : 3 : 2$. Sejumlah air dipindahkan dari wadah A ke wadah B dan C sedemikian rupa sehingga rasio air di wadah A, B, dan C yang baru menjadi $2 : 4 : 4$. Jika total air di ketiga wadah adalah $500\\text{ liter}$, berapa liter air yang dipindahkan keluar dari wadah A?",
+                correctAnswer: "150",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Awal A : B : C $= 5 : 3 : 2$ (total $10u = 500\\text{ L} \\implies 1u = 50\\text{ L}$). Wadah A $= 5 \\times 50 = 250\\text{ L}$.</li>
+                        <li>Akhir A : B : C $= 2 : 4 : 4$ (total $10u = 500\\text{ L}$). Wadah A sisa $= 2 \\times 50 = 100\\text{ L}$.</li>
+                        <li>Air dipindahkan dari A $= 250 - 100 = \\mathbf{150}\\text{ liter}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 150</p>
+                `
+            },
+            {
+                id: 18,
+                type: 'short',
+                section: "Topik C: Rasio",
+                question: "Maya memiliki koin Rp500 dan koin Rp1.000 dengan rasio banyaknya koin $4 : 3$. Setelah ia menukarkan 5 koin Rp1.000 miliknya menjadi koin Rp500 (1 koin Rp1.000 ditukar menjadi 2 koin Rp500), rasio banyaknya koin Rp500 dan koin Rp1.000 menjadi $3 : 1$. Berapakah total nilai seluruh koin Maya pada awalnya dalam ribuan rupiah?",
+                correctAnswer: "25",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Awal: Koin 500 $= 4x$, Koin 1000 $= 3x$. Menukar 5 koin 1000 dapat 10 koin 500.</li>
+                        <li>Rasio baru: $\\frac{4x + 10}{3x - 5} = \\frac{3}{1} \\implies 4x + 10 = 9x - 15 \\implies 5x = 25 \\implies x = 5$.</li>
+                        <li>Koin 500 $= 20$ (Rp10.000), Koin 1000 $= 15$ (Rp15.000).</li>
+                        <li>Total nilai $= \\text{Rp}25.000 \\implies \\mathbf{25}$ (ribuan rupiah).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 25</p>
+                `
+            },
+            {
+                id: 19,
+                type: 'short',
+                section: "Topik D: Integrasi",
+                question: "Pak Rudi memiliki kebun buah. Sebanyak $\\frac{2}{5}$ dari seluruh pohon adalah pohon mangga. Rasio jumlah pohon jeruk dibanding pohon apel adalah $3 : 2$, dan tidak ada jenis pohon lain di kebun tersebut. Jika $25\\%$ dari pohon mangga tumbang akibat badai, tersisa $180$ pohon mangga di kebun tersebut. Berapakah total jumlah seluruh pohon (mangga, jeruk, dan apel) yang ada di kebun pada awalnya?",
+                correctAnswer: "600",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Pohon Mangga $= \\frac{2}{5} = 40\\%$ dari total.</li>
+                        <li>Setelah $25\\%$ tumbang, sisa mangga $= 75\\% \\times \\text{Mangga Awal} = 180$.</li>
+                        <li>Pohon Mangga awal $= 180 \\div 0{,}75 = 240$ pohon.</li>
+                        <li>Total seluruh pohon awal $= 240 \\div 2 \\times 5 = \\mathbf{600}$ pohon.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 600</p>
+                `
+            },
+            {
+                id: 20,
+                type: 'short',
+                section: "Topik D: Integrasi",
+                question: "Tiga orang anak, Aldi, Bayu, dan Candra, mengumpulkan dana untuk amal. Rasio uang Aldi dan Bayu mula-mula adalah $3 : 4$. Uang Candra mula-mula adalah $50\\%$ dari total uang Aldi dan Bayu gabungan. Aldi mendonasikan $\\frac{1}{3}$ uangnya, Bayu mendonasikan $50\\%$ uangnya, dan Candra mendonasikan Rp60 (dalam ribuan rupiah). Setelah donasi tersebut, sisa uang Aldi, Bayu, dan Candra menjadi sama banyak. Berapakah total uang awal mereka bertiga dalam ribuan rupiah?",
+                correctAnswer: "420",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misal Aldi $= 3x$, Bayu $= 4x \\implies$ Candra $= 50\\% \\times (3x + 4x) = 3{,}5x$.</li>
+                        <li>Sisa Aldi $= 2x$, Sisa Bayu $= 2x$, Sisa Candra $= 3{,}5x - 60$.</li>
+                        <li>Karena sisa sama: $3{,}5x - 60 = 2x \\implies 1{,}5x = 60 \\implies x = 40$.</li>
+                        <li>Uang awal: Aldi $= 120$, Bayu $= 160$, Candra $= 140$.</li>
+                        <li>Total awal $= 120 + 160 + 140 = \\mathbf{420}$ (ribuan rupiah).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 420</p>
+                `
+            }
+        ];
+
+        // Global State
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 50 * 60; // 50 minutes exact
+        let timerInterval;
+        let isSubmitted = false;
+
+        function initQuiz() {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        }
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const badgeClass = "bg-blue-100 text-blue-900 border-blue-200";
+
+                const inputSectionHTML = `
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Jawaban Akhir (Bilangan Bulat) :</label>
+                        <div class="flex items-center gap-3 max-w-sm">
+                            <input type="text" id="input-q${qNum}" placeholder="Ketik angka..." 
+                                   class="w-full text-lg font-black font-mono px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-600 focus:bg-white focus:outline-none transition-all shadow-inner"
+                                   oninput="onShortInput(${qNum}, this.value)">
+                            <button type="button" onclick="clearShortInput(${qNum})" class="px-3 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-xs transition cursor-pointer">Hapus</button>
+                        </div>
+                    </div>
+                `;
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.section}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Soal ${qNum} dari ${totalQuestions}</span>
+                        </div>
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[260px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-xl font-semibold leading-relaxed mb-4">${q.question}</div>
+                            </div>
+                            ${inputSectionHTML}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            if (!navContainer) return;
+            navContainer.innerHTML = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        window.startQuiz = function startQuiz() {
+            const slidesContainer = document.getElementById('slides-container');
+            if (!slidesContainer || slidesContainer.children.length === 0) {
+                initQuiz();
+            }
+            const startScreen = document.getElementById('start-screen');
+            const quizApp = document.getElementById('quiz-app');
+            
+            if (startScreen) startScreen.classList.add('hidden-section');
+            if (quizApp) quizApp.classList.remove('hidden-section');
+            
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        };
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                if (timerDisplay) timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300 && timerDisplay) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const targetSlide = document.getElementById(`slide-${n}`);
+            if (targetSlide) targetSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            if (prevBtn) prevBtn.disabled = (n === 1);
+            if (nextBtn) {
+                if (n === totalQuestions) {
+                    nextBtn.innerHTML = '<span>Kumpulkan Lembar Ujian</span>';
+                    nextBtn.className = "px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = openSubmitModal;
+                } else {
+                    nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                    nextBtn.className = "px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = nextQuestion;
+                }
+            }
+        }
+
+        window.jumpToQuestion = function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        };
+
+        window.nextQuestion = function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        };
+
+        window.prevQuestion = function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        };
+
+        window.onShortInput = function onShortInput(qNum, val) {
+            const cleaned = val.replace(/[^\d]/g, '');
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = cleaned;
+
+            if (cleaned.length > 0) {
+                userAnswers[qNum] = cleaned;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            updateNavState(qNum);
+        };
+
+        window.clearShortInput = function clearShortInput(qNum) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = '';
+            delete userAnswers[qNum];
+            updateNavState(qNum);
+        };
+
+        function updateNavState(qNum) {
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (btn) {
+                if (userAnswers[qNum] !== undefined) {
+                    btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    btn.classList.remove('bg-slate-50', 'text-slate-600');
+                } else {
+                    btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    btn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            const counterEl = document.getElementById('answered-counter');
+            if (counterEl) counterEl.innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        window.openSubmitModal = function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Konfirmasi Pengumpulan Ujian";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-slate-800";
+            document.getElementById('modal-message').innerText = "Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian sekarang? Jawaban tidak dapat diubah setelah kumpul.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali ke Ujian</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        };
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Waktu pengerjaan 50 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        }
+
+        window.closeModal = function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden-section');
+        };
+
+        window.executeSubmit = function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalCorrect = 0;
+            let totalIncorrect = 0;
+
+            questionEvaluation = [];
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                const isCorrect = (userAns !== null && userAns.toString().trim() === q.correctAnswer.toString().trim());
+
+                if (isCorrect) {
+                    totalCorrect++;
+                } else {
+                    totalIncorrect++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const pointsPerQuestion = (100 / totalQuestions);
+            const totalScore = Math.round(totalCorrect * pointsPerQuestion);
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = totalCorrect;
+            document.getElementById('incorrect-count').innerText = totalIncorrect;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = totalCorrect;
+            document.getElementById('cnt-wrong').innerText = totalIncorrect;
+
+            renderReviewCards('all');
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> KOSONG</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                const userAnsDisplay = userAns !== null ? userAns : '<em>Kosong</em>';
+                const keyDisplay = q.correctAnswer;
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Soal #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base font-semibold text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Jawaban Anda:</p>
+                                    <p class="font-black text-lg ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsDisplay}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-indigo-800 mb-1">Kunci Jawaban Resmi:</p>
+                                    <p class="font-black text-lg text-indigo-700">${keyDisplay}</p>
+                                </div>
+                            </div>
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Rinci & Solusi Langkah demi Langkah:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        }
+
+        window.filterReview = function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initQuiz);
+        } else {
+            initQuiz();
+        }
+    </script>
+</body>
+</html>
