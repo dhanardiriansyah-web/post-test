@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMAT Focus Edition - CAT IRT-3PL Simulation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 text-[11px] font-black rounded-full uppercase tracking-wider">GMAT Prep Engine</span>
+                <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-[11px] font-black rounded-full uppercase tracking-wider">IRT 3PL Adaptive</span>
+            </div>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-black text-center text-slate-900 mb-1">GMAT FOCUS EDITION CAT SIMULATION</h1>
+            <p class="text-center text-slate-500 font-semibold mb-4 text-xs md:text-sm">Computer Adaptive Test Powered by 3-Parameter Logistic (3PL) IRT Model</p>
+            
+            <div class="bg-indigo-50/70 p-4 rounded-xl md:rounded-2xl mb-4 border border-indigo-100 shadow-sm space-y-2">
+                <h2 class="font-bold text-indigo-900 flex items-center text-xs md:text-sm">
+                    <svg class="w-4 h-4 mr-1.5 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    CAT Exam Rules & Adaptive Mechanism:
+                </h2>
+                <ul class="list-disc list-inside text-xs text-indigo-950 space-y-1 leading-relaxed">
+                    <li><strong>Adaptive Delivery:</strong> Question difficulty adjusts real-time based on your IRT ability estimate ($\theta$).</li>
+                    <li><strong>Linear Flow:</strong> You must answer the current question to proceed. Jumping back during active testing is disabled.</li>
+                    <li><strong>Review & Edit Screen:</strong> Once all 21 questions are answered, you may review marked questions and edit up to <strong>3 answers</strong> max.</li>
+                    <li>Time Limit: <strong>45 Minutes</strong> for 21 Quantitative Reasoning Questions.</li>
+                </ul>
+            </div>
+
+            <button type="button" id="start-btn" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-base md:text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Start Adaptive Test</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w-full py-2.5 md:py-3 text-center text-xs text-slate-600">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">GMAT FOCUS CAT</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Item Response Theory Engine</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Time Remaining:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            45:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 mt-6">
+                <!-- Status Tracker -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-black text-slate-400 uppercase tracking-wider block">Progress</span>
+                        <span class="text-sm font-extrabold text-slate-800">Question <span id="current-q-index">1</span> of <span id="target-q-total">21</span></span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs font-black text-slate-400 uppercase tracking-wider block">Estimated Ability ($\theta$)</span>
+                        <span class="text-sm font-extrabold text-indigo-600 font-mono" id="theta-display">0.00</span>
+                    </div>
+                </div>
+
+                <!-- Active Question Card -->
+                <div id="question-card-container" class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <!-- Injected dynamically -->
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex justify-between items-center mb-8">
+                    <button type="button" id="bookmark-btn" onclick="toggleBookmarkCurrent()" class="px-4 py-3 bg-amber-100 hover:bg-amber-200 text-amber-800 font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer text-sm">
+                        <span>★</span> <span id="bookmark-text">Mark for Review</span>
+                    </button>
+                    <button type="button" id="submit-answer-btn" onclick="submitCurrentAnswer()" disabled class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer">
+                        <span>Confirm & Next</span> &#8594;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUESTION REVIEW & EDIT SCREEN -->
+    <div id="review-edit-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-slate-200 mb-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-200 pb-4 mb-6">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-800">Question Review & Edit Screen</h2>
+                    <p class="text-sm text-slate-500">GMAT Focus Edition allows you to change up to <strong>3 answers</strong> before final submission.</p>
+                </div>
+                <div class="mt-3 md:mt-0 bg-indigo-50 border border-indigo-200 px-4 py-2 rounded-2xl text-right">
+                    <span class="text-xs font-bold text-indigo-800 block uppercase">Edits Remaining</span>
+                    <span class="text-xl font-black text-indigo-600 font-mono" id="edits-left-count">3 / 3</span>
+                </div>
+            </div>
+
+            <!-- Question Grid for Review -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 mb-8" id="review-grid-container">
+                <!-- Injected via JS -->
+            </div>
+
+            <button type="button" onclick="openSubmitModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Finalize & End Section</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center">
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Final Submission</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Are you sure you want to end this section and calculate your final IRT score?</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300">Return to Review</button>
+                <button type="button" onclick="executeFinalScoreCalculation()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-lg">End Section</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & SCORE REPORT SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6 mb-16">
+        <div class="bg-gradient-to-br from-indigo-800 via-indigo-900 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3">IRT 3PL Score Report</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">SECTION SCORE & PERFORMANCE</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Calculated using GMAT Focus Section Scale (60 - 90).</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">GMAT Section Score</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="gmat-section-score">60</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Theta ($\theta$ Ability)</p>
+                    <p class="text-3xl md:text-4xl font-black text-white" id="final-theta">0.00</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Accuracy</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="accuracy-percent">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Edits Used</p>
+                    <p class="text-2xl md:text-3xl font-black text-indigo-200" id="edits-used-display">0 / 3</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Review Cards Container -->
+        <div id="detailed-solutions-container" class="mt-10 space-y-6">
+            <h3 class="text-2xl font-black text-slate-800 border-b border-slate-200 pb-3">Complete Explanations & Key Solutions</h3>
+            <div id="solutions-list" class="space-y-6"></div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC (CAT IRT-3PL ENGINE) -->
+    <script>
+        // Path file JSON lokal untuk deployment GitHub Pages
+        const JSON_URL = "arithmetic_GMAT.json";
+
+        // Global State CAT Engine
+        let itemBank = [];
+        let administeredHistory = [];
+        let currentItem = null;
+        let selectedOptionTemp = null;
+        let currentTheta = 0.0; // Point awal ability
+        let totalQuestionsTarget = 21; // Standar Quantitative GMAT Focus (21 Soal)
+        let editsLeft = 3;
+        let bookmarked = {};
+        let timeLeft = 45 * 60; // 45 Menit
+        let timerInterval;
+
+        // --- MATH FUNCTIONS FOR 3PL IRT MODEL ---
+        function prob3PL(theta, a, b, c) {
+            return c + (1 - c) / (1 + Math.exp(-a * (theta - b)));
+        }
+
+        function updateThetaMLE() {
+            if (administeredHistory.length === 0) return 0.0;
+
+            let theta = currentTheta;
+            for (let iter = 0; iter < 10; iter++) {
+                let sum1 = 0;
+                let sum2 = 0;
+
+                administeredHistory.forEach(item => {
+                    const P = prob3PL(theta, item.a, item.b, item.c);
+                    const Q = 1 - P;
+                    const u = item.userAnswer === item.correctAnswer ? 1 : 0;
+                    
+                    const P_star = (P - item.c) / (1 - item.c);
+                    const dP = item.a * P_star * Q;
+
+                    sum1 += (u - P) * (dP / (P * Q));
+                    sum2 += Math.pow(dP, 2) / (P * Q);
+                });
+
+                if (sum2 === 0) break;
+                const delta = sum1 / sum2;
+                theta = theta + delta;
+                
+                if (theta > 3.0) { theta = 3.0; break; }
+                if (theta < -3.0) { theta = -3.0; break; }
+                if (Math.abs(delta) < 0.01) break;
+            }
+            return parseFloat(theta.toFixed(2));
+        }
+
+        function getNextCATItem() {
+            const unadministered = itemBank.filter(item => !administeredHistory.some(h => h.id === item.id));
+            if (unadministered.length === 0) return null;
+
+            let bestItem = null;
+            let maxInformation = -1;
+
+            unadministered.forEach(item => {
+                const P = prob3PL(currentTheta, item.a, item.b, item.c);
+                const Q = 1 - P;
+                const info = (Math.pow(item.a, 2) * Q / P) * Math.pow((P - item.c) / (1 - item.c), 2);
+                
+                if (info > maxInformation) {
+                    maxInformation = info;
+                    bestItem = item;
+                }
+            });
+
+            return bestItem;
+        }
+
+        // --- APP FLOW LOGIC ---
+        async function fetchItemBank() {
+            try {
+                const response = await fetch(JSON_URL);
+                if (!response.ok) throw new Error("HTTP Status " + response.status);
+                itemBank = await response.json();
+                console.log("Successfully loaded " + itemBank.length + " items from " + JSON_URL);
+            } catch(e) {
+                console.error("Failed to load JSON file:", e);
+                alert("Error loading arithmetic_GMAT.json file. Make sure the file exists in the same folder.");
+            }
+        }
+
+        function startQuiz() {
+            if (itemBank.length === 0) {
+                alert("Questions data not ready. Please try again.");
+                return;
+            }
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            startTimer();
+            loadNextAdaptiveQuestion();
+        }
+
+        function loadNextAdaptiveQuestion() {
+            if (administeredHistory.length >= totalQuestionsTarget) {
+                openReviewEditScreen();
+                return;
+            }
+
+            currentItem = getNextCATItem();
+            if (!currentItem) {
+                openReviewEditScreen();
+                return;
+            }
+
+            selectedOptionTemp = null;
+            document.getElementById('current-q-index').innerText = administeredHistory.length + 1;
+            document.getElementById('target-q-total').innerText = totalQuestionsTarget;
+            document.getElementById('theta-display').innerText = currentTheta.toFixed(2);
+            document.getElementById('submit-answer-btn').disabled = true;
+
+            updateBookmarkButtonUI();
+
+            const card = document.getElementById('question-card-container');
+            let optionsHTML = '<div class="space-y-3 mt-4">';
+            currentItem.options.forEach((optText, idx) => {
+                const letter = String.fromCharCode(65 + idx);
+                optionsHTML += `
+                    <div id="cat-opt-${idx}" onclick="selectCATOption(${idx})" class="option-card p-4 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-indigo-50/50 hover:border-indigo-300 transition-all cursor-pointer flex items-center gap-3">
+                        <div class="opt-ind w-8 h-8 rounded-xl bg-white border border-slate-300 text-slate-600 font-extrabold flex items-center justify-center text-sm shrink-0">${letter}</div>
+                        <div class="text-slate-800 text-sm md:text-base font-medium">${optText}</div>
+                    </div>
+                `;
+            });
+            optionsHTML += '</div>';
+
+            card.innerHTML = `
+                <div class="mb-3 flex justify-between items-center">
+                    <span class="bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black px-3 py-1 rounded-lg uppercase">${currentItem.section}</span>
+                    <span class="text-slate-400 font-mono text-xs">Item Difficulty (b): ${currentItem.b}</span>
+                </div>
+                <div class="text-slate-800 text-base md:text-xl font-semibold leading-relaxed mb-4">${currentItem.question}</div>
+                ${optionsHTML}
+            `;
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        }
+
+        function selectCATOption(idx) {
+            selectedOptionTemp = idx;
+            document.getElementById('submit-answer-btn').disabled = false;
+
+            const opts = document.querySelectorAll('.option-card');
+            opts.forEach((el, i) => {
+                const ind = el.querySelector('.opt-ind');
+                if (i === idx) {
+                    el.className = "option-card p-4 rounded-2xl border-2 border-indigo-600 bg-indigo-50 shadow-sm transition-all cursor-pointer flex items-center gap-3";
+                    ind.className = "opt-ind w-8 h-8 rounded-xl bg-indigo-600 text-white font-extrabold flex items-center justify-center text-sm shrink-0";
+                } else {
+                    el.className = "option-card p-4 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-indigo-50/50 hover:border-indigo-300 transition-all cursor-pointer flex items-center gap-3";
+                    ind.className = "opt-ind w-8 h-8 rounded-xl bg-white border border-slate-300 text-slate-600 font-extrabold flex items-center justify-center text-sm shrink-0";
+                }
+            });
+        }
+
+        function toggleBookmarkCurrent() {
+            if (!currentItem) return;
+            bookmarked[currentItem.id] = !bookmarked[currentItem.id];
+            updateBookmarkButtonUI();
+        }
+
+        function updateBookmarkButtonUI() {
+            const bookmarkText = document.getElementById('bookmark-text');
+            if (currentItem && bookmarked[currentItem.id]) {
+                bookmarkText.innerText = "Unmark Question";
+            } else {
+                bookmarkText.innerText = "Mark for Review";
+            }
+        }
+
+        function submitCurrentAnswer() {
+            if (selectedOptionTemp === null) return;
+
+            administeredHistory.push({
+                ...currentItem,
+                userAnswer: selectedOptionTemp
+            });
+
+            currentTheta = updateThetaMLE();
+            loadNextAdaptiveQuestion();
+        }
+
+        function openReviewEditScreen() {
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('review-edit-screen').classList.remove('hidden-section');
+
+            const grid = document.getElementById('review-grid-container');
+            grid.innerHTML = '';
+
+            administeredHistory.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const letter = String.fromCharCode(65 + item.userAnswer);
+                const isMarked = bookmarked[item.id] ? '★' : '';
+
+                grid.innerHTML += `
+                    <div class="p-3 rounded-2xl border-2 border-slate-200 bg-slate-50 text-center flex flex-col justify-between">
+                        <span class="text-xs font-black text-slate-400">Q${qNum} <span class="text-amber-500">${isMarked}</span></span>
+                        <span class="text-lg font-black text-indigo-700 my-1">${letter}</span>
+                        <button onclick="editAnswerModal(${idx})" ${editsLeft === 0 ? 'disabled' : ''} class="text-[10px] bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-bold py-1 px-2 rounded-lg disabled:opacity-40">Edit</button>
+                    </div>
+                `;
+            });
+        }
+
+        function editAnswerModal(historyIdx) {
+            if (editsLeft <= 0) return;
+            const item = administeredHistory[historyIdx];
+            const newChoice = prompt(`Edit Answer for Q${historyIdx + 1}.\nCurrent Choice: ${String.fromCharCode(65 + item.userAnswer)}\nEnter new option letter (A, B, C, D, or E):`);
+            
+            if (newChoice) {
+                const charCode = newChoice.toUpperCase().charCodeAt(0) - 65;
+                if (charCode >= 0 && charCode < item.options.length && charCode !== item.userAnswer) {
+                    item.userAnswer = charCode;
+                    editsLeft--;
+                    document.getElementById('edits-left-count').innerText = `${editsLeft} / 3`;
+                    openReviewEditScreen();
+                }
+            }
+        }
+
+        function openSubmitModal() {
+            document.getElementById('custom-modal').classList.remove('hidden-section');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden-section');
+        }
+
+        function executeFinalScoreCalculation() {
+            closeModal();
+            clearInterval(timerInterval);
+            document.getElementById('review-edit-screen').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            // Formulasi konversi Theta ke Skala GMAT Focus (60 - 90)
+            let scaleScore = Math.round(75 + (currentTheta * 5));
+            if (scaleScore > 90) scaleScore = 90;
+            if (scaleScore < 60) scaleScore = 60;
+
+            let correctCount = 0;
+            administeredHistory.forEach(item => {
+                if (item.userAnswer === item.correctAnswer) correctCount++;
+            });
+
+            const accuracy = Math.round((correctCount / administeredHistory.length) * 100);
+
+            document.getElementById('gmat-section-score').innerText = scaleScore;
+            document.getElementById('final-theta').innerText = currentTheta.toFixed(2);
+            document.getElementById('accuracy-percent').innerText = `${accuracy}%`;
+            document.getElementById('edits-used-display').innerText = `${3 - editsLeft} / 3`;
+
+            renderSolutionsList();
+        }
+
+        function renderSolutionsList() {
+            const container = document.getElementById('solutions-list');
+            container.innerHTML = '';
+
+            administeredHistory.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const isCorrect = item.userAnswer === item.correctAnswer;
+                const userChoiceText = `(${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}`;
+                const keyChoiceText = `(${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}`;
+
+                container.innerHTML += `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200' : 'border-rose-200'} p-6 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-black text-slate-800">Question #${qNum}</span>
+                            <span class="text-xs font-bold px-3 py-1 rounded-full ${isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                                ${isCorrect ? 'CORRECT' : 'INCORRECT'}
+                            </span>
+                        </div>
+                        <p class="text-base font-semibold text-slate-800 mb-4">${item.question}</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4 text-sm font-bold">
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-xs text-slate-400 uppercase block">Your Choice:</span>
+                                <span class="${isCorrect ? 'text-emerald-600' : 'text-rose-600'}">${userChoiceText}</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-indigo-50 border border-indigo-100">
+                                <span class="text-xs text-indigo-400 uppercase block">Official Answer Key:</span>
+                                <span class="text-indigo-700">${keyChoiceText}</span>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-sm text-slate-700 space-y-1">
+                            <p class="font-black text-indigo-900 mb-1">Explanation:</p>
+                            ${item.explanation || 'No explanation provided.'}
+                        </div>
+                    </div>
+                `;
+            });
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    openReviewEditScreen();
+                    return;
+                }
+                timeLeft--;
+                let m = Math.floor(timeLeft / 60);
+                let s = timeLeft % 60;
+                timerDisplay.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        window.onload = fetchItemBank;
+    </script>
+</body>
+</html>
