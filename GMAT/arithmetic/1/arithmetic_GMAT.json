@@ -1,0 +1,1348 @@
+[
+  {
+    "id": 1,
+    "section": "Quantitative Reasoning",
+    "question": "What is the sum of all distinct prime factors of 210?",
+    "options": ["17", "19", "21", "23", "25"],
+    "correctAnswer": 0,
+    "b": -1.5,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "$210 = 2 \\times 3 \\times 5 \\times 7$. Distinct prime factors are $2, 3, 5, 7$. Sum = $2 + 3 + 5 + 7 = 17$."
+  },
+  {
+    "id": 2,
+    "section": "Quantitative Reasoning",
+    "question": "If $n$ is an even integer, which of the following expressions MUST be an odd integer?",
+    "options": ["$2n + 2$", "$n^2 + 1$", "$3n + 4$", "$n^3$", "$n^2 + n$"],
+    "correctAnswer": 1,
+    "b": -1.4,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "If $n$ is even, $n^2$ is even, so $n^2 + 1$ is always odd."
+  },
+  {
+    "id": 3,
+    "section": "Quantitative Reasoning",
+    "question": "What is the value of $\\frac{3}{8} + \\frac{5}{12}$?",
+    "options": ["$8/20$", "$19/24$", "$7/12$", "$17/24$", "$5/6$"],
+    "correctAnswer": 1,
+    "b": -1.5,
+    "a": 1.0,
+    "c": 0.2,
+    "explanation": "$\\frac{3}{8} + \\frac{5}{12} = \\frac{9}{24} + \\frac{10}{24} = \\frac{19}{24}$."
+  },
+  {
+    "id": 4,
+    "section": "Quantitative Reasoning",
+    "question": "What is $15\\%$ of $300$?",
+    "options": ["30", "35", "40", "45", "50"],
+    "correctAnswer": 3,
+    "b": -1.8,
+    "a": 1.0,
+    "c": 0.2,
+    "explanation": "$0.15 \\times 300 = 45$."
+  },
+  {
+    "id": 5,
+    "section": "Quantitative Reasoning",
+    "question": "What is the greatest common divisor (GCD) of 36 and 54?",
+    "options": ["6", "9", "12", "18", "27"],
+    "correctAnswer": 3,
+    "b": -1.3,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "$36 = 18 \\times 2$ and $54 = 18 \\times 3$. GCD is 18."
+  },
+  {
+    "id": 6,
+    "section": "Quantitative Reasoning",
+    "question": "The average (arithmetic mean) of 5 consecutive integers is 12. What is the smallest integer?",
+    "options": ["8", "9", "10", "11", "12"],
+    "correctAnswer": 2,
+    "b": -1.2,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "For 5 consecutive integers, the mean is the middle integer. Integers are 10, 11, 12, 13, 14. Smallest is 10."
+  },
+  {
+    "id": 7,
+    "section": "Quantitative Reasoning",
+    "question": "What is the units digit of $3^{12}$?",
+    "options": ["1", "3", "7", "9", "5"],
+    "correctAnswer": 0,
+    "b": -1.1,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Powers of 3 cycle units digits: $3, 9, 7, 1$. Since $12 = 4 \\times 3$, $3^{12}$ ends in 1."
+  },
+  {
+    "id": 8,
+    "section": "Quantitative Reasoning",
+    "question": "If a jacket costs \\$120 after a $20\\%$ discount, what was its original price?",
+    "options": ["\\$140", "\\$144", "\\$150", "\\$160", "\\$180"],
+    "correctAnswer": 2,
+    "b": -1.2,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "$0.80 \\times P = 120 \\implies P = 120 / 0.80 = 150$."
+  },
+  {
+    "id": 9,
+    "section": "Quantitative Reasoning",
+    "question": "What is the least common multiple (LCM) of 8, 12, and 15?",
+    "options": ["60", "90", "120", "180", "240"],
+    "correctAnswer": 2,
+    "b": -1.3,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "LCM(8, 12, 15) = $2^3 \\times 3 \\times 5 = 120$."
+  },
+  {
+    "id": 10,
+    "section": "Quantitative Reasoning",
+    "question": "Simplify: $2^4 \\times 2^3 \\div 2^5$.",
+    "options": ["2", "4", "8", "16", "32"],
+    "correctAnswer": 0,
+    "b": -1.6,
+    "a": 1.0,
+    "c": 0.2,
+    "explanation": "$2^{4 + 3 - 5} = 2^2 = 4$."
+  },
+  {
+    "id": 11,
+    "section": "Quantitative Reasoning",
+    "question": "If the ratio of boys to girls in a room is $3:4$ and there are 28 girls, how many boys are there?",
+    "options": ["15", "18", "21", "24", "27"],
+    "correctAnswer": 2,
+    "b": -1.4,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "$4 \\text{ units} = 28 \\implies 1 \\text{ unit} = 7$. Boys = $3 \\times 7 = 21$."
+  },
+  {
+    "id": 12,
+    "section": "Quantitative Reasoning",
+    "question": "What is the value of $|-8| - |5 - 12|$?",
+    "options": ["-15", "-1", "1", "15", "13"],
+    "correctAnswer": 2,
+    "b": -1.5,
+    "a": 1.0,
+    "c": 0.2,
+    "explanation": "$|-8| = 8$, $|5 - 12| = |-7| = 7$. Value = $8 - 7 = 1$."
+  },
+  {
+    "id": 13,
+    "section": "Quantitative Reasoning",
+    "question": "Is the integer $x$ divisible by 6?<br><br>(1) $x$ is divisible by 2.<br>(2) $x$ is divisible by 3.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": -1.0,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Combining (1) and (2) means $x$ is divisible by both 2 and 3, hence divisible by 6. C is sufficient."
+  },
+  {
+    "id": 14,
+    "section": "Quantitative Reasoning",
+    "question": "What is the value of the positive integer $n$?<br><br>(1) $n^2 = 36$<br>(2) $n < 10$",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": -1.2,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Since $n$ is positive, $n^2 = 36 \\implies n = 6$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 15,
+    "section": "Quantitative Reasoning",
+    "question": "Is $a + b$ an even integer?<br><br>(1) $a$ is an even integer.<br>(2) $b$ is an odd integer.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 4,
+    "b": -1.1,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "Even + Odd = Odd. Statement (1) and (2) together prove $a + b$ is NOT even (it's odd), which answers the question definitively as NO. Thus, E is NOT sufficient is false, wait: Both together give a NO, so C is sufficient."
+  },
+  {
+    "id": 16,
+    "section": "Quantitative Reasoning",
+    "question": "What is the average of $p, q,$ and $r$?<br><br>(1) $p + q + r = 45$.<br>(2) $p = 15$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": -1.4,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "Average = $(p+q+r)/3 = 45/3 = 15$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 17,
+    "section": "Quantitative Reasoning",
+    "question": "Is $y > 0$?<br><br>(1) $2y > 0$.<br>(2) $y^2 > 0$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": -1.3,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "$2y > 0 \\implies y > 0$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 18,
+    "section": "Quantitative Reasoning",
+    "question": "What is $20\\%$ of $m$?<br><br>(1) $10\\%$ of $m$ is 15.<br>(2) $m = 150$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 3,
+    "b": -1.5,
+    "a": 1.0,
+    "c": 0.2,
+    "explanation": "From (1), $20\\% = 2 \\times 15 = 30$. From (2), $20\\% \\times 150 = 30$. Each alone is sufficient."
+  },
+  {
+    "id": 19,
+    "section": "Quantitative Reasoning",
+    "question": "Is the integer $k$ prime?<br><br>(1) $k$ is an odd integer.<br>(2) $k$ has exactly two positive factors.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 1,
+    "b": -1.2,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Having exactly two positive factors is the exact definition of a prime number. Statement (2) alone is sufficient."
+  },
+  {
+    "id": 20,
+    "section": "Quantitative Reasoning",
+    "question": "Is $x/y > 0$?<br><br>(1) $xy > 0$.<br>(2) $x > 0$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": -1.0,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "$xy > 0 \\implies x$ and $y$ have the same sign $\\implies x/y > 0$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 21,
+    "section": "Quantitative Reasoning",
+    "question": "A price of a shirt is discounted by $20\\%$ and then further reduced by $10\\%$. What is the total effective percent discount?",
+    "options": ["$28\\%$", "$29\\%$", "$30\\%$", "$32\\%$", "$35\\%$"],
+    "correctAnswer": 0,
+    "b": -0.8,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Multiplier = $0.80 \\times 0.90 = 0.72 \\implies$ Total discount = $1 - 0.72 = 28\\%$."
+  },
+  {
+    "id": 22,
+    "section": "Quantitative Reasoning",
+    "question": "If $A:B = 2:3$ and $B:C = 4:5$, what is the ratio $A:C$?",
+    "options": ["$2:5$", "$8:15$", "$3:5$", "$5:6$", "$6:15$"],
+    "correctAnswer": 1,
+    "b": -0.7,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$A/C = (A/B) \\times (B/C) = (2/3) \\times (4/5) = 8/15$."
+  },
+  {
+    "id": 23,
+    "section": "Quantitative Reasoning",
+    "question": "How many positive divisors does the integer 360 have?",
+    "options": ["12", "18", "24", "30", "36"],
+    "correctAnswer": 2,
+    "b": -0.5,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$360 = 2^3 \\times 3^2 \\times 5^1$. Factors = $(3+1)(2+1)(1+1) = 24$."
+  },
+  {
+    "id": 24,
+    "section": "Quantitative Reasoning",
+    "question": "The mean score of 20 students on a test is 80, and the mean score of another 30 students is 90. What is the combined mean score of all 50 students?",
+    "options": ["84", "85", "86", "87", "88"],
+    "correctAnswer": 2,
+    "b": -0.6,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Combined Mean = $(20 \\times 80 + 30 \\times 90) / 50 = (1600 + 2700) / 50 = 4300 / 50 = 86$."
+  },
+  {
+    "id": 25,
+    "section": "Quantitative Reasoning",
+    "question": "Simplify: $\\frac{\\sqrt{75} + \\sqrt{27}}{\\sqrt{3}}$.",
+    "options": ["$8$", "$6$", "$4\\sqrt{3}$", "$8\\sqrt{3}$", "$12$"],
+    "correctAnswer": 0,
+    "b": -0.8,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "$\\sqrt{75}/\\sqrt{3} + \\sqrt{27}/\\sqrt{3} = \\sqrt{25} + \\sqrt{9} = 5 + 3 = 8$."
+  },
+  {
+    "id": 26,
+    "section": "Quantitative Reasoning",
+    "question": "When a positive integer $n$ is divided by 7, the remainder is 4. What is the remainder when $3n + 2$ is divided by 7?",
+    "options": ["0", "1", "2", "3", "5"],
+    "correctAnswer": 0,
+    "b": -0.4,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$n \\equiv 4 \\pmod 7 \\implies 3n + 2 \\equiv 3(4) + 2 = 14 \\equiv 0 \\pmod 7$."
+  },
+  {
+    "id": 27,
+    "section": "Quantitative Reasoning",
+    "question": "Express $0.272727...$ as a simplified fraction $\\frac{p}{q}$. What is $p + q$?",
+    "options": ["14", "15", "18", "28", "31"],
+    "correctAnswer": 0,
+    "b": -0.5,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$0.2727... = 27/99 = 3/11 \\implies p + q = 3 + 11 = 14$."
+  },
+  {
+    "id": 28,
+    "section": "Quantitative Reasoning",
+    "question": "An investment of \\$5,000 earns $6\\%$ simple interest per annum. How much interest is earned after 9 months?",
+    "options": ["\\$225", "\\$250", "\\$270", "\\$300", "\\$450"],
+    "correctAnswer": 0,
+    "b": -0.7,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Interest = $5000 \\times 0.06 \\times (9/12) = 300 \\times 0.75 = 225$."
+  },
+  {
+    "id": 29,
+    "section": "Quantitative Reasoning",
+    "question": "How many multiples of 6 are between 25 and 150, inclusive?",
+    "options": ["20", "21", "22", "23", "24"],
+    "correctAnswer": 1,
+    "b": -0.6,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "First multiple = 30 ($6 \\times 5$), last = 150 ($6 \\times 25$). Count = $25 - 5 + 1 = 21$."
+  },
+  {
+    "id": 30,
+    "section": "Quantitative Reasoning",
+    "question": "If $x$ is $20\\%$ greater than $y$, and $y$ is $25\\%$ less than $z$, what percentage of $z$ is $x$?",
+    "options": ["$80\\%$", "$85\\%$", "$90\\%$", "$95\\%$", "$100\\%$"],
+    "correctAnswer": 2,
+    "b": -0.5,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$x = 1.2y$, $y = 0.75z \\implies x = 1.2(0.75z) = 0.90z = 90\\%$ of $z$."
+  },
+  {
+    "id": 31,
+    "section": "Quantitative Reasoning",
+    "question": "What is the median of the set of numbers $\\{4, 12, 7, 2, 9, 15, 8\\}$?",
+    "options": ["7", "8", "9", "10", "12"],
+    "correctAnswer": 1,
+    "b": -0.8,
+    "a": 1.0,
+    "c": 0.2,
+    "explanation": "Ordered set: $\\{2, 4, 7, 8, 9, 12, 15\\}$. Median is the 4th value = 8."
+  },
+  {
+    "id": 32,
+    "section": "Quantitative Reasoning",
+    "question": "What is the smallest positive integer $k$ such that $180k$ is a perfect square?",
+    "options": ["2", "3", "5", "6", "10"],
+    "correctAnswer": 2,
+    "b": -0.6,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$180 = 2^2 \\times 3^2 \\times 5^1$. To make exponents even, $k = 5$."
+  },
+  {
+    "id": 33,
+    "section": "Quantitative Reasoning",
+    "question": "Is $a^2 - b^2$ odd?<br><br>(1) $a + b$ is odd.<br>(2) $a$ is even and $b$ is odd.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 3,
+    "b": -0.3,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$a^2 - b^2 = (a-b)(a+b)$. If $a+b$ is odd, $a-b$ is also odd, so product is odd. Each alone is sufficient."
+  },
+  {
+    "id": 34,
+    "section": "Quantitative Reasoning",
+    "question": "Did Company X's revenue increase by more than $10\\%$ from 2023 to 2024?<br><br>(1) Revenue in 2024 was \\$1.15 million.<br>(2) Revenue in 2023 was \\$1.00 million.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": -0.7,
+    "a": 1.1,
+    "c": 0.2,
+    "explanation": "Need both revenues to calculate percent increase: $(1.15 - 1.00)/1.00 = 15\\% > 10\\%$. C is sufficient."
+  },
+  {
+    "id": 35,
+    "section": "Quantitative Reasoning",
+    "question": "Is the fraction $\\frac{x}{y}$ a terminating decimal?<br><br>(1) $y = 25$.<br>(2) $x = 7$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": -0.4,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "A fraction terminates if denominator's prime factors are only 2s and 5s. $y = 25 = 5^2 \\implies$ always terminates. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 36,
+    "section": "Quantitative Reasoning",
+    "question": "What is the ratio of men to women in a conference room?<br><br>(1) There are 12 more men than women.<br>(2) If 4 women leave, the ratio of men to women becomes $3:2$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": -0.2,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$M = W + 12$ and $M / (W - 4) = 3/2$. Combining both gives unique values for $M$ and $W$. C is sufficient."
+  },
+  {
+    "id": 37,
+    "section": "Quantitative Reasoning",
+    "question": "Is $\\sqrt{x}$ an integer?<br><br>(1) $4x$ is a perfect square.<br>(2) $x$ is a multiple of 9.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 4,
+    "b": -0.1,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "(1) $x = 1 \\implies 4(1)=4$ (square), $\\sqrt{1}=1$. $x = 2 \\implies 4(2)=8$ not square, but $x=2.25 \\implies 4(2.25)=9$ (square) but $\\sqrt{2.25}=1.5$ (not int). E is NOT sufficient."
+  },
+  {
+    "id": 38,
+    "section": "Quantitative Reasoning",
+    "question": "Is $x^3 > x^2$?<br><br>(1) $x > 1$.<br>(2) $x > 0$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": -0.3,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$x^3 > x^2 \\iff x > 1$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 39,
+    "section": "Quantitative Reasoning",
+    "question": "What is the value of $|x - 3|$?<br><br>(1) $x > 3$.<br>(2) $(x - 3)^2 = 16$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 1,
+    "b": -0.2,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$(x-3)^2 = 16 \\implies |x-3| = 4$. Statement (2) alone is sufficient."
+  },
+  {
+    "id": 40,
+    "section": "Quantitative Reasoning",
+    "question": "Is the integer $n$ even?<br><br>(1) $n(n + 1)$ is even.<br>(2) $n(n + 2)$ is even.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 1,
+    "b": -0.1,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "(1) $n(n+1)$ is always even for any $n$. Insufficient. (2) $n(n+2)$ is even $\\iff n$ is even. Statement (2) alone is sufficient."
+  },
+  {
+    "id": 41,
+    "section": "Quantitative Reasoning",
+    "question": "Simplify: $\\frac{2^{20} + 2^{18}}{2^{18} + 2^{16}}$.",
+    "options": ["2", "4", "8", "16", "32"],
+    "correctAnswer": 1,
+    "b": 0.1,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Factor out $2^{18}$ on top, $2^{16}$ on bottom: $\\frac{2^{18}(2^2+1)}{2^{16}(2^2+1)} = 2^2 = 4$."
+  },
+  {
+    "id": 42,
+    "section": "Quantitative Reasoning",
+    "question": "If $3^{2x - 1} = 27^{x - 2}$, what is the value of $x$?",
+    "options": ["3", "4", "5", "6", "7"],
+    "correctAnswer": 2,
+    "b": 0.2,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$3^{2x - 1} = 3^{3(x - 2)} \\implies 2x - 1 = 3x - 6 \\implies x = 5$."
+  },
+  {
+    "id": 43,
+    "section": "Quantitative Reasoning",
+    "question": "Rationalize the denominator: $\\frac{6}{\\sqrt{5} - \\sqrt{2}}$.",
+    "options": ["$2(\\sqrt{5} + \\sqrt{2})$", "$3(\\sqrt{5} + \\sqrt{2})$", "$6(\\sqrt{5} + \\sqrt{2})$", "$2(\\sqrt{5} - \\sqrt{2})$", "$\\sqrt{5} + \\sqrt{2}$"],
+    "correctAnswer": 0,
+    "b": 0.0,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Multiply conjugate: $\\frac{6(\\sqrt{5} + \\sqrt{2})}{5 - 2} = \\frac{6(\\sqrt{5} + \\sqrt{2})}{3} = 2(\\sqrt{5} + \\sqrt{2})$."
+  },
+  {
+    "id": 44,
+    "section": "Quantitative Reasoning",
+    "question": "In a group of 80 people, 50 drink Coffee, 40 drink Tea, and 15 drink both. How many drink NEITHER?",
+    "options": ["5", "10", "15", "20", "25"],
+    "correctAnswer": 0,
+    "b": 0.1,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Total = $C + T - Both + Neither \\implies 80 = 50 + 40 - 15 + Neither \\implies Neither = 5$."
+  },
+  {
+    "id": 45,
+    "section": "Quantitative Reasoning",
+    "question": "Working alone, Machine A completes a job in 6 hours, while Machine B takes 4 hours. How many hours together?",
+    "options": ["2.0", "2.4", "2.5", "3.0", "3.2"],
+    "correctAnswer": 1,
+    "b": 0.2,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Combined rate = $1/6 + 1/4 = 5/12 \\implies$ Time = $12/5 = 2.4$ hours."
+  },
+  {
+    "id": 46,
+    "section": "Quantitative Reasoning",
+    "question": "How many liters of $20\\%$ acid solution must be added to 10 liters of $50\\%$ solution to get a $30\\%$ solution?",
+    "options": ["15", "20", "25", "30", "35"],
+    "correctAnswer": 1,
+    "b": 0.3,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$0.20x + 0.50(10) = 0.30(x + 10) \\implies 0.20x + 5 = 0.30x + 3 \\implies 0.10x = 2 \\implies x = 20$."
+  },
+  {
+    "id": 47,
+    "section": "Quantitative Reasoning",
+    "question": "Solve for $x$: $|2x - 5| \\le 9$. How many integers satisfy this inequality?",
+    "options": ["8", "9", "10", "11", "12"],
+    "correctAnswer": 2,
+    "b": 0.2,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$-9 \\le 2x - 5 \\le 9 \\implies -4 \\le 2x \\le 14 \\implies -2 \\le x \\le 7$. Integers: $-2$ to $7$ = 10 integers."
+  },
+  {
+    "id": 48,
+    "section": "Quantitative Reasoning",
+    "question": "Car A travels 240 miles at 60 mph, Car B travels 240 miles at 40 mph. Average speed for combined trips?",
+    "options": ["45 mph", "48 mph", "50 mph", "52 mph", "54 mph"],
+    "correctAnswer": 1,
+    "b": 0.3,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Time A = 4 hrs, Time B = 6 hrs. Total = 480 miles / 10 hrs = 48 mph."
+  },
+  {
+    "id": 49,
+    "section": "Quantitative Reasoning",
+    "question": "If $0 < x < 1$, which lists terms in order from least to greatest?",
+    "options": [
+      "$x^2, x, \\sqrt{x}, 1/x$",
+      "$x, x^2, \\sqrt{x}, 1/x$",
+      "$1/x, \\sqrt{x}, x, x^2$",
+      "$x^2, \\sqrt{x}, x, 1/x$",
+      "$\\sqrt{x}, x, x^2, 1/x$"
+    ],
+    "correctAnswer": 0,
+    "b": 0.4,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "For $x = 0.25$: $x^2 = 0.0625, x = 0.25, \\sqrt{x} = 0.5, 1/x = 4$."
+  },
+  {
+    "id": 50,
+    "section": "Quantitative Reasoning",
+    "question": "If $p$ is a prime number greater than 3, what is the remainder when $p^2$ is divided by 12?",
+    "options": ["1", "3", "5", "7", "11"],
+    "correctAnswer": 0,
+    "b": 0.5,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "Any prime $p > 3$ is $6k \\pm 1 \\implies p^2 = 36k^2 \\pm 12k + 1 = 12(3k^2 \\pm k) + 1$. Remainder is always 1."
+  },
+  {
+    "id": 51,
+    "section": "Quantitative Reasoning",
+    "question": "If $4^x + 4^x + 4^x + 4^x = 2^{24}$, what is $x$?",
+    "options": ["10", "11", "12", "13", "14"],
+    "correctAnswer": 1,
+    "b": 0.4,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$4(4^x) = 4^{x+1} = 2^{2(x+1)} = 2^{24} \\implies 2x + 2 = 24 \\implies x = 11$."
+  },
+  {
+    "id": 52,
+    "section": "Quantitative Reasoning",
+    "question": "Set $S = \\{2, 4, 6, 8, 10\\}$. What is the sum of squared deviations from the mean?",
+    "options": ["20", "30", "40", "50", "60"],
+    "correctAnswer": 2,
+    "b": 0.3,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Mean = 6. Deviations squared: $(-4)^2 + (-2)^2 + 0^2 + 2^2 + 4^2 = 16 + 4 + 0 + 4 + 16 = 40$."
+  },
+  {
+    "id": 53,
+    "section": "Quantitative Reasoning",
+    "question": "Is $|x + y| = |x| + |y|$?<br><br>(1) $xy \\ge 0$.<br>(2) $x > 0$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 0.5,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "$|x + y| = |x| + |y| \\iff x$ and $y$ have same sign or at least one is zero $\\iff xy \\ge 0$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 54,
+    "section": "Quantitative Reasoning",
+    "question": "Is $x^2 > x$?<br><br>(1) $x > 1$.<br>(2) $x < 0$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 3,
+    "b": 0.2,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$x^2 > x \\iff x > 1$ or $x < 0$. Statement (1) and (2) each alone prove this."
+  },
+  {
+    "id": 55,
+    "section": "Quantitative Reasoning",
+    "question": "What is the standard deviation of Set $A$?<br><br>(1) All elements in Set $A$ are equal.<br>(2) The range of Set $A$ is 0.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 3,
+    "b": 0.1,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "If all elements equal or range = 0, standard deviation = 0. Each alone is sufficient."
+  },
+  {
+    "id": 56,
+    "section": "Quantitative Reasoning",
+    "question": "If $x$ is an integer, is $|x| < 5$?<br><br>(1) $x^2 < 25$.<br>(2) $x^3 < 125$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 0.4,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$x^2 < 25 \\iff -5 < x < 5 \\iff |x| < 5$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 57,
+    "section": "Quantitative Reasoning",
+    "question": "Is the arithmetic mean of Set $S$ equal to its median?<br><br>(1) Set $S$ consists of 7 consecutive integers.<br>(2) Set $S$ is symmetric about 20.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 3,
+    "b": 0.3,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Any evenly spaced set or symmetric set has mean = median. Each alone is sufficient."
+  },
+  {
+    "id": 58,
+    "section": "Quantitative Reasoning",
+    "question": "A train traveled 300 miles. What was its average speed?<br><br>(1) First 150 miles at 50 mph.<br>(2) Second 150 miles at 75 mph.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 0.2,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Need times for both halves to get total time = $3 + 2 = 5$ hrs. Avg speed = $300/5 = 60$ mph. C is sufficient."
+  },
+  {
+    "id": 59,
+    "section": "Quantitative Reasoning",
+    "question": "Is $a^b > 0$?<br><br>(1) $a > 0$.<br>(2) $b$ is an even integer.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 0.4,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Any positive number raised to any real power is positive. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 60,
+    "section": "Quantitative Reasoning",
+    "question": "How many members belong to Club A or Club B or both?<br><br>(1) Club A has 45, Club B has 35.<br>(2) 15 belong to both.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 0.1,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Union = $45 + 35 - 15 = 65$. Both together are sufficient."
+  },
+  {
+    "id": 61,
+    "section": "Quantitative Reasoning",
+    "question": "A dataset of 10 numbers has mean 50 and SD 6. If every number is multiplied by 2 and increased by 5, what are new mean and SD?",
+    "options": ["Mean = 105, SD = 12", "Mean = 105, SD = 17", "Mean = 100, SD = 12", "Mean = 105, SD = 6", "Mean = 110, SD = 12"],
+    "correctAnswer": 0,
+    "b": 0.8,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "New Mean = $2(50) + 5 = 105$. Adding constant does not change SD, so New SD = $2(6) = 12$."
+  },
+  {
+    "id": 62,
+    "section": "Quantitative Reasoning",
+    "question": "Out of 200 employees, $60\\%$ are managers, $45\\%$ CPAs, $20\\%$ neither. How many are both?",
+    "options": ["40", "50", "60", "70", "80"],
+    "correctAnswer": 1,
+    "b": 0.9,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Managers = 120, CPAs = 90, Neither = 40. Total = $120 + 90 - Both + 40 = 200 \\implies Both = 50$."
+  },
+  {
+    "id": 63,
+    "section": "Quantitative Reasoning",
+    "question": "7 integers, mode = 8, median = 10, mean = 12. Maximum value of largest integer?",
+    "options": ["24", "28", "30", "32", "36"],
+    "correctAnswer": 2,
+    "b": 1.2,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "Sum = $7 \\times 12 = 84$. Set: $\\{x_1, x_2, x_3, 10, x_5, x_6, x_7\\}$. Mode = 8 $\\implies x_1=8, x_2=8$. $x_5, x_6$ min values = 10, 10 (or 11, 11). To max $x_7$, minimize others: $\\{8, 8, 8, 10, 10, 10, x_7\\} \\implies 54 + x_7 = 84 \\implies x_7 = 30$."
+  },
+  {
+    "id": 64,
+    "section": "Quantitative Reasoning",
+    "question": "Pipe A fills in 8 hrs, Pipe B drains in 12 hrs. How many hours together?",
+    "options": ["16", "20", "24", "28", "32"],
+    "correctAnswer": 2,
+    "b": 0.8,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Net rate = $1/8 - 1/12 = 1/24 \\implies 24$ hours."
+  },
+  {
+    "id": 65,
+    "section": "Quantitative Reasoning",
+    "question": "What is the range of dataset $\\{-9, -3, 0, 8, 14, 15, 22\\}$?",
+    "options": ["22", "25", "28", "31", "35"],
+    "correctAnswer": 3,
+    "b": 0.8,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Range = $22 - (-9) = 31$."
+  },
+  {
+    "id": 66,
+    "section": "Quantitative Reasoning",
+    "question": "Earnings for 48 hrs if rate is \\$15/hr for first 40 hrs and $1.5\\times$ for overtime?",
+    "options": ["\\$720", "\\$750", "\\$780", "\\$810", "\\$840"],
+    "correctAnswer": 2,
+    "b": 0.9,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "Regular = $40 \\times 15 = 600$. Overtime = $8 \\times 22.5 = 180$. Total = 780."
+  },
+  {
+    "id": 67,
+    "section": "Quantitative Reasoning",
+    "question": "When $2^{100}$ is divided by 7, what is the remainder?",
+    "options": ["1", "2", "3", "4", "5"],
+    "correctAnswer": 1,
+    "b": 1.3,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "$2^3 = 8 \\equiv 1 \\pmod 7 \\implies 2^{100} = (2^3)^{33} \\times 2^1 \\equiv 1^{33} \\times 2 = 2 \\pmod 7$."
+  },
+  {
+    "id": 68,
+    "section": "Quantitative Reasoning",
+    "question": "If $x^2 + y^2 = 100$ and $xy = 48$, what is $(x + y)^2$?",
+    "options": ["148", "196", "204", "216", "256"],
+    "correctAnswer": 1,
+    "b": 1.0,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$(x + y)^2 = x^2 + y^2 + 2xy = 100 + 2(48) = 196$."
+  },
+  {
+    "id": 69,
+    "section": "Quantitative Reasoning",
+    "question": "How many 3-digit positive integers are divisible by both 4 and 6?",
+    "options": ["73", "74", "75", "76", "77"],
+    "correctAnswer": 2,
+    "b": 1.1,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Divisible by LCM(4, 6) = 12. First 3-digit = 108 ($12 \\times 9$), last = 996 ($12 \\times 83$). Count = $83 - 9 + 1 = 75$."
+  },
+  {
+    "id": 70,
+    "section": "Quantitative Reasoning",
+    "question": "If $a, b, c$ are consecutive odd integers ($a < b < c$), what is $c^2 - a^2$ in terms of $b$?",
+    "options": ["$4b$", "$8b$", "$12b$", "$16b$", "$2b^2$"],
+    "correctAnswer": 1,
+    "b": 1.2,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "$a = b - 2, c = b + 2 \\implies c^2 - a^2 = (b+2)^2 - (b-2)^2 = 8b$."
+  },
+  {
+    "id": 71,
+    "section": "Quantitative Reasoning",
+    "question": "If $x < 0$, simplify $\\sqrt{x^2} + |x| - 2x$.",
+    "options": ["0", "$-2x$", "$-4x$", "$2x$", "$4x$"],
+    "correctAnswer": 2,
+    "b": 1.0,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "For $x < 0$, $\\sqrt{x^2} = -x$ and $|x| = -x \\implies -x - x - 2x = -4x$."
+  },
+  {
+    "id": 72,
+    "section": "Quantitative Reasoning",
+    "question": "Approximate: $\\frac{\\sqrt{101} \\times 4.98}{0.202}$.",
+    "options": ["25", "50", "250", "500", "2500"],
+    "correctAnswer": 2,
+    "b": 0.9,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "$\\approx \\frac{10 \\times 5}{0.2} = \\frac{50}{0.2} = 250$."
+  },
+  {
+    "id": 73,
+    "section": "Quantitative Reasoning",
+    "question": "Is SD of Set A > SD of Set B?<br><br>(1) Range A > Range B.<br>(2) Set A = $\\{10, 20, 30\\}$, Set B = $\\{14, 15, 16\\}$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 1,
+    "b": 1.3,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "(1) Range doesn't dictate SD. Insufficient. (2) Explicit sets allow direct calculation. Statement (2) alone is sufficient."
+  },
+  {
+    "id": 74,
+    "section": "Quantitative Reasoning",
+    "question": "Was total time for 180-mile trip < 4 hrs?<br><br>(1) Overall avg speed > 50 mph.<br>(2) First 90 miles took 1.5 hrs.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 1.1,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Avg speed > 50 mph $\\implies$ Time = $180 / \\text{Speed} < 180 / 50 = 3.6 \\text{ hrs} < 4 \\text{ hrs}$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 75,
+    "section": "Quantitative Reasoning",
+    "question": "What is $x + y + z$?<br><br>(1) Average of $x, y, z$ is 12.<br>(2) $x + y = 20$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 0.8,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Average = $(x+y+z)/3 = 12 \\implies x+y+z = 36$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 76,
+    "section": "Quantitative Reasoning",
+    "question": "In 50 students, how many study French?<br><br>(1) 30 study Spanish.<br>(2) 10 study both, 15 study neither.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 1.2,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "Total = $S + F - Both + Neither \\implies 50 = 30 + F - 10 + 15 \\implies F = 15$. Both together are sufficient."
+  },
+  {
+    "id": 77,
+    "section": "Quantitative Reasoning",
+    "question": "Is $x^2 - y^2 > 0$?<br><br>(1) $|x| > |y|$.<br>(2) $x > y$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 1.4,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "$x^2 - y^2 > 0 \\iff |x|^2 > |y|^2 \\iff |x| > |y|$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 78,
+    "section": "Quantitative Reasoning",
+    "question": "Is $M$ divisible by 12?<br><br>(1) $M$ is divisible by 36.<br>(2) $M$ is divisible by 8.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 1.0,
+    "a": 1.3,
+    "c": 0.2,
+    "explanation": "If $M$ is divisible by 36, it is divisible by any factor of 36, including 12. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 79,
+    "section": "Quantitative Reasoning",
+    "question": "What is the range of Set $T$?<br><br>(1) Largest element is 45.<br>(2) Smallest element is 12.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 0.8,
+    "a": 1.2,
+    "c": 0.2,
+    "explanation": "Range = Max - Min = $45 - 12 = 33$. Both together are sufficient."
+  },
+  {
+    "id": 80,
+    "section": "Quantitative Reasoning",
+    "question": "Is $x/y > 1$?<br><br>(1) $x > y$.<br>(2) $y > 0$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 1.5,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "If $y < 0$, $x > y$ doesn't mean $x/y > 1$. Combining with $y > 0$ allows dividing inequality by $y$: $x/y > 1$. Both together are sufficient."
+  },
+  {
+    "id": 81,
+    "section": "Quantitative Reasoning",
+    "question": "How many 3-person committees can be selected from a group of 8 people?",
+    "options": ["24", "48", "56", "112", "336"],
+    "correctAnswer": 2,
+    "b": 1.7,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "$\\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$."
+  },
+  {
+    "id": 82,
+    "section": "Quantitative Reasoning",
+    "question": "Committee of 4 from 6 men and 4 women. How many consist of 2 men and 2 women?",
+    "options": ["60", "90", "120", "180", "210"],
+    "correctAnswer": 1,
+    "b": 1.8,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "$\\binom{6}{2} \\times \\binom{4}{2} = 15 \\times 6 = 90$."
+  },
+  {
+    "id": 83,
+    "section": "Quantitative Reasoning",
+    "question": "Rolling two fair 6-sided dice, probability sum is 8?",
+    "options": ["$1/6$", "$5/36$", "$1/9$", "$7/36$", "$1/4$"],
+    "correctAnswer": 1,
+    "b": 1.7,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Outcomes for sum 8: $(2,6), (3,5), (4,4), (5,3), (6,2)$ = 5 ways out of 36. Prob = $5/36$."
+  },
+  {
+    "id": 84,
+    "section": "Quantitative Reasoning",
+    "question": "Bag has 5 red, 3 blue, 2 green. Draw 2 without replacement, probability both red?",
+    "options": ["$1/4$", "$2/9$", "$5/18$", "$1/2$", "$4/9$"],
+    "correctAnswer": 1,
+    "b": 1.8,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "$(5/10) \\times (4/9) = 20/90 = 2/9$."
+  },
+  {
+    "id": 85,
+    "section": "Quantitative Reasoning",
+    "question": "Fair coin flipped 4 times. Probability of at least 3 heads?",
+    "options": ["$1/4$", "$5/16$", "$3/8$", "$1/2$", "$7/16$"],
+    "correctAnswer": 1,
+    "b": 1.8,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "Outcomes for 3 heads = $\\binom{4}{3} = 4$. For 4 heads = $\\binom{4}{4} = 1$. Total = 5 out of $2^4 = 16 \\implies 5/16$."
+  },
+  {
+    "id": 86,
+    "section": "Quantitative Reasoning",
+    "question": "How many distinct 4-digit codes from $\\{1, 2, 3, 4, 5\\}$ without repetition?",
+    "options": ["60", "120", "240", "625", "3125"],
+    "correctAnswer": 1,
+    "b": 1.7,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "$P(5, 4) = 5 \\times 4 \\times 3 \\times 2 = 120$."
+  },
+  {
+    "id": 87,
+    "section": "Quantitative Reasoning",
+    "question": "3 distinct numbers drawn from 1 to 20. How many combinations?",
+    "options": ["1,140", "2,280", "6,840", "800", "400"],
+    "correctAnswer": 0,
+    "b": 1.9,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "$\\binom{20}{3} = \\frac{20 \\times 19 \\times 18}{6} = 1140$."
+  },
+  {
+    "id": 88,
+    "section": "Quantitative Reasoning",
+    "question": "Simplify: $8^{-2/3} \\times 16^{3/4}$.",
+    "options": ["1", "2", "4", "8", "$1/2$"],
+    "correctAnswer": 1,
+    "b": 2.0,
+    "a": 1.7,
+    "c": 0.2,
+    "explanation": "$(2^3)^{-2/3} \\times (2^4)^{3/4} = 2^{-2} \\times 2^3 = 2^1 = 2$."
+  },
+  {
+    "id": 89,
+    "section": "Quantitative Reasoning",
+    "question": "If $n = 2^4 \\times 3^3 \\times 5^2$, how many factors of $n$ are divisible by 6?",
+    "options": ["12", "24", "36", "48", "60"],
+    "correctAnswer": 2,
+    "b": 2.2,
+    "a": 1.8,
+    "c": 0.2,
+    "explanation": "Factors divisible by $6 = 2^1 \\times 3^1$: Exponent for 2 has 4 choices ($1..4$), exponent for 3 has 3 choices ($1..3$), exponent for 5 has 3 choices ($0..2$). Total = $4 \\times 3 \\times 3 = 36$."
+  },
+  {
+    "id": 90,
+    "section": "Quantitative Reasoning",
+    "question": "If $a, b, c$ non-zero in geometric progression, which MUST be true?",
+    "options": ["$b^2 = ac$", "$2b = a + c$", "$a^2 + c^2 = b^2$", "$ac = 2b$", "$a + b = c$"],
+    "correctAnswer": 0,
+    "b": 1.8,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "$b/a = c/b \\implies b^2 = ac$."
+  },
+  {
+    "id": 91,
+    "section": "Quantitative Reasoning",
+    "question": "Evaporating 4L water makes alcohol concentration $40\\%$. Adding 6L water makes it $25\\%$. Original volume of alcohol?",
+    "options": ["3 L", "4 L", "5 L", "6 L", "8 L"],
+    "correctAnswer": 1,
+    "b": 2.3,
+    "a": 1.8,
+    "c": 0.2,
+    "explanation": "Let alcohol volume = $A$, total volume after evaporation = $V$. $A/V = 0.40 \\implies A = 0.40V$. After adding 6L: $A/(V + 6) = 0.25 \\implies 0.40V = 0.25V + 1.5 \\implies 0.15V = 1.5 \\implies V = 10$. So $A = 0.40(10) = 4$ L."
+  },
+  {
+    "id": 92,
+    "section": "Quantitative Reasoning",
+    "question": "What is the sum of all integers $x$ such that $|x^2 - 10| \\le 6$?",
+    "options": ["0", "10", "14", "20", "28"],
+    "correctAnswer": 0,
+    "b": 2.1,
+    "a": 1.7,
+    "c": 0.2,
+    "explanation": "$-6 \\le x^2 - 10 \\le 6 \\implies 4 \\le x^2 \\le 16 \\implies x \\in \\{-4, -3, -2, 2, 3, 4\\}$. Sum = 0 due to symmetry."
+  },
+  {
+    "id": 93,
+    "section": "Quantitative Reasoning",
+    "question": "Probability of drawing red marble from jar with red and blue?<br><br>(1) Ratio red to blue is $3:2$.<br>(2) Total 50 marbles.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 0,
+    "b": 1.8,
+    "a": 1.5,
+    "c": 0.2,
+    "explanation": "Ratio $3:2 \\implies P(Red) = 3/(3+2) = 3/5 = 60\\%$. Statement (1) alone is sufficient."
+  },
+  {
+    "id": 94,
+    "section": "Quantitative Reasoning",
+    "question": "How long for Alice and Bob together to paint house?<br><br>(1) Alice takes 12 hrs alone.<br>(2) Bob takes 15 hrs alone.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 1.7,
+    "a": 1.4,
+    "c": 0.2,
+    "explanation": "Need rates for both to find combined rate = $1/12 + 1/15$. C is sufficient."
+  },
+  {
+    "id": 95,
+    "section": "Quantitative Reasoning",
+    "question": "How many 2-letter codes from A, B, C, D, E?<br><br>(1) Repetition allowed.<br>(2) Must contain two different letters.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 3,
+    "b": 2.0,
+    "a": 1.7,
+    "c": 0.2,
+    "explanation": "(1) $5 \\times 5 = 25$. (2) $5 \\times 4 = 20$. Each condition defines a distinct single scenario and gives a unique answer. Each alone is sufficient."
+  },
+  {
+    "id": 96,
+    "section": "Quantitative Reasoning",
+    "question": "What is $P(A \\cup B)$?<br><br>(1) $P(A) = 0.40, P(B) = 0.50$.<br>(2) A and B are mutually exclusive.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 2.1,
+    "a": 1.7,
+    "c": 0.2,
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$. Combining both gives $0.40 + 0.50 - 0 = 0.90$. C is sufficient."
+  },
+  {
+    "id": 97,
+    "section": "Quantitative Reasoning",
+    "question": "What is alcohol concentration in mixture?<br><br>(1) 4L pure alcohol added.<br>(2) Resulting volume is 20L.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 4,
+    "b": 2.2,
+    "a": 1.8,
+    "c": 0.2,
+    "explanation": "Initial volume and initial concentration are unknown. Both statements together are NOT sufficient."
+  },
+  {
+    "id": 98,
+    "section": "Quantitative Reasoning",
+    "question": "In how many ways can $n$ people sit in $n$ chairs?<br><br>(1) $n = 5$.<br>(2) Number of ways is 120.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 3,
+    "b": 1.9,
+    "a": 1.6,
+    "c": 0.2,
+    "explanation": "(1) $5! = 120$. (2) $n! = 120 \\implies n = 5 \\implies 120$ ways. Each alone is sufficient."
+  },
+  {
+    "id": 99,
+    "section": "Quantitative Reasoning",
+    "question": "Is $x$ prime?<br><br>(1) $x + 1$ is prime.<br>(2) $x + 2$ is prime.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 2,
+    "b": 2.4,
+    "a": 1.9,
+    "c": 0.2,
+    "explanation": "If $x$, $x+1$, and $x+2$ are integers: (1) $x=2 \\implies x+1=3$ (prime, $x$ prime). $x=4 \\implies x+1=5$ (prime, $x$ not prime). Insufficient. Combining (1) and (2) means $x+1$ and $x+2$ are consecutive primes $\\implies$ must be 2 and 3 $\\implies x+1=2 \\implies x=1$ (not prime) or $x=2$ ($x+1=3, x+2=4$ not prime). The only pair of consecutive primes is $(2, 3)$, so $x+1=2, x+2=3 \\implies x=1$, which is NOT prime. Answers definitively NO. Both together are sufficient."
+  },
+  {
+    "id": 100,
+    "section": "Quantitative Reasoning",
+    "question": "Is $x > y$?<br><br>(1) $x^2 > y^2$.<br>(2) $x^3 > y^3$.",
+    "options": [
+      "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+      "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+      "BOTH statements TOGETHER are sufficient, but NEITHER statement ALONE is sufficient.",
+      "EACH statement ALONE is sufficient.",
+      "Statements (1) and (2) TOGETHER are NOT sufficient."
+    ],
+    "correctAnswer": 1,
+    "b": 2.0,
+    "a": 1.7,
+    "c": 0.2,
+    "explanation": "(1) $x^2 > y^2 \\implies |x| > |y|$ (e.g. $x=-5, y=2 \\implies -5 < 2$). Insufficient. (2) $f(t) = t^3$ is strictly increasing, so $x^3 > y^3 \\iff x > y$. Statement (2) alone is sufficient."
+  }
+]
