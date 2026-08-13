@@ -47,6 +47,7 @@
                 </h2>
                 <ul class="list-disc list-inside text-xs text-indigo-950 space-y-1 leading-relaxed">
                     <li><strong>Adaptive Delivery:</strong> Question difficulty adjusts real-time based on your IRT ability estimate ($\theta$).</li>
+                    <li><strong>Randomized Selection:</strong> To provide a dynamic test pool, questions are chosen from the top calibrated items at your ability level.</li>
                     <li><strong>Linear Flow:</strong> You must answer the current question to proceed. Jumping back during active testing is disabled.</li>
                     <li><strong>Review & Edit Screen:</strong> Once all 21 questions are answered, you may review marked questions and edit up to <strong>3 answers</strong> max.</li>
                     <li>Time Limit: <strong>45 Minutes</strong> for 21 Quantitative Reasoning Questions.</li>
@@ -226,9 +227,8 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC (CAT IRT-3PL ENGINE) -->
+    <!-- JAVASCRIPT LOGIC (CAT IRT-3PL ENGINE WITH RANDOMIZATION) -->
     <script>
-        // Path file JSON lokal untuk deployment GitHub Pages
         const JSON_URL = "arithmetic_GMAT.json";
 
         // Global State CAT Engine
@@ -236,11 +236,11 @@
         let administeredHistory = [];
         let currentItem = null;
         let selectedOptionTemp = null;
-        let currentTheta = 0.0; // Point awal ability
-        let totalQuestionsTarget = 21; // Standar Quantitative GMAT Focus (21 Soal)
+        let currentTheta = 0.0; 
+        let totalQuestionsTarget = 21; 
         let editsLeft = 3;
         let bookmarked = {};
-        let timeLeft = 45 * 60; // 45 Menit
+        let timeLeft = 45 * 60; 
         let timerInterval;
 
         // --- MATH FUNCTIONS FOR 3PL IRT MODEL ---
@@ -279,25 +279,28 @@
             return parseFloat(theta.toFixed(2));
         }
 
+        // CAT Item Selection dengan Randomization dari Top 3 Candidates
         function getNextCATItem() {
             const unadministered = itemBank.filter(item => !administeredHistory.some(h => h.id === item.id));
             if (unadministered.length === 0) return null;
 
-            let bestItem = null;
-            let maxInformation = -1;
-
-            unadministered.forEach(item => {
+            // Hitung nilai Information Function untuk setiap item yang belum keluar
+            const scoredItems = unadministered.map(item => {
                 const P = prob3PL(currentTheta, item.a, item.b, item.c);
                 const Q = 1 - P;
                 const info = (Math.pow(item.a, 2) * Q / P) * Math.pow((P - item.c) / (1 - item.c), 2);
-                
-                if (info > maxInformation) {
-                    maxInformation = info;
-                    bestItem = item;
-                }
+                return { item, info };
             });
 
-            return bestItem;
+            // Urutkan item berdasarkan Information Function terbesar
+            scoredItems.sort((a, b) => b.info - a.info);
+
+            // Ambil maksimal 3 item terbaik (Top 3 candidate pool)
+            const topCandidates = scoredItems.slice(0, Math.min(3, scoredItems.length));
+
+            // Pilih 1 item secara ACAK dari Top Candidates tersebut
+            const randomIndex = Math.floor(Math.random() * topCandidates.length);
+            return topCandidates[randomIndex].item;
         }
 
         // --- APP FLOW LOGIC ---
@@ -467,7 +470,6 @@
             document.getElementById('review-edit-screen').classList.add('hidden-section');
             document.getElementById('result-screen').classList.remove('hidden-section');
 
-            // Formulasi konversi Theta ke Skala GMAT Focus (60 - 90)
             let scaleScore = Math.round(75 + (currentTheta * 5));
             if (scaleScore > 90) scaleScore = 90;
             if (scaleScore < 60) scaleScore = 60;
