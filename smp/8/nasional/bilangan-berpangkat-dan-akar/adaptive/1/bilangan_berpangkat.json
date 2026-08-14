@@ -1,0 +1,802 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "q": "Hitunglah nilai dari perpangkatan dasar berikut: $2^3 = \\dots$",
+    "options": ["6", "8", "9", "12"],
+    "ans": 1,
+    "exp": "$2^3 = 2 \\times 2 \\times 2 = 8$."
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "q": "Hitunglah nilai dari perpangkatan dasar berikut: $3^3 = \\dots$",
+    "options": ["9", "18", "27", "81"],
+    "ans": 2,
+    "exp": "$3^3 = 3 \\times 3 \\times 3 = 27$."
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "q": "Hitunglah nilai dari perpangkatan dasar berikut: $5^3 = \\dots$",
+    "options": ["15", "25", "75", "125"],
+    "ans": 3,
+    "exp": "$5^3 = 5 \\times 5 \\times 5 = 125$."
+  },
+  {
+    "id": 4,
+    "level": 1,
+    "q": "Tentukan nilai $n$ yang memenuhi perkalian berulang berikut: $4 \\times 4 \\times 4 = 4^n$",
+    "options": ["2", "3", "4", "12"],
+    "ans": 1,
+    "exp": "$4 \\times 4 \\times 4 = 4^3 \\implies n = 3$."
+  },
+  {
+    "id": 5,
+    "level": 1,
+    "q": "Pada bentuk perpangkatan $8^5$, berapakah nilai eksponen (pangkat)-nya?",
+    "options": ["3", "5", "8", "40"],
+    "ans": 1,
+    "exp": "Pada bentuk $a^b$, $b$ adalah eksponen/pangkat. Maka eksponen dari $8^5$ adalah $5$."
+  },
+  {
+    "id": 6,
+    "level": 1,
+    "q": "Hitunglah nilai dari perpangkatan dengan basis negatif berikut: $(-2)^4 = \\dots$",
+    "options": ["-16", "-8", "8", "16"],
+    "ans": 3,
+    "exp": "$(-2)^4 = (-2) \\times (-2) \\times (-2) \\times (-2) = 16$."
+  },
+  {
+    "id": 7,
+    "level": 1,
+    "q": "Hitunglah nilai dari perpangkatan dengan basis negatif berikut: $(-3)^4 = \\dots$",
+    "options": ["-81", "-12", "27", "81"],
+    "ans": 3,
+    "exp": "$(-3)^4 = (-3) \\times (-3) \\times (-3) \\times (-3) = 81$."
+  },
+  {
+    "id": 8,
+    "level": 2,
+    "q": "Hitunglah hasil dari perkalian eksponen berikut: $2^3 \\times 2^2 = \\dots$",
+    "options": ["16", "32", "64", "128"],
+    "ans": 1,
+    "exp": "$2^3 \\times 2^2 = 2^{3+2} = 2^5 = 32$."
+  },
+  {
+    "id": 9,
+    "level": 2,
+    "q": "Tentukan nilai $n$ yang memenuhi persamaan berikut: $3^2 \\times 3^n = 3^5$",
+    "options": ["2", "3", "5", "7"],
+    "ans": 1,
+    "exp": "$3^{2+n} = 3^5 \\implies 2 + n = 5 \\implies n = 3$."
+  },
+  {
+    "id": 10,
+    "level": 2,
+    "q": "Hitunglah nilai dari perkalian eksponen berikut: $2^4 \\times 2^3 = \\dots$",
+    "options": ["64", "128", "256", "512"],
+    "ans": 1,
+    "exp": "$2^4 \\times 2^3 = 2^{4+3} = 2^7 = 128$."
+  },
+  {
+    "id": 11,
+    "level": 2,
+    "q": "Hitunglah nilai dari perkalian tiga suku berpangkat berikut: $3^1 \\times 3^2 \\times 3^2 = \\dots$",
+    "options": ["81", "162", "243", "729"],
+    "ans": 2,
+    "exp": "$3^1 \\times 3^2 \\times 3^2 = 3^{1+2+2} = 3^5 = 243$."
+  },
+  {
+    "id": 12,
+    "level": 2,
+    "q": "Jika $2^a \\times 2^b = 2^7$ dan $a = 3$, berapakah nilai $b$?",
+    "options": ["2", "3", "4", "5"],
+    "ans": 2,
+    "exp": "$2^{3+b} = 2^7 \\implies 3 + b = 7 \\implies b = 4$."
+  },
+  {
+    "id": 13,
+    "level": 2,
+    "q": "Hitunglah hasil perkalian koefisien dan suku berpangkat berikut: $3 \\times 2^2 \\times 2^3 = \\dots$",
+    "options": ["48", "72", "96", "192"],
+    "ans": 2,
+    "exp": "$3 \\times 2^{2+3} = 3 \\times 2^5 = 3 \\times 32 = 96$."
+  },
+  {
+    "id": 14,
+    "level": 3,
+    "q": "Hitunglah hasil pembagian eksponen berikut: $5^4 \\div 5^2 = \\dots$",
+    "options": ["5", "10", "25", "125"],
+    "ans": 2,
+    "exp": "$5^4 \\div 5^2 = 5^{4-2} = 5^2 = 25$."
+  },
+  {
+    "id": 15,
+    "level": 3,
+    "q": "Hitunglah hasil dari pembagian bentuk pecahan berikut: $\\dfrac{2^9}{2^4} = \\dots$",
+    "options": ["16", "32", "64", "128"],
+    "ans": 1,
+    "exp": "$\\dfrac{2^9}{2^4} = 2^{9-4} = 2^5 = 32$."
+  },
+  {
+    "id": 16,
+    "level": 3,
+    "q": "Hitunglah hasil pembagian eksponen berikut: $\\dfrac{3^7}{3^3} = \\dots$",
+    "options": ["27", "81", "243", "729"],
+    "ans": 1,
+    "exp": "$\\dfrac{3^7}{3^3} = 3^{7-3} = 3^4 = 81$."
+  },
+  {
+    "id": 17,
+    "level": 3,
+    "q": "Hitunglah hasil operasi gabungan perkalian dan pembagian berikut: $\\dfrac{2^5 \\times 2^4}{2^3} = \\dots$",
+    "options": ["16", "32", "64", "128"],
+    "ans": 2,
+    "exp": "$\\dfrac{2^{5+4}}{2^3} = 2^{9-3} = 2^6 = 64$."
+  },
+  {
+    "id": 18,
+    "level": 3,
+    "q": "Hitunglah nilai dari bentuk pembagian berkoefisien berikut: $\\dfrac{12 \\times 2^6}{3 \\times 2^3} = \\dots$",
+    "options": ["16", "24", "32", "48"],
+    "ans": 2,
+    "exp": "$\\left(\\dfrac{12}{3}\\right) \\times 2^{6-3} = 4 \\times 2^3 = 4 \\times 8 = 32$."
+  },
+  {
+    "id": 19,
+    "level": 3,
+    "q": "Hitunglah nilai dari bentuk pecahan eksponen berikut: $\\dfrac{10 \\times 3^5}{2 \\times 3^2} = \\dots$",
+    "options": ["45", "90", "135", "270"],
+    "ans": 2,
+    "exp": "$\\left(\\dfrac{10}{2}\\right) \\times 3^{5-2} = 5 \\times 3^3 = 5 \\times 27 = 135$."
+  },
+  {
+    "id": 20,
+    "level": 4,
+    "q": "Hitunglah hasil dari penjumlahan bentuk pangkat nol berikut: $9^0 + 15 = \\dots$",
+    "options": ["15", "16", "24", "135"],
+    "ans": 1,
+    "exp": "$9^0 = 1 \\implies 1 + 15 = 16$."
+  },
+  {
+    "id": 21,
+    "level": 4,
+    "q": "Hitunglah hasil penjumlahan tiga suku berpangkat nol berikut: $7^0 + (-4)^0 + 5^0 = \\dots$",
+    "options": ["1", "2", "3", "8"],
+    "ans": 2,
+    "exp": "Setiap bilangan tak nol dipangkatkan $0$ bernilai $1$: $1 + 1 + 1 = 3$."
+  },
+  {
+    "id": 22,
+    "level": 4,
+    "q": "Hitunglah hasil perkalian pangkat positif dan negatif berikut: $2^4 \\times 2^{-1} = \\dots$",
+    "options": ["4", "6", "8", "16"],
+    "ans": 2,
+    "exp": "$2^4 \\times 2^{-1} = 2^{4+(-1)} = 2^3 = 8$."
+  },
+  {
+    "id": 23,
+    "level": 4,
+    "q": "Hitunglah nilai dari perkalian eksponen berikut: $3^5 \\times 3^{-2} = \\dots$",
+    "options": ["9", "27", "81", "243"],
+    "ans": 1,
+    "exp": "$3^5 \\times 3^{-2} = 3^{5-2} = 3^3 = 27$."
+  },
+  {
+    "id": 24,
+    "level": 4,
+    "q": "Tentukan nilai $n$ yang memenuhi persamaan eksponen berikut: $2^n = 2^{-2} \\times 2^6$",
+    "options": ["-4", "3", "4", "8"],
+    "ans": 2,
+    "exp": "$2^n = 2^{-2+6} = 2^4 \\implies n = 4$."
+  },
+  {
+    "id": 25,
+    "level": 4,
+    "q": "Hitunglah nilai dari penjumlahan eksponen berikut: $2^4 + \\left(2^{-1} \\times 2^5\\right) = \\dots$",
+    "options": ["24", "32", "48", "64"],
+    "ans": 1,
+    "exp": "$2^{-1} \\times 2^5 = 2^4 = 16$. Maka $2^4 + 16 = 16 + 16 = 32$."
+  },
+  {
+    "id": 26,
+    "level": 5,
+    "q": "Hitunglah nilai dari perpangkatan bertingkat berikut: $(2^2)^3 = \\dots$",
+    "options": ["16", "32", "64", "128"],
+    "ans": 2,
+    "exp": "$(2^2)^3 = 2^{2 \\times 3} = 2^6 = 64$."
+  },
+  {
+    "id": 27,
+    "level": 5,
+    "q": "Hitunglah nilai dari perpangkatan bertingkat berikut: $(3^2)^2 = \\dots$",
+    "options": ["27", "36", "81", "243"],
+    "ans": 2,
+    "exp": "$(3^2)^2 = 3^{2 \\times 2} = 3^4 = 81$."
+  },
+  {
+    "id": 28,
+    "level": 5,
+    "q": "Tentukan nilai $n$ jika diketahui $(2^3)^n = 512$!",
+    "options": ["2", "3", "4", "9"],
+    "ans": 1,
+    "exp": "$2^{3n} = 512 = 2^9 \\implies 3n = 9 \\implies n = 3$."
+  },
+  {
+    "id": 29,
+    "level": 5,
+    "q": "Hitunglah nilai dari perpangkatan bertingkat tiga berikut: $\\left((2^1)^2\\right)^3 = \\dots$",
+    "options": ["32", "64", "128", "256"],
+    "ans": 1,
+    "exp": "$2^{1 \\times 2 \\times 3} = 2^6 = 64$."
+  },
+  {
+    "id": 30,
+    "level": 5,
+    "q": "Hitunglah nilai dari perpangkatan berpangkat negatif berikut: $(2^{-2})^{-3} = \\dots$",
+    "options": ["-64", "1/64", "32", "64"],
+    "ans": 3,
+    "exp": "$(2^{-2})^{-3} = 2^{(-2) \\times (-3)} = 2^6 = 64$."
+  },
+  {
+    "id": 31,
+    "level": 5,
+    "q": "Tentukan nilai $n$ yang memenuhi persamaan bertingkat berikut: $(3^{-2})^{-n} = 81$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "$3^{2n} = 81 = 3^4 \\implies 2n = 4 \\implies n = 2$."
+  },
+  {
+    "id": 32,
+    "level": 6,
+    "q": "Hitunglah nilai dari perpangkatan perkalian berikut: $(2 \\times 3)^3 = \\dots$",
+    "options": ["108", "180", "216", "432"],
+    "ans": 2,
+    "exp": "$(2 \\times 3)^3 = 6^3 = 216$."
+  },
+  {
+    "id": 33,
+    "level": 6,
+    "q": "Hitunglah nilai dari ekspresi berpangkat berikut: $(2^2 \\times 3)^2 = \\dots$",
+    "options": ["72", "144", "288", "576"],
+    "ans": 1,
+    "exp": "$(4 \\times 3)^2 = 12^2 = 144$."
+  },
+  {
+    "id": 34,
+    "level": 6,
+    "q": "Hitunglah nilai dari pembagian berpangkat berikut: $\\left(\\dfrac{6}{2}\\right)^4 = \\dots$",
+    "options": ["27", "54", "81", "162"],
+    "ans": 2,
+    "exp": "$3^4 = 81$."
+  },
+  {
+    "id": 35,
+    "level": 6,
+    "q": "Hitunglah nilai dari bentuk perpangkatan gabungan berikut: $(2^3 \\times 5^{-1})^2 \\times 25 = \\dots$",
+    "options": ["32", "64", "128", "256"],
+    "ans": 1,
+    "exp": "$(2^6 \\times 5^{-2}) \\times 5^2 = 2^6 \\times 5^0 = 64 \\times 1 = 64$."
+  },
+  {
+    "id": 36,
+    "level": 6,
+    "q": "Hitunglah nilai dari pembagian dua suku berpangkat sama berikut: $\\dfrac{12^3}{4^3} = \\dots$",
+    "options": ["9", "18", "27", "81"],
+    "ans": 2,
+    "exp": "$\\left(\\dfrac{12}{4}\\right)^3 = 3^3 = 27$."
+  },
+  {
+    "id": 37,
+    "level": 6,
+    "q": "Hitunglah nilai dari penyederhanaan bentuk pecahan berpangkat berikut: $\\left(\\dfrac{2^4 \\times 3^2}{2^2 \\times 3}\\right)^2 = \\dots$",
+    "options": ["72", "108", "144", "288"],
+    "ans": 2,
+    "exp": "$(2^{4-2} \\times 3^{2-1})^2 = (4 \\times 3)^2 = 12^2 = 144$."
+  },
+  {
+    "id": 38,
+    "level": 7,
+    "q": "Hitunglah nilai dari perpangkatan pecahan berikut: $16^{\\frac{1}{2}} = \\dots$",
+    "options": ["2", "4", "8", "32"],
+    "ans": 1,
+    "exp": "$16^{\\frac{1}{2}} = \\sqrt{16} = 4$."
+  },
+  {
+    "id": 39,
+    "level": 7,
+    "q": "Hitunglah nilai dari perpangkatan pecahan berikut: $27^{\\frac{1}{3}} = \\dots$",
+    "options": ["3", "6", "9", "81"],
+    "ans": 0,
+    "exp": "$27^{\\frac{1}{3}} = \\sqrt[3]{27} = 3$."
+  },
+  {
+    "id": 40,
+    "level": 7,
+    "q": "Hitunglah nilai dari perpangkatan pecahan berikut: $16^{\\frac{3}{4}} = \\dots$",
+    "options": ["4", "6", "8", "12"],
+    "ans": 2,
+    "exp": "$(2^4)^{\\frac{3}{4}} = 2^3 = 8$."
+  },
+  {
+    "id": 41,
+    "level": 7,
+    "q": "Hitunglah nilai dari perpangkatan pecahan berikut: $32^{\\frac{2}{5}} = \\dots$",
+    "options": ["2", "4", "8", "16"],
+    "ans": 1,
+    "exp": "$(2^5)^{\\frac{2}{5}} = 2^2 = 4$."
+  },
+  {
+    "id": 42,
+    "level": 7,
+    "q": "Hitunglah nilai dari perpangkatan pecahan berikut: $81^{\\frac{3}{4}} = \\dots$",
+    "options": ["9", "18", "27", "54"],
+    "ans": 2,
+    "exp": "$(3^4)^{\\frac{3}{4}} = 3^3 = 27$."
+  },
+  {
+    "id": 43,
+    "level": 7,
+    "q": "Hitunglah nilai dari bentuk pangkat bertingkat pecahan berikut: $\\left(64^{-\\frac{1}{3}}\\right)^{-2} = \\dots$",
+    "options": ["4", "8", "16", "32"],
+    "ans": 2,
+    "exp": "$64^{\\frac{2}{3}} = (4^3)^{\\frac{2}{3}} = 4^2 = 16$."
+  },
+  {
+    "id": 44,
+    "level": 7,
+    "q": "Hitunglah hasil perkalian dua bentuk pangkat pecahan berikut: $125^{\\frac{2}{3}} \\times 4^{\\frac{1}{2}} = \\dots$",
+    "options": ["25", "40", "50", "100"],
+    "ans": 2,
+    "exp": "$(5^3)^{\\frac{2}{3}} \\times (2^2)^{\\frac{1}{2}} = 25 \\times 2 = 50$."
+  },
+  {
+    "id": 45,
+    "level": 8,
+    "q": "Hitunglah nilai sederhana dari pecahan eksponen berikut: $\\dfrac{2^5 \\times 8}{4^2} = \\dots$",
+    "options": ["8", "16", "32", "64"],
+    "ans": 1,
+    "exp": "$\\dfrac{2^5 \\times 2^3}{(2^2)^2} = \\dfrac{2^8}{2^4} = 2^4 = 16$."
+  },
+  {
+    "id": 46,
+    "level": 8,
+    "q": "Hitunglah nilai dari pembagian eksponen berpeubah $n$ berikut: $\\dfrac{3^{n+3}}{3^n} = \\dots$",
+    "options": ["9", "27", "81", "$3^n$"],
+    "ans": 1,
+    "exp": "$3^{(n+3)-n} = 3^3 = 27$."
+  },
+  {
+    "id": 47,
+    "level": 8,
+    "q": "Hitunglah nilai dari ekspresi eksponen berpeubah $n$ berikut: $\\dfrac{2^{n+4} - 2^{n+2}}{2^n} = \\dots$",
+    "options": ["8", "10", "12", "14"],
+    "ans": 2,
+    "exp": "$\\dfrac{2^n(2^4 - 2^2)}{2^n} = 16 - 4 = 12$."
+  },
+  {
+    "id": 48,
+    "level": 8,
+    "q": "Hitunglah nilai dari ekspresi penjumlahan eksponen berpeubah $n$ berikut: $\\dfrac{5^{n+2} + 5^{n+1}}{5^n} = \\dots$",
+    "options": ["25", "30", "35", "50"],
+    "ans": 1,
+    "exp": "$\\dfrac{5^n(5^2 + 5^1)}{5^n} = 25 + 5 = 30$."
+  },
+  {
+    "id": 49,
+    "level": 8,
+    "q": "Hitunglah nilai dari perkalian dan pembagian pangkat pecahan berikut: $\\dfrac{125^{\\frac{2}{3}} \\times 27^{\\frac{2}{3}}}{25^{\\frac{1}{2}}} = \\dots$",
+    "options": ["15", "30", "45", "90"],
+    "ans": 2,
+    "exp": "$\\dfrac{5^2 \\times 3^2}{5^1} = \\dfrac{25 \\times 9}{5} = 5 \\times 9 = 45$."
+  },
+  {
+    "id": 50,
+    "level": 8,
+    "q": "Jika $x = 8$ dan $y = 81$, hitunglah nilai dari $x^{\\frac{2}{3}} \\cdot y^{\\frac{1}{4}} \\times 5$!",
+    "options": ["30", "45", "60", "90"],
+    "ans": 2,
+    "exp": "$x^{\\frac{2}{3}} = (2^3)^{\\frac{2}{3}} = 4$, $y^{\\frac{1}{4}} = (3^4)^{\\frac{1}{4}} = 3$. Hasil: $4 \\times 3 \\times 5 = 60$."
+  },
+  {
+    "id": 51,
+    "level": 9,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen dasar: $2^x = 64$",
+    "options": ["4", "5", "6", "8"],
+    "ans": 2,
+    "exp": "$2^x = 2^6 \\implies x = 6$."
+  },
+  {
+    "id": 52,
+    "level": 9,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen berikut: $3^x = 243$",
+    "options": ["3", "4", "5", "6"],
+    "ans": 2,
+    "exp": "$3^x = 3^5 \\implies x = 5$."
+  },
+  {
+    "id": 53,
+    "level": 9,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen berikut: $5^{x-2} = 125$",
+    "options": ["3", "4", "5", "6"],
+    "ans": 2,
+    "exp": "$5^{x-2} = 5^3 \\implies x - 2 = 3 \\implies x = 5$."
+  },
+  {
+    "id": 54,
+    "level": 9,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan berikut: $2^{3x-1} = 32$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "$2^{3x-1} = 2^5 \\implies 3x - 1 = 5 \\implies 3x = 6 \\implies x = 2$."
+  },
+  {
+    "id": 55,
+    "level": 9,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen berikut: $3^{2x+1} = 243$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "$3^{2x+1} = 3^5 \\implies 2x + 1 = 5 \\implies 2x = 4 \\implies x = 2$."
+  },
+  {
+    "id": 56,
+    "level": 9,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan berpangkat nol berikut: $7^{4x-12} = 1$",
+    "options": ["0", "2", "3", "4"],
+    "ans": 2,
+    "exp": "$7^{4x-12} = 7^0 \\implies 4x - 12 = 0 \\implies 4x = 12 \\implies x = 3$."
+  },
+  {
+    "id": 57,
+    "level": 9,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan berikut: $4^{x+2} = 256$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "$4^{x+2} = 4^4 \\implies x + 2 = 4 \\implies x = 2$."
+  },
+  {
+    "id": 58,
+    "level": 10,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan basis tak sama berikut: $4^x = 64$",
+    "options": ["2", "3", "4", "6"],
+    "ans": 1,
+    "exp": "$4^x = 4^3 \\implies x = 3$."
+  },
+  {
+    "id": 59,
+    "level": 10,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen berikut: $9^x = 729$",
+    "options": ["2", "3", "4", "5"],
+    "ans": 1,
+    "exp": "$9^x = 9^3 \\implies x = 3$."
+  },
+  {
+    "id": 60,
+    "level": 10,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan berikut: $8^{x-1} = 64$",
+    "options": ["2", "3", "4", "5"],
+    "ans": 1,
+    "exp": "$8^{x-1} = 8^2 \\implies x - 1 = 2 \\implies x = 3$."
+  },
+  {
+    "id": 61,
+    "level": 10,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen berikut: $25^{x-1} = \\dfrac{125^{x-1}}{5}$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "$5^{2x-2} = 5^{3x-4} \\implies 2x - 2 = 3x - 4 \\implies x = 2$."
+  },
+  {
+    "id": 62,
+    "level": 10,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan berikut: $4^{2x-1} = 8^{x+1}$",
+    "options": ["3", "4", "5", "6"],
+    "ans": 2,
+    "exp": "$2^{4x-2} = 2^{3x+3} \\implies 4x - 2 = 3x + 3 \\implies x = 5$."
+  },
+  {
+    "id": 63,
+    "level": 10,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen pecahan berikut: $\\left(\\dfrac{1}{3}\\right)^{x-6} = 81$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "$3^{-x+6} = 3^4 \\implies -x + 6 = 4 \\implies x = 2$."
+  },
+  {
+    "id": 64,
+    "level": 10,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen pecahan berikut: $\\left(\\dfrac{1}{4}\\right)^{x-4} = 64$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 0,
+    "exp": "$4^{-x+4} = 4^3 \\implies -x + 4 = 3 \\implies x = 1$."
+  },
+  {
+    "id": 65,
+    "level": 11,
+    "q": "Tentukan nilai $x$ positif yang memenuhi persamaan eksponen berikut: $27^{x-1} = 9^{x+1}$",
+    "options": ["3", "4", "5", "6"],
+    "ans": 2,
+    "exp": "$3^{3x-3} = 3^{2x+2} \\implies 3x - 3 = 2x + 2 \\implies x = 5$."
+  },
+  {
+    "id": 66,
+    "level": 11,
+    "q": "Tentukan jumlah seluruh nilai $x$ yang memenuhi persamaan eksponen berikut: $2^{x^2 - 9} = 1$",
+    "options": ["-3", "0", "3", "6"],
+    "ans": 1,
+    "exp": "$x^2 - 9 = 0 \\implies x = \\pm 3$. Jumlah nilai $x = 3 + (-3) = 0$."
+  },
+  {
+    "id": 67,
+    "level": 11,
+    "q": "Tentukan nilai $x$ positif yang memenuhi persamaan eksponen berikut: $3^{x^2 - 2x} = 27$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 2,
+    "exp": "$x^2 - 2x = 3 \\implies x^2 - 2x - 3 = 0 \\implies (x-3)(x+1)=0$. Nilai positif $x = 3$."
+  },
+  {
+    "id": 68,
+    "level": 11,
+    "q": "Tentukan jumlah seluruh nilai $x$ yang memenuhi persamaan berikut: $5^{x^2 - 5x + 6} = 1$",
+    "options": ["3", "4", "5", "6"],
+    "ans": 2,
+    "exp": "$x^2 - 5x + 6 = 0 \\implies x_1 = 2, x_2 = 3$. Jumlah nilai $x = 2 + 3 = 5$."
+  },
+  {
+    "id": 69,
+    "level": 11,
+    "q": "Tentukan nilai $x$ terbesar yang memenuhi persamaan berikut: $2^{x^2 - 4x} = \\dfrac{1}{8}$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 2,
+    "exp": "$x^2 - 4x = -3 \\implies x^2 - 4x + 3 = 0 \\implies (x-1)(x-3)=0$. Nilai $x$ terbesar adalah $3$."
+  },
+  {
+    "id": 70,
+    "level": 11,
+    "q": "Tentukan nilai $x$ terbesar yang memenuhi persamaan eksponen kuadratik berikut: $2^{2x} - 6 \\cdot 2^x + 8 = 0$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "Misal $y = 2^x \\implies y^2 - 6y + 8 = 0 \\implies y=2$ atau $y=4$. Untuk $y=4 \\implies 2^x = 4 \\implies x = 2$."
+  },
+  {
+    "id": 71,
+    "level": 12,
+    "q": "Tentukan nilai $x$ bulat terkecil yang memenuhi pertidaksamaan: $2^x > 30$",
+    "options": ["4", "5", "6", "7"],
+    "ans": 1,
+    "exp": "$2^4 = 16 \\le 30$ dan $2^5 = 32 > 30$. Jadi $x$ bulat terkecil adalah $5$."
+  },
+  {
+    "id": 72,
+    "level": 12,
+    "q": "Tentukan nilai $x$ bulat terkecil yang memenuhi pertidaksamaan pecahan berpangkat: $\\left(\\dfrac{1}{3}\\right)^x \\le \\dfrac{1}{80}$",
+    "options": ["3", "4", "5", "6"],
+    "ans": 1,
+    "exp": "$3^x \\ge 80$. Karena $3^3 = 27$ dan $3^4 = 81 \\ge 80$, maka $x$ bulat terkecil adalah $4$."
+  },
+  {
+    "id": 73,
+    "level": 12,
+    "q": "Tentukan jumlah seluruh nilai $x$ bulat positif yang memenuhi pertidaksamaan: $3^{2x-1} < 243$",
+    "options": ["1", "2", "3", "6"],
+    "ans": 2,
+    "exp": "$2x - 1 < 5 \\implies 2x < 6 \\implies x < 3$. Nilai $x$ bulat positif: $1, 2$. Jumlah: $1 + 2 = 3$."
+  },
+  {
+    "id": 74,
+    "level": 12,
+    "q": "Jika $2^x \\cdot 3^y = 72$ dan $2^y \\cdot 3^x = 108$, tentukan nilai dari $x + y$!",
+    "options": ["4", "5", "6", "7"],
+    "ans": 1,
+    "exp": "Kalikan kedua persamaan: $6^{x+y} = 72 \\times 108 = 7776 = 6^5 \\implies x + y = 5$."
+  },
+  {
+    "id": 75,
+    "level": 12,
+    "q": "Jika $5^{x+y} = 625$ dan $5^{x-y} = 25$, tentukan nilai dari $x \\times y$!",
+    "options": ["2", "3", "4", "5"],
+    "ans": 1,
+    "exp": "$x + y = 4$ dan $x - y = 2 \\implies x = 3, y = 1$. Maka $x \\times y = 3 \\times 1 = 3$."
+  },
+  {
+    "id": 76,
+    "level": 13,
+    "q": "Jika $650.000.000$ ditulis dalam bentuk baku $a \\times 10^b$, berapakah nilai $b$?",
+    "options": ["6", "7", "8", "9"],
+    "ans": 2,
+    "exp": "$650.000.000 = 6,5 \\times 10^8$, sehingga $b = 8$."
+  },
+  {
+    "id": 77,
+    "level": 13,
+    "q": "Jika $0,0000048$ ditulis dalam bentuk baku $a \\times 10^b$, berapakah nilai dari $|b|$?",
+    "options": ["5", "6", "7", "8"],
+    "ans": 1,
+    "exp": "$0,0000048 = 4,8 \\times 10^{-6} \\implies b = -6 \\implies |b| = 6$."
+  },
+  {
+    "id": 78,
+    "level": 13,
+    "q": "Hitunglah nilai $N$ dari perkalian bentuk baku berikut: $(4 \\times 10^3) \\times (2 \\times 10^{-2}) = N$",
+    "options": ["8", "80", "800", "8000"],
+    "ans": 1,
+    "exp": "$(4 \\times 2) \\times 10^{3+(-2)} = 8 \\times 10^1 = 80$."
+  },
+  {
+    "id": 79,
+    "level": 13,
+    "q": "Hitunglah nilai $N$ dari pembagian bentuk baku berikut: $\\dfrac{8 \\times 10^5}{2 \\times 10^3} = N$",
+    "options": ["40", "400", "4000", "40000"],
+    "ans": 1,
+    "exp": "$\\left(\\dfrac{8}{2}\\right) \\times 10^{5-3} = 4 \\times 10^2 = 400$."
+  },
+  {
+    "id": 80,
+    "level": 13,
+    "q": "Hitunglah nilai $N$ dari penjumlahan bentuk baku berikut: $(2,5 \\times 10^2) + (3,5 \\times 10^1) = N$",
+    "options": ["260", "285", "300", "600"],
+    "ans": 1,
+    "exp": "$250 + 35 = 285$."
+  },
+  {
+    "id": 81,
+    "level": 14,
+    "q": "Sebuah amuba membelah diri menjadi 2 setiap 15 menit. Jika mula-mula terdapat 5 amuba, berapakah jumlah amuba setelah 1 jam?",
+    "options": ["40", "60", "80", "160"],
+    "ans": 2,
+    "exp": "Periode pembelahan $n = \\frac{60}{15} = 4$ kali. Jumlah amuba $= 5 \\times 2^4 = 5 \\times 16 = 80$."
+  },
+  {
+    "id": 82,
+    "level": 14,
+    "q": "Suatu jenis bakteri membelah diri menjadi 2 setiap 30 menit. Jika populasi awal 10 bakteri, berapa jumlahnya setelah 2 jam?",
+    "options": ["80", "120", "160", "320"],
+    "ans": 2,
+    "exp": "Periode pembelahan $n = \\frac{120}{30} = 4$ kali. Populasi akhir $= 10 \\times 2^4 = 10 \\times 16 = 160$."
+  },
+  {
+    "id": 83,
+    "level": 14,
+    "q": "Suatu zat radioaktif seberat 320 gram meluruh menjadi setengahnya setiap 10 tahun. Berapa sisa zat tersebut (dalam gram) setelah 40 tahun?",
+    "options": ["10", "20", "40", "80"],
+    "ans": 1,
+    "exp": "Periode peluruhan $n = \\frac{40}{10} = 4$ kali. Sisa zat $= 320 \\times \\left(\\frac{1}{2}\\right)^4 = \\frac{320}{16} = 20\\text{ gram}$."
+  },
+  {
+    "id": 84,
+    "level": 14,
+    "q": "Tabungan awal Rp500.000 berkembang dengan rumus $M_t = 500.000 \\times (1,1)^t$. Tentukan total tabungan dalam ribuan rupiah pada tahun ke-2 ($t=2$)!",
+    "options": ["550", "600", "605", "620"],
+    "ans": 2,
+    "exp": "$M_2 = 500.000 \\times (1,1)^2 = 500.000 \\times 1,21 = 605.000$. Dalam ribuan rupiah: $605$."
+  },
+  {
+    "id": 85,
+    "level": 14,
+    "q": "Harga awal barang adalah 800 ribu rupiah dan menyusut menjadi 1/2 setiap 2 tahun. Berapakah harga barang tersebut (dalam ribuan rupiah) setelah 6 tahun?",
+    "options": ["50", "100", "200", "400"],
+    "ans": 1,
+    "exp": "Periode penyusutan $n = \\frac{6}{2} = 3$ kali. Harga akhir $= 800 \\times \\left(\\frac{1}{2}\\right)^3 = \\frac{800}{8} = 100$ ribu rupiah."
+  },
+  {
+    "id": 86,
+    "level": 15,
+    "q": "Tentukan nilai $x$ terbesar yang memenuhi persamaan eksponen kuadratik berikut: $3^{2x+1} - 10 \\cdot 3^x + 3 = 0$",
+    "options": ["-1", "0", "1", "2"],
+    "ans": 2,
+    "exp": "Misal $y = 3^x \\implies 3y^2 - 10y + 3 = 0 \\implies (3y-1)(y-3)=0$. Nilai $y=3 \\implies 3^x=3 \\implies x=1$."
+  },
+  {
+    "id": 87,
+    "level": 15,
+    "q": "Tentukan nilai $x$ terbesar yang memenuhi persamaan eksponen berikut: $4^x - 5 \\cdot 2^x + 4 = 0$",
+    "options": ["0", "1", "2", "4"],
+    "ans": 2,
+    "exp": "Misal $y = 2^x \\implies y^2 - 5y + 4 = 0 \\implies (y-1)(y-4)=0$. Nilai $y=4 \\implies 2^x=4 \\implies x=2$."
+  },
+  {
+    "id": 88,
+    "level": 15,
+    "q": "Jika diketahui $2^x = 3$, tentukan nilai dari ekspresi $4^x + 2^{x+3}$!",
+    "options": ["25", "30", "33", "36"],
+    "ans": 2,
+    "exp": "$4^x + 2^{x+3} = (2^x)^2 + 2^x \\cdot 2^3 = 3^2 + (3 \\times 8) = 9 + 24 = 33$."
+  },
+  {
+    "id": 89,
+    "level": 15,
+    "q": "Jika diketahui $3^x = 4$, hitunglah nilai dari $9^x + 3^{x+2}$!",
+    "options": ["36", "48", "52", "64"],
+    "ans": 2,
+    "exp": "$9^x + 3^{x+2} = (3^x)^2 + 3^x \\cdot 3^2 = 4^2 + (4 \\times 9) = 16 + 36 = 52$."
+  },
+  {
+    "id": 90,
+    "level": 15,
+    "q": "Jika $2^a = 3$, $3^b = 5$, dan $5^c = 16$, tentukan nilai dari $a \\cdot b \\cdot c$!",
+    "options": ["2", "3", "4", "5"],
+    "ans": 2,
+    "exp": "Perpangkatan berantai: $2^{a \\cdot b \\cdot c} = ((2^a)^b)^c = (3^b)^c = 5^c = 16 = 2^4 \\implies a \\cdot b \\cdot c = 4$."
+  },
+  {
+    "id": 91,
+    "level": 15,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan penjumlahan eksponen berikut: $2^{2x} + 2^{2x+1} + 2^{2x+2} = 112$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 1,
+    "exp": "$2^{2x}(1 + 2 + 4) = 112 \\implies 2^{2x}(7) = 112 \\implies 2^{2x} = 16 = 2^4 \\implies 2x = 4 \\implies x = 2$."
+  },
+  {
+    "id": 92,
+    "level": 15,
+    "q": "Tentukan banyaknya nilai $x$ bulat yang memenuhi persamaan eksponen: $(x - 2)^{x^2 - 9} = 1$",
+    "options": ["1", "2", "3", "4"],
+    "ans": 2,
+    "exp": "Kasus 1: $x^2-9=0 \\implies x=\\pm 3$. Kasus 2: $x-2=1 \\implies x=3$. Kasus 3: $x-2=-1 \\implies x=1$ (pangkat $-8$ genap). Himpunan bulat: $\\{3, -3, 1\\}$ (ada 3 nilai)."
+  },
+  {
+    "id": 93,
+    "level": 15,
+    "q": "Tentukan jumlah seluruh nilai $x$ bulat positif yang memenuhi persamaan basis variabel: $(x - 4)^{2x - 6} = (x - 4)^{x + 2}$",
+    "options": ["13", "15", "17", "20"],
+    "ans": 2,
+    "exp": "Kasus 1: $2x-6 = x+2 \\implies x=8$. Kasus 2: $x-4=1 \\implies x=5$. Kasus 3: $x-4=0 \\implies x=4$. Jumlah nilai $x = 8 + 5 + 4 = 17$."
+  },
+  {
+    "id": 94,
+    "level": 15,
+    "q": "Tentukan angka satuan (digit terakhir) dari bilangan $2^{2026}$!",
+    "options": ["2", "4", "6", "8"],
+    "ans": 1,
+    "exp": "Pola satuan $2^n$: $2, 4, 8, 6$ (periode 4). $2026 \\pmod 4 = 2$, maka angka satuannya sama dengan $2^2 = 4$."
+  },
+  {
+    "id": 95,
+    "level": 15,
+    "q": "Tentukan angka satuan (digit terakhir) dari bilangan $3^{2026}$!",
+    "options": ["1", "3", "7", "9"],
+    "ans": 3,
+    "exp": "Pola satuan $3^n$: $3, 9, 7, 1$ (periode 4). $2026 \\pmod 4 = 2$, maka angka satuannya sama dengan $3^2 = 9$."
+  },
+  {
+    "id": 96,
+    "level": 16,
+    "q": "Jika $a^{\\frac{1}{2}} + a^{-\\frac{1}{2}} = 5$, tentukan nilai dari $a + a^{-1}$!",
+    "options": ["21", "23", "25", "27"],
+    "ans": 1,
+    "exp": "Kuadratkan: $(a^{1/2} + a^{-1/2})^2 = 5^2 \\implies a + 2 + a^{-1} = 25 \\implies a + a^{-1} = 23$."
+  },
+  {
+    "id": 97,
+    "level": 16,
+    "q": "Jika $x^{\\frac{1}{2}} + x^{-\\frac{1}{2}} = 3$, tentukan nilai dari $x^2 + x^{-2}$!",
+    "options": ["43", "45", "47", "49"],
+    "ans": 2,
+    "exp": "Tahap 1: $x + x^{-1} = 3^2 - 2 = 7$. Tahap 2: $x^2 + x^{-2} = 7^2 - 2 = 47$."
+  },
+  {
+    "id": 98,
+    "level": 16,
+    "q": "Jika $x^{\\frac{1}{2}} + x^{-\\frac{1}{2}} = 4$, tentukan nilai dari $x^2 + x^{-2}$!",
+    "options": ["190", "192", "194", "196"],
+    "ans": 2,
+    "exp": "Tahap 1: $x + x^{-1} = 4^2 - 2 = 14$. Tahap 2: $x^2 + x^{-2} = 14^2 - 2 = 194$."
+  },
+  {
+    "id": 99,
+    "level": 16,
+    "q": "Tentukan nilai $x$ positif yang memenuhi persamaan: $x^x = 2^{64}$",
+    "options": ["8", "16", "32", "64"],
+    "ans": 1,
+    "exp": "$2^{64} = 2^{4 \\times 16} = (2^4)^{16} = 16^{16}$. Maka $x^x = 16^{16} \\implies x = 16$."
+  },
+  {
+    "id": 100,
+    "level": 16,
+    "q": "Tentukan jumlah dari seluruh nilai $x$ yang memenuhi persamaan eksponen $(x^2 - 5x + 5)^{x^2 - 9x + 20} = 1$!",
+    "options": ["10", "12", "15", "18"],
+    "ans": 2,
+    "exp": "Solusi memenuhi: $x \\in \\{1, 2, 3, 4, 5\\}$. Jumlah seluruh nilai $x = 1 + 2 + 3 + 4 + 5 = 15$."
+  }
+]
