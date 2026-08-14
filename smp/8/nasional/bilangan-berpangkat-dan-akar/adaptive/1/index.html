@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Latihan Soal Bilangan Berpangkat dan Bentuk Akar - mtkbarengkakdhanar</title>
     
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- MathJax Configuration -->
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['$', '$']],
-                displayMath: [['$$', '$$']]
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
             },
             svg: { fontCache: 'global' }
         };
@@ -18,421 +21,230 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        :root {
-            --primary: #4F46E5;
-            --primary-hover: #4338CA;
-            --secondary: #10B981;
-            --bg-color: #F1F5F9;
-            --card-bg: #FFFFFF;
-            --text-main: #0F172A;
-            --text-muted: #64748B;
-            --danger: #EF4444;
-            --level-basic: #10B981;   /* Level 1 - 5 */
-            --level-medium: #F59E0B;  /* Level 6 - 11 */
-            --level-expert: #EF4444;  /* Level 12 - 16 */
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        * {
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent;
+        /* Hilangkan spinner bawaan browser pada input number */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
         }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            background: var(--card-bg);
-            max-width: 860px;
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
-            padding: clamp(20px, 4vw, 36px);
-            margin: auto;
-            border-top: 8px solid var(--primary);
-        }
-
-        .hidden { display: none !important; }
-
-        .brand-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-        }
-
-        .svg-logo {
-            height: clamp(32px, 5vw, 42px);
-            width: auto;
-            color: #312E81;
-        }
-
-        h1 {
-            text-align: center;
-            margin: 0;
-            font-size: clamp(20px, 3.5vw, 26px);
-            font-weight: 900;
-            color: #1E293B;
-            line-height: 1.3;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: clamp(13px, 2vw, 15px);
-            margin-top: 6px;
-            margin-bottom: 24px;
-            font-weight: 500;
-        }
-
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .topic-card {
-            background: #F8FAFC;
-            border: 2px solid #E2E8F0;
-            border-radius: 20px;
-            padding: clamp(20px, 3vw, 28px);
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 140px;
-        }
-
-        .topic-card:hover, .topic-card:active {
-            border-color: var(--primary);
-            background: #EEF2FF;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
-        }
-
-        .icon-box-math {
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 8px;
-            font-family: 'Cambria Math', 'Times New Roman', serif;
-            font-style: italic;
-            color: var(--primary);
-        }
-
-        .math-power {
-            font-size: 38px;
-            line-height: 1;
-            display: inline-flex;
-            align-items: flex-start;
-        }
-        .math-power sup {
-            font-size: 22px;
-            margin-left: 2px;
-            font-style: italic;
-            font-weight: bold;
-        }
-
-        .math-root {
-            display: inline-flex;
-            align-items: center;
-            font-size: 36px;
-            line-height: 1;
-        }
-        .math-root .surd {
-            font-size: 42px;
-            font-style: normal;
-            margin-right: -2px;
-            transform: translateY(-1px);
-        }
-        .math-root .radicand {
-            border-top: 3px solid var(--primary);
-            padding: 2px 4px 0 2px;
-            margin-top: -10px;
-            font-size: 34px;
-        }
-
-        .topic-title {
-            font-weight: 800;
-            font-size: clamp(16px, 2.5vw, 18px);
-            color: #1E293B;
-        }
-
-        .info-box {
-            background: #EEF2FF;
-            border: 1px solid #C7D2FE;
-            padding: 14px 18px;
-            border-radius: 16px;
-            font-size: clamp(12px, 1.8vw, 14px);
-            color: #3730A3;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            line-height: 1.4;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-top: 20px;
-        }
-
-        .btn:hover { background-color: var(--primary-hover); }
-        .btn:disabled { background-color: #CBD5E1; cursor: not-allowed; }
-
-        .status-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: clamp(12px, 2vw, 14px);
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px dashed #E2E8F0;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .status-badge-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .timer-badge {
-            background: #FEF2F2;
-            color: #DC2626;
-            border: 1px solid #FECACA;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 800;
-            font-family: monospace;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .level-badge {
-            padding: 4px 12px;
-            border-radius: 20px;
-            color: white;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .question-text {
-            font-size: clamp(17px, 2.8vw, 20px);
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.6;
-            color: #0F172A;
-        }
-
-        /* Container Input Jawaban */
-        .answer-input-box {
-            background: #F8FAFC;
-            border: 2px solid #E2E8F0;
-            border-radius: 18px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .input-label {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .integer-input {
-            width: 100%;
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary);
-            text-align: center;
-            padding: 12px 16px;
-            border: 2px solid #CBD5E1;
-            border-radius: 12px;
-            outline: none;
-            background: #FFFFFF;
-            transition: all 0.2s ease;
-        }
-
-        .integer-input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
-        }
-
-        .review-card {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 14px;
-        }
-
-        .correct { color: var(--secondary); font-weight: 800; }
-        .incorrect { color: var(--danger); font-weight: 800; }
-
-        .footer {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 12px;
-            margin-top: 16px;
-            width: 100%;
-        }
-
-        .whatsapp-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #ECFDF5;
-            color: #047857;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid #A7F3D0;
-            text-decoration: none;
-            margin-top: 6px;
-            font-size: 12px;
+        input[type=number] {
+            -moz-appearance: textfield;
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
 
-    <!-- SCREEN 1: PILIHAN TOPIK -->
-    <div id="start-screen" class="container">
-        <div class="brand-header">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="svg-logo" fill="none">
-                <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-                <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
-                <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
-                <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-                <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-                <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-                <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-                <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-                <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
-                <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
-                <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
-                <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
-            </svg>
-        </div>
-
-        <h1>Latihan Soal Bilangan Berpangkat dan Bentuk Akar</h1>
-        <p class="subtitle">Pilih topik materi yang ingin kamu latih hari ini:</p>
+    <!-- SCREEN 1: START SCREEN / TOPIC SELECTION -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-4 sm:p-6 md:p-8">
+        <div class="pt-2"></div>
         
-        <div class="topic-grid">
-            <!-- Card Bilangan Berpangkat -->
-            <div class="topic-card" onclick="selectTopic('bilangan_berpangkat.json', 'Bilangan Berpangkat')">
-                <div class="icon-box-math">
-                    <span class="math-power">x<sup>n</sup></span>
+        <div class="bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-xl max-w-3xl w-full border-t-8 border-indigo-600 my-auto">
+            <!-- Header Logo SVG -->
+            <div class="flex flex-col items-center justify-center gap-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-10 w-auto text-indigo-900 shrink-0" fill="none">
+                    <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                    <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                    <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                    <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                    <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                </svg>
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="px-3 py-0.5 bg-indigo-100 text-indigo-800 text-[11px] font-black rounded-full uppercase tracking-wider">Kurikulum Merdeka</span>
+                    <span class="px-3 py-0.5 bg-blue-100 text-blue-800 text-[11px] font-black rounded-full uppercase tracking-wider">16 Level Adaptif</span>
                 </div>
-                <div class="topic-title">Bilangan Berpangkat</div>
             </div>
 
-            <!-- Card Bentuk Akar -->
-            <div class="topic-card" onclick="selectTopic('bentuk_akar.json', 'Bentuk Akar')">
-                <div class="icon-box-math">
-                    <span class="math-root">
-                        <span class="surd">√</span>
-                        <span class="radicand">x</span>
-                    </span>
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-black text-center text-slate-900 mb-1 leading-tight">
+                Latihan Soal Bilangan Berpangkat dan Bentuk Akar
+            </h1>
+            <p class="text-center text-slate-500 font-medium mb-6 text-xs sm:text-sm">
+                Pilih topik latihan mandiri. Sistem akan menyesuaikan tingkat kesulitan soal secara otomatis berdasarkan jawabanmu.
+            </p>
+            
+            <!-- Pilihan Topik Kartu Kembar -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <!-- Topik 1: Bilangan Berpangkat -->
+                <div onclick="selectTopic('bilangan_berpangkat.json', 'Bilangan Berpangkat')" class="group p-6 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-indigo-50/60 hover:border-indigo-600 transition-all cursor-pointer shadow-sm hover:shadow-md flex flex-col items-center justify-center text-center">
+                    <div class="text-3xl md:text-4xl text-indigo-600 mb-2 font-serif group-hover:scale-110 transition-transform">
+                        $$x^n$$
+                    </div>
+                    <span class="font-extrabold text-slate-800 group-hover:text-indigo-900 text-base md:text-lg">Bilangan Berpangkat</span>
+                    <span class="text-xs text-slate-400 mt-1 font-semibold">100 Bank Soal (Level 1 - 16)</span>
                 </div>
-                <div class="topic-title">Bentuk Akar</div>
+
+                <!-- Topik 2: Bentuk Akar -->
+                <div onclick="selectTopic('bentuk_akar.json', 'Bentuk Akar')" class="group p-6 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-indigo-50/60 hover:border-indigo-600 transition-all cursor-pointer shadow-sm hover:shadow-md flex flex-col items-center justify-center text-center">
+                    <div class="text-3xl md:text-4xl text-indigo-600 mb-2 font-serif group-hover:scale-110 transition-transform">
+                        $$\sqrt{x}$$
+                    </div>
+                    <span class="font-extrabold text-slate-800 group-hover:text-indigo-900 text-base md:text-lg">Bentuk Akar</span>
+                    <span class="text-xs text-slate-400 mt-1 font-semibold">Bank Soal Terkalibrasi</span>
+                </div>
+            </div>
+
+            <!-- Petunjuk Ringkas -->
+            <div class="bg-indigo-50/70 p-4 rounded-2xl border border-indigo-100 space-y-1.5 text-xs text-indigo-950 leading-relaxed">
+                <div class="font-bold flex items-center gap-1.5 text-indigo-900 text-xs sm:text-sm mb-1">
+                    <svg class="w-4 h-4 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Aturan & Mekanisme Ujian:
+                </div>
+                <p>&bull; <strong>20 Soal Isian Singkat:</strong> Masukkan jawaban akhir berupa <strong>bilangan bulat</strong>.</p>
+                <p>&bull; <strong>Waktu Pengerjaan:</strong> <strong>30 Menit</strong> dengan sistem <strong>countdown timer</strong>.</p>
+                <p>&bull; <strong>Penyesuaian Adaptif:</strong> Soal dimulai dari <strong>Level 8</strong> (Menengah) dan naik/turun sesuai ketepatan jawaban.</p>
             </div>
         </div>
 
-        <div class="info-box">
-            <span style="font-size:16px;">⏱️</span>
-            <div><strong>Format Ujian:</strong> 20 Soal Isian Adaptif (16 Level) | Waktu Pengerjaan: <strong>30 Menit</strong>.</div>
+        <!-- Footer -->
+        <footer class="w-full py-4 text-center text-xs text-slate-600">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50 hover:bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SCREEN 2: ACTIVE QUIZ CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Header & Timer Bar -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 id="header-topic-title" class="text-sm sm:text-base font-black text-indigo-900 leading-tight">Bilangan Berpangkat</h1>
+                            <p class="text-[11px] text-slate-500 font-semibold hidden sm:block">Adaptive Engine Kurikulum Merdeka</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-rose-50 text-rose-600 px-3.5 py-1.5 rounded-xl font-mono text-base sm:text-lg font-black border border-rose-200 shadow-inner flex items-center gap-1.5" id="timer-display">
+                            ⏱️ 30:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto px-4 mt-6">
+                <!-- Status Tracker -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Kemajuan</span>
+                        <span class="text-sm sm:text-base font-extrabold text-slate-800">Soal <span id="current-q-index" class="text-indigo-600">1</span> dari <span id="target-q-total">20</span></span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Tingkat Kesulitan</span>
+                        <span id="level-badge" class="inline-block px-3 py-0.5 rounded-full text-xs font-black uppercase text-white bg-amber-500 tracking-wide">
+                            Level 8
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Active Question Card -->
+                <div id="question-card" class="question-slide bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="text-slate-800 text-lg sm:text-xl font-semibold leading-relaxed mb-6" id="question-text">
+                        Memuat soal...
+                    </div>
+
+                    <!-- Input Jawaban Bulat Elegan -->
+                    <div class="bg-slate-50 border-2 border-slate-200 focus-within:border-indigo-600 focus-within:bg-indigo-50/20 p-5 rounded-2xl transition-all">
+                        <label for="user-integer-input" class="block text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-2">
+                            Ketik Jawaban Akhir (Bilangan Bulat):
+                        </label>
+                        <div class="relative flex items-center">
+                            <input type="number" step="1" inputmode="numeric" id="user-integer-input" class="w-full bg-white border-2 border-slate-300 focus:border-indigo-600 rounded-xl py-3.5 px-4 text-2xl font-black text-indigo-700 text-center tracking-widest outline-none transition shadow-inner" placeholder="0" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-end mb-8">
+                    <button type="button" id="submit-answer-btn" onclick="submitCurrentAnswer()" disabled class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold rounded-2xl transition shadow-lg hover:shadow-indigo-200 flex items-center justify-center gap-2 cursor-pointer text-base">
+                        <span>Konfirmasi & Lanjut</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- SCREEN 2: QUIZ -->
-    <div id="quiz-screen" class="container hidden">
-        <div class="status-bar">
-            <span>Soal <span id="current-q-num">1</span>/20</span>
-            <span id="topic-badge" style="color: var(--primary); font-weight:800;">Topik</span>
-            <div class="status-badge-group">
-                <span class="timer-badge" id="timer-display">⏱️ 30:00</span>
-                <span id="level-indicator" class="level-badge">Level 8</span>
+    <!-- SCREEN 3: RESULT & PERFORMANCE REPORT -->
+    <div id="result-screen" class="hidden-section max-w-4xl mx-auto px-4 mt-8 mb-16">
+        <div class="bg-gradient-to-br from-indigo-800 via-indigo-900 to-slate-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden mb-8">
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3">Laporan Hasil Belajar</span>
+            <h2 class="text-3xl sm:text-4xl font-black mb-2 tracking-tight">EVALUASI PERFORMA ADAPTIF</h2>
+            <p id="time-spent-text" class="text-indigo-200 text-xs sm:text-sm max-w-md mx-auto mb-6">Waktu Pengerjaan: 0 menit</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-2xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                    <p class="text-3xl sm:text-4xl font-black text-yellow-300" id="final-score">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Akurasi Benar</p>
+                    <p class="text-3xl sm:text-4xl font-black text-emerald-300" id="accuracy-percent">0%</p>
+                </div>
+                <div class="p-2 text-center col-span-2 md:col-span-1 border-t md:border-t-0 md:border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Level Dicapai</p>
+                    <p class="text-3xl sm:text-4xl font-black text-white" id="final-level-reached">Level 8</p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-center">
+                <button type="button" onclick="location.reload()" class="bg-white hover:bg-slate-100 text-indigo-900 font-extrabold py-3 px-8 rounded-2xl shadow-lg transition transform active:scale-95 text-sm">
+                    Mulai Sesi Baru
+                </button>
             </div>
         </div>
 
-        <div id="question-text" class="question-text">Memuat soal...</div>
-        
-        <!-- Input Isian Jawaban Bilangan Bulat -->
-        <div class="answer-input-box">
-            <label class="input-label" for="user-integer-input">Ketik Jawaban Akhir (Bilangan Bulat):</label>
-            <input type="number" step="1" inputmode="numeric" id="user-integer-input" class="integer-input" placeholder="0" autocomplete="off">
+        <!-- Detailed Solutions List -->
+        <div class="space-y-4">
+            <h3 class="text-xl sm:text-2xl font-black text-slate-800 border-b border-slate-200 pb-3 flex items-center gap-2">
+                <span>Pembahasan Lengkap & Kunci Jawaban</span>
+            </h3>
+            <div id="solutions-list" class="space-y-4"></div>
         </div>
-
-        <button id="submit-btn" class="btn" disabled onclick="submitAnswer()">Jawab & Lanjut</button>
-    </div>
-
-    <!-- SCREEN 3: RESULT & REVIEW -->
-    <div id="result-screen" class="container hidden">
-        <h2 style="text-align: center; margin-top:0; font-size: 22px;">🎉 Ujian Selesai!</h2>
-        <div style="text-align: center; margin: 16px 0;">
-            <p style="font-size: 14px; color: var(--text-muted); margin:0;">Skor Akhir Kamu:</p>
-            <p id="final-score" style="font-size: 48px; font-weight: 900; color: var(--primary); margin: 4px 0;"></p>
-            <p id="time-spent" style="font-size: 13px; color: var(--text-muted); margin-top: 4px;"></p>
-        </div>
-
-        <h3 style="text-align: left; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; margin-top: 20px; font-size: 16px;">Pembahasan Soal</h3>
-        <div id="review-container"></div>
-
-        <button class="btn" onclick="location.reload()">Main Lagi</button>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        <div style="display:flex; align-items:center; justify-content:center; gap:6px; font-weight:700; color:#334155;">
-            <span>&copy; Dhanardi Riansyah</span>
-            <span>&bull;</span>
-            <span style="color:#64748B;">All Rights Reserved</span>
-        </div>
-        <a href="https://wa.me/6281381374712" target="_blank" class="whatsapp-badge">
-            <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            <span>mtkbarengkakdhanar : 0813-813-747-12</span>
-        </a>
     </div>
 
     <!-- JAVASCRIPT LOGIC ADAPTIF 16 LEVEL -->
     <script>
         let questionBank = [];
-        let currentLevel = 8; // Mulai dari tengah (Level 8 dari 16 Level)
-        let totalQuestions = 20; // Target 20 Soal
+        let currentLevel = 8; // Mulai dari Level 8 (Tengah)
+        let totalQuestions = 20; // 20 Soal
         let questionCounter = 0;
         let score = 0;
         let history = [];
@@ -445,52 +257,52 @@
         let timerInterval = null;
 
         const inputField = document.getElementById('user-integer-input');
-        const submitBtn = document.getElementById('submit-btn');
+        const submitBtn = document.getElementById('submit-answer-btn');
 
-        // Event listener input
+        // Input Listener
         inputField.addEventListener('input', () => {
             submitBtn.disabled = inputField.value.trim() === '';
         });
 
-        // Dukungan tombol Enter
+        // Dukungan Tombol Enter
         inputField.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !submitBtn.disabled) {
-                submitAnswer();
+                submitCurrentAnswer();
             }
         });
+
+        async function selectTopic(jsonFile, topicName) {
+            try {
+                const response = await fetch(jsonFile);
+                if (!response.ok) throw new Error("Status " + response.status);
+                questionBank = await response.json();
+
+                document.getElementById('header-topic-title').innerText = topicName;
+                document.getElementById('start-screen').classList.add('hidden-section');
+                document.getElementById('quiz-app').classList.remove('hidden-section');
+
+                startTimer();
+                loadNextQuestion();
+            } catch (error) {
+                alert("Gagal memuat " + jsonFile + ". Pastikan file JSON sudah berada di direktori/folder yang sama.");
+                console.error(error);
+            }
+        }
 
         function startTimer() {
             const timerDisplay = document.getElementById('timer-display');
             timerInterval = setInterval(() => {
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
-                    alert("Waktu 30 Menit Habis! Hasil pengerjaanmu langsung dihitung.");
+                    alert("Waktu 30 Menit Habis! Hasil evaluasimu akan langsung ditampilkan.");
                     endGame();
                     return;
                 }
                 timeLeft--;
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                timerDisplay.innerText = `⏱️ ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                const m = Math.floor(timeLeft / 60);
+                const s = timeLeft % 60;
+                timerDisplay.innerText = `⏱️ ${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             }, 1000);
-        }
-
-        async function selectTopic(jsonFile, topicName) {
-            try {
-                const response = await fetch(jsonFile);
-                if (!response.ok) throw new Error("File JSON tidak ditemukan.");
-                questionBank = await response.json();
-
-                document.getElementById('topic-badge').innerText = topicName;
-                document.getElementById('start-screen').classList.add('hidden');
-                document.getElementById('quiz-screen').classList.remove('hidden');
-
-                startTimer();
-                loadNextQuestion();
-            } catch (error) {
-                alert("Gagal memuat " + jsonFile + ". Pastikan file JSON sudah berada di direktori yang sama.");
-                console.error(error);
-            }
         }
 
         function loadNextQuestion() {
@@ -502,7 +314,7 @@
             // Filter soal berdasarkan level aktif
             let availableQuestions = questionBank.filter(q => q.level === currentLevel && !usedQuestions.includes(q.id));
             
-            // Fallback mencari level terdekat jika soal di level aktif habis
+            // Fallback mencari soal terdekat jika level aktif sudah habis
             if (availableQuestions.length === 0) {
                 availableQuestions = questionBank.filter(q => !usedQuestions.includes(q.id));
             }
@@ -520,32 +332,37 @@
             inputField.value = '';
             submitBtn.disabled = true;
 
-            document.getElementById('current-q-num').innerText = questionCounter;
+            // UI Tracker Update
+            document.getElementById('current-q-index').innerText = questionCounter;
+            document.getElementById('target-q-total').innerText = totalQuestions;
             
-            // Render Badge 16 Level
-            const levelInd = document.getElementById('level-indicator');
-            levelInd.innerText = `Level ${currentLevel}`;
-            if (currentLevel <= 5) {
-                levelInd.style.background = "var(--level-basic)";
+            const levelBadge = document.getElementById('level-badge');
+            levelBadge.innerText = `Level ${currentLevel}`;
+            if (currentLevel <= 4) {
+                levelBadge.className = "inline-block px-3 py-0.5 rounded-full text-xs font-black uppercase text-white bg-emerald-500 tracking-wide";
             } else if (currentLevel <= 11) {
-                levelInd.style.background = "var(--level-medium)";
+                levelBadge.className = "inline-block px-3 py-0.5 rounded-full text-xs font-black uppercase text-white bg-amber-500 tracking-wide";
             } else {
-                levelInd.style.background = "var(--level-expert)";
+                levelBadge.className = "inline-block px-3 py-0.5 rounded-full text-xs font-black uppercase text-white bg-rose-500 tracking-wide";
             }
 
+            // Question Text Injection
             document.getElementById('question-text').innerHTML = activeQuestion.q;
             inputField.focus();
 
-            if (window.MathJax) MathJax.typesetPromise();
+            // Re-render MathJax
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
         }
 
-        function submitAnswer() {
+        function submitCurrentAnswer() {
             const rawInput = inputField.value.trim();
             if (rawInput === '') return;
 
             const userInt = parseInt(rawInput, 10);
             
-            // Mendapatkan jawaban kunci (baik dari opsi index atau nilai langsung)
+            // Ekstraksi jawaban benar yang valid
             let correctInt;
             if (activeQuestion.options && activeQuestion.options[activeQuestion.ans] !== undefined) {
                 correctInt = parseInt(activeQuestion.options[activeQuestion.ans], 10);
@@ -558,7 +375,7 @@
             
             history.push({
                 q: activeQuestion.q,
-                userAnswer: isCorrect ? userInt : rawInput,
+                userAnswer: rawInput,
                 correctAnswer: correctInt,
                 isCorrect: isCorrect,
                 level: activeQuestion.level,
@@ -578,50 +395,64 @@
         function endGame() {
             if (timerInterval) clearInterval(timerInterval);
 
-            document.getElementById('quiz-screen').classList.add('hidden');
-            document.getElementById('result-screen').classList.remove('hidden');
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
             
+            const totalAdministered = history.length > 0 ? history.length : 1;
             const finalScore = Math.round((score / (totalQuestions * 100)) * 100);
+            const correctCount = history.filter(h => h.isCorrect).length;
+            const accuracy = Math.round((correctCount / totalAdministered) * 100);
+
             document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('accuracy-percent').innerText = `${accuracy}%`;
+            document.getElementById('final-level-reached').innerText = `Level ${currentLevel}`;
 
             const timeUsed = totalTimeSeconds - timeLeft;
-            const minutesUsed = Math.floor(timeUsed / 60);
-            const secondsUsed = timeUsed % 60;
-            document.getElementById('time-spent').innerText = `Waktu Pengerjaan: ${minutesUsed} menit ${secondsUsed} detik (${history.length} dari ${totalQuestions} soal diselesaikan)`;
+            const mUsed = Math.floor(timeUsed / 60);
+            const sUsed = timeUsed % 60;
+            document.getElementById('time-spent-text').innerText = `Waktu Selesai: ${mUsed} menit ${sUsed} detik (${history.length} dari ${totalQuestions} soal diselesaikan)`;
 
-            const reviewContainer = document.getElementById('review-container');
-            reviewContainer.innerHTML = '';
+            renderSolutions();
+        }
 
-            history.forEach((item, index) => {
-                const statusHTML = item.isCorrect 
-                    ? `<span class="correct">BENAR</span>` 
-                    : `<span class="incorrect">SALAH</span>`;
+        function renderSolutions() {
+            const container = document.getElementById('solutions-list');
+            container.innerHTML = '';
 
-                reviewContainer.innerHTML += `
-                    <div class="review-card">
-                        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); margin-bottom:6px;">
-                            <span>Soal #${index + 1} (Level ${item.level})</span>
-                            <span>${statusHTML}</span>
+            history.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const isCorrect = item.isCorrect;
+
+                container.innerHTML += `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200' : 'border-rose-200'} p-6 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-black text-slate-800">Soal #${qNum} (Level ${item.level})</span>
+                            <span class="text-xs font-bold px-3 py-1 rounded-full ${isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                                ${isCorrect ? 'BENAR' : 'SALAH'}
+                            </span>
                         </div>
-                        <div style="font-weight:600; margin-bottom:10px; font-size:14px;">${item.q}</div>
-                        <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:10px; font-size:13px;">
-                            <div style="background:#FEE2E2; padding:6px 10px; border-radius:8px; border:1px solid #FCA5A5;">
-                                <span style="font-size:11px; color:#991B1B; display:block;">Jawabanmu:</span>
-                                <strong>${item.userAnswer}</strong>
+                        <p class="text-base font-semibold text-slate-800 mb-4">${item.q}</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 text-sm font-bold">
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-xs text-slate-400 uppercase block">Jawabanmu:</span>
+                                <span class="${isCorrect ? 'text-emerald-600' : 'text-rose-600'}">${item.userAnswer}</span>
                             </div>
-                            <div style="background:#D1FAE5; padding:6px 10px; border-radius:8px; border:1px solid #6EE7B7;">
-                                <span style="font-size:11px; color:#065F46; display:block;">Kunci Jawaban:</span>
-                                <strong>${item.correctAnswer}</strong>
+                            <div class="p-3 rounded-xl bg-indigo-50 border border-indigo-100">
+                                <span class="text-xs text-indigo-400 uppercase block">Kunci Jawaban:</span>
+                                <span class="text-indigo-700">${item.correctAnswer}</span>
                             </div>
                         </div>
-                        <div style="background:white; padding:10px; border-radius:8px; border:1px solid #E2E8F0; font-size:13px;">
-                            <strong>Penjelasan:</strong><br>${item.exp}
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-sm text-slate-700 space-y-1">
+                            <p class="font-black text-indigo-900 mb-1">Penjelasan:</p>
+                            ${item.exp || 'Tidak ada penjelasan khusus.'}
                         </div>
                     </div>
                 `;
             });
 
-            if (window.MathJax) MathJax.typesetPromise();
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
         }
     </script>
 </body>
