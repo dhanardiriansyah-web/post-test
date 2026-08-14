@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "q": "Hitunglah nilai dari akar kuadrat dasar berikut: $\\sqrt{16} = \\dots$",
+    "ans": 4,
+    "exp": "$\\sqrt{16} = 4$."
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "q": "Hitunglah nilai dari akar kuadrat dasar berikut: $\\sqrt{49} = \\dots$",
+    "ans": 7,
+    "exp": "$\\sqrt{49} = 7$."
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "q": "Hitunglah nilai dari akar kuadrat dasar berikut: $\\sqrt{121} = \\dots$",
+    "ans": 11,
+    "exp": "$\\sqrt{121} = 11$."
+  },
+  {
+    "id": 4,
+    "level": 1,
+    "q": "Tentukan nilai $x$ positif yang memenuhi persamaan akar berikut: $\\sqrt{x} = 9$",
+    "ans": 81,
+    "exp": "$\\sqrt{x} = 9 \\implies x = 9^2 = 81$."
+  },
+  {
+    "id": 5,
+    "level": 1,
+    "q": "Hitunglah hasil penjumlahan akar kuadrat sempurna berikut: $\\sqrt{144} + \\sqrt{25} = \\dots$",
+    "ans": 17,
+    "exp": "$\\sqrt{144} + \\sqrt{25} = 12 + 5 = 17$."
+  },
+  {
+    "id": 6,
+    "level": 1,
+    "q": "Hitunglah hasil pengurangan akar kuadrat sempurna berikut: $\\sqrt{100} - \\sqrt{36} = \\dots$",
+    "ans": 4,
+    "exp": "$\\sqrt{100} - \\sqrt{36} = 10 - 6 = 4$."
+  },
+  {
+    "id": 7,
+    "level": 1,
+    "q": "Hitunglah hasil perkalian dua akar sempurna berikut: $\\sqrt{64} \\times \\sqrt{9} = \\dots$",
+    "ans": 24,
+    "exp": "$\\sqrt{64} \\times \\sqrt{9} = 8 \\times 3 = 24$."
+  },
+  {
+    "id": 8,
+    "level": 2,
+    "q": "Jika bentuk akar $\\sqrt{12}$ disederhanakan menjadi $a\\sqrt{3}$, berapakah nilai $a$?",
+    "ans": 2,
+    "exp": "$\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3} \\implies a = 2$."
+  },
+  {
+    "id": 9,
+    "level": 2,
+    "q": "Jika bentuk akar $\\sqrt{50}$ disederhanakan menjadi $a\\sqrt{2}$, berapakah nilai $a$?",
+    "ans": 5,
+    "exp": "$\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2} \\implies a = 5$."
+  },
+  {
+    "id": 10,
+    "level": 2,
+    "q": "Jika bentuk akar $\\sqrt{72}$ disederhanakan menjadi $a\\sqrt{2}$, berapakah nilai $a$?",
+    "ans": 6,
+    "exp": "$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2} \\implies a = 6$."
+  },
+  {
+    "id": 11,
+    "level": 2,
+    "q": "Jika bentuk akar $\\sqrt{108}$ disederhanakan menjadi $a\\sqrt{3}$, berapakah nilai $a$?",
+    "ans": 6,
+    "exp": "$\\sqrt{108} = \\sqrt{36 \\times 3} = 6\\sqrt{3} \\implies a = 6$."
+  },
+  {
+    "id": 12,
+    "level": 2,
+    "q": "Jika bentuk akar $\\sqrt{200}$ disederhanakan menjadi $a\\sqrt{2}$, berapakah nilai $a$?",
+    "ans": 10,
+    "exp": "$\\sqrt{200} = \\sqrt{100 \\times 2} = 10\\sqrt{2} \\implies a = 10$."
+  },
+  {
+    "id": 13,
+    "level": 2,
+    "q": "Jika bentuk akar $\\sqrt{300}$ disederhanakan menjadi $a\\sqrt{3}$, berapakah nilai $a$?",
+    "ans": 10,
+    "exp": "$\\sqrt{300} = \\sqrt{100 \\times 3} = 10\\sqrt{3} \\implies a = 10$."
+  },
+  {
+    "id": 14,
+    "level": 3,
+    "q": "Jika $3\\sqrt{5} + 4\\sqrt{5} = k\\sqrt{5}$, tentukan nilai $k$!",
+    "ans": 7,
+    "exp": "$3\\sqrt{5} + 4\\sqrt{5} = (3+4)\\sqrt{5} = 7\\sqrt{5} \\implies k = 7$."
+  },
+  {
+    "id": 15,
+    "level": 3,
+    "q": "Jika $10\\sqrt{2} - 6\\sqrt{2} = k\\sqrt{2}$, tentukan nilai $k$!",
+    "ans": 4,
+    "exp": "$10\\sqrt{2} - 6\\sqrt{2} = (10-6)\\sqrt{2} = 4\\sqrt{2} \\implies k = 4$."
+  },
+  {
+    "id": 16,
+    "level": 3,
+    "q": "Hitunglah nilai $k$ yang memenuhi persamaan berikut: $5\\sqrt{7} + 2\\sqrt{7} - 3\\sqrt{7} = k\\sqrt{7}$",
+    "ans": 4,
+    "exp": "$(5 + 2 - 3)\\sqrt{7} = 4\\sqrt{7} \\implies k = 4$."
+  },
+  {
+    "id": 17,
+    "level": 3,
+    "q": "Hitunglah nilai $k$ yang memenuhi persamaan berikut: $12\\sqrt{3} - 5\\sqrt{3} + 8\\sqrt{3} = k\\sqrt{3}$",
+    "ans": 15,
+    "exp": "$(12 - 5 + 8)\\sqrt{3} = 15\\sqrt{3} \\implies k = 15$."
+  },
+  {
+    "id": 18,
+    "level": 3,
+    "q": "Tentukan nilai $k$ yang memenuhi persamaan penjumlahan akar sejenis: $4\\sqrt{11} + k\\sqrt{11} = 11\\sqrt{11}$",
+    "ans": 7,
+    "exp": "$4 + k = 11 \\implies k = 7$."
+  },
+  {
+    "id": 19,
+    "level": 3,
+    "q": "Tentukan nilai $k$ yang memenuhi persamaan pengurangan akar sejenis: $15\\sqrt{6} - k\\sqrt{6} = 9\\sqrt{6}$",
+    "ans": 6,
+    "exp": "$15 - k = 9 \\implies k = 6$."
+  },
+  {
+    "id": 20,
+    "level": 4,
+    "q": "Sederhanakan $\\sqrt{12} + \\sqrt{27}$. Jika hasilnya dapat ditulis sebagai $k\\sqrt{3}$, tentukan nilai $k$!",
+    "ans": 5,
+    "exp": "$\\sqrt{12} + \\sqrt{27} = 2\\sqrt{3} + 3\\sqrt{3} = 5\\sqrt{3} \\implies k = 5$."
+  },
+  {
+    "id": 21,
+    "level": 4,
+    "q": "Sederhanakan $\\sqrt{18} + \\sqrt{50}$. Jika hasilnya dapat ditulis sebagai $k\\sqrt{2}$, tentukan nilai $k$!",
+    "ans": 8,
+    "exp": "$\\sqrt{18} + \\sqrt{50} = 3\\sqrt{2} + 5\\sqrt{2} = 8\\sqrt{2} \\implies k = 8$."
+  },
+  {
+    "id": 22,
+    "level": 4,
+    "q": "Sederhanakan $\\sqrt{45} + \\sqrt{80} - \\sqrt{20}$. Jika hasilnya ditulis sebagai $k\\sqrt{5}$, berapakah $k$?",
+    "ans": 5,
+    "exp": "$3\\sqrt{5} + 4\\sqrt{5} - 2\\sqrt{5} = 5\\sqrt{5} \\implies k = 5$."
+  },
+  {
+    "id": 23,
+    "level": 4,
+    "q": "Sederhanakan $\\sqrt{48} - \\sqrt{12} + \\sqrt{75}$. Jika hasilnya ditulis sebagai $k\\sqrt{3}$, berapakah $k$?",
+    "ans": 7,
+    "exp": "$4\\sqrt{3} - 2\\sqrt{3} + 5\\sqrt{3} = 7\\sqrt{3} \\implies k = 7$."
+  },
+  {
+    "id": 24,
+    "level": 4,
+    "q": "Hitunglah nilai $k$ dari penyederhanaan ekspresi berikut: $2\\sqrt{28} + \\sqrt{63} - \\sqrt{112} = k\\sqrt{7}$",
+    "ans": 3,
+    "exp": "$2(2\\sqrt{7}) + 3\\sqrt{7} - 4\\sqrt{7} = 4\\sqrt{7} + 3\\sqrt{7} - 4\\sqrt{7} = 3\\sqrt{7} \\implies k = 3$."
+  },
+  {
+    "id": 25,
+    "level": 4,
+    "q": "Hitunglah nilai $k$ dari penyederhanaan ekspresi berikut: $3\\sqrt{32} - 2\\sqrt{18} + \\sqrt{50} = k\\sqrt{2}$",
+    "ans": 11,
+    "exp": "$3(4\\sqrt{2}) - 2(3\\sqrt{2}) + 5\\sqrt{2} = 12\\sqrt{2} - 6\\sqrt{2} + 5\\sqrt{2} = 11\\sqrt{2} \\implies k = 11$."
+  },
+  {
+    "id": 26,
+    "level": 5,
+    "q": "Hitunglah hasil perkalian dua bentuk akar berikut: $\\sqrt{2} \\times \\sqrt{8} = \\dots$",
+    "ans": 4,
+    "exp": "$\\sqrt{2} \\times \\sqrt{8} = \\sqrt{16} = 4$."
+  },
+  {
+    "id": 27,
+    "level": 5,
+    "q": "Hitunglah hasil perkalian dua bentuk akar berikut: $\\sqrt{3} \\times \\sqrt{12} = \\dots$",
+    "ans": 6,
+    "exp": "$\\sqrt{3} \\times \\sqrt{12} = \\sqrt{36} = 6$."
+  },
+  {
+    "id": 28,
+    "level": 5,
+    "q": "Hitunglah hasil perkalian dua bentuk akar berikut: $\\sqrt{5} \\times \\sqrt{20} = \\dots$",
+    "ans": 10,
+    "exp": "$\\sqrt{5} \\times \\sqrt{20} = \\sqrt{100} = 10$."
+  },
+  {
+    "id": 29,
+    "level": 5,
+    "q": "Hitunglah hasil perkalian dua bentuk akar berkoefisien berikut: $(2\\sqrt{3}) \\times (3\\sqrt{3}) = \\dots$",
+    "ans": 18,
+    "exp": "$(2 \\times 3) \\times (\\sqrt{3} \\times \\sqrt{3}) = 6 \\times 3 = 18$."
+  },
+  {
+    "id": 30,
+    "level": 5,
+    "q": "Hitunglah hasil perkalian dua bentuk akar berkoefisien berikut: $(4\\sqrt{2}) \\times (5\\sqrt{8}) = \\dots$",
+    "ans": 80,
+    "exp": "$(4 \\times 5) \\times (\\sqrt{2} \\times \\sqrt{8}) = 20 \\times \\sqrt{16} = 20 \\times 4 = 80$."
+  },
+  {
+    "id": 31,
+    "level": 5,
+    "q": "Jika $(3\\sqrt{5}) \\times (2\\sqrt{10}) = k\\sqrt{2}$, tentukan nilai dari $k$!",
+    "ans": 30,
+    "exp": "$(3 \\times 2) \\times (\\sqrt{5} \\times \\sqrt{10}) = 6\\sqrt{50} = 6(5\\sqrt{2}) = 30\\sqrt{2} \\implies k = 30$."
+  },
+  {
+    "id": 32,
+    "level": 6,
+    "q": "Hitunglah hasil pembagian dua bentuk akar berikut: $\\dfrac{\\sqrt{72}}{\\sqrt{2}} = \\dots$",
+    "ans": 6,
+    "exp": "$\\dfrac{\\sqrt{72}}{\\sqrt{2}} = \\sqrt{\\dfrac{72}{2}} = \\sqrt{36} = 6$."
+  },
+  {
+    "id": 33,
+    "level": 6,
+    "q": "Hitunglah hasil pembagian dua bentuk akar berikut: $\\dfrac{\\sqrt{150}}{\\sqrt{6}} = \\dots$",
+    "ans": 5,
+    "exp": "$\\dfrac{\\sqrt{150}}{\\sqrt{6}} = \\sqrt{\\dfrac{150}{6}} = \\sqrt{25} = 5$."
+  },
+  {
+    "id": 34,
+    "level": 6,
+    "q": "Sederhanakan pembagian berkoefisien $\\dfrac{12\\sqrt{15}}{3\\sqrt{3}}$. Jika ditulis sebagai $k\\sqrt{5}$, tentukan $k$!",
+    "ans": 4,
+    "exp": "$\\left(\\dfrac{12}{3}\\right) \\sqrt{\\dfrac{15}{3}} = 4\\sqrt{5} \\implies k = 4$."
+  },
+  {
+    "id": 35,
+    "level": 6,
+    "q": "Sederhanakan pembagian $\\dfrac{8\\sqrt{24}}{2\\sqrt{3}}$. Jika ditulis sebagai $k\\sqrt{2}$, tentukan nilai $k$!",
+    "ans": 8,
+    "exp": "$\\left(\\dfrac{8}{2}\\right) \\sqrt{\\dfrac{24}{3}} = 4\\sqrt{8} = 4(2\\sqrt{2}) = 8\\sqrt{2} \\implies k = 8$."
+  },
+  {
+    "id": 36,
+    "level": 6,
+    "q": "Hitunglah nilai dari ekspresi pecahan bentuk akar berikut: $\\dfrac{\\sqrt{2} \\times \\sqrt{18}}{\\sqrt{4}} = \\dots$",
+    "ans": 3,
+    "exp": "$\\dfrac{\\sqrt{36}}{2} = \\dfrac{6}{2} = 3$."
+  },
+  {
+    "id": 37,
+    "level": 6,
+    "q": "Hitunglah nilai dari ekspresi operasi gabungan berikut: $\\dfrac{6\\sqrt{12} \\times \\sqrt{6}}{3\\sqrt{8}} = \\dots$",
+    "ans": 6,
+    "exp": "$\\dfrac{6\\sqrt{72}}{3\\sqrt{8}} = 2\\sqrt{\\dfrac{72}{8}} = 2\\sqrt{9} = 2 \\times 3 = 6$."
+  },
+  {
+    "id": 38,
+    "level": 7,
+    "q": "Hitunglah hasil kali distributif bentuk akar berikut: $\\sqrt{3}(\\sqrt{3} + \\sqrt{12}) = \\dots$",
+    "ans": 9,
+    "exp": "$\\sqrt{3} \\times \\sqrt{3} + \\sqrt{3} \\times \\sqrt{12} = 3 + \\sqrt{36} = 3 + 6 = 9$."
+  },
+  {
+    "id": 39,
+    "level": 7,
+    "q": "Hitunglah hasil kali distributif bentuk akar berikut: $\\sqrt{2}(\\sqrt{8} + 3\\sqrt{2}) = \\dots$",
+    "ans": 10,
+    "exp": "$\\sqrt{16} + 3(\\sqrt{2} \\times \\sqrt{2}) = 4 + 3(2) = 4 + 6 = 10$."
+  },
+  {
+    "id": 40,
+    "level": 7,
+    "q": "Hitunglah hasil kali suku dua (selisih kuadrat) berikut: $(\\sqrt{5} + 2)(\\sqrt{5} - 2) = \\dots$",
+    "ans": 1,
+    "exp": "Bentuk selisih kuadrat $(a+b)(a-b) = a^2 - b^2$: $(\\sqrt{5})^2 - 2^2 = 5 - 4 = 1$."
+  },
+  {
+    "id": 41,
+    "level": 7,
+    "q": "Hitunglah hasil perkalian selisih kuadrat berikut: $(3\\sqrt{2} + 4)(3\\sqrt{2} - 4) = \\dots$",
+    "ans": 2,
+    "exp": "$(3\\sqrt{2})^2 - 4^2 = 18 - 16 = 2$."
+  },
+  {
+    "id": 42,
+    "level": 7,
+    "q": "Hitunglah hasil perkalian perkalian dua suku berikut: $(\\sqrt{7} + \\sqrt{3})(\\sqrt{7} - \\sqrt{3}) = \\dots$",
+    "ans": 4,
+    "exp": "$(\\sqrt{7})^2 - (\\sqrt{3})^2 = 7 - 3 = 4$."
+  },
+  {
+    "id": 43,
+    "level": 7,
+    "q": "Hasil pengkuadratan $(\\sqrt{5} + \\sqrt{2})^2$ adalah $a + 2\\sqrt{10}$. Berapakah nilai $a$?",
+    "ans": 7,
+    "exp": "$(\\sqrt{5} + \\sqrt{2})^2 = 5 + 2 + 2\\sqrt{10} = 7 + 2\\sqrt{10} \\implies a = 7$."
+  },
+  {
+    "id": 44,
+    "level": 7,
+    "q": "Hasil pengkuadratan $(3 + \\sqrt{2})^2$ adalah $a + b\\sqrt{2}$. Tentukan nilai dari $a + b$!",
+    "ans": 17,
+    "exp": "$(3 + \\sqrt{2})^2 = 9 + 2 + 6\\sqrt{2} = 11 + 6\\sqrt{2} \\implies a = 11, b = 6 \\implies a + b = 17$."
+  },
+  {
+    "id": 45,
+    "level": 8,
+    "q": "Hitunglah nilai dari pengkuadratan jumlah bentuk akar sejenis: $(\\sqrt{8} + \\sqrt{18})^2 = \\dots$",
+    "ans": 50,
+    "exp": "$\\sqrt{8} + \\sqrt{18} = 2\\sqrt{2} + 3\\sqrt{2} = 5\\sqrt{2}$. Maka $(5\\sqrt{2})^2 = 25 \\times 2 = 50$."
+  },
+  {
+    "id": 46,
+    "level": 8,
+    "q": "Hitunglah nilai dari pengkuadratan selisih bentuk akar sejenis: $(\\sqrt{27} - \\sqrt{12})^2 = \\dots$",
+    "ans": 3,
+    "exp": "$\\sqrt{27} - \\sqrt{12} = 3\\sqrt{3} - 2\\sqrt{3} = \\sqrt{3}$. Maka $(\\sqrt{3})^2 = 3$."
+  },
+  {
+    "id": 47,
+    "level": 8,
+    "q": "Hitunglah hasil pembagian jumlah dua bentuk akar berikut: $\\dfrac{\\sqrt{50} + \\sqrt{32}}{\\sqrt{2}} = \\dots$",
+    "ans": 9,
+    "exp": "$\\dfrac{5\\sqrt{2} + 4\\sqrt{2}}{\\sqrt{2}} = \\dfrac{9\\sqrt{2}}{\\sqrt{2}} = 9$."
+  },
+  {
+    "id": 48,
+    "level": 8,
+    "q": "Hitunglah hasil perkalian dari operasi selisih bentuk akar berikut: $(\\sqrt{75} - \\sqrt{12}) \\times \\sqrt{3} = \\dots$",
+    "ans": 9,
+    "exp": "$(\\sqrt{75} - \\sqrt{12}) = 5\\sqrt{3} - 2\\sqrt{3} = 3\\sqrt{3}$. Kalikan $\\sqrt{3}$: $3\\sqrt{3} \\times \\sqrt{3} = 3 \\times 3 = 9$."
+  },
+  {
+    "id": 49,
+    "level": 8,
+    "q": "Hitunglah nilai dari pecahan kuadrat bentuk akar berikut: $\\dfrac{(\\sqrt{12} + \\sqrt{27})^2}{3} = \\dots$",
+    "ans": 25,
+    "exp": "$\\sqrt{12} + \\sqrt{27} = 2\\sqrt{3} + 3\\sqrt{3} = 5\\sqrt{3}$. Kuadratnya: $(5\\sqrt{3})^2 = 75$. Bagi $3$: $\\dfrac{75}{3} = 25$."
+  },
+  {
+    "id": 50,
+    "level": 8,
+    "q": "Jika $x = \\sqrt{5} + 2$ dan $y = \\sqrt{5} - 2$, hitunglah nilai dari $x^2 + y^2$!",
+    "ans": 18,
+    "exp": "$x^2 = (\\sqrt{5}+2)^2 = 9 + 4\\sqrt{5}$. $y^2 = (\\sqrt{5}-2)^2 = 9 - 4\\sqrt{5}$. Maka $x^2 + y^2 = 18$."
+  },
+  {
+    "id": 51,
+    "level": 9,
+    "q": "Rasionalkan bentuk pecahan $\\dfrac{6}{\\sqrt{3}}$. Jika hasilnya adalah $k\\sqrt{3}$, berapakah nilai $k$?",
+    "ans": 2,
+    "exp": "$\\dfrac{6}{\\sqrt{3}} \\times \\dfrac{\\sqrt{3}}{\\sqrt{3}} = \\dfrac{6\\sqrt{3}}{3} = 2\\sqrt{3} \\implies k = 2$."
+  },
+  {
+    "id": 52,
+    "level": 9,
+    "q": "Rasionalkan bentuk pecahan $\\dfrac{10}{\\sqrt{5}}$. Jika hasilnya adalah $k\\sqrt{5}$, berapakah nilai $k$?",
+    "ans": 2,
+    "exp": "$\\dfrac{10}{\\sqrt{5}} \\times \\dfrac{\\sqrt{5}}{\\sqrt{5}} = \\dfrac{10\\sqrt{5}}{5} = 2\\sqrt{5} \\implies k = 2$."
+  },
+  {
+    "id": 53,
+    "level": 9,
+    "q": "Rasionalkan bentuk pecahan $\\dfrac{12}{\\sqrt{2}}$. Jika hasilnya adalah $k\\sqrt{2}$, berapakah nilai $k$?",
+    "ans": 6,
+    "exp": "$\\dfrac{12}{\\sqrt{2}} \\times \\dfrac{\\sqrt{2}}{\\sqrt{2}} = \\dfrac{12\\sqrt{2}}{2} = 6\\sqrt{2} \\implies k = 6$."
+  },
+  {
+    "id": 54,
+    "level": 9,
+    "q": "Rasionalkan bentuk pecahan $\\dfrac{18}{\\sqrt{6}}$. Jika hasilnya adalah $k\\sqrt{6}$, berapakah nilai $k$?",
+    "ans": 3,
+    "exp": "$\\dfrac{18}{\\sqrt{6}} \\times \\dfrac{\\sqrt{6}}{\\sqrt{6}} = \\dfrac{18\\sqrt{6}}{6} = 3\\sqrt{6} \\implies k = 3$."
+  },
+  {
+    "id": 55,
+    "level": 9,
+    "q": "Rasionalkan bentuk pecahan $\\dfrac{20}{\\sqrt{8}}$. Jika hasilnya disederhanakan menjadi $k\\sqrt{2}$, berapakah $k$?",
+    "ans": 5,
+    "exp": "$\\dfrac{20}{2\\sqrt{2}} = \\dfrac{10}{\\sqrt{2}} = 5\\sqrt{2} \\implies k = 5$."
+  },
+  {
+    "id": 56,
+    "level": 9,
+    "q": "Sederhanakan pecahan $\\dfrac{\\sqrt{18}}{\\sqrt{3}}$. Jika ditulis dalam bentuk $k\\sqrt{6}$, berapakah $k$?",
+    "ans": 1,
+    "exp": "$\\dfrac{\\sqrt{18}}{\\sqrt{3}} = \\sqrt{6} = 1\\sqrt{6} \\implies k = 1$."
+  },
+  {
+    "id": 57,
+    "level": 10,
+    "q": "Rasionalkan pecahan $\\dfrac{2}{3 - \\sqrt{7}}$. Jika hasilnya ditulis sebagai $a + \\sqrt{b}$, berapakah $a + b$?",
+    "ans": 10,
+    "exp": "Kalikan sekawan $3 + \\sqrt{7}$: $\\dfrac{2(3+\\sqrt{7})}{9-7} = 3 + \\sqrt{7} \\implies a=3, b=7 \\implies a+b = 10$."
+  },
+  {
+    "id": 58,
+    "level": 10,
+    "q": "Rasionalkan pecahan $\\dfrac{4}{\\sqrt{5} - 1}$. Jika hasilnya ditulis sebagai $a + \\sqrt{b}$, berapakah $a + b$?",
+    "ans": 6,
+    "exp": "Kalikan sekawan $\\sqrt{5} + 1$: $\\dfrac{4(\\sqrt{5}+1)}{5-1} = 1 + \\sqrt{5} \\implies a=1, b=5 \\implies a+b = 6$."
+  },
+  {
+    "id": 59,
+    "level": 10,
+    "q": "Rasionalkan pecahan $\\dfrac{6}{\\sqrt{7} + 1}$. Jika hasilnya adalah $a\\sqrt{7} - b$, tentukan nilai $a + b$!",
+    "ans": 2,
+    "exp": "Kalikan sekawan $\\sqrt{7} - 1$: $\\dfrac{6(\\sqrt{7}-1)}{7-1} = 1\\sqrt{7} - 1 \\implies a=1, b=1 \\implies a+b = 2$."
+  },
+  {
+    "id": 60,
+    "level": 10,
+    "q": "Rasionalkan pecahan $\\dfrac{12}{3 - \\sqrt{3}}$. Jika hasilnya adalah $a + b\\sqrt{3}$, berapakah nilai $a + b$?",
+    "ans": 8,
+    "exp": "Kalikan sekawan $3 + \\sqrt{3}$: $\\dfrac{12(3+\\sqrt{3})}{9-3} = 6 + 2\\sqrt{3} \\implies a=6, b=2 \\implies a+b = 8$."
+  },
+  {
+    "id": 61,
+    "level": 10,
+    "q": "Jika $\\dfrac{4}{\\sqrt{5} - \\sqrt{3}} = a\\sqrt{5} + b\\sqrt{3}$, tentukan nilai dari $a^2 + b^2$!",
+    "ans": 8,
+    "exp": "Kalikan sekawan $\\sqrt{5} + \\sqrt{3}$: $\\dfrac{4(\\sqrt{5}+\\sqrt{3})}{5-3} = 2\\sqrt{5} + 2\\sqrt{3} \\implies a=2, b=2 \\implies a^2+b^2 = 8$."
+  },
+  {
+    "id": 62,
+    "level": 10,
+    "q": "Jika $\\dfrac{6}{\\sqrt{7} - \\sqrt{5}} = a\\sqrt{7} + b\\sqrt{5}$, tentukan nilai dari $a \\times b$!",
+    "ans": 9,
+    "exp": "Kalikan sekawan $\\sqrt{7} + \\sqrt{5}$: $\\dfrac{6(\\sqrt{7}+\\sqrt{5})}{7-5} = 3\\sqrt{7} + 3\\sqrt{5} \\implies a=3, b=3 \\implies a \\times b = 9$."
+  },
+  {
+    "id": 63,
+    "level": 10,
+    "q": "Jika $\\dfrac{14}{\\sqrt{10} - \\sqrt{3}} = a\\sqrt{10} + b\\sqrt{3}$, tentukan nilai dari $a + b$!",
+    "ans": 4,
+    "exp": "Kalikan sekawan $\\sqrt{10} + \\sqrt{3}$: $\\dfrac{14(\\sqrt{10}+\\sqrt{3})}{10-3} = 2\\sqrt{10} + 2\\sqrt{3} \\implies a=2, b=2 \\implies a+b = 4$."
+  },
+  {
+    "id": 64,
+    "level": 11,
+    "q": "Hitunglah nilai dari ekspresi kuadrat dari penjumlahan pecahan akar berikut: $\\left(\\dfrac{1}{\\sqrt{3} - \\sqrt{2}} + \\dfrac{1}{\\sqrt{3} + \\sqrt{2}}\\right)^2 = \\dots$",
+    "ans": 12,
+    "exp": "Samakan penyebut: $\\dfrac{(\\sqrt{3}+\\sqrt{2}) + (\\sqrt{3}-\\sqrt{2})}{3-2} = 2\\sqrt{3}$. Kuadratkan: $(2\\sqrt{3})^2 = 12$."
+  },
+  {
+    "id": 65,
+    "level": 11,
+    "q": "Hitunglah nilai dari ekspresi kuadrat dari selisih pecahan akar berikut: $\\left(\\dfrac{1}{\\sqrt{5} - 2} - \\dfrac{1}{\\sqrt{5} + 2}\\right)^2 = \\dots$",
+    "ans": 16,
+    "exp": "Samakan penyebut: $\\dfrac{(\\sqrt{5}+2) - (\\sqrt{5}-2)}{5-4} = 4$. Kuadratkan: $4^2 = 16$."
+  },
+  {
+    "id": 66,
+    "level": 11,
+    "q": "Hitunglah nilai dari ekspresi kuadrat pecahan akar berikut: $\\left(\\dfrac{2}{\\sqrt{7} - \\sqrt{5}} - \\dfrac{2}{\\sqrt{7} + \\sqrt{5}}\\right)^2 = \\dots$",
+    "ans": 20,
+    "exp": "Samakan penyebut: $\\dfrac{2(\\sqrt{7}+\\sqrt{5}) - 2(\\sqrt{7}-\\sqrt{5})}{7-5} = 2\\sqrt{5}$. Kuadratkan: $(2\\sqrt{5})^2 = 20$."
+  },
+  {
+    "id": 67,
+    "level": 11,
+    "q": "Hitunglah hasil penjumlahan dua pecahan akar saling sekawan berikut: $\\dfrac{\\sqrt{3} + 1}{\\sqrt{3} - 1} + \\dfrac{\\sqrt{3} - 1}{\\sqrt{3} + 1} = \\dots$",
+    "ans": 4,
+    "exp": "$\\dfrac{(\\sqrt{3}+1)^2 + (\\sqrt{3}-1)^2}{3-1} = \\dfrac{(4+2\\sqrt{3}) + (4-2\\sqrt{3})}{2} = \\dfrac{8}{2} = 4$."
+  },
+  {
+    "id": 68,
+    "level": 11,
+    "q": "Hitunglah hasil penjumlahan dua pecahan akar sekawan berikut: $\\dfrac{\\sqrt{5} + \\sqrt{3}}{\\sqrt{5} - \\sqrt{3}} + \\dfrac{\\sqrt{5} - \\sqrt{3}}{\\sqrt{5} + \\sqrt{3}} = \\dots$",
+    "ans": 8,
+    "exp": "$\\dfrac{(\\sqrt{5}+\\sqrt{3})^2 + (\\sqrt{5}-\\sqrt{3})^2}{5-3} = \\dfrac{(8+2\\sqrt{15}) + (8-2\\sqrt{15})}{2} = \\dfrac{16}{2} = 8$."
+  },
+  {
+    "id": 69,
+    "level": 11,
+    "q": "Hitunglah hasil penjumlahan dua pecahan akar sekawan berikut: $\\dfrac{\\sqrt{7} + \\sqrt{5}}{\\sqrt{7} - \\sqrt{5}} + \\dfrac{\\sqrt{7} - \\sqrt{5}}{\\sqrt{7} + \\sqrt{5}} = \\dots$",
+    "ans": 12,
+    "exp": "$\\dfrac{(\\sqrt{7}+\\sqrt{5})^2 + (\\sqrt{7}-\\sqrt{5})^2}{7-5} = \\dfrac{(12+2\\sqrt{35}) + (12-2\\sqrt{35})}{2} = \\dfrac{24}{2} = 12$."
+  },
+  {
+    "id": 70,
+    "level": 12,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan akar berikut: $\\sqrt{x + 5} = 6$",
+    "ans": 31,
+    "exp": "Kuadratkan kedua sisi: $x + 5 = 36 \\implies x = 31$."
+  },
+  {
+    "id": 71,
+    "level": 12,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan akar berikut: $\\sqrt{2x - 3} = 5$",
+    "ans": 14,
+    "exp": "Kuadratkan kedua sisi: $2x - 3 = 25 \\implies 2x = 28 \\implies x = 14$."
+  },
+  {
+    "id": 72,
+    "level": 12,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan akar berikut: $\\sqrt{3x + 1} = 7$",
+    "ans": 16,
+    "exp": "Kuadratkan kedua sisi: $3x + 1 = 49 \\implies 3x = 48 \\implies x = 16$."
+  },
+  {
+    "id": 73,
+    "level": 12,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan akar pangkat tiga berikut: $\\sqrt[3]{x - 4} = 4$",
+    "ans": 68,
+    "exp": "Pangkat tigakan kedua sisi: $x - 4 = 4^3 = 64 \\implies x = 68$."
+  },
+  {
+    "id": 74,
+    "level": 12,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen akar berikut: $\\sqrt{4^x} = 64$",
+    "ans": 6,
+    "exp": "$\\sqrt{4^x} = (2^2)^{\\frac{x}{2}} = 2^x = 64 = 2^6 \\implies x = 6$."
+  },
+  {
+    "id": 75,
+    "level": 12,
+    "q": "Tentukan nilai $x$ yang memenuhi persamaan eksponen akar berikut: $\\sqrt{3^{2x+4}} = 243$",
+    "ans": 3,
+    "exp": "$\\sqrt{3^{2x+4}} = 3^{x+2} = 243 = 3^5 \\implies x + 2 = 5 \\implies x = 3$."
+  },
+  {
+    "id": 76,
+    "level": 13,
+    "q": "Jika $\\sqrt{5 + 2\\sqrt{6}} = \\sqrt{x} + \\sqrt{y}$ dengan $x > y$, tentukan nilai dari $x + 2y$!",
+    "ans": 7,
+    "exp": "Untuk $5+2\\sqrt{6}$, $a=3, b=2 \\implies \\sqrt{3}+\\sqrt{2}$. Maka $x=3, y=2 \\implies x+2y = 3 + 4 = 7$."
+  },
+  {
+    "id": 77,
+    "level": 13,
+    "q": "Jika $\\sqrt{7 + 2\\sqrt{10}} = \\sqrt{x} + \\sqrt{y}$ dengan $x > y$, tentukan nilai dari $x \\times y$!",
+    "ans": 10,
+    "exp": "Untuk $7+2\\sqrt{10}$, $a=5, b=2 \\implies x=5, y=2 \\implies x \\times y = 10$."
+  },
+  {
+    "id": 78,
+    "level": 13,
+    "q": "Jika $\\sqrt{8 + 2\\sqrt{15}} = \\sqrt{a} + \\sqrt{b}$ dengan $a > b$, tentukan nilai dari $a^2 + b^2$!",
+    "ans": 34,
+    "exp": "Untuk $8+2\\sqrt{15}$, $a=5, b=3 \\implies a^2 + b^2 = 5^2 + 3^2 = 25 + 9 = 34$."
+  },
+  {
+    "id": 79,
+    "level": 13,
+    "q": "Jika $\\sqrt{9 - 2\\sqrt{14}} = \\sqrt{a} - \\sqrt{b}$ dengan $a > b$, tentukan nilai dari $a + 3b$!",
+    "ans": 13,
+    "exp": "Untuk $9-2\\sqrt{14}$, $a=7, b=2 \\implies a + 3b = 7 + 3(2) = 13$."
+  },
+  {
+    "id": 80,
+    "level": 13,
+    "q": "Hitunglah nilai dari ekspresi selisih akar bertingkat berikut: $(\\sqrt{10 + 2\\sqrt{21}} - \\sqrt{10 - 2\\sqrt{21}})^2 = \\dots$",
+    "ans": 12,
+    "exp": "$\\sqrt{10+2\\sqrt{21}} = \\sqrt{7}+\\sqrt{3}$ dan $\\sqrt{10-2\\sqrt{21}} = \\sqrt{7}-\\sqrt{3}$. Selisihnya $= 2\\sqrt{3}$. Kuadratnya $= (2\\sqrt{3})^2 = 12$."
+  },
+  {
+    "id": 81,
+    "level": 13,
+    "q": "Jika $\\sqrt{12 + 2\\sqrt{35}} = \\sqrt{x} + \\sqrt{y}$ dengan $x > y$, tentukan nilai dari $2x - y$!",
+    "ans": 9,
+    "exp": "Untuk $12+2\\sqrt{35}$, $x=7, y=5 \\implies 2x - y = 2(7) - 5 = 9$."
+  },
+  {
+    "id": 82,
+    "level": 14,
+    "q": "Sebuah persegi memiliki panjang sisi $s = \\sqrt{50}\\text{ cm}$. Tentukan panjang diagonal persegi tersebut dalam satuan cm!",
+    "ans": 10,
+    "exp": "Diagonal $d = s\\sqrt{2} = \\sqrt{50} \\times \\sqrt{2} = \\sqrt{100} = 10\\text{ cm}$."
+  },
+  {
+    "id": 83,
+    "level": 14,
+    "q": "Sebuah persegi panjang memiliki panjang $p = (3\\sqrt{5} + 2)\\text{ cm}$ dan lebar $l = (3\\sqrt{5} - 2)\\text{ cm}$. Berapakah luasnya dalam $\\text{cm}^2$?",
+    "ans": 41,
+    "exp": "Luas $= p \\times l = (3\\sqrt{5}+2)(3\\sqrt{5}-2) = (3\\sqrt{5})^2 - 2^2 = 45 - 4 = 41\\text{ cm}^2$."
+  },
+  {
+    "id": 84,
+    "level": 14,
+    "q": "Sebuah segitiga siku-siku memiliki panjang sisi siku-siku $a = \\sqrt{108}\\text{ cm}$ dan $b = \\sqrt{148}\\text{ cm}$. Tentukan panjang sisi miringnya $c$ dalam cm!",
+    "ans": 16,
+    "exp": "Pythagoras: $c = \\sqrt{a^2 + b^2} = \\sqrt{108 + 148} = \\sqrt{256} = 16\\text{ cm}$."
+  },
+  {
+    "id": 85,
+    "level": 14,
+    "q": "Sebuah kubus memiliki panjang rusuk $r = \\sqrt{12}\\text{ cm}$. Jika volume kubus tersebut dibagi dengan $\\sqrt{3}$ (yaitu $\\frac{V}{\\sqrt{3}}$), berapakah hasilnya?",
+    "ans": 24,
+    "exp": "Volume $V = r^3 = (\\sqrt{12})^3 = 12\\sqrt{12} = 24\\sqrt{3}$. Hasil pembagian: $\\dfrac{24\\sqrt{3}}{\\sqrt{3}} = 24$."
+  },
+  {
+    "id": 86,
+    "level": 14,
+    "q": "Sebuah segitiga memiliki panjang sisi-sisi $\\sqrt{12}\\text{ cm}$, $\\sqrt{27}\\text{ cm}$, dan $\\sqrt{48}\\text{ cm}$. Jika kelilingnya ditulis sebagai $k\\sqrt{3}\\text{ cm}$, berapakah nilai $k$?",
+    "ans": 9,
+    "exp": "Keliling $= \\sqrt{12} + \\sqrt{27} + \\sqrt{48} = 2\\sqrt{3} + 3\\sqrt{3} + 4\\sqrt{3} = 9\\sqrt{3} \\implies k = 9$."
+  },
+  {
+    "id": 87,
+    "level": 15,
+    "q": "Tentukan nilai $x$ positif dari bentuk akar tak hingga penjumlahan berikut: $x = \\sqrt{12 + \\sqrt{12 + \\sqrt{12 + \\dots}}}$",
+    "ans": 4,
+    "exp": "Kuadratkan kedua sisi: $x^2 = 12 + x \\implies x^2 - x - 12 = 0 \\implies (x-4)(x+3) = 0$. Karena $x>0$, $x = 4$."
+  },
+  {
+    "id": 88,
+    "level": 15,
+    "q": "Tentukan nilai $x$ positif dari bentuk akar tak hingga penjumlahan berikut: $x = \\sqrt{30 + \\sqrt{30 + \\sqrt{30 + \\dots}}}$",
+    "ans": 6,
+    "exp": "Kuadratkan: $x^2 = 30 + x \\implies x^2 - x - 30 = 0 \\implies (x-6)(x+5) = 0 \\implies x = 6$."
+  },
+  {
+    "id": 89,
+    "level": 15,
+    "q": "Tentukan nilai $x$ positif dari bentuk akar tak hingga penjumlahan berikut: $x = \\sqrt{72 + \\sqrt{72 + \\sqrt{72 + \\dots}}}$",
+    "ans": 9,
+    "exp": "Kuadratkan: $x^2 = 72 + x \\implies x^2 - x - 72 = 0 \\implies (x-9)(x+8) = 0 \\implies x = 9$."
+  },
+  {
+    "id": 90,
+    "level": 15,
+    "q": "Tentukan nilai $x$ positif dari bentuk akar tak hingga pengurangan berikut: $x = \\sqrt{20 - \\sqrt{20 - \\sqrt{20 - \\dots}}}$",
+    "ans": 4,
+    "exp": "Kuadratkan: $x^2 = 20 - x \\implies x^2 + x - 20 = 0 \\implies (x+5)(x-4) = 0 \\implies x = 4$."
+  },
+  {
+    "id": 91,
+    "level": 15,
+    "q": "Tentukan nilai $x$ positif dari bentuk akar tak hingga perkalian berikut: $x = \\sqrt{7\\sqrt{7\\sqrt{7\\dots}}}$",
+    "ans": 7,
+    "exp": "Kuadratkan: $x^2 = 7x \\implies x = 7$."
+  },
+  {
+    "id": 92,
+    "level": 16,
+    "q": "Tentukan nilai $x$ positif yang memenuhi persamaan akar berikut: $\\sqrt{x} + \\sqrt{x + 9} = 9$",
+    "ans": 16,
+    "exp": "Ubah bentuk: $\\sqrt{x+9} = 9 - \\sqrt{x}$. Kuadratkan: $x+9 = 81 - 18\\sqrt{x} + x \\implies 18\\sqrt{x} = 72 \\implies \\sqrt{x} = 4 \\implies x = 16$."
+  },
+  {
+    "id": 93,
+    "level": 16,
+    "q": "Tentukan nilai $x$ positif yang memenuhi persamaan selisih akar berikut: $\\sqrt{x + 16} - \\sqrt{x} = 2$",
+    "ans": 9,
+    "exp": "Ubah bentuk: $\\sqrt{x+16} = \\sqrt{x} + 2$. Kuadratkan: $x+16 = x + 4\\sqrt{x} + 4 \\implies 4\\sqrt{x} = 12 \\implies \\sqrt{x} = 3 \\implies x = 9$."
+  },
+  {
+    "id": 94,
+    "level": 16,
+    "q": "Jika $x = \\sqrt{3} + \\sqrt{2}$, tentukan nilai dari $\\left(x - \\dfrac{1}{x}\\right)^2$!",
+    "ans": 8,
+    "exp": "Rasionalkan $\\dfrac{1}{x} = \\dfrac{1}{\\sqrt{3}+\\sqrt{2}} = \\sqrt{3}-\\sqrt{2}$. Maka $x - \\dfrac{1}{x} = 2\\sqrt{2}$. Kuadratkan: $(2\\sqrt{2})^2 = 8$."
+  },
+  {
+    "id": 95,
+    "level": 16,
+    "q": "Jika $x = \\sqrt{5} + \\sqrt{3}$, tentukan nilai dari $\\left(x + \\dfrac{2}{x}\\right)^2$!",
+    "ans": 20,
+    "exp": "Rasionalkan $\\dfrac{2}{x} = \\dfrac{2}{\\sqrt{5}+\\sqrt{3}} = \\sqrt{5}-\\sqrt{3}$. Maka $x + \\dfrac{2}{x} = 2\\sqrt{5}$. Kuadratkan: $(2\\sqrt{5})^2 = 20$."
+  },
+  {
+    "id": 96,
+    "level": 16,
+    "q": "Hitunglah nilai dari ekspresi akar berantai berikut: $\\sqrt{3 + \\sqrt{31 + \\sqrt{25}}} = \\dots$",
+    "ans": 3,
+    "exp": "Hitung dari akar terdalam: $\\sqrt{25} = 5 \\implies \\sqrt{31+5} = \\sqrt{36} = 6 \\implies \\sqrt{3+6} = \\sqrt{9} = 3$."
+  },
+  {
+    "id": 97,
+    "level": 16,
+    "q": "Hitunglah nilai dari ekspresi akar berantai berikut: $\\sqrt{4 + \\sqrt{21 + \\sqrt{13 + \\sqrt{9}}}} = \\dots$",
+    "ans": 3,
+    "exp": "Hitung dari akar terdalam: $\\sqrt{9} = 3 \\implies \\sqrt{13+3} = 4 \\implies \\sqrt{21+4} = 5 \\implies \\sqrt{4+5} = \\sqrt{9} = 3$."
+  },
+  {
+    "id": 98,
+    "level": 16,
+    "q": "Hitunglah nilai dari jumlah deret teleskopik berikut: $S = \\dfrac{1}{\\sqrt{2}+\\sqrt{1}} + \\dfrac{1}{\\sqrt{3}+\\sqrt{2}} + \\dots + \\dfrac{1}{\\sqrt{100}+\\sqrt{99}}$",
+    "ans": 9,
+    "exp": "Rasionalkan tiap suku: $(\\sqrt{2}-\\sqrt{1}) + (\\sqrt{3}-\\sqrt{2}) + \\dots + (\\sqrt{100}-\\sqrt{99}) = \\sqrt{100} - \\sqrt{1} = 10 - 1 = 9$."
+  },
+  {
+    "id": 99,
+    "level": 16,
+    "q": "Hitunglah nilai dari jumlah deret teleskopik berikut: $S = \\dfrac{1}{\\sqrt{3}+\\sqrt{1}} + \\dfrac{1}{\\sqrt{5}+\\sqrt{3}} + \\dots + \\dfrac{1}{\\sqrt{81}+\\sqrt{79}}$",
+    "ans": 4,
+    "exp": "Rasionalkan tiap suku: $\\dfrac{\\sqrt{3}-\\sqrt{1}}{2} + \\dfrac{\\sqrt{5}-\\sqrt{3}}{2} + \\dots + \\dfrac{\\sqrt{81}-\\sqrt{79}}{2} = \\dfrac{\\sqrt{81}-\\sqrt{1}}{2} = \\dfrac{9-1}{2} = 4$."
+  },
+  {
+    "id": 100,
+    "level": 16,
+    "q": "Jika $x = \\sqrt{3} + \\sqrt{2}$, tentukan nilai dari ekspresi suku banyak $x^4 - 10x^2 + 1$!",
+    "ans": 0,
+    "exp": "$x = \\sqrt{3} + \\sqrt{2} \\implies x^2 = 5 + 2\\sqrt{6} \\implies x^2 - 5 = 2\\sqrt{6}$. Kuadratkan kedua sisi: $(x^2 - 5)^2 = (2\\sqrt{6})^2 \\implies x^4 - 10x^2 + 25 = 24 \\implies x^4 - 10x^2 + 1 = 0$."
+  }
+]
