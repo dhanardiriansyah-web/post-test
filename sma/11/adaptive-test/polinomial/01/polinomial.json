@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "q": "Tentukan derajat dari polinomial berikut:<br>$P(x) = 4x^5 - 2x^3 + 7x - 12$",
+    "ans": "5",
+    "exp": "$P(x) = 4x^5 - 2x^3 + 7x - 12$. Pangkat tertinggi variabel $x$ adalah $5$, maka derajatnya adalah <b>5</b>."
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "q": "Tentukan suku tetap (konstanta) dari polinomial:<br>$P(x) = 3x^4 - 5x^2 + 2x + 18$",
+    "ans": "18",
+    "exp": "Suku tetap (konstanta) adalah suku tanpa variabel $x$, yaitu $+18 \\implies$ <b>18</b>."
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "q": "Tentukan koefisien variabel $x^3$ pada polinomial:<br>$P(x) = 2x^5 + 12x^3 - 4x^2 + 9$",
+    "ans": "12",
+    "exp": "Suku dengan variabel $x^3$ adalah $12x^3$, sehingga koefisiennya adalah <b>12</b>."
+  },
+  {
+    "id": 4,
+    "level": 1,
+    "q": "Tentukan derajat dari hasil perkalian polinomial:<br>$(x^3 + 2)(x^4 - 5)$",
+    "ans": "7",
+    "exp": "Derajat perkalian $(x^3 + 2)(x^4 - 5)$ adalah jumlah derajat tiap faktor: $3 + 4 = $ <b>7</b>."
+  },
+  {
+    "id": 5,
+    "level": 1,
+    "q": "Hitunglah nilai polinomial $P(x) = x^3 - 2x^2 + 5x - 4$ untuk $x = 3$!",
+    "ans": "20",
+    "exp": "$P(3) = 3^3 - 2(3)^2 + 5(3) - 4 = 27 - 18 + 15 - 4 =$ <b>20</b>."
+  },
+  {
+    "id": 6,
+    "level": 1,
+    "q": "Hitunglah nilai polinomial $P(x) = 2x^4 - 3x^3 + x^2 + 5$ untuk $x = 2$!",
+    "ans": "17",
+    "exp": "$P(2) = 2(2)^4 - 3(2)^3 + 2^2 + 5 = 32 - 24 + 4 + 5 =$ <b>17</b>."
+  },
+  {
+    "id": 7,
+    "level": 1,
+    "q": "Hitunglah nilai polinomial $P(x) = 3x^2 - 4x + 10$ untuk $x = 5$!",
+    "ans": "65",
+    "exp": "$P(5) = 3(5)^2 - 4(5) + 10 = 75 - 20 + 10 =$ <b>65</b>."
+  },
+  {
+    "id": 8,
+    "level": 1,
+    "q": "Jika $P(x) = x^4 - 3x^3 + 2x - 15$, tentukan nilai dari $P(4)$!",
+    "ans": "57",
+    "exp": "$P(4) = 4^4 - 3(4)^3 + 2(4) - 15 = 256 - 192 + 8 - 15 =$ <b>57</b>."
+  },
+  {
+    "id": 9,
+    "level": 2,
+    "q": "Tentukan koefisien $x^2$ dari hasil penjumlahan polinomial $(5x^2 + 3x - 4) + (8x^2 - 7x + 10)$!",
+    "ans": "13",
+    "exp": "Penjumlahan koefisien $x^2$: $5 + 8 =$ <b>13</b>."
+  },
+  {
+    "id": 10,
+    "level": 2,
+    "q": "Tentukan koefisien $x$ dari hasil pengurangan $(4x^3 + 15x^2 + 20x + 6) - (x^3 + 5x^2 + 8x + 2)$!",
+    "ans": "12",
+    "exp": "Pengurangan koefisien $x$: $20 - 8 =$ <b>12</b>."
+  },
+  {
+    "id": 11,
+    "level": 2,
+    "q": "Diketahui $P(x) = x^3 + 4$ dan $Q(x) = 2x^2 + 5$. Hitunglah nilai $P(2) + Q(2)$!",
+    "ans": "25",
+    "exp": "$P(2) = 2^3 + 4 = 12$; $Q(2) = 2(2)^2 + 5 = 13 \\implies P(2) + Q(2) = 12 + 13 =$ <b>25</b>."
+  },
+  {
+    "id": 12,
+    "level": 2,
+    "q": "Diketahui $P(x) = 2x^3 + 10$ dan $Q(x) = x^3 + 5x$. Hitunglah nilai $P(3) - Q(3)$!",
+    "ans": "22",
+    "exp": "$P(3) = 2(27) + 10 = 64$; $Q(3) = 27 + 15 = 42 \\implies P(3) - Q(3) = 64 - 42 =$ <b>22</b>."
+  },
+  {
+    "id": 13,
+    "level": 2,
+    "q": "Tentukan nilai $a + b$ dari kesamaan polinomial:<br>$(a+2)x^2 + (b-3)x + 5 \\equiv 7x^2 + 4x + 5$",
+    "ans": "12",
+    "exp": "Kesamaan: $a+2 = 7 \\implies a = 5$; $b-3 = 4 \\implies b = 7$. Maka $a+b = 5+7 =$ <b>12</b>."
+  },
+  {
+    "id": 14,
+    "level": 2,
+    "q": "Jika $(x+2)(ax+b) \\equiv 3x^2 + 10x + 8$, tentukan nilai dari $a \\cdot b$!",
+    "ans": "12",
+    "exp": "$(x+2)(ax+b) = ax^2 + (2a+b)x + 2b \\equiv 3x^2 + 10x + 8 \\implies a = 3, 2b = 8 \\implies b = 4$. Maka $a \\cdot b = 3 \\cdot 4 =$ <b>12</b>."
+  },
+  {
+    "id": 15,
+    "level": 2,
+    "q": "Tentukan nilai $A + B$ dari bentuk pecahan parsial:<br>$\\dfrac{A}{x-1} + \\dfrac{B}{x-2} \\equiv \\dfrac{7x-11}{(x-1)(x-2)}$",
+    "ans": "7",
+    "exp": "$A(x-2) + B(x-1) \\equiv 7x - 11$. Untuk $x=1 \\implies -A = -4 \\implies A = 4$. Untuk $x=2 \\implies B = 3$. Maka $A+B = 4+3 =$ <b>7</b>."
+  },
+  {
+    "id": 16,
+    "level": 2,
+    "q": "Tentukan nilai $A \\cdot B$ dari bentuk pecahan parsial:<br>$\\dfrac{A}{x+1} + \\dfrac{B}{x+3} \\equiv \\dfrac{5x+11}{(x+1)(x+3)}$",
+    "ans": "6",
+    "exp": "$A(x+3) + B(x+1) \\equiv 5x + 11$. Untuk $x=-1 \\implies 2A = 6 \\implies A = 3$. Untuk $x=-3 \\implies -2B = -4 \\implies B = 2$. Maka $A \\cdot B = 3 \\cdot 2 =$ <b>6</b>."
+  },
+  {
+    "id": 17,
+    "level": 3,
+    "q": "Tentukan koefisien $x^2$ dari hasil perkalian $(2x + 3)(3x^2 + 4x + 5)$!",
+    "ans": "17",
+    "exp": "Koefisien $x^2$ dari $(2x+3)(3x^2+4x+5)$ adalah $(2 \\cdot 4) + (3 \\cdot 3) = 8 + 9 =$ <b>17</b>."
+  },
+  {
+    "id": 18,
+    "level": 3,
+    "q": "Tentukan suku tetap (konstanta) dari perkalian $(x^2 - 3x + 4)(2x^2 + 5x + 6)$!",
+    "ans": "24",
+    "exp": "Suku tetap adalah hasil kali konstanta: $4 \\times 6 =$ <b>24</b>."
+  },
+  {
+    "id": 19,
+    "level": 3,
+    "q": "Tentukan koefisien $x^2$ dari hasil perkalian $(x+1)(x+3)(x+5)$!",
+    "ans": "9",
+    "exp": "Koefisien $x^2$ dari $(x+1)(x+3)(x+5)$ adalah jumlah akarnya: $1 + 3 + 5 =$ <b>9</b>."
+  },
+  {
+    "id": 20,
+    "level": 3,
+    "q": "Tentukan koefisien $x$ dari hasil perkalian $(x+2)(x+4)(x+6)$!",
+    "ans": "44",
+    "exp": "Koefisien $x$ dari $(x+2)(x+4)(x+6)$ adalah $(2\\cdot 4) + (2\\cdot 6) + (4\\cdot 6) = 8 + 12 + 24 =$ <b>44</b>."
+  },
+  {
+    "id": 21,
+    "level": 3,
+    "q": "Tentukan koefisien $x^2$ pada pemangkatan $(2x + 3)^3$!",
+    "ans": "36",
+    "exp": "Dengan Ekspansi Binomial: $\\binom{3}{1}(2x)^2(3)^1 = 3 \\cdot 4 \\cdot 3 =$ <b>36</b>."
+  },
+  {
+    "id": 22,
+    "level": 3,
+    "q": "Tentukan koefisien $x^3$ pada ekspansi polinomial $(x + 2)^5$!",
+    "ans": "40",
+    "exp": "Dengan Ekspansi Binomial: $\\binom{5}{3}(x)^3(2)^2 = 10 \\cdot 4 =$ <b>40</b>."
+  },
+  {
+    "id": 23,
+    "level": 3,
+    "q": "Tentukan suku tetap (konstanta) dari hasil ekspansi $(2x^2 + 3)^4$!",
+    "ans": "81",
+    "exp": "Suku tetap dari $(2x^2+3)^4$ diperoleh saat $x=0 \\implies 3^4 =$ <b>81</b>."
+  },
+  {
+    "id": 24,
+    "level": 3,
+    "q": "Hitunglah jumlah seluruh koefisien dari polinomial $P(x) = (3x - 1)^4$!",
+    "ans": "16",
+    "exp": "Jumlah koefisien $P(1) = (3(1) - 1)^4 = 2^4 =$ <b>16</b>."
+  },
+  {
+    "id": 25,
+    "level": 3,
+    "q": "Hitunglah jumlah seluruh koefisien dari polinomial $P(x) = (2x^2 - x + 2)^3$!",
+    "ans": "27",
+    "exp": "Jumlah koefisien $P(1) = (2(1)^2 - 1 + 2)^3 = 3^3 =$ <b>27</b>."
+  },
+  {
+    "id": 26,
+    "level": 4,
+    "q": "Tentukan sisa pembagian dari $(x^3 + 4x^2 - 3x + 10) \\div (x - 2)$!",
+    "ans": "28",
+    "exp": "Sisa pembagian oleh $(x-2)$ adalah $P(2) = 2^3 + 4(2)^2 - 3(2) + 10 = 8 + 16 - 6 + 10 =$ <b>28</b>."
+  },
+  {
+    "id": 27,
+    "level": 4,
+    "q": "Gunakan metode Horner untuk menentukan sisa pembagian $(2x^3 - 5x^2 + 7x + 12) \\div (x - 3)$!",
+    "ans": "42",
+    "exp": "Dengan Horner / Substitusi $P(3) = 2(27) - 5(9) + 7(3) + 12 = 54 - 45 + 21 + 12 =$ <b>42</b>."
+  },
+  {
+    "id": 28,
+    "level": 4,
+    "q": "Jika $H(x)$ adalah hasil bagi dari $(x^3 + 3x^2 - 4x + 5) \\div (x - 1)$, hitunglah nilai $H(1)$!",
+    "ans": "5",
+    "exp": "Pembagian $(x^3+3x^2-4x+5) \\div (x-1)$ menghasilkan $H(x) = x^2 + 4x \\implies H(1) = 1 + 4 =$ <b>5</b>."
+  },
+  {
+    "id": 29,
+    "level": 4,
+    "q": "Tentukan sisa pembagian polinomial $(3x^3 - 2x^2 + 4x - 7) \\div (x - 2)$!",
+    "ans": "17",
+    "exp": "Sisa pembagian $P(2) = 3(8) - 2(4) + 4(2) - 7 = 24 - 8 + 8 - 7 =$ <b>17</b>."
+  },
+  {
+    "id": 30,
+    "level": 4,
+    "q": "Tentukan sisa pembagian $P(x) = x^4 + 2x^3 - x^2 + 4$ oleh $(x + 3)$!",
+    "ans": "22",
+    "exp": "Sisa pembagian $P(-3) = (-3)^4 + 2(-3)^3 - (-3)^2 + 4 = 81 - 54 - 9 + 4 =$ <b>22</b>."
+  },
+  {
+    "id": 31,
+    "level": 4,
+    "q": "Tentukan sisa pembagian dari $(x^3 + 5x^2 + 9x + 15) \\div (x^2 + 2x + 3)$!",
+    "ans": "6",
+    "exp": "Pembagian bersusun $(x^3+5x^2+9x+15) = (x+3)(x^2+2x+3) + 6 \\implies$ Sisa = <b>6</b>."
+  },
+  {
+    "id": 32,
+    "level": 4,
+    "q": "Sisa pembagian $P(x) = 2x^4 + x^3 + 3x^2 + 10$ oleh $(x^2 + 1)$ adalah $S(x)$. Hitunglah nilai $S(5)$!",
+    "ans": "4",
+    "exp": "Substitusi $x^2 = -1 \\implies S(x) = 2(-1)^2 + x(-1) + 3(-1) + 10 = -x + 9$. Maka $S(5) = -5 + 9 =$ <b>4</b>."
+  },
+  {
+    "id": 33,
+    "level": 4,
+    "q": "Jika $H(x)$ adalah hasil bagi dari $(x^4 - 16) \\div (x - 2)$, tentukan nilai $H(2)$!",
+    "ans": "32",
+    "exp": "Hasil bagi $(x^4-16) \\div (x-2) = x^3 + 2x^2 + 4x + 8 \\implies H(2) = 8 + 8 + 8 + 8 =$ <b>32</b>."
+  },
+  {
+    "id": 34,
+    "level": 5,
+    "q": "Berapakah sisa pembagian polinomial $P(x) = x^{2026} + 3x^2 + 5x + 2$ oleh $(x - 1)$?",
+    "ans": "11",
+    "exp": "Sisa oleh $(x-1)$ adalah $P(1) = 1^{2026} + 3(1)^2 + 5(1) + 2 =$ <b>11</b>."
+  },
+  {
+    "id": 35,
+    "level": 5,
+    "q": "Jika $P(x) = x^3 - kx^2 + 4x + 10$ dibagi $(x - 2)$ bersisa $14$, tentukan nilai $k$!",
+    "ans": "3",
+    "exp": "$P(2) = 14 \\implies 8 - 4k + 8 + 10 = 14 \\implies 26 - 4k = 14 \\implies 4k = 12 \\implies k =$ <b>3</b>."
+  },
+  {
+    "id": 36,
+    "level": 5,
+    "q": "Polinomial $P(x) = x^3 + ax^2 + bx + 5$ dibagi $(x-1)$ sisa $12$ dan dibagi $(x-2)$ sisa $27$. Tentukan nilai $a+b$!",
+    "ans": "6",
+    "exp": "$P(1) = 1 + a + b + 5 = 12 \\implies a + b =$ <b>6</b>."
+  },
+  {
+    "id": 37,
+    "level": 5,
+    "q": "Polinomial $P(x)$ dibagi $(x-2)$ sisa $10$ dan dibagi $(x-3)$ sisa $15$. Jika sisa pembagian $P(x)$ oleh $(x^2 - 5x + 6)$ adalah $S(x)$, hitunglah $S(4)$!",
+    "ans": "20",
+    "exp": "Sisa $S(x) = ax+b$. $S(2) = 10$ dan $S(3) = 15 \\implies a=5, b=0 \\implies S(x) = 5x$. Maka $S(4) = 5(4) =$ <b>20</b>."
+  },
+  {
+    "id": 38,
+    "level": 5,
+    "q": "Suatu suku banyak $P(x)$ dibagi $(x+1)$ sisa $4$ dan dibagi $(x-4)$ sisa $19$. Jika sisa pembagian $P(x)$ oleh $(x^2 - 3x - 4)$ adalah $S(x)$, hitunglah $S(10)$!",
+    "ans": "37",
+    "exp": "Sisa $S(x) = ax+b$. $S(-1) = 4$ dan $S(4) = 19 \\implies a=3, b=7 \\implies S(x) = 3x+7$. Maka $S(10) = 3(10) + 7 =$ <b>37</b>."
+  },
+  {
+    "id": 39,
+    "level": 5,
+    "q": "Jika $P(x)$ dibagi $(x^2-1)$ bersisa $4x+9$, berapakah sisa pembagian $P(x)$ jika dibagi oleh $(x-1)$?",
+    "ans": "13",
+    "exp": "Sisa pembagian oleh $(x-1)$ adalah $S(1) = 4(1) + 9 =$ <b>13</b>."
+  },
+  {
+    "id": 40,
+    "level": 5,
+    "q": "Sisa pembagian $P(x)$ oleh $(x^2 - 9)$ adalah $5x + 12$. Tentukan nilai dari $P(3)$!",
+    "ans": "27",
+    "exp": "$P(3) = S(3) = 5(3) + 12 =$ <b>27</b>."
+  },
+  {
+    "id": 41,
+    "level": 5,
+    "q": "Jika $P(x)$ dibagi $(x-1)$ sisa $8$ dan dibagi $(x+2)$ sisa $2$, serta sisa pembagian $P(x)$ oleh $(x-1)(x+2)$ adalah $S(x)$, hitunglah $S(5)$!",
+    "ans": "16",
+    "exp": "$S(1) = a+b = 8$ dan $S(-2) = -2a+b = 2 \\implies a=2, b=6 \\implies S(x) = 2x+6$. Maka $S(5) = 2(5)+6 =$ <b>16</b>."
+  },
+  {
+    "id": 42,
+    "level": 5,
+    "q": "Sisa pembagian $P(x) = x^4 + 3x^3 - 2x + k$ oleh $(x-2)$ adalah $40$. Tentukan nilai $k$!",
+    "ans": "4",
+    "exp": "$P(2) = 40 \\implies 2^4 + 3(2)^3 - 2(2) + k = 40 \\implies 16 + 24 - 4 + k = 40 \\implies k =$ <b>4</b>."
+  },
+  {
+    "id": 43,
+    "level": 6,
+    "q": "Jika $(x - 3)$ merupakan faktor dari $P(x) = x^3 - 5x^2 + 2x + k$, tentukan nilai $k$!",
+    "ans": "12",
+    "exp": "$(x-3)$ faktor $\\implies P(3) = 0 \\implies 27 - 45 + 6 + k = 0 \\implies k =$ <b>12</b>."
+  },
+  {
+    "id": 44,
+    "level": 6,
+    "q": "Jika $(x + 2)$ adalah faktor dari $P(x) = 2x^3 + x^2 - kx + 10$, tentukan nilai $k$!",
+    "ans": "1",
+    "exp": "$(x+2)$ faktor $\\implies P(-2) = 0 \\implies 2(-8) + 4 - k(-2) + 10 = 0 \\implies -2 + 2k = 0 \\implies k =$ <b>1</b>."
+  },
+  {
+    "id": 45,
+    "level": 6,
+    "q": "Jika $(x - 1)$ dan $(x - 2)$ adalah faktor dari $P(x) = x^3 + ax^2 + bx - 6$, tentukan nilai $a^2 + b^2$!",
+    "ans": "157",
+    "exp": "$P(1) = 0 \\implies a+b = 5$; $P(2) = 0 \\implies 4a+2b = -2 \\implies a = -6, b = 11$. Maka $a^2 + b^2 = 36 + 121 =$ <b>157</b>."
+  },
+  {
+    "id": 46,
+    "level": 6,
+    "q": "Jika $P(x) = x^3 - 6x^2 + 11x - 6 = 0$ difaktorkan penuh, hitunglah jumlah seluruh akar-akar realnya!",
+    "ans": "6",
+    "exp": "Pemfaktoran $(x-1)(x-2)(x-3) = 0 \\implies$ Akar-akar real: $1, 2, 3$. Jumlah $= 1+2+3 =$ <b>6</b>."
+  },
+  {
+    "id": 47,
+    "level": 6,
+    "q": "Polinomial $P(x) = x^3 - 7x + 6$ dapat difaktorkan menjadi $(x-1)(x-a)(x+b)$ dengan $a, b > 0$. Hitung nilai $a \\cdot b$!",
+    "ans": "6",
+    "exp": "Pemfaktoran $(x-1)(x-2)(x+3) \\implies a=2, b=3$. Maka $a \\cdot b = 2 \\cdot 3 =$ <b>6</b>."
+  },
+  {
+    "id": 48,
+    "level": 6,
+    "q": "Jika $(x - k)$ adalah faktor dari $P(x) = x^3 - 4x^2 - 7x + 10$ dengan $k > 0$ merupakan bilangan terbesar, tentukan nilai $k$!",
+    "ans": "5",
+    "exp": "Pemfaktoran $(x-1)(x+2)(x-5) = 0 \\implies$ Akar positif terbesar $k =$ <b>5</b>."
+  },
+  {
+    "id": 49,
+    "level": 6,
+    "q": "Jika $(x - 2)$ dan $(x - 3)$ adalah faktor dari $x^4 + ax^2 + b = 0$, tentukan nilai $a + b$!",
+    "ans": "23",
+    "exp": "$P(2) = 0 \\implies 4a+b = -16$; $P(3) = 0 \\implies 9a+b = -81 \\implies a = -13, b = 36$. Maka $a+b =$ <b>23</b>."
+  },
+  {
+    "id": 50,
+    "level": 6,
+    "q": "Tentukan nilai $p$ agar polinomial $P(x) = x^4 - 3x^3 + px^2 - 5x + 6$ habis dibagi $(x - 1)$!",
+    "ans": "1",
+    "exp": "Habis dibagi $(x-1) \\implies P(1) = 0 \\implies 1 - 3 + p - 5 + 6 = 0 \\implies p =$ <b>1</b>."
+  },
+  {
+    "id": 51,
+    "level": 7,
+    "q": "Tentukan jumlah seluruh akar real dari persamaan $x(x-3)(x-5) = 0$!",
+    "ans": "8",
+    "exp": "Akar-akarnya adalah $x = 0, 3, 5$. Jumlah seluruh akar $= 0 + 3 + 5 =$ <b>8</b>."
+  },
+  {
+    "id": 52,
+    "level": 7,
+    "q": "Tentukan hasil kali akar-akar real positif dari persamaan $x^3 - 4x^2 - x + 4 = 0$!",
+    "ans": "4",
+    "exp": "$(x-4)(x-1)(x+1) = 0 \\implies$ Akar positif: $1, 4$. Hasil kali $= 1 \\cdot 4 =$ <b>4</b>."
+  },
+  {
+    "id": 53,
+    "level": 7,
+    "q": "Tentukan jumlah kuadrat dari akar-akar persamaan $x^3 - 6x^2 + 11x - 6 = 0$!",
+    "ans": "14",
+    "exp": "Akar-akar dari $x^3 - 6x^2 + 11x - 6 = 0$ adalah $1, 2, 3$. Jumlah kuadrat $= 1^2 + 2^2 + 3^2 =$ <b>14</b>."
+  },
+  {
+    "id": 54,
+    "level": 7,
+    "q": "Berapakah banyaknya akar real dari persamaan polinomial $x^4 - 10x^2 + 9 = 0$?",
+    "ans": "4",
+    "exp": "$(x^2-1)(x^2-9) = 0 \\implies x = \\pm 1, \\pm 3 \\implies$ Banyaknya akar real = <b>4</b>."
+  },
+  {
+    "id": 55,
+    "level": 7,
+    "q": "Berapakah banyaknya akar real dari persamaan $x^4 + 5x^2 + 4 = 0$?",
+    "ans": "0",
+    "exp": "$(x^2+1)(x^2+4) = 0 \\implies$ Tidak ada akar real $\\implies$ Banyaknya akar real = <b>0</b>."
+  },
+  {
+    "id": 56,
+    "level": 7,
+    "q": "Tentukan nilai akar rasional terbesar dari persamaan $x^3 - 6x^2 + 3x + 10 = 0$!",
+    "ans": "5",
+    "exp": "Pemfaktoran $(x-5)(x-2)(x+1) = 0 \\implies$ Akar rasional terbesar = <b>5</b>."
+  },
+  {
+    "id": 57,
+    "level": 7,
+    "q": "Jika $x = 3$ adalah salah satu akar dari $x^3 - 6x^2 + kx - 12 = 0$, tentukan nilai $k$!",
+    "ans": "13",
+    "exp": "$x=3$ akar $\\implies 3^3 - 6(3)^2 + 3k - 12 = 0 \\implies 27 - 54 + 3k - 12 = 0 \\implies 3k = 39 \\implies k =$ <b>13</b>."
+  },
+  {
+    "id": 58,
+    "level": 7,
+    "q": "Hitunglah hasil kali seluruh akar real dari persamaan $x^4 - 5x^2 + 4 = 0$!",
+    "ans": "4",
+    "exp": "$(x^2-1)(x^2-4) = 0 \\implies x = \\pm 1, \\pm 2$. Hasil kali $= (1)(-1)(2)(-2) =$ <b>4</b>."
+  },
+  {
+    "id": 59,
+    "level": 8,
+    "q": "Jika $x_1, x_2, x_3$ adalah akar-akar dari $x^3 - 12x^2 + 44x - 48 = 0$, tentukan nilai $x_1 + x_2 + x_3$!",
+    "ans": "12",
+    "exp": "Teorema Vieta: $x_1 + x_2 + x_3 = -\\dfrac{b}{a} = -\\dfrac{-12}{1} =$ <b>12</b>."
+  },
+  {
+    "id": 60,
+    "level": 8,
+    "q": "Untuk persamaan $2x^3 - 16x^2 + 10x - 8 = 0$, hitunglah nilai $x_1 + x_2 + x_3$!",
+    "ans": "8",
+    "exp": "Teorema Vieta: $x_1 + x_2 + x_3 = -\\dfrac{-16}{2} =$ <b>8</b>."
+  },
+  {
+    "id": 61,
+    "level": 8,
+    "q": "Untuk persamaan $x^3 - 7x^2 + 5x - 40 = 0$, tentukan hasil kali akar-akarnya ($x_1 \\cdot x_2 \\cdot x_3$)!",
+    "ans": "40",
+    "exp": "Teorema Vieta: $x_1 x_2 x_3 = -\\dfrac{d}{a} = -\\dfrac{-40}{1} =$ <b>40</b>."
+  },
+  {
+    "id": 62,
+    "level": 8,
+    "q": "Jika $x_1, x_2, x_3$ adalah akar-akar dari $x^3 - 9x^2 + 26x - 24 = 0$, tentukan nilai $x_1 x_2 + x_1 x_3 + x_2 x_3$!",
+    "ans": "26",
+    "exp": "Teorema Vieta: $x_1 x_2 + x_1 x_3 + x_2 x_3 = \\dfrac{c}{a} = \\dfrac{26}{1} =$ <b>26</b>."
+  },
+  {
+    "id": 63,
+    "level": 8,
+    "q": "Untuk persamaan $x^3 - 8x^2 + 19x - 12 = 0$, hitunglah nilai dari $x_1^2 + x_2^2 + x_3^2$!",
+    "ans": "26",
+    "exp": "$x_1^2 + x_2^2 + x_3^2 = (x_1+x_2+x_3)^2 - 2(x_1 x_2 + x_1 x_3 + x_2 x_3) = 8^2 - 2(19) = 64 - 38 =$ <b>26</b>."
+  },
+  {
+    "id": 64,
+    "level": 8,
+    "q": "Akar-akar dari $x^3 - 9x^2 + 23x - 15 = 0$ adalah $x_1, x_2, x_3$. Hitunglah nilai $x_1^2 + x_2^2 + x_3^2$!",
+    "ans": "35",
+    "exp": "$x_1^2 + x_2^2 + x_3^2 = 9^2 - 2(23) = 81 - 46 =$ <b>35</b>."
+  },
+  {
+    "id": 65,
+    "level": 8,
+    "q": "Akar-akar $x^3 - 6x^2 + 11x - 6 = 0$ membentuk barisan aritmatika. Tentukan beda ($d > 0$) dari barisan tersebut!",
+    "ans": "1",
+    "exp": "Akar-akarnya adalah $1, 2, 3 \\implies$ Beda barisan aritmatika $d = 2 - 1 =$ <b>1</b>."
+  },
+  {
+    "id": 66,
+    "level": 8,
+    "q": "Jika salah satu akar dari $x^3 - 7x + k = 0$ adalah $3$, tentukan nilai $k^2$!",
+    "ans": "36",
+    "exp": "$x=3$ akar $\\implies 3^3 - 7(3) + k = 0 \\implies 6 + k = 0 \\implies k = -6 \\implies k^2 =$ <b>36</b>."
+  },
+  {
+    "id": 67,
+    "level": 8,
+    "q": "Jika $x_1, x_2, x_3$ adalah akar-akar $x^3 - 6x^2 + 11x - 6 = 0$, hitunglah nilai $x_1^3 + x_2^3 + x_3^3$!",
+    "ans": "36",
+    "exp": "Akar-akarnya $1, 2, 3 \\implies 1^3 + 2^3 + 3^3 = 1 + 8 + 27 =$ <b>36</b>."
+  },
+  {
+    "id": 68,
+    "level": 9,
+    "q": "Untuk persamaan $x^4 - 15x^3 + 20x^2 + 8x - 3 = 0$, tentukan $x_1 + x_2 + x_3 + x_4$!",
+    "ans": "15",
+    "exp": "Teorema Vieta Derajat 4: $x_1 + x_2 + x_3 + x_4 = -\\dfrac{-15}{1} =$ <b>15</b>."
+  },
+  {
+    "id": 69,
+    "level": 9,
+    "q": "Untuk $3x^4 - 8x^3 + 3x^2 - x + 75 = 0$, tentukan hasil kali seluruh akar-akarnya ($x_1 x_2 x_3 x_4$)!",
+    "ans": "25",
+    "exp": "Teorema Vieta Derajat 4: $x_1 x_2 x_3 x_4 = \\dfrac{e}{a} = \\dfrac{75}{3} =$ <b>25</b>."
+  },
+  {
+    "id": 70,
+    "level": 9,
+    "q": "Akar-akar dari $x^4 - 12x^3 + ax^2 - bx + c = 0$ membentuk barisan aritmatika dengan beda $2$. Tentukan nilai $a$!",
+    "ans": "44",
+    "exp": "Akar-akar berjarak $2$: $0, 2, 4, 6$. Nilai $a = \\sum x_1 x_2 = 0 + 2(4+6) + 4(6) = 20 + 24 =$ <b>44</b>."
+  },
+  {
+    "id": 71,
+    "level": 9,
+    "q": "Persamaan $x^3 - (a+1)x^2 + (3a+2)x - 12 = 0$ mempunyai akar $x=2$. Tentukan nilai $a$!",
+    "ans": "2",
+    "exp": "Substitusi $x=2 \\implies 8 - 4(a+1) + 2(3a+2) - 12 = 0 \\implies 2a - 4 = 0 \\implies a =$ <b>2</b>."
+  },
+  {
+    "id": 72,
+    "level": 9,
+    "q": "Persamaan $x^3 + bx^2 + cx + d = 0$ memiliki akar-akar $1, 2,$ dan $4$. Tentukan nilai $-d$!",
+    "ans": "8",
+    "exp": "Persamaan $(x-1)(x-2)(x-4) = x^3 - 7x^2 + 14x - 8 \\implies d = -8 \\implies -d =$ <b>8</b>."
+  },
+  {
+    "id": 73,
+    "level": 9,
+    "q": "Jika $x_1, x_2, x_3$ adalah akar-akar dari $x^3 - 4x^2 + 2x - 5 = 0$, tentukan nilai suku tetap $-C$ dari persamaan baru $y^3 + Ay^2 + By + C = 0$ yang akar-akarnya $2x_1, 2x_2, 2x_3$!",
+    "ans": "40",
+    "exp": "Akar baru $y = 2x$. Konstanta baru $-C = 2^3 \\cdot (-(-5)) = 8 \\cdot 5 =$ <b>40</b>."
+  },
+  {
+    "id": 74,
+    "level": 9,
+    "q": "Jika $x^3 + bx^2 + cx + d = 0$ memiliki akar-akar $x_1=2, x_2=3, x_3=5$, tentukan nilai $|b+c+d|$!",
+    "ans": "9",
+    "exp": "$(x-2)(x-3)(x-5) = x^3 - 10x^2 + 31x - 30 \\implies b=-10, c=31, d=-30$. $|b+c+d| = |-9| =$ <b>9</b>."
+  },
+  {
+    "id": 75,
+    "level": 9,
+    "q": "Jika $2+i$ dan $2-i$ adalah akar kompleks dari $x^3 - 6x^2 + 13x - 10 = 0$, tentukan nilai akar realnya!",
+    "ans": "2",
+    "exp": "$(x^2-4x+5)(x-r) = x^3 - 6x^2 + 13x - 10 \\implies r = 2$. Akar realnya = <b>2</b>."
+  },
+  {
+    "id": 76,
+    "level": 10,
+    "q": "Sebuah balok memiliki panjang $(x+3)\\text{ cm}$, lebar $x\\text{ cm}$, dan tinggi $(x-2)\\text{ cm}$. Tentukan volume balok ($\\text{cm}^3$) jika $x = 5\\text{ cm}$!",
+    "ans": "120",
+    "exp": "$V(x) = x(x+3)(x-2)$. Untuk $x=5 \\implies V(5) = 5(8)(3) =$ <b>120</b>."
+  },
+  {
+    "id": 77,
+    "level": 10,
+    "q": "Berapakah volume balok pada soal nomor 76 jika nilai $x = 6\\text{ cm}$?",
+    "ans": "216",
+    "exp": "Untuk $x=6 \\implies V(6) = 6(9)(4) =$ <b>216</b>."
+  },
+  {
+    "id": 78,
+    "level": 10,
+    "q": "Sebuah kotak tanpa tutup dibuat dari selembar karton $10\\text{ cm} \\times 10\\text{ cm}$ dengan memotong persegi berukuran $x = 2\\text{ cm}$ di setiap sudutnya. Hitung volume kotak ($\\text{cm}^3$)!",
+    "ans": "72",
+    "exp": "$V(x) = x(10-2x)^2$. Untuk $x=2 \\implies V(2) = 2(6)^2 = 2(36) =$ <b>72</b>."
+  },
+  {
+    "id": 79,
+    "level": 10,
+    "q": "Volume kotak terbuka dari lembaran $14\\text{ cm} \\times 14\\text{ cm}$ yang dipotong $x\\text{ cm}$ pada tiap sudutnya dinyatakan $V(x) = x(14-2x)^2$. Hitung nilai $V(3)$!",
+    "ans": "192",
+    "exp": "$V(3) = 3(14-2(3))^2 = 3(8)^2 = 3(64) =$ <b>192</b>."
+  },
+  {
+    "id": 80,
+    "level": 10,
+    "q": "Keuntungan suatu usaha dimodelkan oleh $P(x) = -x^3 + 9x^2 + 12x + 50$ (dalam juta rupiah). Hitung keuntungan saat memproduksi $x = 5$ unit!",
+    "ans": "210",
+    "exp": "$P(5) = -(5)^3 + 9(5)^2 + 12(5) + 50 = -125 + 225 + 60 + 50 =$ <b>210</b>."
+  },
+  {
+    "id": 81,
+    "level": 10,
+    "q": "Sebuah tangki air berbentuk balok berukuran $x\\text{ m} \\times (x+2)\\text{ m} \\times (x-1)\\text{ m}$. Jika volume tangki adalah $140\\text{ m}^3$, tentukan nilai $x$!",
+    "ans": "5",
+    "exp": "$x(x+2)(x-1) = 140 \\implies x^3 + x^2 - 2x - 140 = 0 \\implies (x-5)(x^2+6x+28) = 0 \\implies x =$ <b>5</b>."
+  },
+  {
+    "id": 82,
+    "level": 10,
+    "q": "Lintasan roket mainan dinyatakan oleh $h(t) = -t^3 + 10t^2 + 15t$ (meter). Hitung ketinggian roket pada detik ke-$4$ ($t = 4$)!",
+    "ans": "156",
+    "exp": "$h(4) = -(4)^3 + 10(4)^2 + 15(4) = -64 + 160 + 60 =$ <b>156</b>."
+  },
+  {
+    "id": 83,
+    "level": 10,
+    "q": "Akuarium berukuran $(x+4)\\text{ cm} \\times x\\text{ cm} \\times (x-1)\\text{ cm}$. Jika volume akuarium $180\\text{ cm}^3$, tentukan nilai $x$!",
+    "ans": "5",
+    "exp": "$(x+4)(x)(x-1) = 180 \\implies x^3 + 3x^2 - 4x - 180 = 0 \\implies (x-5)(x^2+8x+36) = 0 \\implies x =$ <b>5</b>."
+  },
+  {
+    "id": 84,
+    "level": 10,
+    "q": "Luas alas prisma segitiga adalah $(x^2+4x+3)$ dan tingginya $(x+2)$. Hitunglah volume prisma untuk $x = 4$!",
+    "ans": "210",
+    "exp": "$V(x) = (x^2+4x+3)(x+2)$. Untuk $x=4 \\implies (16+16+3)(6) = 35 \\times 6 =$ <b>210</b>."
+  },
+  {
+    "id": 85,
+    "level": 10,
+    "q": "Luas persegi panjang berkeliling $36\\text{ cm}$ dengan panjang $x\\text{ cm}$ dimodelkan $L(x) = 18x - x^2$. Hitung luasnya saat $x = 10\\text{ cm}$!",
+    "ans": "80",
+    "exp": "$L(10) = 18(10) - 10^2 = 180 - 100 =$ <b>80</b>."
+  },
+  {
+    "id": 86,
+    "level": 10,
+    "q": "Fungsi biaya $C(x) = x^3 + 2x^2 + 5x + 40$. Hitung selisih biaya dari produksi $x=2$ unit ke $x=5$ unit!",
+    "ans": "174",
+    "exp": "$C(2) = 8 + 8 + 10 + 40 = 66$; $C(5) = 125 + 50 + 25 + 40 = 240 \\implies \\Delta C = 240 - 66 =$ <b>174</b>."
+  },
+  {
+    "id": 87,
+    "level": 10,
+    "q": "Jarak tempuh mobil mainan dinotasikan $S(t) = 2t^3 + 3t^2 + 10t$ meter. Hitung jarak yang ditempuh pada detik ke-5 ($t = 5$)!",
+    "ans": "375",
+    "exp": "$S(5) = 2(5)^3 + 3(5)^2 + 10(5) = 250 + 75 + 50 =$ <b>375</b>."
+  },
+  {
+    "id": 88,
+    "level": 10,
+    "q": "Populasi bakteri dimodelkan oleh $P(t) = t^4 + 3t^2 + 150$. Berapa jumlah populasi bakteri pada saat $t = 4$?",
+    "ans": "454",
+    "exp": "$P(4) = 4^4 + 3(4)^2 + 150 = 256 + 48 + 150 =$ <b>454</b>."
+  },
+  {
+    "id": 89,
+    "level": 11,
+    "q": "Jika $P(x)$ dibagi $(x-2)^2$ bersisa $5x+3$, berapakah sisa pembagian $P(x)$ oleh $(x-2)$?",
+    "ans": "13",
+    "exp": "Teorema Sisa: Sisa pembagian oleh $(x-2)$ adalah $P(2) = 5(2) + 3 =$ <b>13</b>."
+  },
+  {
+    "id": 90,
+    "level": 11,
+    "q": "Polinomial $P(x)$ berderajat 3 habis dibagi $(x^2-4)$ dan $(x-3)$. Jika $P(0) = 48$, tentukan nilai dari $P(1)$!",
+    "ans": "24",
+    "exp": "$P(x) = a(x^2-4)(x-3)$. $P(0) = 12a = 48 \\implies a = 4 \\implies P(1) = 4(1-4)(1-3) = 4(-3)(-2) =$ <b>24</b>."
+  },
+  {
+    "id": 91,
+    "level": 11,
+    "q": "Diketahui $P(x) = ax + b$ memenuhi $P(x) + P(2-x) = 20$. Jika $P(0) = 3$, tentukan nilai dari $P(10)$!",
+    "ans": "73",
+    "exp": "$P(0) = b = 3$. Untuk $x=0 \\implies P(0) + P(2) = 20 \\implies 3 + P(2) = 20 \\implies P(2) = 17 \\implies 2a+3 = 17 \\implies a = 7$. Maka $P(10) = 7(10)+3 =$ <b>73</b>."
+  },
+  {
+    "id": 92,
+    "level": 11,
+    "q": "Tentukan sisa pembagian polinomial $P(x) = x^{100} - 3x^{99} + 50$ oleh $(x - 3)$!",
+    "ans": "50",
+    "exp": "Sisa oleh $(x-3)$ adalah $P(3) = 3^{100} - 3(3^{99}) + 50 = 3^{100} - 3^{100} + 50 =$ <b>50</b>."
+  },
+  {
+    "id": 93,
+    "level": 11,
+    "q": "Diketahui $P(x) = x^3 + ax^2 + bx + c$. Jika $P(1)=0, P(2)=0,$ dan $P(3)=0$, tentukan nilai dari $b - a - c$!",
+    "ans": "23",
+    "exp": "$P(x) = (x-1)(x-2)(x-3) = x^3 - 6x^2 + 11x - 6 \\implies a=-6, b=11, c=-6 \\implies b - a - c = 11 - (-6) - (-6) =$ <b>23</b>."
+  },
+  {
+    "id": 94,
+    "level": 11,
+    "q": "Jika $f(x)$ dibagi $(x^2-x-6)$ bersisa $(4x+7)$, tentukan sisa pembagian $f(x)$ oleh $(x-3)$!",
+    "ans": "19",
+    "exp": "Sisa pembagian oleh $(x-3)$ adalah $f(3) = 4(3) + 7 =$ <b>19</b>."
+  },
+  {
+    "id": 95,
+    "level": 11,
+    "q": "Tentukan nilai $a+b$ agar $x^4 + 6x^3 + ax^2 + bx + 9$ merupakan kuadrat sempurna!",
+    "ans": "33",
+    "exp": "Kuadrat sempurna: $(x^2+3x+3)^2 = x^4 + 6x^3 + 15x^2 + 18x + 9 \\implies a=15, b=18 \\implies a+b =$ <b>33</b>."
+  },
+  {
+    "id": 96,
+    "level": 11,
+    "q": "Jika $x^2 + x + 1$ membagi habis $x^4 + ax^2 + b$, tentukan nilai dari $a+b$!",
+    "ans": "2",
+    "exp": "$x^4+ax^2+b = (x^2+x+1)(x^2-x+a) + (1-a)x + (b-a)$. Agar habis dibagi $\\implies a=1, b=1 \\implies a+b =$ <b>2</b>."
+  },
+  {
+    "id": 97,
+    "level": 11,
+    "q": "Polinomial $P(x)$ berderajat 3 memenuhi $P(1)=2, P(2)=4, P(3)=6,$ dan $P(4)=32$. Tentukan nilai $P(5)$!",
+    "ans": "106",
+    "exp": "Misal $Q(x) = P(x) - 2x \\implies Q(1)=Q(2)=Q(3)=0 \\implies Q(x) = k(x-1)(x-2)(x-3)$. $P(4) = Q(4)+8 = 32 \\implies 6k = 24 \\implies k = 4$. Maka $P(5) = Q(5) + 10 = 4(4)(3)(2) + 10 = 96 + 10 =$ <b>106</b>."
+  },
+  {
+    "id": 98,
+    "level": 11,
+    "q": "Tentukan sisa pembagian polinomial $(x+2)^{10}$ oleh $(x+1)$!",
+    "ans": "1",
+    "exp": "Sisa pembagian $(x+2)^{10}$ oleh $(x+1)$ adalah $(-1+2)^{10} = 1^{10} =$ <b>1</b>."
+  },
+  {
+    "id": 99,
+    "level": 11,
+    "q": "Jika $a, b, c$ adalah akar-akar dari $x^3 - 6x^2 + 11x - 6 = 0$, hitung nilai dari $(a+1)(b+1)(c+1)$!",
+    "ans": "24",
+    "exp": "$a, b, c$ akar $x^3-6x^2+11x-6=0 \\implies a=1, b=2, c=3 \\implies (1+1)(2+1)(3+1) = 2 \\cdot 3 \\cdot 4 =$ <b>24</b>."
+  },
+  {
+    "id": 100,
+    "level": 11,
+    "q": "Polinomial $P(x) = x^4 - 20x^3 + 35x^2 - 10x + 8$ memiliki akar-akar $x_1, x_2, x_3, x_4$. Berapakah nilai dari $x_1 + x_2 + x_3 + x_4$?",
+    "ans": "20",
+    "exp": "Teorema Vieta Derajat 4: $x_1 + x_2 + x_3 + x_4 = -\\dfrac{-20}{1} =$ <b>20</b>."
+  }
+]
