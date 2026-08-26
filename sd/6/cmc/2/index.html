@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canisius Mathematic Competition (CMC) - Kelas VI SD</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-teal-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-teal-50 via-slate-50 to-blue-50 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <!-- Main Card -->
+        <div class="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl max-w-2xl w-full border-t-8 border-teal-700 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 text-[11px] font-black rounded-full uppercase tracking-wider">CMC SD Kelas VI</span>
+                <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-[11px] font-black rounded-full uppercase tracking-wider">Isian Singkat (20 Soal)</span>
+            </div>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-black text-center text-slate-900 mb-1">CANISIUS MATHEMATIC COMPETITION</h1>
+            <p class="text-center text-slate-500 font-semibold mb-4 text-xs md:text-sm">Paket Simulasi Soal Isian Singkat HOTS 2026</p>
+            
+            <div class="bg-teal-50/70 p-4 rounded-xl md:rounded-2xl mb-4 border border-teal-100 shadow-sm space-y-2">
+                <h2 class="font-bold text-teal-900 flex items-center text-xs md:text-sm">
+                    <svg class="w-4 h-4 mr-1.5 text-teal-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Pengerjaan Ujian:
+                </h2>
+                <ul class="list-disc list-inside text-xs text-teal-950 space-y-1 leading-relaxed">
+                    <li>Semua soal (Soal 1–20) berbentuk <strong>Isian Singkat</strong>.</li>
+                    <li>Ketikkan jawaban akhir berupa <strong>BILANGAN BULAT TANPA SATUAN</strong> (Contoh: 42).</li>
+                    <li>Waktu Pengerjaan: <strong>45 Menit</strong>.</li>
+                    <li>Kunci jawaban dan pembahasan lengkap langkah demi langkah tersedia setelah dikumpulkan.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 text-center text-xs font-bold mb-5">
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Elemen</p>
+                    <p class="text-[11px] font-black">Bilangan & Pecahan</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Elemen</p>
+                    <p class="text-[11px] font-black">Rasio & Persen</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Elemen</p>
+                    <p class="text-[11px] font-black">Geometri & Data</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Elemen</p>
+                    <p class="text-[11px] font-black">AKM Real-World</p>
+                </div>
+            </div>
+
+            <button type="button" id="start-btn" onclick="startQuiz()" class="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-base md:text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <footer class="w-full py-2.5 md:py-3 text-center text-xs text-slate-600">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-teal-800 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-teal-800 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-teal-900 leading-tight">CANISIUS MATHEMATIC COMPETITION</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">20 Soal Isian Singkat HOTS 2026</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-teal-50 text-teal-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-teal-200 shadow-inner" id="timer-display">
+                            45:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 20 Questions -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-2.5">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Soal (1–20)</p>
+                        <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 20</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-20 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelum
+                        </button>
+                        <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-teal-700 text-white font-bold rounded-xl hover:bg-teal-800 transition shadow-md flex items-center gap-2 cursor-pointer">
+                            <span>Soal Berikutnya</span> &#8594;
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-teal-800 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Pengumpulkan Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian ini?</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali ke Ujian</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-700 text-white font-bold rounded-xl hover:bg-teal-800 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-teal-700 via-teal-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & NILAI UJIAN</h2>
+            <p class="mb-8 text-teal-100 text-sm md:text-base max-w-md mx-auto">Laporan hasil pengerjaan & kunci jawaban resmi Canisius Mathematic Competition (CMC) 2026.</p>
+            
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Total Nilai</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-teal-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Persentase</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-teal-900 hover:bg-teal-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                <span>Lihat Pembahasan Lengkap</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Pembahasan Lengkap & Kunci Jawaban</h3>
+                    <p class="text-sm text-slate-500">Evaluasi lembar pengerjaan Anda dengan langkah-langkah penyelesaian rinci.</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-teal-800 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">20</span>)</button>
+                    <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                    <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-teal-800 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                type: 'short',
+                section: "Aljabar & Aplikasi Teknologi",
+                question: "Sebuah proyek pemasangan panel surya ramah lingkungan di suatu sekolah dilakukan secara bertahap selama 4 hari berturut-turut. Banyak panel surya yang dipasang setiap harinya bertambah 3 unit dibanding hari sebelumnya. Jika total panel surya yang berhasil dipasang selama 4 hari tersebut adalah 114 unit, berapakah banyak panel surya yang dipasang pada hari ke-4?",
+                correctAnswer: "33",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misalkan banyak panel pada hari ke-1 adalah $x$.</li>
+                        <li>Hari 1 = $x$, Hari 2 = $x + 3$, Hari 3 = $x + 6$, Hari 4 = $x + 9$.</li>
+                        <li>Total panel $= x + (x+3) + (x+6) + (x+9) = 4x + 18 = 114$.</li>
+                        <li>$4x = 114 - 18 = 96 \\implies x = 24$.</li>
+                        <li>Banyak panel pada hari ke-4 $= 24 + 9 = \\mathbf{33}$ unit.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 33</p>
+                `
+            },
+            {
+                id: 2,
+                type: 'short',
+                section: "Aljabar & Poin Partisipasi Sekolah",
+                question: "Dalam program partisipasi <em>Sekolah Hijau</em>, setiap siswa memperoleh $x$ poin untuk pengumpulan sampah daur ulang dan mendapat denda pengurangan $y$ poin jika membuang sampah tidak pada tempatnya. Kelompok A yang terdiri atas 52 siswa pengumpul daur ulang dan 13 siswa terkena denda mencatatkan total poin bersih sebesar $(52x - 13y) = 195$ poin. Jika Kelompok B memiliki proporsi 28 siswa pengumpul daur ulang dan 7 siswa terkena denda dengan nilai pembobotan $x$ dan $y$ yang sama, berapakah total nilai poin bersih $(28x - 7y)$ yang diperoleh Kelompok B?",
+                correctAnswer: "105",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Diketahui poin Kelompok A: $52x - 13y = 195$. Faktorkan angka $13$.</li>
+                        <li>$13(4x - y) = 195 \\implies 4x - y = \\frac{195}{13} = 15$.</li>
+                        <li>Bentuk poin Kelompok B yang ditanyakan $28x - 7y = 7(4x - y)$.</li>
+                        <li>Substitusikan $(4x - y) = 15 \\implies 28x - 7y = 7 \\times 15 = \\mathbf{105}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 105</p>
+                `
+            },
+            {
+                id: 3,
+                type: 'short',
+                section: "Pecahan & Aplikasi Kesehatan",
+                question: "Dalam program bantuan medis puskesmas, Ann membagikan sejumlah masker medis. Pertama, ia memberikan $\\frac{1}{2}$ dari seluruh maskernya kepada Betty. Kemudian, ia memberikan $\\frac{1}{3}$ dari sisa maskernya kepada Sammy. Terakhir, ia menyumbangkan $\\frac{1}{4}$ dari sisa masker yang ada saat itu ke klinik desa, sehingga masker Ann tersisa tepat 45 lembar. Berapakah banyak masker medis yang dimiliki Ann pada awalnya?",
+                correctAnswer: "180",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Gunakan metode bekerja mundur (<em>working backwards</em>).</li>
+                        <li>Sebelum disumbangkan ke klinik ($\\frac{1}{4}$ diberikan, sisa $\\frac{3}{4}$): $\\text{Sisa} \\times \\frac{3}{4} = 45 \\implies \\text{Sisa} = 45 \\times \\frac{4}{3} = 60$.</li>
+                        <li>Sebelum diberikan ke Sammy ($\\frac{1}{3}$ diberikan, sisa $\\frac{2}{3}$): $\\text{Sisa} \\times \\frac{2}{3} = 60 \\implies \\text{Sisa} = 60 \\times \\frac{3}{2} = 90$.</li>
+                        <li>Sebelum diberikan ke Betty ($\\frac{1}{2}$ diberikan, sisa $\\frac{1}{2}$): $\\text{Awal} \\times \\frac{1}{2} = 90 \\implies \\text{Awal} = 90 \\times 2 = \\mathbf{180}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 180</p>
+                `
+            },
+            {
+                id: 4,
+                type: 'short',
+                section: "Pecahan & Sistem Komponen",
+                question: "Di sebuah laboratorium lingkungan, jumlah dari $\\frac{1}{4}$ sampel air merah dan $\\frac{2}{5}$ sampel air hijau adalah 21 botol. Sementara itu, jumlah dari $\\frac{3}{4}$ sampel air merah dan $\\frac{4}{5}$ sampel air hijau adalah 47 botol. Berapakah total keseluruhan sampel air (merah dan hijau) yang ada di laboratorium tersebut?",
+                correctAnswer: "60",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misalkan $M = \\text{Merah}$ dan $H = \\text{Hijau}$.</li>
+                        <li>Persamaan 1: $\\frac{1}{4}M + \\frac{2}{5}H = 21 \\implies 5M + 8H = 420$ (kalikan 20)</li>
+                        <li>Persamaan 2: $\\frac{3}{4}M + \\frac{4}{5}H = 47 \\implies 15M + 16H = 940$ (kalikan 20)</li>
+                        <li>Kalikan Persamaan 1 dengan 2: $10M + 16H = 840$.</li>
+                        <li>Kurangkan dari Persamaan 2: $(15M - 10M) = 940 - 840 \\implies 5M = 100 \\implies M = 20$.</li>
+                        <li>Substitusi $M = 20$ ke Persamaan 1: $5(20) + 8H = 420 \\implies 100 + 8H = 420 \\implies 8H = 320 \\implies H = 40$.</li>
+                        <li>Total sampel air $= M + H = 20 + 40 = \\mathbf{60}$ botol.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 60</p>
+                `
+            },
+            {
+                id: 5,
+                type: 'short',
+                section: "Persentase & Kadar Air Lingkungan",
+                question: "Kadar air pada $20\\text{ kg}$ buah ara segar adalah $99\\%$. Setelah dijemur di bawah terik matahari untuk proses pengeringan, kadar airnya berkurang menjadi $98\\%$. Berapakah berat total buah ara tersebut sekarang setelah dikeringkan? (Catatan: berat padatan murni tanpa air tidak berubah).",
+                correctAnswer: "10",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Kadar air awal $= 99\\% \\implies$ Kadar padatan murni $= 100\\% - 99\\% = 1\\%$.</li>
+                        <li>Berat padatan murni $= 1\\% \\times 20\\text{ kg} = 0{,}2\\text{ kg}$.</li>
+                        <li>Setelah dijemur, kadar air $= 98\\% \\implies$ Kadar padatan murni $= 2\\%$.</li>
+                        <li>Karena berat padatan murni konstan $0{,}2\\text{ kg}$:</li>
+                        <li>$2\\% \\times \\text{Berat Akhir} = 0{,}2\\text{ kg} \\implies \\frac{2}{100} \\times \\text{Berat Akhir} = 0{,}2 \\implies \\text{Berat Akhir} = 0{,}2 \\times 50 = \\mathbf{10}\\text{ kg}$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 10</p>
+                `
+            },
+            {
+                id: 6,
+                type: 'short',
+                section: "Persentase & Reboisasi Hutan",
+                question: "Sebuah kawasan hutan lindung mencatat perubahan populasi pohon secara bertahap. Pada tahun 2024, jumlah pohon meningkat $20\\%$ melalui program reboisasi. Pada tahun 2025, akibat kemarau panjang, jumlah pohon berkurang $15\\%$. Pada tahun 2026, ditanam kembali pohon baru sehingga populasi meningkat $25\\%$. Jika populasi akhir pohon di hutan tersebut adalah $31.875$ pohon, berapakah jumlah pohon pada kondisi awal sebelum tahun 2024?",
+                correctAnswer: "25000",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misalkan populasi awal $= P$.</li>
+                        <li>$P \\times (1 + 0{,}20) \\times (1 - 0{,}15) \\times (1 + 0{,}25) = 31.875$</li>
+                        <li>$P \\times 1{,}20 \\times 0{,}85 \\times 1{,}25 = 31.875$</li>
+                        <li>$P \\times (\\frac{6}{5} \\times \\frac{17}{20} \\times \\frac{5}{4}) = 31.875$</li>
+                        <li>$P \\times \\frac{51}{40} = 31.875 \\implies P = \\frac{31.875 \\times 40}{51} = 625 \\times 40 = \\mathbf{25.000}$ pohon.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 25000</p>
+                `
+            },
+            {
+                id: 7,
+                type: 'short',
+                section: "Rasio & Perubahan Nilai",
+                question: "Mula-mula rasio jumlah tabungan Henry terhadap Lily adalah $3 : 2$. Setelah Henry menyumbangkan $\\text{Rp}15.000,00$ untuk aksi lingkungan dan Lily mendapatkan hadiah uang sebesar $\\text{Rp}24.000,00$, rasio tabungan Henry terhadap Lily menjadi $5 : 4$. Berapakah jumlah uang tabungan Lily pada awalnya (dalam ribuan rupiah)?",
+                correctAnswer: "180",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misalkan uang Henry $= 3k$ dan uang Lily $= 2k$.</li>
+                        <li>Persamaan rasio baru: $\\frac{3k - 15}{2k + 24} = \\frac{5}{4}$</li>
+                        <li>Kalikan silang: $4(3k - 15) = 5(2k + 24) \\implies 12k - 60 = 10k + 120$</li>
+                        <li>$2k = 180 \\implies k = 90$</li>
+                        <li>Uang Lily pada awalnya $= 2k = 2(90) = \\mathbf{180}$ (dalam ribuan rupiah, yaitu $\\text{Rp}180.000,00$).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 180</p>
+                `
+            },
+            {
+                id: 8,
+                type: 'short',
+                section: "Rasio & Aplikasi Robotika",
+                question: "Tiga unit robot pembersih sampah (Robot A, Robot B, dan Robot C) diuji jam operasionalnya. Rasio lama jam kerja Robot A terhadap Robot B adalah $5 : 6$, sedangkan rasio jam kerja Robot B terhadap Robot C adalah $7 : 4$. Jika Robot A beroperasi 44 jam lebih lama dibandingkan Robot C, berapakah total jam kerja Robot B?",
+                correctAnswer: "168",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Samakan rasio $A : B$ dan $B : C$:</li>
+                        <li>$A : B = 5 : 6 = 35 : 42$</li>
+                        <li>$B : C = 7 : 4 = 42 : 24$</li>
+                        <li>Diperoleh rasio gabungan $A : B : C = 35 : 42 : 24$.</li>
+                        <li>Selisih jam $A$ dan $C = 35u - 24u = 11u = 44\\text{ jam} \\implies u = 4\\text{ jam}$.</li>
+                        <li>Jam kerja Robot B $= 42u = 42 \\times 4 = \\mathbf{168}$ jam.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 168</p>
+                `
+            },
+            {
+                id: 9,
+                type: 'short',
+                section: "Kecepatan & Menyusul",
+                question: "Dua mobil listrik A dan B bergerak searah di jalan tol lurus. Mobil A melaju dengan kecepatan konstan $80\\text{ km/jam}$ dan berada $15\\text{ km}$ di belakang Mobil B yang melaju dengan kecepatan konstan $65\\text{ km/jam}$. Berapa menit waktu yang dibutuhkan Mobil A untuk tepat menyusul Mobil B?",
+                correctAnswer: "60",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Kecepatan relatif Mobil A terhadap Mobil B $= 80\\text{ km/jam} - 65\\text{ km/jam} = 15\\text{ km/jam}$.</li>
+                        <li>Waktu menyusul $= \\frac{\\text{Jarak awal}}{\\text{Kecepatan Relatif}} = \\frac{15\\text{ km}}{15\\text{ km/jam}} = 1\\text{ jam}$.</li>
+                        <li>Dalam menit $= 1 \\times 60 = \\mathbf{60}$ menit.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 60</p>
+                `
+            },
+            {
+                id: 10,
+                type: 'short',
+                section: "Kecepatan & Berpapasan",
+                question: "Kota X dan Kota Y terhubung oleh jalan raya sejauh $380\\text{ km}$. Kereta Listrik A berangkat dari Kota X menuju Kota Y pada pukul 08.00 dengan kecepatan konstan $80\\text{ km/jam}$. Kereta Listrik B berangkat dari Kota Y menuju Kota X pada pukul 09.00 dengan kecepatan konstan $70\\text{ km/jam}$. Pada jarak berapa kilometer dari Kota X kedua kereta tersebut akan berpapasan?",
+                correctAnswer: "240",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Dari pukul 08.00 hingga 09.00 (1 jam), Kereta A bergerak sejauh: $1\\text{ jam} \\times 80\\text{ km/jam} = 80\\text{ km}$.</li>
+                        <li>Sisa jarak antara Kereta A dan B pada pukul 09.00 $= 380\\text{ km} - 80\\text{ km} = 300\\text{ km}$.</li>
+                        <li>Kecepatan gabungan kedua kereta $= 80 + 70 = 150\\text{ km/jam}$.</li>
+                        <li>Waktu untuk berpapasan setelah pukul 09.00 $= \\frac{300}{150} = 2\\text{ jam}$.</li>
+                        <li>Jarak lokasi berpapasan dari Kota X $= 80\\text{ km} + (2\\text{ jam} \\times 80\\text{ km/jam}) = 80 + 160 = \\mathbf{240}\\text{ km}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 240</p>
+                `
+            },
+            {
+                id: 11,
+                type: 'short',
+                section: "Geometri Lingkaran & Luas",
+                question: `
+                    <p class="mb-3">Perhatikan gambar berikut! Sebuah persegi $ABCD$ memiliki panjang sisi $28\\text{ cm}$. Di dalam persegi tersebut dibuat 4 buah setengah lingkaran dengan diameter masing-masing merupakan sisi-sisi persegi, sehingga terbentuk motif 4 kelopak daun yang diarsir.</p>
+                    <div class="my-4 flex justify-center">
+                        <img src="gambar_soal_11.png" alt="Gambar Soal 11" class="max-w-full h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f1f5f9/475569?text=gambar_soal_11.png';">
+                    </div>
+                    <p>Hitunglah luas total daerah yang diarsir tersebut dalam $\\text{cm}^2$! ($\\text{Gunakan } \\pi = \\frac{22}{7}$)</p>
+                `,
+                correctAnswer: "448",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Luas 4 setengah lingkaran $= 2 \\times \\text{Luas 1 Lingkaran Utuh}$ (dengan jari-jari $r = 14\\text{ cm}$).</li>
+                        <li>$\\text{Luas 4 Sembel} = 2 \\times \\pi \\times r^2 = 2 \\times \\frac{22}{7} \\times 14 \\times 14 = 1232\\text{ cm}^2$.</li>
+                        <li>Luas persegi $ABCD = 28 \\times 28 = 784\\text{ cm}^2$.</li>
+                        <li>Luas 4 kelopak daun diarsir $= \\text{Luas 4 Sembel} - \\text{Luas Persegi} = 1232 - 784 = \\mathbf{448}\\text{ cm}^2$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 448</p>
+                `
+            },
+            {
+                id: 12,
+                type: 'short',
+                section: "Geometri Lingkaran",
+                question: `
+                    <p class="mb-3">Tiga buah katrol mesin berpenampang lingkaran yang identik dengan jari-jari $7\\text{ cm}$ diletakkan saling bersinggungan seperti gambar di bawah ini. Sebuah sabuk transmisi melingkari ketiga katrol tersebut secara ketat.</p>
+                    <div class="my-4 flex justify-center">
+                        <img src="gambar_soal_12.png" alt="Gambar Soal 12" class="max-w-full h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/400x350/f1f5f9/475569?text=gambar_soal_12.png';">
+                    </div>
+                    <p>Berapakah panjang total sabuk transmisi yang dibutuhkan untuk mengelilingi ketiga katrol tersebut dalam $\\text{cm}$? ($\\text{Gunakan } \\pi = \\frac{22}{7}$)</p>
+                `,
+                correctAnswer: "86",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Panjang sabuk terdiri dari 3 segmen lurus dan 3 busur lingkaran.</li>
+                        <li>Panjang 1 segmen lurus $= 2r = 2 \\times 7 = 14\\text{ cm}$. Total 3 segmen lurus $= 3 \\times 14 = 42\\text{ cm}$.</li>
+                        <li>Gabungan 3 busur luar masing-masing $120^\\circ$ membentuk 1 keliling lingkaran penuh $= 2 \\pi r = 2 \\times \\frac{22}{7} \\times 7 = 44\\text{ cm}$.</li>
+                        <li>Total panjang sabuk $= 42 + 44 = \\mathbf{86}\\text{ cm}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 86</p>
+                `
+            },
+            {
+                id: 13,
+                type: 'short',
+                section: "Volume & Balok",
+                question: "Sebuah tangki penampung air hujan berbentuk balok berukuran panjang $60\\text{ cm}$, lebar $40\\text{ cm}$, dan tinggi $50\\text{ cm}$. Di dasar tangki terdapat sebuah kubus besi padat dengan panjang rusuk $20\\text{ cm}$. Sebuah kran air mengalirkan air ke dalam tangki tersebut dengan debit konstan $12\\text{ liter/menit}$. Berapa detikkah waktu yang dibutuhkan kran untuk mengisi tangki hingga penuh tepat ke batas atasnya? ($1\\text{ liter} = 1000\\text{ cm}^3$).",
+                correctAnswer: "560",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Volume total tangki $= 60 \\times 40 \\times 50 = 120.000\\text{ cm}^3 = 120\\text{ liter}$.</li>
+                        <li>Volume kubus besi $= 20 \\times 20 \\times 20 = 8.000\\text{ cm}^3 = 8\\text{ liter}$.</li>
+                        <li>Volume air yang dibutuhkan untuk memenuhi tangki $= 120 - 8 = 112\\text{ liter}$.</li>
+                        <li>Debit kran $= 12\\text{ liter/menit}$. Waktu yang dibutuhkan $= \\frac{112}{12} = \\frac{28}{3}$ menit.</li>
+                        <li>Dalam satuan detik $= \\frac{28}{3} \\times 60 = \\mathbf{560}$ detik.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 560</p>
+                `
+            },
+            {
+                id: 14,
+                type: 'short',
+                section: "Volume & Permukaan Setara",
+                question: "Wadah P berbentuk balok berukuran $75\\text{ cm} \\times 40\\text{ cm} \\times 120\\text{ cm}$ terisi air penuh. Air dari Wadah P kemudian dituangkan ke dalam Wadah Q kosong berukuran $125\\text{ cm} \\times 40\\text{ cm} \\times 90\\text{ cm}$ hingga tinggi permukaan air di dalam kedua wadah tersebut menjadi tepat sama tinggi. Berapakah tinggi permukaan air akhir (dalam $\\text{cm}$) di dalam Wadah Q?",
+                correctAnswer: "45",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Volume air di Wadah P awal $= 75 \\times 40 \\times 120 = 360.000\\text{ cm}^3$.</li>
+                        <li>Luas alas Wadah P $= 75 \\times 40 = 3000\\text{ cm}^2$.</li>
+                        <li>Luas alas Wadah Q $= 125 \\times 40 = 5000\\text{ cm}^2$.</li>
+                        <li>Ketika tinggi air di P dan Q setara ($h$): $\\text{Total Volume Air} = (A_{\\text{alas P}} + A_{\\text{alas Q}}) \\times h$</li>
+                        <li>$360.000 = (3000 + 5000) \\times h \\implies 360.000 = 8000 \\times h$</li>
+                        <li>$h = \\frac{360.000}{8000} = \\mathbf{45}\\text{ cm}$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 45</p>
+                `
+            },
+            {
+                id: 15,
+                type: 'short',
+                section: "Analisis Data & Diagram",
+                question: `
+                    <p class="mb-3">Sebuah diagram lingkaran menggambarkan kelompok usia 180 pasien yang mengunjungi klinik kesehatan:</p>
+                    <ul class="list-disc list-inside space-y-1 mb-3 text-sm text-slate-700">
+                        <li>Anak-anak (0--12 tahun) diwakili oleh sudut pusat $90^\\circ$.</li>
+                        <li>Remaja (13--17 tahun) diwakili oleh sudut pusat $60^\\circ$.</li>
+                        <li>Dewasa (18--59 tahun) diwakili oleh sudut pusat $150^\\circ$.</li>
+                        <li>Lansia ($\\ge 60$ tahun) diwakili oleh sisa sudut lingkaran.</li>
+                    </ul>
+                    <div class="my-4 flex justify-center">
+                        <img src="gambar_soal_15.png" alt="Gambar Soal 15" class="max-w-full h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f1f5f9/475569?text=gambar_soal_15.png';">
+                    </div>
+                    <p>Setiap pasien Lansia mendapat 3 lembar kupon vitamin gratis, dan setiap pasien Dewasa mendapat 2 lembar kupon vitamin. Berapakah total kupon vitamin yang dibagikan untuk gabungan pasien Dewasa dan Lansia?</p>
+                `,
+                correctAnswer: "240",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Sudut pusat Lansia $= 360^\\circ - (90^\\circ + 60^\\circ + 150^\\circ) = 360^\\circ - 300^\\circ = 60^\\circ$.</li>
+                        <li>Jumlah pasien Dewasa $= \\frac{150^\\circ}{360^\\circ} \\times 180 = 75$ orang.</li>
+                        <li>Jumlah pasien Lansia $= \\frac{60^\\circ}{360^\\circ} \\times 180 = 30$ orang.</li>
+                        <li>Total kupon vitamin $= (75 \\times 2) + (30 \\times 3) = 150 + 90 = \\mathbf{240}$ lembar.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 240</p>
+                `
+            },
+            {
+                id: 16,
+                type: 'short',
+                section: "Analisis Data & Rata-rata",
+                question: "Dalam ajang Olimpiade Sains Lingkungan Tingkat SD, tim awal dari Sekolah Canisius yang terdiri atas 8 orang siswa mencatatkan rata-rata nilai ujian sains sebesar 78. Dua orang siswa cadangan (Siswa A dan Siswa B) kemudian diberikan kesempatan mengikuti ujian susulan, sehingga rata-rata nilai keseluruhan 10 siswa tersebut meningkat menjadi 81. Jika berdasarkan catatan juri nilai ujian Siswa A diketahui 12 poin lebih tinggi dibandingkan nilai ujian Siswa B, berapakah nilai ujian individu yang diperoleh Siswa A?",
+                correctAnswer: "99",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Total nilai 8 siswa awal $= 8 \\times 78 = 624$.</li>
+                        <li>Total nilai 10 siswa $= 10 \\times 81 = 810$.</li>
+                        <li>Jumlah nilai Siswa A dan B $= 810 - 624 = 186$.</li>
+                        <li>Diketahui $A - B = 12 \\implies A = B + 12$.</li>
+                        <li>$(B + 12) + B = 186 \\implies 2B = 174 \\implies B = 87$</li>
+                        <li>Nilai Siswa A $= 87 + 12 = \\mathbf{99}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 99</p>
+                `
+            },
+            {
+                id: 17,
+                type: 'short',
+                section: "Geometri Sudut",
+                question: `
+                    <p class="mb-3">Sebuah kerangka penyangga panel surya dipasang dengan struktur segitiga $\\triangle ABC$ sama kaki di mana panjang penyangga utama $AB = AC$. Untuk memperkuat konstruksi terhadap terpaan angin, dipasang batang penyangga tambahan $CD$ pada perpanjangan landasan $BC$ sedemikian rupa sehingga panjang $AC = CD$.</p>
+                    <div class="my-4 flex justify-center">
+                        <img src="gambar_soal_17.png" alt="Gambar Soal 17" class="max-w-full h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/500x250/f1f5f9/475569?text=gambar_soal_17.png';">
+                    </div>
+                    <p>Jika besar sudut puncak penyangga $\\angle BAC = 52^\\circ$, berapakah besar sudut elevasi batang penyangga tambahan $z$ ($\\angle ADC$) dalam derajat?</p>
+                `,
+                correctAnswer: "32",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Pada $\\triangle ABC$ sama kaki ($AB = AC$): $\\angle ABC = \\angle ACB = \\frac{180^\\circ - 52^\\circ}{2} = \\frac{128^\\circ}{2} = 64^\\circ$.</li>
+                        <li>Karena $BCD$ adalah garis lurus, sudut pelurus $\\angle ACD = 180^\\circ - 64^\\circ = 116^\\circ$.</li>
+                        <li>Pada $\\triangle ACD$ sama kaki ($AC = CD$):</li>
+                        <li>$z = \\angle ADC = \\frac{180^\\circ - 116^\\circ}{2} = \\frac{64^\\circ}{2} = \\mathbf{32}^\\circ$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 32</p>
+                `
+            },
+            {
+                id: 18,
+                type: 'short',
+                section: "Geometri Sudut",
+                question: `
+                    <p class="mb-3">Taman tata ruang kota ramah lingkungan dibuat berbentuk jajaran genjang $PQRS$. Sebuah jalur pejalan kaki lurus dibuat dari sudut $S$ menuju titik $T$ yang terletak pada batas sisi $PQ$.</p>
+                    <div class="my-4 flex justify-center">
+                        <img src="gambar_soal_18.png" alt="Gambar Soal 18" class="max-w-full h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/500x250/f1f5f9/475569?text=gambar_soal_18.png';">
+                    </div>
+                    <p>Berdasarkan pemetaan tata ruang, diketahui besar $\\angle QRS = 110^\\circ$ dan sudut persimpangan jalur $\\angle RST = 40^\\circ$. Berapakah besar sudut $y$ ($\\angle PTS$) yang terbentuk antara batas jalan $PQ$ dan jalur pejalan kaki $ST$ dalam derajat?</p>
+                `,
+                correctAnswer: "40",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Pada jajaran genjang $PQRS$, sudut berhadapan sama besar: $\\angle SPQ = \\angle QRS = 110^\\circ$.</li>
+                        <li>Sudut berdekatan sepihak: $\\angle PSR = 180^\\circ - 110^\\circ = 70^\\circ$.</li>
+                        <li>Diketahui $\\angle RST = 40^\\circ \\implies \\angle PST = \\angle PSR - \\angle RST = 70^\\circ - 40^\\circ = 30^\\circ$.</li>
+                        <li>Pada $\\triangle PST$, jumlah sudut $= 180^\\circ$:</li>
+                        <li>$y = \\angle PTS = 180^\\circ - \\angle SPQ - \\angle PST = 180^\\circ - 110^\\circ - 30^\\circ = \\mathbf{40}^\\circ$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 40</p>
+                `
+            },
+            {
+                id: 19,
+                type: 'short',
+                section: "Logika Waktu",
+                question: "Lonceng di sebuah menara jam membutuhkan waktu tepat $10\\text{ detik}$ untuk berdentang sebanyak 6 kali pada pukul 06.00 (terdapat jeda waktu yang konstan di antara setiap dentangan). Berapa detikkah waktu yang dibutuhkan lonceng menara tersebut untuk berdentang sebanyak 12 kali pada saat tengah malam (pukul 24.00)?",
+                correctAnswer: "22",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>6 dentangan memiliki $6 - 1 = 5$ jeda waktu.</li>
+                        <li>Lama 1 jeda waktu $= \\frac{10\\text{ detik}}{5} = 2\\text{ detik}$.</li>
+                        <li>12 dentangan memiliki $12 - 1 = 11$ jeda waktu.</li>
+                        <li>Total waktu berdentang $= 11 \\times 2\\text{ detik} = \\mathbf{22}$ detik.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 22</p>
+                `
+            },
+            {
+                id: 20,
+                type: 'short',
+                section: "Sistem Harga (SPLDV)",
+                question: "Di toko peralatan elektronik, harga 3 buah <em>flashdisk</em> USB dan 4 buah <em>powerbank</em> adalah $\\text{Rp}530.000,00$. Sementara itu, harga 5 buah <em>flashdisk</em> USB dan 6 buah <em>powerbank</em> dengan jenis yang sama adalah $\\text{Rp}830.000,00$. Berapakah total biaya yang harus dibayar jika seseorang membeli 2 buah <em>flashdisk</em> USB dan 2 buah <em>powerbank</em> (dalam ribuan rupiah)?",
+                correctAnswer: "300",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Penyelesaian:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misalkan $U = \\text{Flashdisk USB}$ dan $P = \\text{Powerbank}$ (dalam ribuan rupiah).</li>
+                        <li>$3U + 4P = 530 \\implies 15U + 20P = 2650$ (kalikan 5)</li>
+                        <li>$5U + 6P = 830 \\implies 15U + 18P = 2490$ (kalikan 3)</li>
+                        <li>Kurangkan kedua persamaan: $2P = 160 \\implies P = 80$.</li>
+                        <li>Substitusi $P = 80$ ke persamaan awal: $3U + 4(80) = 530 \\implies 3U + 320 = 530 \\implies 3U = 210 \\implies U = 70$.</li>
+                        <li>Harga $2U + 2P = 2(70) + 2(80) = 140 + 160 = \\mathbf{300}$ (dalam ribuan rupiah).</li>
+                    </ul>
+                    <p class="text-xs font-bold text-teal-700 mt-2">Jawaban Akhir: 300</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 45 * 60; // 45 minutes exact
+        let timerInterval;
+        let isSubmitted = false;
+
+        function initQuiz() {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        }
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const badgeClass = "bg-blue-100 text-blue-900 border-blue-200";
+
+                const inputSectionHTML = `
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Jawaban Akhir (Bilangan Bulat) :</label>
+                        <div class="flex items-center gap-3 max-w-sm">
+                            <input type="text" id="input-q${qNum}" placeholder="Ketik angka..." 
+                                   class="w-full text-lg font-black font-mono px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-teal-600 focus:bg-white focus:outline-none transition-all shadow-inner"
+                                   oninput="onShortInput(${qNum}, this.value)">
+                            <button type="button" onclick="clearShortInput(${qNum})" class="px-3 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-xs transition cursor-pointer">Hapus</button>
+                        </div>
+                    </div>
+                `;
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.section}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Soal ${qNum} dari ${totalQuestions}</span>
+                        </div>
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[260px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-lg font-semibold leading-relaxed mb-4">${q.question}</div>
+                            </div>
+                            ${inputSectionHTML}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            if (!navContainer) return;
+            navContainer.innerHTML = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        window.startQuiz = function startQuiz() {
+            const slidesContainer = document.getElementById('slides-container');
+            if (!slidesContainer || slidesContainer.children.length === 0) {
+                initQuiz();
+            }
+            const startScreen = document.getElementById('start-screen');
+            const quizApp = document.getElementById('quiz-app');
+            
+            if (startScreen) startScreen.classList.add('hidden-section');
+            if (quizApp) quizApp.classList.remove('hidden-section');
+            
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        };
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                if (timerDisplay) timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300 && timerDisplay) {
+                    timerDisplay.classList.replace('bg-teal-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-teal-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const targetSlide = document.getElementById(`slide-${n}`);
+            if (targetSlide) targetSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-teal-500', 'border-teal-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-teal-500', 'border-teal-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            if (prevBtn) prevBtn.disabled = (n === 1);
+            if (nextBtn) {
+                if (n === totalQuestions) {
+                    nextBtn.innerHTML = '<span>Kumpulkan Lembar Ujian</span>';
+                    nextBtn.className = "px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = openSubmitModal;
+                } else {
+                    nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                    nextBtn.className = "px-6 py-3 bg-teal-700 hover:bg-teal-800 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = nextQuestion;
+                }
+            }
+        }
+
+        window.jumpToQuestion = function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        };
+
+        window.nextQuestion = function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        };
+
+        window.prevQuestion = function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        };
+
+        window.onShortInput = function onShortInput(qNum, val) {
+            const cleaned = val.replace(/[^\d]/g, '');
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = cleaned;
+
+            if (cleaned.length > 0) {
+                userAnswers[qNum] = cleaned;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            updateNavState(qNum);
+        };
+
+        window.clearShortInput = function clearShortInput(qNum) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = '';
+            delete userAnswers[qNum];
+            updateNavState(qNum);
+        };
+
+        function updateNavState(qNum) {
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (btn) {
+                if (userAnswers[qNum] !== undefined) {
+                    btn.classList.add('bg-teal-700', 'text-white', 'border-teal-800');
+                    btn.classList.remove('bg-slate-50', 'text-slate-600');
+                } else {
+                    btn.classList.remove('bg-teal-700', 'text-white', 'border-teal-800');
+                    btn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            const counterEl = document.getElementById('answered-counter');
+            if (counterEl) counterEl.innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        window.openSubmitModal = function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Konfirmasi Pengumpulan Ujian";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-slate-800";
+            document.getElementById('modal-message').innerText = "Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian sekarang? Jawaban tidak dapat diubah setelah kumpul.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali ke Ujian</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-teal-700 text-white font-bold rounded-xl hover:bg-teal-800 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        };
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Waktu pengerjaan 45 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        }
+
+        window.closeModal = function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden-section');
+        };
+
+        window.executeSubmit = function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalCorrect = 0;
+            let totalIncorrect = 0;
+
+            questionEvaluation = [];
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                const isCorrect = (userAns !== null && userAns.toString().trim() === q.correctAnswer.toString().trim());
+
+                if (isCorrect) {
+                    totalCorrect++;
+                } else {
+                    totalIncorrect++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const pointsPerQuestion = (100 / totalQuestions);
+            const totalScore = Math.round(totalCorrect * pointsPerQuestion);
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = totalCorrect;
+            document.getElementById('incorrect-count').innerText = totalIncorrect;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = totalCorrect;
+            document.getElementById('cnt-wrong').innerText = totalIncorrect;
+
+            renderReviewCards('all');
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> KOSONG</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                const userAnsDisplay = userAns !== null ? userAns : '<em>Kosong</em>';
+                const keyDisplay = q.correctAnswer;
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Soal #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base font-semibold text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Jawaban Anda:</p>
+                                    <p class="font-black text-lg ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsDisplay}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-teal-50/50 border border-teal-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-teal-800 mb-1">Kunci Jawaban Resmi:</p>
+                                    <p class="font-black text-lg text-teal-700">${keyDisplay}</p>
+                                </div>
+                            </div>
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-teal-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Rinci & Solusi Langkah demi Langkah:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        }
+
+        window.filterReview = function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-teal-800', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-teal-800', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initQuiz);
+        } else {
+            initQuiz();
+        }
+    </script>
+</body>
+</html>
