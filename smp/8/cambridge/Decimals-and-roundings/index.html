@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambridge Lower Secondary Mathematics Stage 8 - Units 3 & 4</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <!-- Main Card -->
+        <div class="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 text-[11px] font-black rounded-full uppercase tracking-wider">Cambridge Stage 8</span>
+                <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 text-[11px] font-black rounded-full uppercase tracking-wider">Short Answer (20 Questions)</span>
+            </div>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-black text-center text-slate-900 mb-1">CAMBRIDGE LOWER SECONDARY MATHEMATICS</h1>
+            <p class="text-center text-slate-500 font-semibold mb-4 text-xs md:text-sm">End-of-Unit Examination: Units 3 & 4 (Decimals & Rounding)</p>
+            
+            <div class="bg-indigo-50/70 p-4 rounded-xl md:rounded-2xl mb-4 border border-indigo-100 shadow-sm space-y-2">
+                <h2 class="font-bold text-indigo-900 flex items-center text-xs md:text-sm">
+                    <svg class="w-4 h-4 mr-1.5 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Exam Instructions:
+                </h2>
+                <ul class="list-disc list-inside text-xs text-indigo-950 space-y-1 leading-relaxed">
+                    <li>All questions (Q1–Q20) require a <strong>Short Answer Input</strong>.</li>
+                    <li>Important: Every single final answer is an <strong>INTEGER BETWEEN 1 AND 999</strong>.</li>
+                    <li>Time Allowed: <strong>45 Minutes</strong>.</li>
+                    <li>Complete step-by-step solutions and answer keys will be available upon submission.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 text-center text-xs font-bold mb-5">
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Part 1</p>
+                    <p class="text-[11px] font-black">5 Easy Questions</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Part 2</p>
+                    <p class="text-[11px] font-black">7 Medium Questions</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Part 3</p>
+                    <p class="text-[11px] font-black">8 HOTS Questions</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-slate-500">Duration</p>
+                    <p class="text-[11px] font-black">45 Minutes</p>
+                </div>
+            </div>
+
+            <button type="button" id="start-btn" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-base md:text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Start Exam Now</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <footer class="w-full py-2.5 md:py-3 text-center text-xs text-slate-600">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">CAMBRIDGE STAGE 8 MATHEMATICS</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Units 3 & 4: Decimals & Rounding Exam</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Time Left:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            45:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 20 Questions -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-2.5">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Question Navigator (Q1–Q20)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Answered: 0 / 20</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-20 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Previous
+                        </button>
+                        <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                            <span>Next Question</span> &#8594;
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Confirm Exam Submission</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Are you sure you want to submit your exam paper now? Answers cannot be changed after submission.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Return to Exam</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Submit Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Exam Completed</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">EXAM SCORE SUMMARY & REPORT</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Official score report & complete solutions for Cambridge Lower Secondary Mathematics Stage 8.</p>
+            
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Score</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Percentage</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Correct Answers</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Incorrect / Unanswered</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                <span>View Full Solutions & Review</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Detailed Step-by-Step Solutions</h3>
+                    <p class="text-sm text-slate-500">Evaluate your performance with full working for every single question.</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">All Questions (<span id="cnt-all">20</span>)</button>
+                    <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Correct (<span id="cnt-correct">0</span>)</button>
+                    <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Incorrect/Empty (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                section: "Part 1: Easy Level [Unit 3.1]",
+                question: "Evaluate the following expression to find the integer value:<br><br>$$(0.48 \\div 0.01) + (320 \\times 0.1)$$",
+                correctAnswer: "80",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Dividing by $0.01$ is equivalent to multiplying by $100$: $0.48 \\div 0.01 = 48$.</li>
+                        <li>Multiplying by $0.1$ is equivalent to dividing by $10$: $320 \\times 0.1 = 32$.</li>
+                        <li>Add the two results together: $48 + 32 = 80$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $80$</p>
+                `
+            },
+            {
+                id: 2,
+                section: "Part 1: Easy Level [Unit 3.2]",
+                question: "Round the number $473.815$ to $2$ significant figures. What integer value do you get?",
+                correctAnswer: "470",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Identify the first two significant digits in $473.815$: they are $4$ and $7$ (hundreds and tens).</li>
+                        <li>Look at the third digit (units place): it is $3$.</li>
+                        <li>Since $3 < 5$, we round down by replacing remaining whole-number places with zeros.</li>
+                        <li>The rounded integer value is $470$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $470$</p>
+                `
+            },
+            {
+                id: 3,
+                section: "Part 1: Easy Level [Units 4.1 / 4.2]",
+                question: "Work out the exact value of:<br><br>$$(1.85 + 2.65) \\div 0.01$$",
+                correctAnswer: "450",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>First, perform the addition inside the parentheses: $1.85 + 2.65 = 4.50$.</li>
+                        <li>Next, divide by $0.01$: $4.50 \\div 0.01 = 4.50 \\times 100 = 450$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $450$</p>
+                `
+            },
+            {
+                id: 4,
+                section: "Part 1: Easy Level [Unit 4.2]",
+                question: "A square tile has an area of $0.08\\text{ m}^2$. How many such tiles are required to cover a floor area of $18\\text{ m}^2$?",
+                correctAnswer: "225",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$\\text{Number of tiles} = \\text{Total Floor Area} \\div \\text{Tile Area}$.</li>
+                        <li>Calculate: $18 \\div 0.08 = \\dfrac{1800}{8} = 225\\text{ tiles}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $225$</p>
+                `
+            },
+            {
+                id: 5,
+                section: "Part 1: Easy Level [Unit 4.3]",
+                question: "Calculate the exact quotient:<br><br>$$28.8 \\div 0.24$$",
+                correctAnswer: "120",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Multiply both numerator and denominator by $100$ to eliminate decimals:</li>
+                        <li>$\\dfrac{28.8 \\times 100}{0.24 \\times 100} = \\dfrac{2880}{24}$.</li>
+                        <li>Divide: $2880 \\div 24 = 120$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $120$</p>
+                `
+            },
+            {
+                id: 6,
+                section: "Part 2: Medium Level [Unit 3.1]",
+                question: "Solve for $x$ in the equation below:<br><br>$$(x \\times 0.01) + (4.5 \\div 0.1) = 52$$",
+                correctAnswer: "700",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Simplify the division term: $4.5 \\div 0.1 = 45$.</li>
+                        <li>Substitute back into the equation: $(x \\times 0.01) + 45 = 52$.</li>
+                        <li>Subtract $45$ from both sides: $x \\times 0.01 = 52 - 45 = 7$.</li>
+                        <li>Solve for $x$: $x = 7 \\div 0.01 = 7 \\times 100 = 700$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $700$</p>
+                `
+            },
+            {
+                id: 7,
+                section: "Part 2: Medium Level [Unit 3.2]",
+                question: "A whole number $N$ rounds to $380$ when rounded to $2$ significant figures. Calculate the difference between the maximum possible integer value and the minimum possible integer value for $N$.",
+                correctAnswer: "9",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Whole numbers that round to $380$ (to $2\\text{ s.f.}$) must lie in the interval $[375, 384]$.</li>
+                        <li>Minimum possible integer value $= 375$.</li>
+                        <li>Maximum possible integer value $= 384$.</li>
+                        <li>Difference $= 384 - 375 = 9$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $9$</p>
+                `
+            },
+            {
+                id: 8,
+                section: "Part 2: Medium Level [Unit 4.1 / Number Line]",
+                question: `
+                    <p class="mb-3">Below is a number line from $-0.40$ to $0.00$, divided into equal intervals:</p>
+                    <div class="my-4 flex justify-center overflow-x-auto py-2">
+                        <svg class="w-full max-w-lg h-auto overflow-visible" viewBox="0 0 460 70" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Axis Line -->
+                            <line x1="20" y1="30" x2="440" y2="30" stroke="#334155" stroke-width="3.5" stroke-linecap="round"/>
+                            <!-- Arrows -->
+                            <polygon points="12,30 22,24 22,36" fill="#334155"/>
+                            <polygon points="448,30 438,24 438,36" fill="#334155"/>
+                            <!-- Ticks & Labels -->
+                            <line x1="40" y1="20" x2="40" y2="40" stroke="#334155" stroke-width="3"/>
+                            <text x="40" y="60" font-weight="800" font-size="13" fill="#475569" text-anchor="middle" font-family="sans-serif">-0.40</text>
+                            <line x1="87.5" y1="23" x2="87.5" y2="37" stroke="#64748b" stroke-width="2"/>
+                            <line x1="135" y1="23" x2="135" y2="37" stroke="#64748b" stroke-width="2"/>
+                            <line x1="182.5" y1="23" x2="182.5" y2="37" stroke="#64748b" stroke-width="2"/>
+                            <line x1="230" y1="20" x2="230" y2="40" stroke="#334155" stroke-width="3"/>
+                            <text x="230" y="60" font-weight="800" font-size="13" fill="#475569" text-anchor="middle" font-family="sans-serif">-0.20</text>
+                            <line x1="277.5" y1="20" x2="277.5" y2="40" stroke="#dc2626" stroke-width="3"/>
+                            <circle cx="277.5" cy="30" r="6" fill="#dc2626"/>
+                            <text x="277.5" y="12" font-weight="900" font-size="16" fill="#dc2626" text-anchor="middle" font-family="sans-serif">P</text>
+                            <line x1="325" y1="23" x2="325" y2="37" stroke="#64748b" stroke-width="2"/>
+                            <line x1="372.5" y1="23" x2="372.5" y2="37" stroke="#64748b" stroke-width="2"/>
+                            <line x1="420" y1="20" x2="420" y2="40" stroke="#334155" stroke-width="3"/>
+                            <text x="420" y="60" font-weight="800" font-size="13" fill="#475569" text-anchor="middle" font-family="sans-serif">0.00</text>
+                        </svg>
+                    </div>
+                    <p>Find the numerical value represented by point $P$, and then multiply this value by $-2400$. What is the resulting integer?</p>
+                `,
+                correctAnswer: "360",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>The interval $[-0.40, 0.00]$ is divided into $8$ equal parts. Each interval equals $\\dfrac{0.40}{8} = 0.05$.</li>
+                        <li>Point $P$ is located $5$ intervals to the right of $-0.40$ (or $3$ intervals to the left of $0.00$): $-0.40 + (5 \\times 0.05) = -0.40 + 0.25 = -0.15$.</li>
+                        <li>Multiply $P$ by $-2400$: $(-0.15) \\times (-2400) = 360$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $360$</p>
+                `
+            },
+            {
+                id: 9,
+                section: "Part 2: Medium Level [Unit 4.2 / Area Model]",
+                question: `
+                    <p class="mb-3">The area model below illustrates the multiplication $(2 + 0.5) \\times (10 + 0.4)$:</p>
+                    <div class="my-4 flex justify-center overflow-x-auto py-2">
+                        <svg class="w-full max-w-sm h-auto overflow-visible" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="50" y="40" width="230" height="150" fill="#f8fafc" stroke="#334155" stroke-width="3" rx="8"/>
+                            <line x1="200" y1="40" x2="200" y2="190" stroke="#64748b" stroke-width="2.5" stroke-dasharray="6,4"/>
+                            <line x1="50" y1="140" x2="280" y2="140" stroke="#64748b" stroke-width="2.5" stroke-dasharray="6,4"/>
+                            <text x="125" y="28" font-weight="900" font-size="16" fill="#1e293b" text-anchor="middle">10</text>
+                            <text x="240" y="28" font-weight="900" font-size="16" fill="#1e293b" text-anchor="middle">0.4</text>
+                            <text x="32" y="95" font-weight="900" font-size="16" fill="#1e293b" text-anchor="middle">2</text>
+                            <text x="32" y="170" font-weight="900" font-size="16" fill="#1e293b" text-anchor="middle">0.5</text>
+                            <text x="125" y="98" font-weight="900" font-size="22" fill="#4f46e5" text-anchor="middle">A</text>
+                            <text x="240" y="98" font-weight="900" font-size="22" fill="#4f46e5" text-anchor="middle">B</text>
+                            <text x="125" y="172" font-weight="900" font-size="22" fill="#4f46e5" text-anchor="middle">C</text>
+                            <text x="240" y="172" font-weight="900" font-size="22" fill="#4f46e5" text-anchor="middle">D</text>
+                        </svg>
+                    </div>
+                    <p>Calculate the regions $A, B, C,$ and $D$, then find the integer value of $\\dfrac{A + C}{B + D}$.</p>
+                `,
+                correctAnswer: "25",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Calculate each partial product area:</li>
+                        <li>$A = 2 \\times 10 = 20$</li>
+                        <li>$B = 2 \\times 0.4 = 0.8$</li>
+                        <li>$C = 0.5 \\times 10 = 5$</li>
+                        <li>$D = 0.5 \\times 0.4 = 0.2$</li>
+                        <li>Numerator: $A + C = 20 + 5 = 25$.</li>
+                        <li>Denominator: $B + D = 0.8 + 0.2 = 1.0$.</li>
+                        <li>Ratio: $\\dfrac{25}{1.0} = 25$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $25$</p>
+                `
+            },
+            {
+                id: 10,
+                section: "Part 2: Medium Level [Unit 4.3]",
+                question: "How many small bottles of capacity $0.28\\text{ litres}$ can be completely filled from a large tank containing $78.4\\text{ litres}$ of juice?",
+                correctAnswer: "280",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$\\text{Number of bottles} = \\text{Total Capacity} \\div \\text{Bottle Capacity}$.</li>
+                        <li>Calculate: $78.4 \\div 0.28 = \\dfrac{7840}{28} = 280\\text{ bottles}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $280$</p>
+                `
+            },
+            {
+                id: 11,
+                section: "Part 2: Medium Level [Unit 4.4]",
+                question: "Compute the exact value using distributive properties:<br><br>$$\\frac{16.8 \\times 2.4 + 16.8 \\times 7.6}{0.28}$$",
+                correctAnswer: "600",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Factor out $16.8$ in the numerator using the distributive law: $16.8 \\times (2.4 + 7.6) = 16.8 \\times 10 = 168$.</li>
+                        <li>Divide numerator by denominator: $168 \\div 0.28 = \\dfrac{16800}{28} = 600$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $600$</p>
+                `
+            },
+            {
+                id: 12,
+                section: "Part 2: Medium Level [Unit 3.2]",
+                question: "By rounding each number in the expression to $1$ significant figure, estimate the integer value of:<br><br>$$\\frac{\\sqrt{99.2} \\times (3.98)^2}{0.197}$$",
+                correctAnswer: "800",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Round each component to $1\\text{ s.f.}$:</li>
+                        <li>$99.2 \\approx 100 \\implies \\sqrt{100} = 10$.</li>
+                        <li>$3.98 \\approx 4 \\implies 4^2 = 16$.</li>
+                        <li>$0.197 \\approx 0.2$.</li>
+                        <li>Evaluate estimated expression: $\\dfrac{10 \\times 16}{0.2} = \\dfrac{160}{0.2} = 800$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $800$</p>
+                `
+            },
+            {
+                id: 13,
+                section: "Part 3: HOTS Level [Units 3.1 & 4.3]",
+                question: "An expression $E$ is defined as:<br><br>$$E = \\frac{a \\times 0.01}{b \\div 0.1}$$<br>If $a = 7200$ and $b = 0.04$, evaluate $E$.",
+                correctAnswer: "180",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Calculate numerator: $a \\times 0.01 = 7200 \\times 0.01 = 72$.</li>
+                        <li>Calculate denominator: $b \\div 0.1 = 0.04 \\div 0.1 = 0.4$.</li>
+                        <li>Evaluate $E$: $E = \\dfrac{72}{0.4} = \\dfrac{720}{4} = 180$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $180$</p>
+                `
+            },
+            {
+                id: 14,
+                section: "Part 3: HOTS Level [Unit 3.2 / Bounds]",
+                question: "A rectangular field has its length measured as $40\\text{ m}$ (rounded to $1$ significant figure) and its width measured as $18\\text{ m}$ (rounded to $2$ significant figures). Calculate the difference between the maximum possible area and the minimum possible area of the field in $\\text{m}^2$.",
+                correctAnswer: "220",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Bounds for length $L$ ($40\\text{ m}$ to $1\\text{ s.f.}$): $35 \\le L < 45$.</li>
+                        <li>Bounds for width $W$ ($18\\text{ m}$ to $2\\text{ s.f.}$): $17.5 \\le W < 18.5$.</li>
+                        <li>Maximum possible area $= 45 \\times 18.5 = 832.5\\text{ m}^2$.</li>
+                        <li>Minimum possible area $= 35 \\times 17.5 = 612.5\\text{ m}^2$.</li>
+                        <li>Difference $= 832.5 - 612.5 = 220\\text{ m}^2$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $220$</p>
+                `
+            },
+            {
+                id: 15,
+                section: "Part 3: HOTS Level [Unit 4.4 / Identities]",
+                question: "Evaluate the difference of squares $(18.6)^2 - (11.4)^2$ without standard long multiplication. What is the final integer result?",
+                correctAnswer: "216",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Use difference of squares identity $a^2 - b^2 = (a - b)(a + b)$:</li>
+                        <li>$18.6 - 11.4 = 7.2$</li>
+                        <li>$18.6 + 11.4 = 30$</li>
+                        <li>Multiply results: $7.2 \\times 30 = 216$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $216$</p>
+                `
+            },
+            {
+                id: 16,
+                section: "Part 3: HOTS Level [Unit 4.3 / Surface Area]",
+                question: "A wooden cuboid has dimensions $0.15\\text{ m}$, $0.20\\text{ m}$, and $0.40\\text{ m}$. Calculate its total surface area in $\\text{m}^2$, and then divide this surface area by $0.002\\text{ m}^2$. What is the resulting integer?",
+                correctAnswer: "170",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$\\text{Total Surface Area} = 2(ab + bc + ac)$.</li>
+                        <li>$ab = 0.15 \\times 0.20 = 0.03$</li>
+                        <li>$bc = 0.20 \\times 0.40 = 0.08$</li>
+                        <li>$ac = 0.15 \\times 0.40 = 0.06$</li>
+                        <li>$\\text{Surface Area} = 2(0.03 + 0.08 + 0.06) = 2(0.17) = 0.34\\text{ m}^2$.</li>
+                        <li>Divide by $0.002$: $0.34 \\div 0.002 = \\dfrac{340}{2} = 170$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $170$</p>
+                `
+            },
+            {
+                id: 17,
+                section: "Part 3: HOTS Level [Unit 4.1]",
+                question: "Given $a = -0.4$, calculate the value of $K = \\dfrac{1}{a} + a^2 + (a \\times 0.1)$. Then evaluate $K \\times (-100)$.",
+                correctAnswer: "238",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Term 1: $\\dfrac{1}{-0.4} = -2.5$.</li>
+                        <li>Term 2: $(-0.4)^2 = 0.16$.</li>
+                        <li>Term 3: $-0.4 \\times 0.1 = -0.04$.</li>
+                        <li>Sum: $K = -2.5 + 0.16 - 0.04 = -2.38$.</li>
+                        <li>Evaluate $K \\times (-100)$: $(-2.38) \\times (-100) = 238$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $238$</p>
+                `
+            },
+            {
+                id: 18,
+                section: "Part 3: HOTS Level [Unit 4.4 / Scaling]",
+                question: "A student calculates $4.8 \\times 12.5$ using scaling:<br>$$4.8 \\times 12.5 = (4.8 \\div 8) \\times (12.5 \\times 8) = 0.6 \\times 100 = 60$$<br>Using an equivalent scaling method by multiplying $37.5$ by $8$, evaluate $P = 7.2 \\times 37.5$.",
+                correctAnswer: "270",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Note that $37.5 \\times 8 = 300$.</li>
+                        <li>To balance multiplying $37.5$ by $8$, divide $7.2$ by $8$: $7.2 \\div 8 = 0.9$.</li>
+                        <li>$P = (7.2 \\div 8) \\times (37.5 \\times 8) = 0.9 \\times 300 = 270$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $270$</p>
+                `
+            },
+            {
+                id: 19,
+                section: "Part 3: HOTS Level [Unit 4.3 / Concentration]",
+                question: "A chemical mixture contains $0.045\\text{ grams}$ of solute for every $0.006\\text{ litres}$ of liquid. How many grams of solute are needed to prepare $64\\text{ litres}$ of this mixture?",
+                correctAnswer: "480",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Calculate concentration (grams per litre): $\\dfrac{0.045}{0.006} = \\dfrac{45}{6} = 7.5\\text{ g/L}$.</li>
+                        <li>Solute needed for $64\\text{ litres} = 7.5 \\times 64$.</li>
+                        <li>$7.5 \\times 64 = \\dfrac{15}{2} \\times 64 = 15 \\times 32 = 480\\text{ grams}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $480$</p>
+                `
+            },
+            {
+                id: 20,
+                section: "Part 3: HOTS Level [Units 3.1 & 4.3 / Speed]",
+                question: "An automated drone travels $0.945\\text{ kilometres}$ in $0.45\\text{ minutes}$. Calculate the average speed of the drone in $\\text{km/h}$.",
+                correctAnswer: "126",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Step-by-Step Solution:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Speed in $\\text{km/min} = \\dfrac{0.945}{0.45} = \\dfrac{94.5}{45} = 2.1\\text{ km/min}$.</li>
+                        <li>Convert speed to $\\text{km/h}$ by multiplying by $60$ minutes:</li>
+                        <li>$2.1 \\times 60 = 126\\text{ km/h}$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Official Integer Answer: $126$</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 45 * 60; // 45 minutes exact
+        let timerInterval;
+        let isSubmitted = false;
+
+        function initQuiz() {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        }
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+
+                const inputSectionHTML = `
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Your Answer (Integer 1 – 999):</label>
+                        <div class="flex items-center gap-3 max-w-sm">
+                            <input type="text" id="input-q${qNum}" placeholder="Enter integer..." 
+                                   class="w-full text-lg font-black font-mono px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-600 focus:bg-white focus:outline-none transition-all shadow-inner"
+                                   oninput="onShortInput(${qNum}, this.value)">
+                            <button type="button" onclick="clearShortInput(${qNum})" class="px-3 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-xs transition cursor-pointer">Clear</button>
+                        </div>
+                    </div>
+                `;
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.section}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Question ${qNum} of ${totalQuestions}</span>
+                        </div>
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[260px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-lg font-semibold leading-relaxed mb-4">${q.question}</div>
+                            </div>
+                            ${inputSectionHTML}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            if (!navContainer) return;
+            navContainer.innerHTML = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const targetSlide = document.getElementById(`slide-${n}`);
+            if (targetSlide) targetSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            if (prevBtn) prevBtn.disabled = (n === 1);
+            if (nextBtn) {
+                if (n === totalQuestions) {
+                    nextBtn.innerHTML = '<span>Submit Exam Paper</span>';
+                    nextBtn.className = "px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = openSubmitModal;
+                } else {
+                    nextBtn.innerHTML = '<span>Next Question</span> &#8594;';
+                    nextBtn.className = "px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = nextQuestion;
+                }
+            }
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        }
+
+        function startQuiz() {
+            const slidesContainer = document.getElementById('slides-container');
+            if (!slidesContainer || slidesContainer.children.length === 0) {
+                initQuiz();
+            }
+            const startScreen = document.getElementById('start-screen');
+            const quizApp = document.getElementById('quiz-app');
+            
+            if (startScreen) startScreen.classList.add('hidden-section');
+            if (quizApp) quizApp.classList.remove('hidden-section');
+            
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                if (timerDisplay) timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300 && timerDisplay) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function onShortInput(qNum, val) {
+            const cleaned = val.replace(/[^\d]/g, '');
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = cleaned;
+
+            if (cleaned.length > 0) {
+                userAnswers[qNum] = cleaned;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            updateNavState(qNum);
+        }
+
+        function clearShortInput(qNum) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = '';
+            delete userAnswers[qNum];
+            updateNavState(qNum);
+        }
+
+        function updateNavState(qNum) {
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (btn) {
+                if (userAnswers[qNum] !== undefined) {
+                    btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    btn.classList.remove('bg-slate-50', 'text-slate-600');
+                } else {
+                    btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    btn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            const counterEl = document.getElementById('answered-counter');
+            if (counterEl) counterEl.innerText = `Answered: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Confirm Exam Submission";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-slate-800";
+            document.getElementById('modal-message').innerText = "Are you sure you want to submit your exam paper now? Answers cannot be changed after submission.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Return to Exam</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Submit Now</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Time is Up!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "The 45-minute exam time has ended. Your paper is being submitted automatically.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">View Score & Review Solutions</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden-section');
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalCorrect = 0;
+            let totalIncorrect = 0;
+
+            questionEvaluation = [];
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const rawUserAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                
+                // Parse integer comparison to prevent format discrepancies
+                let isCorrect = false;
+                if (rawUserAns !== null) {
+                    const parsedUser = parseInt(rawUserAns.toString().trim(), 10);
+                    const parsedCorrect = parseInt(q.correctAnswer.toString().trim(), 10);
+                    if (!isNaN(parsedUser) && parsedUser === parsedCorrect) {
+                        isCorrect = true;
+                    }
+                }
+
+                if (isCorrect) {
+                    totalCorrect++;
+                } else {
+                    totalIncorrect++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: rawUserAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const pointsPerQuestion = (100 / totalQuestions);
+            const totalScore = Math.round(totalCorrect * pointsPerQuestion);
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = totalCorrect;
+            document.getElementById('incorrect-count').innerText = totalIncorrect;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = totalCorrect;
+            document.getElementById('cnt-wrong').innerText = totalIncorrect;
+
+            renderReviewCards('all');
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> UNANSWERED</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> CORRECT</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> INCORRECT</span>`;
+                }
+
+                const userAnsDisplay = userAns !== null ? userAns : '<em>Empty</em>';
+                const keyDisplay = q.correctAnswer;
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Question #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base font-semibold text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Your Answer:</p>
+                                    <p class="font-black text-lg ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsDisplay}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-indigo-800 mb-1">Official Correct Answer:</p>
+                                    <p class="font-black text-lg text-indigo-700">${keyDisplay}</p>
+                                </div>
+                            </div>
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Detailed Step-by-Step Solution:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        }
+
+        window.initQuiz = initQuiz;
+        window.startQuiz = startQuiz;
+        window.jumpToQuestion = jumpToQuestion;
+        window.nextQuestion = nextQuestion;
+        window.prevQuestion = prevQuestion;
+        window.showSlide = showSlide;
+        window.onShortInput = onShortInput;
+        window.clearShortInput = clearShortInput;
+        window.openSubmitModal = openSubmitModal;
+        window.closeModal = closeModal;
+        window.executeSubmit = executeSubmit;
+        window.filterReview = filterReview;
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initQuiz);
+        } else {
+            initQuiz();
+        }
+    </script>
+</body>
+</html>
