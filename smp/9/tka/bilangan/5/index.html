@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Ujian Matematika SMP - Bilangan Berpangkat & Bentuk Aljabar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbars */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Card Selection */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.18);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMP / MTs</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">UNBK, OSN & SMA Unggulan</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI UJIAN BILANGAN BERPANGKAT & ALJABAR</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi: Sifat Eksponen, Pangkat Nol & Negatif, Bentuk Pecahan, dan Persamaan Eksponensial</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>37 Butir Pilihan Ganda</strong> (A, B, C, D).</li>
+                    <li>Waktu Pengerjaan: <strong>60 Menit</strong> (disertai indikator waktu digital otomatis).</li>
+                    <li>Skor Maksimal: <strong>100 Poin</strong> (dihitung proporsional berdasarkan butir soal yang benar).</li>
+                    <li>Pilihlah salah satu opsi jawaban yang Anda anggap paling tepat. Anda dapat mengubah pilihan kapan saja.</li>
+                    <li>Kunci jawaban dan alternatif pembahasan langkah demi langkah (<em>step-by-step</em>) akan ditampilkan lengkap di akhir ujian.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 1</p>
+                    <p class="text-xs font-black">Operasi Pangkat Dasar</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 2</p>
+                    <p class="text-xs font-black">Pangkat Negatif & Pecahan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 3</p>
+                    <p class="text-xs font-black">Persamaan Eksponen</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 4</p>
+                    <p class="text-xs font-black">Aljabar SMA Unggulan</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MATEMATIKA SMP / MTs</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Bilangan Berpangkat, Eksponen & Aljabar</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            60:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 37 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–37)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 37</span>
+                    </div>
+                    <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-13 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Multiple Choice options -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar ujian? Nilai dan seluruh pembahasan lengkap akan segera ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah perolehan nilai akhir dan kunci pembahasan komprehensif 37 butir soal eksponen.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Alternatif Pembahasan</h3>
+                        <p class="text-sm text-slate-500">Pelajari rincian rumus eksponen, sifat pemangkatan, dan manipulasi aljabar pada setiap nomor.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">37</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Array Data 37 Soal Bilangan Berpangkat, Eksponen & Aljabar
+        const questionsData = [
+            {
+                id: 1,
+                source: "Soal Simulasi UNBK SMP 2019",
+                question: "Hasil dari $(-4)^{3} + (-4)^{2} + (-4)^{1} + (-4)^{0} = \\cdots$",
+                options: [
+                    { key: "A", text: "$-52$" },
+                    { key: "B", text: "$-51$" },
+                    { key: "C", text: "$84$" },
+                    { key: "D", text: "$85$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    (-4)^{3} + (-4)^{2} + (-4)^{1} + (-4)^{0} &= -64 + 16 + (-4) + 1 \\\\
+                    &= -48 - 4 + 1 = \\mathbf{-51}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $-51$</p>
+                `
+            },
+            {
+                id: 2,
+                source: "Soal UNBK SMP 2018",
+                question: "Hasil dari penjumlahan bilangan $(-2)^{3} + (-2)^{2} + (-2)^{1} + (-2)^{0}$ adalah...",
+                options: [
+                    { key: "A", text: "$-8$" },
+                    { key: "B", text: "$-6$" },
+                    { key: "C", text: "$-5$" },
+                    { key: "D", text: "$-4$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    (-2)^{3} + (-2)^{2} + (-2)^{1} + (-2)^{0} &= -8 + 4 + (-2) + 1 \\\\
+                    &= -4 - 2 + 1 = \\mathbf{-5}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil penjumlahan adalah (C) $-5$</p>
+                `
+            },
+            {
+                id: 3,
+                source: "Soal Simulasi UNBK SMP 2018",
+                question: "Hasil dari $\\left( 243^{\\frac{1}{3}} \\right)^{\\frac{3}{5}}$ adalah...",
+                options: [
+                    { key: "A", text: "$9$" },
+                    { key: "B", text: "$3$" },
+                    { key: "C", text: "$2$" },
+                    { key: "D", text: "$1$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Gunakan sifat bilangan berpangkat: $(a^m)^n = a^{m \\times n}$.</p>
+                    $$\\begin{align}
+                    \\left( 243^{\\frac{1}{3}} \\right)^{\\frac{3}{5}} &= 243^{\\frac{1}{3} \\times \\frac{3}{5}} = 243^{\\frac{1}{5}} \\\\
+                    &= (3^5)^{\\frac{1}{5}} = 3^{5 \\times \\frac{1}{5}} = 3^1 = \\mathbf{3}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $3$</p>
+                `
+            },
+            {
+                id: 4,
+                source: "Soal UN Matematika SMP 2018",
+                question: "Hasil dari $2^{-1} + 3^{-1}$ adalah...",
+                options: [
+                    { key: "A", text: "$\\dfrac{5}{6}$" },
+                    { key: "B", text: "$\\dfrac{2}{3}$" },
+                    { key: "C", text: "$\\dfrac{1}{2}$" },
+                    { key: "D", text: "$\\dfrac{1}{3}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    2^{-1} + 3^{-1} &= \\dfrac{1}{2} + \\dfrac{1}{3} = \\dfrac{3}{6} + \\dfrac{2}{6} = \\mathbf{\\dfrac{5}{6}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil penjumlahan adalah (A) $\\dfrac{5}{6}$</p>
+                `
+            },
+            {
+                id: 5,
+                source: "Soal UN Matematika SMP 2017",
+                question: "Hasil dari $81^{\\frac{3}{4}}$ adalah...",
+                options: [
+                    { key: "A", text: "$18$" },
+                    { key: "B", text: "$27$" },
+                    { key: "C", text: "$36$" },
+                    { key: "D", text: "$54$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    81^{\\frac{3}{4}} &= \\left(3^4\\right)^{\\frac{3}{4}} = 3^{4 \\cdot \\frac{3}{4}} = 3^3 = \\mathbf{27}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil penjumlahan adalah (B) $27$</p>
+                `
+            },
+            {
+                id: 6,
+                source: "Soal UN Matematika SMP 2016",
+                question: "Hasil dari $\\left( 27^{\\frac{1}{2}} \\right)^{\\frac{2}{3}}$ adalah...",
+                options: [
+                    { key: "A", text: "$9$" },
+                    { key: "B", text: "$6$" },
+                    { key: "C", text: "$3$" },
+                    { key: "D", text: "$1$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\left( 27^{\\frac{1}{2}} \\right)^{\\frac{2}{3}} &= 27^{\\frac{1}{2} \\cdot \\frac{2}{3}} = 27^{\\frac{1}{3}} = (3^3)^{\\frac{1}{3}} = 3^{3 \\cdot \\frac{1}{3}} = \\mathbf{3}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil penjumlahan adalah (C) $3$</p>
+                `
+            },
+            {
+                id: 7,
+                source: "Soal UN Matematika SMP 2015",
+                question: "Hasil dari $81^{\\frac{1}{4}} \\times 4^{\\frac{3}{2}}$ adalah...",
+                options: [
+                    { key: "A", text: "$72$" },
+                    { key: "B", text: "$48$" },
+                    { key: "C", text: "$36$" },
+                    { key: "D", text: "$24$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    81^{\\frac{1}{4}} \\times 4^{\\frac{3}{2}} &= \\left( 3^{4} \\right)^{\\frac{1}{4}} \\times \\left( 2^{2} \\right)^{\\frac{3}{2}} \\\\
+                    &= 3^{4 \\cdot \\frac{1}{4}} \\times 2^{2 \\cdot \\frac{3}{2}} \\\\
+                    &= 3^1 \\times 2^3 = 3 \\times 8 = \\mathbf{24}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil perkalian adalah (D) $24$</p>
+                `
+            },
+            {
+                id: 8,
+                source: "Soal UN Matematika SMP 2013",
+                question: "Hasil dari $2^{-3} + 4^{-3}$ adalah...",
+                options: [
+                    { key: "A", text: "$\\dfrac{3}{64}$" },
+                    { key: "B", text: "$\\dfrac{9}{64}$" },
+                    { key: "C", text: "$\\dfrac{15}{64}$" },
+                    { key: "D", text: "$\\dfrac{17}{64}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    2^{-3} + 4^{-3} &= \\dfrac{1}{2^3} + \\dfrac{1}{4^3} = \\dfrac{1}{8} + \\dfrac{1}{64} \\\\
+                    &= \\dfrac{8}{64} + \\dfrac{1}{64} = \\mathbf{\\dfrac{9}{64}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil penjumlahan adalah (B) $\\dfrac{9}{64}$</p>
+                `
+            },
+            {
+                id: 9,
+                source: "Soal UN Matematika SMP 2012",
+                question: "Hasil dari $36^{\\frac{3}{2}}$ adalah...",
+                options: [
+                    { key: "A", text: "$24$" },
+                    { key: "B", text: "$54$" },
+                    { key: "C", text: "$108$" },
+                    { key: "D", text: "$216$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    36^{\\frac{3}{2}} &= \\left(6^2\\right)^{\\frac{3}{2}} = 6^{2 \\cdot \\frac{3}{2}} = 6^3 = \\mathbf{216}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil penjumlahan adalah (D) $216$</p>
+                `
+            },
+            {
+                id: 10,
+                source: "Soal TUK Masuk SMA Unggul DEL 2022",
+                question: "Diketahui $x^{4}-y^{4}=15$, dengan $x$ dan $y$ adalah bilangan bulat positif. Maka nilai $x^{4}+y^{4} = \\cdots$",
+                options: [
+                    { key: "A", text: "$17$" },
+                    { key: "B", text: "$31$" },
+                    { key: "C", text: "$32$" },
+                    { key: "D", text: "$113$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Faktorkan selisih kuadrat:</p>
+                    $$\\begin{align}
+                    x^4 - y^4 &= (x^2+y^2)(x^2-y^2) = (x^2+y^2)(x+y)(x-y) = 15
+                    \\end{align}$$
+                    <p>Karena $x, y \\in \\mathbb{Z}^+$, maka $(x^2+y^2) > (x+y) > (x-y) > 0$. Faktor dari $15$ adalah $5 \\times 3 \\times 1$. Maka:</p>
+                    $$\\begin{align}
+                    x+y &= 3 \\\\
+                    x-y &= 1 \\implies 2x = 4 \\implies x = 2,\\; y = 1 \\\\
+                    x^4 + y^4 &= 2^4 + 1^4 = 16 + 1 = \\mathbf{17}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $17$</p>
+                `
+            },
+            {
+                id: 11,
+                source: "Soal TUK Masuk SMA Unggul DEL 2022",
+                question: "Nilai dari $\\dfrac{(2018-2017)^{2}+(2018+2017)^{2}}{2017^{2}+2018^{2}}$ adalah...",
+                options: [
+                    { key: "A", text: "$1$" },
+                    { key: "B", text: "$2$" },
+                    { key: "C", text: "$4$" },
+                    { key: "D", text: "$6$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Misalkan $x = 2018$ dan $y = 2017$:</p>
+                    $$\\begin{align}
+                    \\dfrac{(x-y)^2 + (x+y)^2}{x^2 + y^2} &= \\dfrac{(x^2 - 2xy + y^2) + (x^2 + 2xy + y^2)}{x^2 + y^2} \\\\
+                    &= \\dfrac{2x^2 + 2y^2}{x^2 + y^2} = \\dfrac{2(x^2 + y^2)}{x^2 + y^2} = \\mathbf{2}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $2$</p>
+                `
+            },
+            {
+                id: 12,
+                source: "Soal TUK Masuk SMA Unggul DEL 2022",
+                question: "Diketahui $3+3^{2}+3^{3}+\\dots+3^{n}=120$. Nilai $3n$ yang memenuhi adalah...",
+                options: [
+                    { key: "A", text: "$3$" },
+                    { key: "B", text: "$6$" },
+                    { key: "C", text: "$12$" },
+                    { key: "D", text: "$15$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    3 + 9 + 27 + 81 &= 120 \\\\
+                    3^1 + 3^2 + 3^3 + 3^4 &= 120 \\implies n = 4 \\\\
+                    3n &= 3(4) = \\mathbf{12}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $12$</p>
+                `
+            },
+            {
+                id: 13,
+                source: "Model Soal US-UM Matematika SMP 2024",
+                question: "Hasil dari $\\dfrac{3^{50}+3^{48}}{3^{49}+3^{47}}$ adalah...",
+                options: [
+                    { key: "A", text: "$3$" },
+                    { key: "B", text: "$9$" },
+                    { key: "C", text: "$27$" },
+                    { key: "D", text: "$81$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Faktorkan pangkat terkecil pada pembilang ($3^{48}$) dan penyebut ($3^{47}$):</p>
+                    <div class="overflow-x-auto my-2">
+                    $$\\begin{align}
+                    \\dfrac{3^{50}+3^{48}}{3^{49}+3^{47}} &= \\dfrac{3^{48}(3^2 + 1)}{3^{47}(3^2 + 1)} = \\dfrac{3^{48}}{3^{47}} = 3^{48 - 47} = \\mathbf{3}
+                    \\end{align}$$
+                    </div>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $3$</p>
+                `
+            },
+            {
+                id: 14,
+                source: "Model Soal US-UM Matematika SMP 2024",
+                question: "Jika $9^{4x} : 3^{2x} = 2.187$, maka nilai dari $x$ adalah...",
+                options: [
+                    { key: "A", text: "$\\dfrac{6}{7}$" },
+                    { key: "B", text: "$\\dfrac{7}{6}$" },
+                    { key: "C", text: "$-\\dfrac{6}{7}$" },
+                    { key: "D", text: "$-\\dfrac{7}{6}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Ubah ke basis bilangan pokok $3$, di mana $9 = 3^2$ dan $2.187 = 3^7$:</p>
+                    <div class="overflow-x-auto my-2">
+                    $$\\begin{align}
+                    (3^2)^{4x} : 3^{2x} &= 3^7 \\\\
+                    3^{8x} : 3^{2x} &= 3^7 \\\\
+                    3^{8x - 2x} &= 3^7 \\implies 3^{6x} = 3^7 \\\\
+                    6x &= 7 \\implies x = \\mathbf{\\dfrac{7}{6}}
+                    \\end{align}$$
+                    </div>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Nilai $x$ yang memenuhi adalah (B) $\\dfrac{7}{6}$</p>
+                `
+            },
+            {
+                id: 14,
+                source: "Model Soal US-UM Matematika SMP 2024",
+                question: "Jika $9^{4x} : 3^{2x} = 2.187$, maka nilai dari $x$ adalah...",
+                options: [
+                    { key: "A", text: "$\\dfrac{6}{7}$" },
+                    { key: "B", text: "$\\dfrac{7}{6}$" },
+                    { key: "C", text: "$-\\dfrac{6}{7}$" },
+                    { key: "D", text: "$-\\dfrac{7}{6}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Ubah ke basis bilangan $3$:</p>
+                    $$\\begin{align}
+                    (3^2)^{4x} : 3^{2x} &= 3^7 \\\\
+                    3^{8x} : 3^{2x} &= 3^7 \\\\
+                    3^{8x - 2x} &= 3^7 \\implies 3^{6x} = 3^7 \\\\
+                    6x &= 7 \\implies x = \\mathbf{\\dfrac{7}{6}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil penjumlahan adalah (B) $\\dfrac{7}{6}$</p>
+                `
+            },
+            {
+                id: 15,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $a+b=3$ dan $a^{3}+b^{3}=18$ maka nilai $ab = \\cdots$",
+                options: [
+                    { key: "A", text: "$1$" },
+                    { key: "B", text: "$2$" },
+                    { key: "C", text: "$3$" },
+                    { key: "D", text: "$4$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Gunakan identitas aljabar pemangkatan tiga:</p>
+                    $$\\begin{align}
+                    (a+b)^3 &= a^3 + b^3 + 3ab(a+b) \\\\
+                    (3)^3 &= 18 + 3ab(3) \\\\
+                    27 &= 18 + 9ab \\implies 9ab = 9 \\implies ab = \\mathbf{1}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $1$</p>
+                `
+            },
+            {
+                id: 16,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $x^{2}-y^{2}=\\dfrac{7}{18}$ dan $x^{-2}-y^{-2}=-7$, maka nilai $(xy)^{-1}$ adalah...",
+                options: [
+                    { key: "A", text: "$2\\sqrt{3}$" },
+                    { key: "B", text: "$2$" },
+                    { key: "C", text: "$3$" },
+                    { key: "D", text: "$3\\sqrt{2}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    x^{-2} - y^{-2} &= \\dfrac{1}{x^2} - \\dfrac{1}{y^2} = \\dfrac{y^2 - x^2}{(xy)^2} = -7 \\\\
+                    \\dfrac{-(x^2 - y^2)}{(xy)^2} &= -7 \\implies \\dfrac{7/18}{(xy)^2} = 7 \\\\
+                    (xy)^2 &= \\dfrac{1}{18} \\implies xy = \\dfrac{1}{\\sqrt{18}} = \\dfrac{1}{3\\sqrt{2}} \\\\
+                    (xy)^{-1} &= \\dfrac{1}{xy} = \\mathbf{3\\sqrt{2}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $3\\sqrt{2}$</p>
+                `
+            },
+            {
+                id: 17,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $n^{2}+\\dfrac{1}{n^{2}}=11$, maka nilai $n-\\dfrac{1}{n}$ adalah...",
+                options: [
+                    { key: "A", text: "$3$" },
+                    { key: "B", text: "$\\sqrt{11}$" },
+                    { key: "C", text: "$\\sqrt{15}$" },
+                    { key: "D", text: "$4$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    \\left(n - \\dfrac{1}{n}\\right)^2 &= n^2 - 2 + \\dfrac{1}{n^2} = \\left(n^2 + \\dfrac{1}{n^2}\\right) - 2 \\\\
+                    &= 11 - 2 = 9 \\\\
+                    n - \\dfrac{1}{n} &= \\pm \\sqrt{9} = \\pm 3
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan positif yang sesuai adalah (A) $3$</p>
+                `
+            },
+            {
+                id: 18,
+                source: "Model Soal US-UM Matematika SMP 2024",
+                question: "Hasil dari $25^{\\frac{1}{2}} \\times 16^{\\frac{3}{4}}$ adalah...",
+                options: [
+                    { key: "A", text: "$40$" },
+                    { key: "B", text: "$80$" },
+                    { key: "C", text: "$120$" },
+                    { key: "D", text: "$200$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <div class="overflow-x-auto my-2">
+                    $$\\begin{align}
+                    25^{\\frac{1}{2}} \\times 16^{\\frac{3}{4}} &= (5^2)^{\\frac{1}{2}} \\times (2^4)^{\\frac{3}{4}} \\\\
+                    &= 5^{2 \\cdot \\frac{1}{2}} \\times 2^{4 \\cdot \\frac{3}{4}} = 5^1 \\times 2^3 = 5 \\times 8 = \\mathbf{40}
+                    \\end{align}$$
+                    </div>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $40$</p>
+                `
+            },
+            {
+                id: 19,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika nilai $(x+y)^{2} = 324$ dan $(x-y)^{2} = 16$, maka nilai dari $xy$ adalah...",
+                options: [
+                    { key: "A", text: "$33$" },
+                    { key: "B", text: "$55$" },
+                    { key: "C", text: "$77$" },
+                    { key: "D", text: "$99$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Gunakan eliminasi bentuk kuadrat suku dua:</p>
+                    $$\\begin{align}
+                    x^2 + 2xy + y^2 &= 324 \\\\
+                    x^2 - 2xy + y^2 &= 16 \\quad (-) \\\\
+                    \\hline
+                    4xy &= 308 \\implies xy = \\dfrac{308}{4} = \\mathbf{77}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $77$</p>
+                `
+            },
+            {
+                id: 20,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika nilai $(x-3)^{2} + (y-2)^{2} + (z-9)^{2} = 0$, maka nilai dari $(x+y-z)$ adalah...",
+                options: [
+                    { key: "A", text: "$-1$" },
+                    { key: "B", text: "$-2$" },
+                    { key: "C", text: "$-3$" },
+                    { key: "D", text: "$-4$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Karena kuadrat bilangan real selalu $\\ge 0$, jumlah kuadrat bernilai nol jika dan hanya jika setiap suku bernilai nol:</p>
+                    <div class="overflow-x-auto my-2">
+                    $$\\begin{align}
+                    (x-3)^2 = 0 &\\implies x = 3 \\\\
+                    (y-2)^2 = 0 &\\implies y = 2 \\\\
+                    (z-9)^2 = 0 &\\implies z = 9 \\\\
+                    x+y-z &= 3 + 2 - 9 = \\mathbf{-4}
+                    \\end{align}$$
+                    </div>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $-4$</p>
+                    <p class="text-xs text-slate-500 mt-2 bg-slate-100 p-2.5 rounded-xl border border-slate-200">
+                        <em><strong>Catatan QC Guru:</strong> Pada sebagian teks cetak asli tertulis $(x-5)^2$ yang menghasilkan $5+2-9 = -2$ (pilihan B). Namun pada kunci dan pembahasan resmi yang ditargetkan adalah nilai $-4$, sehingga bentuk yang benar dan konsisten adalah $(x-3)^2$.</em>
+                    </p>
+                `
+            },
+            {
+                id: 21,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $n+\\dfrac{1}{n}=3$, maka nilai $n^{2}+\\dfrac{1}{n^{2}}$ adalah...",
+                options: [
+                    { key: "A", text: "$11$" },
+                    { key: "B", text: "$9$" },
+                    { key: "C", text: "$7$" },
+                    { key: "D", text: "$5$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\left(n + \\dfrac{1}{n}\\right)^2 &= n^2 + 2 + \\dfrac{1}{n^2} \\\\
+                    (3)^2 &= n^2 + \\dfrac{1}{n^2} + 2 \\\\
+                    9 - 2 &= n^2 + \\dfrac{1}{n^2} \\implies n^2 + \\dfrac{1}{n^2} = \\mathbf{7}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $7$</p>
+                `
+            },
+            {
+                id: 22,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $a^{2}+b^{2}=29$ dan $ab=10$ di mana $a > 0$, $b > 0$ dan $a > b$, maka nilai $\\dfrac{a+b}{a-b}$ adalah...",
+                options: [
+                    { key: "A", text: "$-\\dfrac{7}{3}$" },
+                    { key: "B", text: "$-\\dfrac{3}{7}$" },
+                    { key: "C", text: "$\\dfrac{3}{7}$" },
+                    { key: "D", text: "$\\dfrac{7}{3}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    (a+b)^2 &= a^2 + b^2 + 2ab = 29 + 2(10) = 49 \\implies a+b = 7 \\\\
+                    (a-b)^2 &= a^2 + b^2 - 2ab = 29 - 2(10) = 9 \\implies a-b = 3 \\\\
+                    \\dfrac{a+b}{a-b} &= \\mathbf{\\dfrac{7}{3}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $\\dfrac{7}{3}$</p>
+                `
+            },
+            {
+                id: 23,
+                source: "Soal OKSI SMAN 2 Lintongnihuta 2024",
+                question: "Jika $2^{a_{1}}+2^{a_{2}}+2^{a_{3}}+ \\dots +2^{a_{n}}=2024$ dengan $a_1 < a_2 < \\dots < a_n$ bilangan bulat, maka nilai $a_{1} + a_{2} + a_{3} + \\dots + a_{n} = \\cdots$",
+                options: [
+                    { key: "A", text: "$46$" },
+                    { key: "B", text: "$47$" },
+                    { key: "C", text: "$48$" },
+                    { key: "D", text: "$49$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Nyatakan $2024$ ke bentuk biner (penjumlahan basis 2 unik):</p>
+                    $$\\begin{align}
+                    2024 &= 1024 + 512 + 256 + 128 + 64 + 32 + 16 + 8 \\\\
+                    &= 2^{10} + 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 \\\\
+                    \\sum a_i &= 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 = \\mathbf{46}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $46$</p>
+                `
+            },
+            {
+                id: 24,
+                source: "Soal OKSI SMAN 2 Lintongnihuta 2024",
+                question: "Diketahui $A=2 \\times 2024^{2025}$, $B=2024^{2025}$, $C=2023 \\times 2024^{2024}$, $D=2 \\times 2024^{2024}$, dan $E=2024^{2024}$. Dari bilangan-bilangan berikut, mana yang paling besar?",
+                options: [
+                    { key: "A", text: "$A - B$" },
+                    { key: "B", text: "$B - C$" },
+                    { key: "C", text: "$C - D$" },
+                    { key: "D", text: "$D - E$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Sederhanakan masing-masing opsi ke faktor $2024^{2024}$:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$A - B = 2024^{2025} = 2024 \\times 2024^{2024}$</li>
+                        <li>$B - C = 2024^{2025} - 2023 \\times 2024^{2024} = (2024 - 2023) \\times 2024^{2024} = 1 \\times 2024^{2024}$</li>
+                        <li>$C - D = (2023 - 2) \\times 2024^{2024} = 2021 \\times 2024^{2024}$</li>
+                        <li>$D - E = (2 - 1) \\times 2024^{2024} = 1 \\times 2024^{2024}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">Nilai terbesar adalah $2024 \\times 2024^{2024}$, yaitu (A) $A - B$.</p>
+                `
+            },
+            {
+                id: 25,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $\\dfrac{6^{x}}{3^{x}+3^{x}+3^{x}}=\\dfrac{5}{3}$, maka nilai $2^{x}$ adalah...",
+                options: [
+                    { key: "A", text: "$4$" },
+                    { key: "B", text: "$5$" },
+                    { key: "C", text: "$6$" },
+                    { key: "D", text: "$7$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    \\dfrac{6^x}{3 \\cdot 3^x} &= \\dfrac{5}{3} \\\\
+                    \\dfrac{1}{3} \\cdot \\left(\\dfrac{6}{3}\\right)^x &= \\dfrac{5}{3} \\\\
+                    2^x &= \\mathbf{5}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $5$</p>
+                `
+            },
+            {
+                id: 26,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Nilai dari $n$ pada persamaan $(10^{12}+25)^{2}-(10^{12}-25)^{2}=10^{n}$ adalah...",
+                options: [
+                    { key: "A", text: "$5$" },
+                    { key: "B", text: "$10$" },
+                    { key: "C", text: "$14$" },
+                    { key: "D", text: "$20$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Gunakan bentuk $(a+b)^2 - (a-b)^2 = 4ab$:</p>
+                    $$\\begin{align}
+                    4 \\cdot 10^{12} \\cdot 25 &= 10^n \\\\
+                    100 \\cdot 10^{12} &= 10^n \\\\
+                    10^2 \\cdot 10^{12} &= 10^{14} = 10^n \\implies n = \\mathbf{14}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $14$</p>
+                `
+            },
+            {
+                id: 27,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Nilai $x$ yang memenuhi persamaan $x^{x}=2^{2048}$ adalah...",
+                options: [
+                    { key: "A", text: "$128$" },
+                    { key: "B", text: "$256$" },
+                    { key: "C", text: "$512$" },
+                    { key: "D", text: "$1024$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Ubahlah bentuk $2^{2048}$ ke bentuk basis dan pangkat yang bernilai sama ($x^x$):</p>
+                    <div class="overflow-x-auto my-2">
+                    $$\\begin{align}
+                    x^x &= 2^{2048} = 2^{2 \\cdot 1024} = (2^2)^{1024} = 4^{1024} \\\\
+                    &= 4^{2 \\cdot 512} = (4^2)^{512} = 16^{512} \\\\
+                    &= 16^{2 \\cdot 256} = (16^2)^{256} = \\mathbf{256^{256}} \\\\
+                    x &= \\mathbf{256}
+                    \\end{align}$$
+                    </div>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $256$</p>
+                    <p class="text-xs text-slate-500 mt-2 bg-slate-100 p-2.5 rounded-xl border border-slate-200">
+                        <em><strong>Catatan QC Guru:</strong> Pada naskah asli terdapat saltik tipografi penulisan $2^{2028}$, sementara penjabaran langkah demi langkahnya menggunakan $2 \\times 1024 = 2048$. Bentuk eksponen yang tepat dan presisi adalah $2^{2048}$.</em>
+                    </p>
+                `
+            },
+            {
+                id: 28,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Nilai $x$ yang memenuhi persamaan $9^{\\sqrt{x}}=\\sqrt{27^{x}}$ dengan $x > 0$ adalah...",
+                options: [
+                    { key: "A", text: "$\\dfrac{9}{4}$" },
+                    { key: "B", text: "$\\dfrac{4}{9}$" },
+                    { key: "C", text: "$\\dfrac{16}{9}$" },
+                    { key: "D", text: "$\\dfrac{9}{16}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    (3^2)^{\\sqrt{x}} &= (3^{3x})^{\\frac{1}{2}} \\implies 3^{2\\sqrt{x}} = 3^{\\frac{3x}{2}} \\\\
+                    2\\sqrt{x} &= \\dfrac{3x}{2} \\implies 4\\sqrt{x} = 3x \\\\
+                    16x &= 9x^2 \\implies 9x^2 - 16x = 0 \\\\
+                    x(9x - 16) &= 0 \\implies x = \\mathbf{\\dfrac{16}{9}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $\\dfrac{16}{9}$</p>
+                `
+            },
+            {
+                id: 29,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $a$ dan $b$ adalah bilangan bulat positif yang memenuhi $a^{2}-b^{2}=19$, maka nilai $ab = \\cdots$",
+                options: [
+                    { key: "A", text: "$70$" },
+                    { key: "B", text: "$80$" },
+                    { key: "C", text: "$90$" },
+                    { key: "D", text: "$100$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Karena $19$ bilangan prima, faktornya hanya $19 \\times 1$:</p>
+                    $$\\begin{align}
+                    (a+b)(a-b) &= 19 \\times 1 \\\\
+                    a+b &= 19 \\\\
+                    a-b &= 1 \\quad (+) \\\\
+                    \\hline
+                    2a &= 20 \\implies a = 10,\\; b = 9 \\\\
+                    ab &= 10 \\times 9 = \\mathbf{90}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $90$</p>
+                `
+            },
+            {
+                id: 30,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "If $3^{x+1}+3^{x-1}=90$ then $x+\\dfrac{1}{x} = \\cdots$",
+                options: [
+                    { key: "A", text: "$\\dfrac{4}{3}$" },
+                    { key: "B", text: "$\\dfrac{10}{3}$" },
+                    { key: "C", text: "$\\dfrac{28}{3}$" },
+                    { key: "D", text: "$\\dfrac{82}{3}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    3^x \\cdot 3 + 3^x \\cdot \\dfrac{1}{3} &= 90 \\\\
+                    3^x \\left(3 + \\dfrac{1}{3}\\right) &= 90 \\\\
+                    3^x \\left(\\dfrac{10}{3}\\right) &= 90 \\implies 3^x = 90 \\cdot \\dfrac{3}{10} = 27 = 3^3 \\\\
+                    x &= 3 \\\\
+                    x + \\dfrac{1}{x} &= 3 + \\dfrac{1}{3} = \\mathbf{\\dfrac{10}{3}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\dfrac{10}{3}$</p>
+                `
+            },
+            {
+                id: 31,
+                source: "Model Soal US-UM Matematika SMP",
+                question: "If $2^{22}-2^{21} =8^{x}$, then $x = \\cdots$",
+                options: [
+                    { key: "A", text: "$5$" },
+                    { key: "B", text: "$6$" },
+                    { key: "C", text: "$7$" },
+                    { key: "D", text: "$8$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    2^{21}(2^1 - 1) &= (2^3)^x \\\\
+                    2^{21}(1) &= 2^{3x} \\\\
+                    3x &= 21 \\implies x = \\mathbf{7}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $7$</p>
+                `
+            },
+            {
+                id: 32,
+                source: "Model Soal US-UM Matematika SMP",
+                question: "Jika $a^{m} \\times a^{n}=1$ dan $a \\neq 0$ serta $a \\neq \\pm 1$, maka hubungan $m$ dan $n$ yang benar adalah...",
+                options: [
+                    { key: "A", text: "$m = n$" },
+                    { key: "B", text: "$mn = 1$" },
+                    { key: "C", text: "$m = -n$" },
+                    { key: "D", text: "$mn = -1$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    a^m \\times a^n &= a^{m+n} = a^0 \\\\
+                    m + n &= 0 \\implies \\mathbf{m = -n}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $m = -n$</p>
+                `
+            },
+            {
+                id: 33,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $\\left( 1 + \\dfrac{1}{x} \\right)^{x+1}=\\left( 1 + \\dfrac{1}{2025} \\right)^{2025}$ maka nilai $x = \\cdots$",
+                options: [
+                    { key: "A", text: "$2025$" },
+                    { key: "B", text: "$2026$" },
+                    { key: "C", text: "$-2025$" },
+                    { key: "D", text: "$-2026$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Sifat pecahan dan eksponen balikan:</p>
+                    $$\\begin{align}
+                    \\left(1 + \\dfrac{1}{2025}\\right)^{2025} &= \\left(\\dfrac{2026}{2025}\\right)^{2025} = \\left(\\dfrac{2025}{2026}\\right)^{-2025} \\\\
+                    &= \\left(1 - \\dfrac{1}{2026}\\right)^{-2025} = \\left(1 + \\dfrac{1}{-2026}\\right)^{-2026 + 1} \\\\
+                    \\left(1 + \\dfrac{1}{x}\\right)^{x+1} &= \\left(1 + \\dfrac{1}{-2026}\\right)^{(-2026)+1} \\\\
+                    x &= \\mathbf{-2026}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $-2026$</p>
+                `
+            },
+            {
+                id: 34,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $2^{x}=x^{2}$, maka salah satu nilai $x$ yang lebih besar dari $2$ berada pada interval...",
+                options: [
+                    { key: "A", text: "$3 \\le x < 5$" },
+                    { key: "B", text: "$5 \\le x < 7$" },
+                    { key: "C", text: "$7 \\le x < 9$" },
+                    { key: "D", text: "$9 \\le x < 11$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Pangkatkan kedua ruas dengan $\\frac{1}{2x}$:</p>
+                    $$\\begin{align}
+                    (2^x)^{\\frac{1}{2x}} &= (x^2)^{\\frac{1}{2x}} \\implies 2^{\\frac{1}{2}} = x^{\\frac{1}{x}} \\\\
+                    (2^2)^{\\frac{1}{4}} &= x^{\\frac{1}{x}} \\implies 4^{\\frac{1}{4}} = x^{\\frac{1}{x}} \\implies x = 4
+                    \\end{align}$$
+                    <p>Nilai $x = 4$ terletak pada interval $3 \\le x < 5$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $3 \\le x < 5$</p>
+                `
+            },
+            {
+                id: 35,
+                source: "Contoh Soal Masuk SMA Unggulan",
+                question: "Jika $2^{x}=x^{32}$ maka nilai $x$ yang memenuhi adalah...",
+                options: [
+                    { key: "A", text: "$2^{4}$" },
+                    { key: "B", text: "$2^{6}$" },
+                    { key: "C", text: "$2^{8}$" },
+                    { key: "D", text: "$2^{10}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Pangkatkan kedua ruas dengan $\\frac{1}{32x}$:</p>
+                    $$\\begin{align}
+                    (2^x)^{\\frac{1}{32x}} &= (x^{32})^{\\frac{1}{32x}} \\implies 2^{\\frac{1}{32}} = x^{\\frac{1}{x}} \\\\
+                    2^{\\frac{8}{256}} &= x^{\\frac{1}{x}} \\implies (2^8)^{\\frac{1}{2^8}} = x^{\\frac{1}{x}} \\\\
+                    x &= \\mathbf{2^8}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $2^8$</p>
+                `
+            },
+            {
+                id: 36,
+                source: "Contoh Soal TKA Matematika SMP",
+                question: `
+                    <p class="mb-2">Terdapat tiga bilangan yang dinyatakan dengan $(33^{2} - 3^{2})$, $(8^{2} + 296)$, dan $(36 \\times 35)$.</p>
+                    <p class="mb-2">Perhatikan keempat bentuk bilangan berpangkat berikut:</p>
+                    <ol class="list-decimal list-inside text-sm space-y-1 my-2">
+                        <li>$2^{3} \\times 3^{3} \\times 7$</li>
+                        <li>$2^{2} \\times 3^{2} \\times 7$</li>
+                        <li>$2^{2} \\times 3^{2} \\times 5$</li>
+                        <li>$2 \\times 3^{2} \\times 5$</li>
+                    </ol>
+                    <p>Bilangan apa saja yang merupakan faktor persekutuan ketiga bilangan tersebut?</p>
+                `,
+                options: [
+                    { key: "A", text: "Pernyataan 1 dan 2" },
+                    { key: "B", text: "Pernyataan 1 dan 3" },
+                    { key: "C", text: "Pernyataan 2 dan 3" },
+                    { key: "D", text: "Pernyataan 3 dan 4" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Faktorkan tiap bilangan ke bentuk prima:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$33^2 - 3^2 = (33+3)(33-3) = 36 \\times 30 = 2^3 \\times 3^3 \\times 5$</li>
+                        <li>$8^2 + 296 = 64 + 296 = 360 = 2^3 \\times 3^2 \\times 5$</li>
+                        <li>$36 \\times 35 = (2^2 \\times 3^2) \\times (5 \\times 7) = 2^2 \\times 3^2 \\times 5 \\times 7$</li>
+                    </ul>
+                    <p>FPB dari ketiganya adalah $2^2 \\times 3^2 \\times 5$. Maka faktor persekutuannya harus membagi FPB tersebut. Yang memenuhi adalah Pernyataan 3 ($2^2 \\times 3^2 \\times 5$) dan Pernyataan 4 ($2 \\times 3^2 \\times 5$).</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) Pernyataan 3 dan 4</p>
+                `
+            },
+            {
+                id: 37,
+                source: "Contoh Soal TKA Matematika SMP",
+                question: "Setengah dari $8^{2026}$ adalah...",
+                options: [
+                    { key: "A", text: "$4^{2026}$" },
+                    { key: "B", text: "$4^{1013}$" },
+                    { key: "C", text: "$2^{6077}$" },
+                    { key: "D", text: "$2^{6078}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\dfrac{1}{2} \\times 8^{2026} &= 2^{-1} \\times (2^3)^{2026} = 2^{-1} \\times 2^{3 \\times 2026} \\\\
+                    &= 2^{-1} \\times 2^{6078} = 2^{6078 - 1} = \\mathbf{2^{6077}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $2^{6077}$</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 60 * 60; // 60 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        // Helper MathJax safe typesetting
+        function renderMath(targetElement) {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise(targetElement ? [targetElement] : undefined).catch((err) => {
+                    console.debug('MathJax rendering queue caught:', err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                
+                let badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+                if (q.source.includes("DEL") || q.source.includes("TKA") || q.source.includes("OKSI") || q.source.includes("Unggulan")) {
+                    badgeClass = "bg-amber-100 text-amber-900 border-amber-300";
+                }
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-base md:text-lg font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header Info -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.source}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question & Choices Card -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilih salah satu kartu opsi untuk menjawab.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (opt.key === key) {
+                    optEl.classList.add('selected');
+                } else {
+                    optEl.classList.remove('selected');
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            showSlide(currentQuestion);
+            renderMath();
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) { // < 5 mins remaining
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMath(activeSlide);
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua soal sudah terisi dengan lengkap!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 60 menit telah berakhir. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            // Update Summary Stats (Skor skala 100)
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            // Render Solutions Review
+            renderReviewCards('all');
+            renderMath();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.source})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            <!-- Pilihan Jawaban Review -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            renderMath(container);
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
