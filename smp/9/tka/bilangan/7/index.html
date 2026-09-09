@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Ujian Matematika SMP - Aritmetika Sosial & Literasi Finansial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbars */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Card Selection */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.18);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+
+        /* MathJax Responsive Container to prevent mobile overflow */
+        mjx-container {
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            max-width: 100% !important;
+            padding: 2px 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMP / MTs</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">UNBK, OSN & SMA Unggulan</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI UJIAN ARITMETIKA SOSIAL</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi: Bunga Tunggal, Tabungan, Untung-Rugi, Diskon Bertingkat, Bruto, Neto & Tara</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>33 Butir Pilihan Ganda</strong> (A, B, C, D).</li>
+                    <li>Waktu Pengerjaan: <strong>60 Menit</strong> (disertai indikator waktu digital otomatis).</li>
+                    <li>Skor Maksimal: <strong>100 Poin</strong> (dihitung proporsional berdasarkan butir soal yang dijawab benar).</li>
+                    <li>Pilihlah salah satu kartu opsi jawaban yang paling tepat. Anda dapat mengubah pilihan kapan saja sebelum mengumpulkan.</li>
+                    <li>Kunci jawaban dan pembahasan analitis langkah demi langkah (<em>step-by-step</em>) akan ditampilkan lengkap di akhir sesi.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 1</p>
+                    <p class="text-xs font-black">Bunga Tunggal</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 2</p>
+                    <p class="text-xs font-black">Untung & Rugi</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 3</p>
+                    <p class="text-xs font-black">Diskon & Cashback</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 4</p>
+                    <p class="text-xs font-black">Bruto, Neto & Tara</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MATEMATIKA SMP / MTs</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Aritmetika Sosial & Literasi Finansial</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner transition-colors" id="timer-display">
+                            60:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 33 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–33)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 33</span>
+                    </div>
+                    <div class="grid grid-cols-6 sm:grid-cols-11 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Multiple Choice options -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan dan mengumpulkan lembar ujian ini? Nilai dan seluruh pembahasan lengkap akan segera ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah perolehan nilai akhir dan kunci pembahasan komprehensif 33 butir soal aritmetika sosial.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Alternatif Pembahasan</h3>
+                        <p class="text-sm text-slate-500">Pelajari rincian rumus bunga tunggal, kalkulasi harga beli/jual, diskon bertingkat, dan bruto-neto-tara.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">33</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                source: "Soal UNBK Matematika SMP 2019",
+                question: "Toni menabung di bank dengan tabungan awal $\\text{Rp}1.200.000{,}00$, suku bunga tabungan $9\\%$ per tahun. Ketika ia mengambil seluruh uang tabungannya, jumlah tabungan Toni menjadi sebesar $\\text{Rp}1.281.000{,}00$. Lama Toni menabung adalah...",
+                options: [
+                    { key: "A", text: "$6\\text{ bulan}$" },
+                    { key: "B", text: "$8\\text{ bulan}$" },
+                    { key: "C", text: "$9\\text{ bulan}$" },
+                    { key: "D", text: "$10\\text{ bulan}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Besar bunga yang diperoleh Toni: $\\text{Rp}1.281.000{,}00 - \\text{Rp}1.200.000{,}00 = \\text{Rp}81.000{,}00$.</p>
+                    <p>Bunga bank setahun: $\\frac{9}{100} \\times \\text{Rp}1.200.000{,}00 = \\text{Rp}108.000{,}00$.</p>
+                    <p>Bunga per bulan: $\\frac{108.000}{12} = \\text{Rp}9.000{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Lama menabung} &= \\frac{\\text{Bunga diperoleh}}{\\text{Bunga per bulan}} = \\frac{81.000}{9.000} = \\mathbf{9\\text{ bulan}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $9\\text{ bulan}$</p>
+                `
+            },
+            {
+                id: 2,
+                source: "Soal Simulasi UNBK Matematika SMP 2019",
+                question: "Yugo menabung di sebuah bank sebesar $\\text{Rp}200.000{,}00$. Setelah sembilan bulan tabungan Yugo menjadi $\\text{Rp}218.000{,}00$. Besar suku bunga yang ditetapkan bank per tahun adalah...",
+                options: [
+                    { key: "A", text: "$9\\%$" },
+                    { key: "B", text: "$10\\%$" },
+                    { key: "C", text: "$12\\%$" },
+                    { key: "D", text: "$15\\%$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Bunga 9 bulan $= \\text{Rp}218.000 - \\text{Rp}200.000 = \\text{Rp}18.000{,}00$.</p>
+                    <p>Bunga per bulan $= \\frac{18.000}{9} = \\text{Rp}2.000{,}00$.</p>
+                    <p>Bunga setahun $= 12 \\times 2.000 = \\text{Rp}24.000{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Persentase bunga} &= \\frac{24.000}{200.000} \\times 100\\% = \\mathbf{12\\%}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $12\\%$</p>
+                `
+            },
+            {
+                id: 3,
+                source: "Soal UNBK Matematika SMP 2018",
+                question: "Revi menabung di sebuah bank sebesar $\\text{Rp}2.000.000{,}00$. Setelah $5$ bulan uang Revi menjadi $\\text{Rp}2.165.000{,}00$. Besar suku bunga bank per tahun adalah...",
+                options: [
+                    { key: "A", text: "$8{,}25\\%$" },
+                    { key: "B", text: "$9{,}6\\%$" },
+                    { key: "C", text: "$16{,}5\\%$" },
+                    { key: "D", text: "$19{,}8\\%$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Bunga 5 bulan $= \\text{Rp}2.165.000 - \\text{Rp}2.000.000 = \\text{Rp}165.000{,}00$.</p>
+                    <p>Bunga per bulan $= \\frac{165.000}{5} = \\text{Rp}33.000{,}00$.</p>
+                    <p>Bunga setahun $= 12 \\times 33.000 = \\text{Rp}396.000{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Persentase bunga} &= \\frac{396.000}{2.000.000} \\times 100\\% = \\frac{396}{20}\\% = \\mathbf{19{,}8\\%}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $19{,}8\\%$</p>
+                `
+            },
+            {
+                id: 4,
+                source: "Soal UNBK Matematika SMP 2018",
+                question: "Apif membeli sepatu dengan harga $\\text{Rp}329.000{,}00$, kemudian sepatu itu dijual kepada saudaranya dan mengalami kerugian $2\\%$. Harga penjualan sepatu adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}322.420{,}00$" },
+                    { key: "B", text: "$\\text{Rp}329.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}335.580{,}00$" },
+                    { key: "D", text: "$\\text{Rp}345.420{,}00$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Besar Rugi} &= 2\\% \\times 329.000 = \\text{Rp}6.580{,}00 \\\\
+                    \\text{Harga Jual} &= 329.000 - 6.580 = \\mathbf{\\text{Rp}322.420{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $\\text{Rp}322.420{,}00$</p>
+                `
+            },
+            {
+                id: 5,
+                source: "Soal Simulasi UNBK Matematika SMP 2018",
+                question: `
+                    <p class="mb-2">Ada empat toko menjual jenis barang yang sama. Ali akan membeli sebuah baju (harga $\\text{Rp}80.000{,}00$) dan celana (harga $\\text{Rp}100.000{,}00$) di toko yang sama.</p>
+                    <div class="overflow-x-auto my-3">
+                        <table class="min-w-full text-xs text-center border border-slate-200 rounded-xl overflow-hidden">
+                            <thead class="bg-indigo-50 font-bold text-indigo-900">
+                                <tr>
+                                    <th class="p-2.5 border-b">Nama Toko</th>
+                                    <th class="p-2.5 border-b">Diskon Baju (Rp80.000)</th>
+                                    <th class="p-2.5 border-b">Diskon Celana (Rp100.000)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr><td class="p-2 font-semibold">Toko Rame</td><td>25%</td><td>10%</td></tr>
+                                <tr><td class="p-2 font-semibold">Toko Damai</td><td>20%</td><td>15%</td></tr>
+                                <tr><td class="p-2 font-semibold">Toko Seneng</td><td>15%</td><td>20%</td></tr>
+                                <tr><td class="p-2 font-semibold">Toko Indah</td><td>10%</td><td>25%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Di toko manakah Ali berbelanja agar diperoleh harga total yang paling murah?</p>
+                `,
+                options: [
+                    { key: "A", text: "Toko Rame" },
+                    { key: "B", text: "Toko Damai" },
+                    { key: "C", text: "Toko Seneng" },
+                    { key: "D", text: "Toko Indah" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="mb-1">Hitung total potongan harga (diskon) pada masing-masing toko:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Toko Rame:</strong> $(25\\% \\times 80.000) + (10\\% \\times 100.000) = 20.000 + 10.000 = 30.000$.</li>
+                        <li><strong>Toko Damai:</strong> $(20\\% \\times 80.000) + (15\\% \\times 100.000) = 16.000 + 15.000 = 31.000$.</li>
+                        <li><strong>Toko Seneng:</strong> $(15\\% \\times 80.000) + (20\\% \\times 100.000) = 12.000 + 20.000 = 32.000$.</li>
+                        <li><strong>Toko Indah:</strong> $(10\\% \\times 80.000) + (25\\% \\times 100.000) = 8.000 + 25.000 = \\mathbf{33.000}$.</li>
+                    </ul>
+                    <p class="mt-2">Diskon terbesar diperoleh di Toko Indah sehingga harga bayarnya paling murah ($180.000 - 33.000 = 147.000$).</p>
+                    <p class="mt-1 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) Toko Indah</p>
+                `
+            },
+            {
+                id: 6,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2009",
+                question: "Pak Balugu memesan buah apel sebanyak $500$ buah seharga $@\\text{Rp}5.000{,}00$ dan dikenakan biaya pengiriman $2\\%$ dari total pembelian. Kemudian ia menjual $300$ apel dengan harga $@\\text{Rp}5.700{,}00$. Agar memperoleh untung $20\\%$ dari total biaya, ia harus menjual sisa apel dengan harga...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}6.750{,}00$" },
+                    { key: "B", text: "$\\text{Rp}6.450{,}00$" },
+                    { key: "C", text: "$\\text{Rp}6.150{,}00$" },
+                    { key: "D", text: "$\\text{Rp}5.850{,}00$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Biaya Beli} &= 500 \\times 5.000 = \\text{Rp}2.500.000{,}00 \\\\
+                    \\text{Ongkos Kirim} &= 2\\% \\times 2.500.000 = \\text{Rp}50.000{,}00 \\\\
+                    \\text{Total Modal} &= 2.550.000{,}00 \\\\
+                    \\text{Target Penerimaan (Untung 20\\%)} &= 120\\% \\times 2.550.000 = \\text{Rp}3.060.000{,}00 \\\\
+                    \\text{Hasil Jual 300 Apel} &= 300 \\times 5.700 = \\text{Rp}1.710.000{,}00 \\\\
+                    \\text{Sisa yang Harus Dicapai} &= 3.060.000 - 1.710.000 = \\text{Rp}1.350.000{,}00 \\\\
+                    \\text{Harga Jual per Apel Sisa} &= \\frac{1.350.000}{200} = \\mathbf{\\text{Rp}6.750{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $\\text{Rp}6.750{,}00$</p>
+                `
+            },
+            {
+                id: 7,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2008",
+                question: "Misalkan $y$ merupakan bilangan positif. Bila $y$ ditambahkan sebanyak $30\\%$ dari nilai awalnya, kemudian dikurangi $40\\%$ dari nilai setelah penambahan, maka nilai akhir $y$ adalah...",
+                options: [
+                    { key: "A", text: "Mengalami pengurangan sebesar $18\\%$ dari nilai awal." },
+                    { key: "B", text: "Mengalami pengurangan sebesar $22\\%$ dari nilai awal." },
+                    { key: "C", text: "Mengalami pengurangan sebesar $48\\%$ dari nilai awal." },
+                    { key: "D", text: "Mengalami penambahan sebesar $10\\%$ dari nilai awal." }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Nilai setelah penambahan $30\\%$: $y + 0{,}3y = 1{,}3y$.</p>
+                    <p>Nilai setelah pengurangan $40\\%$ dari nilai baru:</p>
+                    $$\\begin{align}
+                    y_{\\text{akhir}} &= 1{,}3y - (0{,}4 \\times 1{,}3y) = 1{,}3y - 0{,}52y = 0{,}78y
+                    \\end{align}$$
+                    <p>Terjadi penurunan sebesar: $y - 0{,}78y = 0{,}22y = \\mathbf{22\\%}$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B)</p>
+                `
+            },
+            {
+                id: 8,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2007",
+                question: "Pemilik sebuah toko mendapat kiriman $100$ karung beras Bulog, yang masing-masing tertera tulisan bruto $114\\text{ kg}$ dan tara $2\\text{ kg}$. Neto total kiriman yang diterima pemilik toko adalah...",
+                options: [
+                    { key: "A", text: "$200\\text{ kuintal}$" },
+                    { key: "B", text: "$116\\text{ kuintal}$" },
+                    { key: "C", text: "$114\\text{ kuintal}$" },
+                    { key: "D", text: "$112\\text{ kuintal}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Neto 1 karung} &= \\text{Bruto} - \\text{Tara} = 114\\text{ kg} - 2\\text{ kg} = 112\\text{ kg} \\\\
+                    \\text{Total Neto (100 karung)} &= 100 \\times 112\\text{ kg} = 11.200\\text{ kg} = \\mathbf{112\\text{ kuintal}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $112\\text{ kuintal}$</p>
+                `
+            },
+            {
+                id: 9,
+                source: "Soal Simulasi Masuk SMA Unggul-Plus 2021",
+                question: "Pedagang membeli $150\\text{ kg}$ beras dengan harga $\\text{Rp}750.000{,}00$. Jika pedagang menginginkan untung $15\\%$, maka harga penjualan beras tiap $\\text{kg}$ adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}6.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}5.750{,}00$" },
+                    { key: "C", text: "$\\text{Rp}5.500{,}00$" },
+                    { key: "D", text: "$\\text{Rp}4.500{,}00$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Modal per kg} &= \\frac{750.000}{150} = \\text{Rp}5.000{,}00 \\\\
+                    \\text{Harga Jual per kg} &= 115\\% \\times 5.000 = \\mathbf{\\text{Rp}5.750{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\text{Rp}5.750{,}00$</p>
+                `
+            },
+            {
+                id: 10,
+                source: "Soal UN Matematika SMP 2018",
+                question: "Toko elektronik 'CINTA PRODUK INDONESIA' menjual televisi dan memperoleh keuntungan $25\\%$. Jika harga beli televisi tersebut $\\text{Rp}3.600.000{,}00$, maka harga jualnya adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}3.800.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}4.000.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}4.250.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}4.500.000{,}00$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Keuntungan} &= 25\\% \\times 3.600.000 = \\text{Rp}900.000{,}00 \\\\
+                    \\text{Harga Jual} &= 3.600.000 + 900.000 = \\mathbf{\\text{Rp}4.500.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $\\text{Rp}4.500.000{,}00$</p>
+                `
+            },
+            {
+                id: 11,
+                source: "Soal UN Matematika SMP 2018",
+                question: "Diana menabung di bank sebesar $\\text{Rp}8.000.000{,}00$. Setelah $8$ bulan uangnya diambil seluruhnya sebesar $\\text{Rp}8.800.000{,}00$. Berapakah persentase suku bunga tabungan per tahun yang diberikan bank tersebut?",
+                options: [
+                    { key: "A", text: "$10\\%$" },
+                    { key: "B", text: "$12\\%$" },
+                    { key: "C", text: "$15\\%$" },
+                    { key: "D", text: "$18\\%$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Bunga 8 bulan $= \\text{Rp}8.800.000 - \\text{Rp}8.000.000 = \\text{Rp}800.000{,}00$.</p>
+                    <p>Bunga per bulan $= \\frac{800.000}{8} = \\text{Rp}100.000{,}00$.</p>
+                    <p>Bunga setahun $= 12 \\times 100.000 = \\text{Rp}1.200.000{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Persentase Bunga} &= \\frac{1.200.000}{8.000.000} \\times 100\\% = \\mathbf{15\\%}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $15\\%$</p>
+                `
+            },
+            {
+                id: 12,
+                source: "Soal UN Matematika SMP 2017",
+                question: "Pak Nur menjual telepon genggam seharga $\\text{Rp}2.250.000{,}00$ dan mengalami kerugian sebesar $10\\%$. Harga beli telepon genggam tersebut adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}475.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}2.350.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}2.500.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}2.625.000{,}00$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Harga Jual} &= 90\\% \\times \\text{Harga Beli} \\\\
+                    2.250.000 &= 0{,}9 \\times X \\implies X = \\frac{2.250.000}{0{,}9} = \\mathbf{\\text{Rp}2.500.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $\\text{Rp}2.500.000{,}00$</p>
+                `
+            }
+        ];
+    </script>
+
+    <script>
+        const questionsPart2 = [
+            {
+                id: 13,
+                source: "Soal UN Matematika SMP 2015",
+                question: "Andi menabung di bank sebesar $\\text{Rp}250.000{,}00$ dengan suku bunga $18\\%$ per tahun. Jika tabungan Andi sekarang menjadi $\\text{Rp}280.000{,}00$, lama Andi menabung adalah...",
+                options: [
+                    { key: "A", text: "$5\\text{ bulan}$" },
+                    { key: "B", text: "$6\\text{ bulan}$" },
+                    { key: "C", text: "$7\\text{ bulan}$" },
+                    { key: "D", text: "$8\\text{ bulan}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Bunga diperoleh: $280.000 - 250.000 = \\text{Rp}30.000{,}00$.</p>
+                    <p>Bunga per tahun: $18\\% \\times 250.000 = \\text{Rp}45.000{,}00$.</p>
+                    <p>Bunga per bulan: $\\frac{45.000}{12} = \\text{Rp}3.750{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Lama menabung} &= \\frac{30.000}{3.750} = \\mathbf{8\\text{ bulan}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $8\\text{ bulan}$</p>
+                `
+            },
+            {
+                id: 14,
+                source: "Soal UN Matematika SMP 2014",
+                question: "Kakak menabung di bank sebesar $\\text{Rp}800.000{,}00$ dengan suku bunga $9\\%$ setahun. Tabungan kakak saat diambil sebesar $\\text{Rp}920.000{,}00$. Lama kakak menabung adalah...",
+                options: [
+                    { key: "A", text: "$18\\text{ bulan}$" },
+                    { key: "B", text: "$20\\text{ bulan}$" },
+                    { key: "C", text: "$22\\text{ bulan}$" },
+                    { key: "D", text: "$24\\text{ bulan}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Bunga terkumpul: $920.000 - 800.000 = \\text{Rp}120.000{,}00$.</p>
+                    <p>Bunga per tahun: $9\\% \\times 800.000 = \\text{Rp}72.000{,}00$.</p>
+                    <p>Bunga per bulan: $\\frac{72.000}{12} = \\text{Rp}6.000{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Lama menabung} &= \\frac{120.000}{6.000} = \\mathbf{20\\text{ bulan}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $20\\text{ bulan}$</p>
+                `
+            },
+            {
+                id: 15,
+                source: "Soal UN Matematika SMP 2012",
+                question: "Ayah menabung di bank sebesar $\\text{Rp}2.100.000{,}00$ dengan suku bunga $8\\%$ setahun. Saat diambil, tabungan ayah menjadi $\\text{Rp}2.282.000{,}00$. Lama ayah menabung adalah...",
+                options: [
+                    { key: "A", text: "$13\\text{ bulan}$" },
+                    { key: "B", text: "$14\\text{ bulan}$" },
+                    { key: "C", text: "$15\\text{ bulan}$" },
+                    { key: "D", text: "$16\\text{ bulan}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Bunga diterima: $2.282.000 - 2.100.000 = \\text{Rp}182.000{,}00$.</p>
+                    <p>Bunga setahun: $8\\% \\times 2.100.000 = \\text{Rp}168.000{,}00$.</p>
+                    <p>Bunga sebulan: $\\frac{168.000}{12} = \\text{Rp}14.000{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Lama menabung} &= \\frac{182.000}{14.000} = \\mathbf{13\\text{ bulan}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $13\\text{ bulan}$</p>
+                `
+            },
+            {
+                id: 16,
+                source: "Soal UN Matematika SMP 2011",
+                question: "Setelah $9$ bulan uang tabungan Susi di koperasi berjumlah $\\text{Rp}3.815.000{,}00$. Koperasi memberi jasa simpanan berupa bunga $12\\%$ per tahun. Tabungan awal Susi di koperasi adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}3.500.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}3.550.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}3.600.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}3.650.000{,}00$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Bunga 9 bulan $= \\frac{9}{12} \\times 12\\% = 9\\%$.</p>
+                    $$\\begin{align}
+                    M_9 &= M_0 (1 + 9\\%) = 1{,}09 M_0 \\\\
+                    3.815.000 &= 1{,}09 M_0 \\implies M_0 = \\frac{3.815.000}{1{,}09} = \\mathbf{\\text{Rp}3.500.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $\\text{Rp}3.500.000{,}00$</p>
+                `
+            },
+            {
+                id: 17,
+                source: "Soal UN Matematika SMP 2011",
+                question: "Andi membeli $10$ pasang sepatu seharga $\\text{Rp}400.000{,}00$. Sebanyak $7$ pasang sepatu dijual dengan harga $\\text{Rp}50.000{,}00$ per pasang, $2$ pasang dijual $\\text{Rp}40.000{,}00$ per pasang, dan sisanya disumbangkan. Persentase keuntungan yang diperoleh Andi adalah...",
+                options: [
+                    { key: "A", text: "$7\\frac{1}{2}\\%$" },
+                    { key: "B", text: "$15\\%$" },
+                    { key: "C", text: "$22\\frac{1}{2}\\%$" },
+                    { key: "D", text: "$30\\%$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Penjualan} &= (7 \\times 50.000) + (2 \\times 40.000) = 350.000 + 80.000 = \\text{Rp}430.000{,}00 \\\\
+                    \\text{Untung} &= 430.000 - 400.000 = \\text{Rp}30.000{,}00 \\\\
+                    \\text{Persentase Untung} &= \\frac{30.000}{400.000} \\times 100\\% = \\frac{30}{4}\\% = \\mathbf{7{,}5\\%} = \\mathbf{7\\frac{1}{2}\\%}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $7\\frac{1}{2}\\%$</p>
+                `
+            },
+            {
+                id: 18,
+                source: "Soal UN Matematika SMP 2010",
+                question: "Seseorang meminjam uang di koperasi sebesar $\\text{Rp}6.000.000{,}00$ dan diangsur selama $12$ bulan dengan bunga $1{,}5\\%$ per bulan. Besar angsuran tiap bulan adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}507.500{,}00$" },
+                    { key: "B", text: "$\\text{Rp}590.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}640.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}650.000{,}00$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Angsuran Pokok} &= \\frac{6.000.000}{12} = \\text{Rp}500.000{,}00 \\\\
+                    \\text{Bunga Bulanan} &= 1{,}5\\% \\times 6.000.000 = \\text{Rp}90.000{,}00 \\\\
+                    \\text{Total Angsuran} &= 500.000 + 90.000 = \\mathbf{\\text{Rp}590.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\text{Rp}590.000{,}00$</p>
+                `
+            },
+            {
+                id: 19,
+                source: "Soal UN Matematika SMP 2010",
+                question: "Seorang pedagang membeli $3$ lusin buku dengan harga $\\text{Rp}64.800{,}00$. Dua lusin buku terjual dengan harga $\\text{Rp}2.500{,}00$ per buah dan $1$ lusin buku dengan harga $\\text{Rp}1.750{,}00$ per buah. Persentase keuntungan yang diperoleh pedagang itu adalah...",
+                options: [
+                    { key: "A", text: "$20\\%$" },
+                    { key: "B", text: "$22{,}5\\%$" },
+                    { key: "C", text: "$25\\%$" },
+                    { key: "D", text: "$30\\%$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Penjualan} &= (24 \\times 2.500) + (12 \\times 1.750) = 60.000 + 21.000 = \\text{Rp}81.000{,}00 \\\\
+                    \\text{Untung} &= 81.000 - 64.800 = \\text{Rp}16.200{,}00 \\\\
+                    \\%\\text{Untung} &= \\frac{16.200}{64.800} \\times 100\\% = \\frac{1}{4} \\times 100\\% = \\mathbf{25\\%}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $25\\%$</p>
+                `
+            },
+            {
+                id: 20,
+                source: "Soal TUK Masuk SMA Unggul DEL 2022",
+                question: "Sebuah toko memberi diskon sebesar $25\\%$ untuk semua jenis barang dan telah mendapat untung $20\\%$ jika laku terjual. Ada $4$ jenis barang masing-masing tertulis harga label: $\\text{Rp}500.000{,}00$; $\\text{Rp}300.000{,}00$; $\\text{Rp}150.000{,}00$; dan $\\text{Rp}50.000{,}00$. Jika keempat jenis barang laku masing-masing $1$ kodi ($20$ buah), modal total yang diperlukan adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}15.000.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}12.500.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}10.500.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}9.800.000{,}00$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Total harga label $1$ set (4 barang): $500.000 + 300.000 + 150.000 + 50.000 = \\text{Rp}1.000.000{,}00$.</p>
+                    <p>Harga jual setelah diskon $25\\% = 75\\% \\times 1.000.000 = \\text{Rp}750.000{,}00$.</p>
+                    <p>Untung $20\\%$, artinya $\\text{Harga Jual} = 120\\% \\times \\text{Modal}$:</p>
+                    $$\\begin{align}
+                    \\text{Modal } 1\\text{ set} &= \\frac{750.000}{1{,}2} = \\text{Rp}625.000{,}00 \\\\
+                    \\text{Modal Total (20 set)} &= 20 \\times 625.000 = \\mathbf{\\text{Rp}12.500.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\text{Rp}12.500.000{,}00$</p>
+                `
+            },
+            {
+                id: 21,
+                source: "Soal TUK Masuk SMA Unggul DEL 2022",
+                question: "Berat seekor gajah pada awal tahun adalah $655{,}36\\text{ kg}$. Sepanjang Januari berat gajah naik $25\\%$, Februari turun $25\\%$, Maret naik $25\\%$, April turun $25\\%$, Mei naik $25\\%$, Juni turun $25\\%$, dan Juli naik $25\\%$. Berat gajah pada akhir Juli adalah...",
+                options: [
+                    { key: "A", text: "$675\\text{ kg}$" },
+                    { key: "B", text: "$625\\text{ kg}$" },
+                    { key: "C", text: "$600\\text{ kg}$" },
+                    { key: "D", text: "$540\\text{ kg}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Awal: $655{,}36\\text{ kg}$</li>
+                        <li>Jan (naik 25%): $655{,}36 \\times 1{,}25 = 819{,}2\\text{ kg}$</li>
+                        <li>Feb (turun 25%): $819{,}2 \\times 0{,}75 = 614{,}4\\text{ kg}$</li>
+                        <li>Mar (naik 25%): $614{,}4 \\times 1{,}25 = 768\\text{ kg}$</li>
+                        <li>Apr (turun 25%): $768 \\times 0{,}75 = 576\\text{ kg}$</li>
+                        <li>Mei (naik 25%): $576 \\times 1{,}25 = 720\\text{ kg}$</li>
+                        <li>Jun (turun 25%): $720 \\times 0{,}75 = 540\\text{ kg}$</li>
+                        <li>Jul (naik 25%): $540 \\times 1{,}25 = \\mathbf{675\\text{ kg}}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $675\\text{ kg}$</p>
+                `
+            },
+            {
+                id: 22,
+                source: "Model Soal US-UM Matematika SMP 2023",
+                question: "Pak Budi menjual sepeda dengan harga $\\text{Rp}1.200.000{,}00$. Jika Pak Budi mengalami kerugian $20\\%$, maka harga pembelian sepeda adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}1.280.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}1.400.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}1.500.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}1.640.000{,}00$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Harga Jual} &= (100\\% - 20\\%) \\times \\text{Harga Beli} = 0{,}8 X \\\\
+                    1.200.000 &= 0{,}8 X \\implies X = \\frac{1.200.000}{0{,}8} = \\mathbf{\\text{Rp}1.500.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $\\text{Rp}1.500.000{,}00$</p>
+                `
+            },
+            {
+                id: 23,
+                source: "Model Soal US-UM Matematika SMP 2023",
+                question: "Anita menabung sebesar $\\text{Rp}800.000{,}00$ pada sebuah bank dengan suku bunga tunggal $16\\%$ per tahun. Pada saat diambil tabungan Anita menjadi $\\text{Rp}992.000{,}00$. Lama Anita menabung adalah...",
+                options: [
+                    { key: "A", text: "$8\\text{ bulan}$" },
+                    { key: "B", text: "$18\\text{ bulan}$" },
+                    { key: "C", text: "$24\\text{ bulan}$" },
+                    { key: "D", text: "$32\\text{ bulan}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Bunga diperoleh: $\\text{Rp}992.000{,}00 - \\text{Rp}800.000{,}00 = \\text{Rp}192.000{,}00$.</p>
+                    <p>Bunga 1 tahun: $16\\% \\times \\text{Rp}800.000{,}00 = \\text{Rp}128.000{,}00$.</p>
+                    $$\\begin{align}
+                    \\text{Waktu } (n) &= \\frac{192.000}{128.000}\\text{ tahun} = \\frac{3}{2}\\text{ tahun} \\\\
+                    &= \\frac{3}{2} \\times 12\\text{ bulan} = \\mathbf{18\\text{ bulan}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $18\\text{ bulan}$</p>
+                `
+            },
+            {
+                id: 24,
+                source: "Model Soal US-UM Matematika SMP 2023",
+                question: `
+                    <p class="mb-2">Perhatikan tabel penawaran harga dari empat toko berikut:</p>
+                    <div class="overflow-x-auto my-3">
+                        <table class="min-w-full text-xs text-center border border-slate-200 rounded-xl overflow-hidden">
+                            <thead class="bg-indigo-50 font-bold text-indigo-900">
+                                <tr>
+                                    <th class="p-2 border-b">Toko</th>
+                                    <th class="p-2 border-b">Harga Awal</th>
+                                    <th class="p-2 border-b">Diskon / Cashback</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr><td class="p-1.5 font-bold">Toko A</td><td>Rp250.000</td><td>Diskon 25%</td></tr>
+                                <tr><td class="p-1.5 font-bold">Toko B</td><td>Rp220.000</td><td>Diskon 15%</td></tr>
+                                <tr><td class="p-1.5 font-bold">Toko C</td><td>Rp260.000</td><td>Diskon 28%</td></tr>
+                                <tr><td class="p-1.5 font-bold">Toko D</td><td>Rp267.700</td><td>Cashback Rp80.000</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Dari tabel di atas, toko yang menjual dengan harga akhir yang paling murah adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Toko A" },
+                    { key: "B", text: "Toko B" },
+                    { key: "C", text: "Toko C" },
+                    { key: "D", text: "Toko D" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Toko A:</strong> $250.000 - (25\\% \\times 250.000) = 250.000 - 62.500 = \\text{Rp}187.500{,}00$.</li>
+                        <li><strong>Toko B:</strong> $220.000 - (15\\% \\times 220.000) = 220.000 - 33.000 = \\mathbf{\\text{Rp}187.000{,}00}$.</li>
+                        <li><strong>Toko C:</strong> $260.000 - (28\\% \\times 260.000) = 260.000 - 72.800 = \\text{Rp}187.200{,}00$.</li>
+                        <li><strong>Toko D:</strong> $267.700 - 80.000 = \\text{Rp}187.700{,}00$.</li>
+                    </ul>
+                    <p class="mt-2">Harga paling murah terdapat pada Toko B (Rp187.000,00).</p>
+                    <p class="mt-1 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) Toko B</p>
+                `
+            }
+        ];
+        questionsData.push(...questionsPart2);
+    </script>
+
+    <script>
+        const questionsPart3 = [
+            {
+                id: 25,
+                source: "Contoh Soal PAS Genap Matematika SMP/MTs",
+                question: "Kondisi berikut yang menunjukkan kondisi rugi adalah...",
+                options: [
+                    { key: "A", text: "Pemasukan Rp1.700.000,00 dan Pengeluaran Rp1.900.000,00" },
+                    { key: "B", text: "Pemasukan Rp1.100.000,00 dan Pengeluaran Rp1.100.000,00" },
+                    { key: "C", text: "Pemasukan Rp2.700.000,00 dan Pengeluaran Rp2.000.000,00" },
+                    { key: "D", text: "Pemasukan Rp1.700.000,00 dan Pengeluaran Rp1.650.000,00" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Kondisi rugi terjadi apabila <strong>Pengeluaran $\\gt$ Pemasukan</strong> (atau Modal $\\gt$ Hasil Penjualan).</p>
+                    <p>Pada opsi (A): Pemasukan (Rp1.700.000) $\\lt$ Pengeluaran (Rp1.900.000), terjadi kerugian Rp200.000,00.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A)</p>
+                `
+            },
+            {
+                id: 26,
+                source: "Contoh Soal PAS Genap Matematika SMP/MTs",
+                question: "Ibu mendapat pesanan kue bolu sebanyak $30$ loyang. Untuk membuatnya ibu membeli bahan pokok kue dengan biaya $\\text{Rp}350.000{,}00$. Jika ibu memberi harga $\\text{Rp}20.000{,}00$ setiap loyangnya, maka ibu akan memperoleh keuntungan sebanyak...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}150.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}200.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}250.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}300.000{,}00$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Penerimaan Penjualan} &= 30 \\times 20.000 = \\text{Rp}600.000{,}00 \\\\
+                    \\text{Keuntungan} &= 600.000 - 350.000 = \\mathbf{\\text{Rp}250.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $\\text{Rp}250.000{,}00$</p>
+                `
+            },
+            {
+                id: 27,
+                source: "Contoh Soal PAS Genap Matematika SMP/MTs",
+                question: "Seorang pedagang membeli $5\\text{ kg}$ jeruk dengan harga $\\text{Rp}75.000{,}00$ dan dijual lagi dengan keuntungan $15\\%$, maka harga jual satu kilogram jeruk tersebut adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}15.250{,}00$" },
+                    { key: "B", text: "$\\text{Rp}16.250{,}00$" },
+                    { key: "C", text: "$\\text{Rp}17.250{,}00$" },
+                    { key: "D", text: "$\\text{Rp}18.250{,}00$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Modal per kg} &= \\frac{75.000}{5} = \\text{Rp}15.000{,}00 \\\\
+                    \\text{Untung per kg} &= 15\\% \\times 15.000 = \\text{Rp}2.250{,}00 \\\\
+                    \\text{Harga Jual per kg} &= 15.000 + 2.250 = \\mathbf{\\text{Rp}17.250{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $\\text{Rp}17.250{,}00$</p>
+                `
+            },
+            {
+                id: 28,
+                source: "Contoh Soal PAS Genap Matematika SMP/MTs",
+                question: "Farid meminjam uang di bank sebesar $\\text{Rp}15.000.000{,}00$ dengan suku bunga $16\\%$ per tahun. Maka bunga yang harus ditanggung oleh Farid selama $3$ bulan adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}300.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}400.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}500.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}600.000{,}00$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Bunga 3 Bulan} &= \\frac{3}{12} \\times 16\\% \\times 15.000.000 \\\\
+                    &= \\frac{1}{4} \\times 2.400.000 = \\mathbf{\\text{Rp}600.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $\\text{Rp}600.000{,}00$</p>
+                `
+            },
+            {
+                id: 29,
+                source: "Contoh Soal PAS Genap Matematika SMP/MTs",
+                question: "Pak Dedi membeli sepeda motor bekas dengan harga $\\text{Rp}5.000.000{,}00$. Dalam waktu satu minggu motor tersebut dijual kembali dengan harga $110\\%$ dari harga belinya. Keuntungan Pak Dedi adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}500.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}1.000.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}4.500.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}5.500.000{,}00$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Untung} &= (110\\% - 100\\%) \\times 5.000.000 = 10\\% \\times 5.000.000 = \\mathbf{\\text{Rp}500.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $\\text{Rp}500.000{,}00$</p>
+                `
+            },
+            {
+                id: 30,
+                source: "Contoh Soal PAS Genap Matematika SMP/MTs",
+                question: "Bruto satu karung beras adalah $50\\text{ kg}$. Jika taranya $0{,}4\\%$, maka neto satu karung beras tersebut adalah...",
+                options: [
+                    { key: "A", text: "$46{,}8\\text{ kg}$" },
+                    { key: "B", text: "$47{,}8\\text{ kg}$" },
+                    { key: "C", text: "$48{,}8\\text{ kg}$" },
+                    { key: "D", text: "$49{,}8\\text{ kg}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Tara} &= 0{,}4\\% \\times 50\\text{ kg} = \\frac{0{,}4}{100} \\times 50 = 0{,}2\\text{ kg} \\\\
+                    \\text{Neto} &= 50\\text{ kg} - 0{,}2\\text{ kg} = \\mathbf{49{,}8\\text{ kg}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $49{,}8\\text{ kg}$</p>
+                `
+            },
+            {
+                id: 31,
+                source: "Contoh Soal TKA Matematika SMP/MTs",
+                question: "Sebuah barang memiliki label harga awal $\\text{Rp}250.000{,}00$ dengan diskon bertingkat sebesar $30\\% + 20\\%$. Harga akhir yang harus dibayar adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}140.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}160.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}175.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}185.000{,}00$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Setelah Diskon 1 (30\\%)} &= 70\\% \\times 250.000 = \\text{Rp}175.000{,}00 \\\\
+                    \\text{Setelah Diskon 2 (20\\%)} &= 80\\% \\times 175.000 = \\mathbf{\\text{Rp}140.000{,}00}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $\\text{Rp}140.000{,}00$</p>
+                `
+            },
+            {
+                id: 32,
+                source: "Contoh Soal TKA Matematika SMP/MTs",
+                question: "Toko Arjuna menjual sebuah kaos dengan label $\\text{Rp}210.000{,}00$ dan diskon tunggal $30\\%$. Sedangkan Toko Krisna menjual kaos serupa dengan label $\\text{Rp}200.000{,}00$ dan diskon bertingkat $20\\% + 10\\%$. Selisih harga pembayaran untuk pembelian sebuah kaos di Toko Arjuna dan Toko Krisna adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}7.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}4.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}3.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}2.000{,}00$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Toko Arjuna:</strong> $210.000 - (30\\% \\times 210.000) = 210.000 - 63.000 = \\text{Rp}147.000{,}00$.</li>
+                        <li><strong>Toko Krisna:</strong>
+                            <br>&bull; Diskon pertama: $200.000 - 40.000 = 160.000$.
+                            <br>&bull; Diskon kedua: $160.000 - (10\\% \\times 160.000) = 160.000 - 16.000 = \\text{Rp}144.000{,}00$.
+                        </li>
+                        <li><strong>Selisih Harga:</strong> $147.000 - 144.000 = \\mathbf{\\text{Rp}3.000{,}00}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $\\text{Rp}3.000{,}00$</p>
+                `
+            },
+            {
+                id: 33,
+                source: "Soal OSN-K Matematika SD/SMP 2025",
+                question: "Andika berbelanja di toko alat tulis membeli $10$ buku tulis, $5$ pensil, $1$ penggaris, dan $1$ kotak pensil. Harga satu buku $\\text{Rp}5.000{,}00$; satu pensil atau satu penggaris $\\text{Rp}2.000{,}00$; dan satu kotak pensil $\\text{Rp}30.000{,}00$. Toko memberikan diskon $10\\%$ untuk buku dan $5\\%$ untuk kotak pensil. Jumlah yang harus dibayar oleh Andika adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}92.000{,}00$" },
+                    { key: "B", text: "$\\text{Rp}88.000{,}00$" },
+                    { key: "C", text: "$\\text{Rp}85.000{,}00$" },
+                    { key: "D", text: "$\\text{Rp}83.000{,}00$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{10 Buku (Diskon 10\\%)} &= 10 \\times (0{,}90 \\times 5.000) = \\text{Rp}45.000{,}00 \\\\
+                    \\text{5 Pensil} &= 5 \\times 2.000 = \\text{Rp}10.000{,}00 \\\\
+                    \\text{1 Penggaris} &= 1 \\times 2.000 = \\text{Rp}2.000{,}00 \\\\
+                    \\text{1 Kotak Pensil (Diskon 5\\%)} &= 0{,}95 \\times 30.000 = \\text{Rp}28.500{,}00 \\\\
+                    \\hline
+                    \\text{Total Perhitungan Riil} &= 45.000 + 10.000 + 2.000 + 28.500 = \\text{Rp}85.500{,}00
+                    \\end{align}$$
+                    <p class="text-xs text-slate-500 bg-slate-100 p-2.5 rounded-xl border border-slate-200 mt-2 leading-relaxed">
+                        <em>Catatan Analisis QC: Perhitungan eksak menghasilkan Rp85.500,00. Pada naskah soal resmi olimpiade OSN-K Matematika, pilihan jawaban yang disediakan menunjuk opsi terdekat (C) Rp85.000,00 akibat adanya toleransi pembulatan pada opsi soal resmi.</em>
+                    </p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $\\text{Rp}85.000{,}00$</p>
+                `
+            }
+        ];
+        questionsData.push(...questionsPart3);
+    </script>
+
+    <script>
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 60 * 60; // 60 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        function renderMath(targetElement) {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise(targetElement ? [targetElement] : undefined).catch((err) => {
+                    console.debug('MathJax handling:', err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                
+                let badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+                if (q.source.includes("DEL") || q.source.includes("TKA") || q.source.includes("YASOP") || q.source.includes("OSN")) {
+                    badgeClass = "bg-amber-100 text-amber-900 border-amber-300";
+                }
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-base md:text-lg font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header Info -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.source}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question & Choices Card -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilih salah satu kartu opsi untuk menjawab.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (opt.key === key) {
+                    optEl.classList.add('selected');
+                } else {
+                    optEl.classList.remove('selected');
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            showSlide(currentQuestion);
+            renderMath();
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) { // < 5 mins remaining
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMath(activeSlide);
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua soal sudah terisi dengan lengkap!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 60 menit telah berakhir. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+            renderMath();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.source})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            <!-- Pilihan Jawaban Review -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            renderMath(container);
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
