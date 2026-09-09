@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pengayaan Fisika Berhitung SMP Fase D - Level 1.3</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax CDN for dynamic mathematical rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #818cf8; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-900 text-xs font-black rounded-full uppercase tracking-wider">IPA Fisika SMP Fase D</span>
+                <span class="px-3 py-1 bg-sky-100 text-sky-900 text-xs font-black rounded-full uppercase tracking-wider">Kurikulum Merdeka & Pengayaan</span>
+            </div>
+            
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">
+                MODUL PENGAYAAN BERHITUNG FISIKA (30 SOAL ISIAN SINGKAT)
+            </h1>
+            <p class="text-center text-indigo-700 font-semibold mb-6 text-sm md:text-base">
+                Fokus: Kecepatan ($v$), GLBB Percepatan ($a$), Resultan Gaya ($\Sigma F$) & Hukum II Newton ($F = ma$)
+            </p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-950 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Format Isian Singkat:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>30 Butir Isian Singkat</strong> (Berhitung Numerik Fisika).</li>
+                    <li>Sistem Isian: Ketikkan <strong>angka / nilai akhir</strong> yang diminta pada kotak jawaban.</li>
+                    <li>Format Angka: Mendukung koma maupun titik (contoh: <code class="bg-indigo-100 px-1 py-0.5 rounded font-mono">1,6</code> atau <code class="bg-indigo-100 px-1 py-0.5 rounded font-mono">1.6</code>). Satuan dapat disertakan atau cukup angkanya saja.</li>
+                    <li>Waktu Latihan: <strong>45 Menit</strong> (dengan indikator hitung mundur otomatis).</li>
+                    <li>Tersedia tombol <strong>"Ringkasan Rumus Cepat"</strong> untuk memeriksa formula kapan saja saat mengerjakan.</li>
+                    <li>Kunci jawaban dan pembahasan analitis matematis langkah demi langkah akan disajikan lengkap di akhir simulasi.</li>
+                </ul>
+            </div>
+
+            <!-- 4 Subtopics Overview -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center text-xs font-bold mb-7">
+                <div class="p-3 bg-indigo-50 text-indigo-950 border border-indigo-100 rounded-2xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-extrabold">Subtopik 1</p>
+                    <p class="text-xs font-black mt-0.5">Kelajuan, Papasan & Susul</p>
+                    <span class="text-[10px] text-slate-500">Soal 1–8</span>
+                </div>
+                <div class="p-3 bg-indigo-50 text-indigo-950 border border-indigo-100 rounded-2xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-extrabold">Subtopik 2</p>
+                    <p class="text-xs font-black mt-0.5">Percepatan & GLBB</p>
+                    <span class="text-[10px] text-slate-500">Soal 9–16</span>
+                </div>
+                <div class="p-3 bg-indigo-50 text-indigo-950 border border-indigo-100 rounded-2xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-extrabold">Subtopik 3</p>
+                    <p class="text-xs font-black mt-0.5">Resultan & Gaya Berat</p>
+                    <span class="text-[10px] text-slate-500">Soal 17–23</span>
+                </div>
+                <div class="p-3 bg-indigo-50 text-indigo-950 border border-indigo-100 rounded-2xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-extrabold">Subtopik 4</p>
+                    <p class="text-xs font-black mt-0.5">Hukum II Newton & Gesekan</p>
+                    <span class="text-[10px] text-slate-500">Soal 24–30</span>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Latihan Isian Singkat</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">IPA Fisika SMP Fase D</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-800 transition bg-emerald-50 hover:bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-sm md:text-base font-black text-indigo-950 leading-tight">PENGAYAAN FISIKA SMP (FASE D)</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Level 1.3: Kecepatan, GLBB, Gaya & Hukum Newton</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 md:gap-3">
+                        <!-- Open Theory Cheat Sheet Button -->
+                        <button type="button" onclick="openTheoryModal()" class="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 text-xs font-extrabold rounded-xl border border-indigo-200 transition flex items-center gap-1.5 cursor-pointer">
+                            <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            <span class="hidden sm:inline">Rumus Cepat</span>
+                        </button>
+
+                        <div class="bg-indigo-50 text-indigo-800 px-3.5 py-1 rounded-xl font-mono text-base md:text-lg font-black border border-indigo-200 shadow-inner" id="timer-display">
+                            45:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 30 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Nomor Soal (1–30)</p>
+                        <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-100" id="answered-counter">Terisi: 0 / 30</span>
+                    </div>
+                    <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-1.5" id="nav-container">
+                        <!-- Navigation buttons dynamically injected -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Short Answer Input -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearCurrentAnswer()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Isian
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                <span class="hidden sm:inline">&bull;</span>
+                <span class="text-slate-500">IPA Fisika SMP Fase D - Kurikulum Merdeka</span>
+                <span class="hidden sm:inline">&bull;</span>
+                <a href="https://wa.me/6281381374712" target="_blank" class="font-bold text-indigo-700 hover:underline">0813-813-747-12</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Selesai Mengerjakan?</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan jawaban? Skor akhir dan pembahasan analitis lengkap ke-30 soal akan langsung ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- THEORY MODAL CHEAT SHEET -->
+    <div id="theory-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-3 md:p-6 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden border border-indigo-200">
+            <div class="p-5 bg-indigo-800 text-white flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <h3 class="font-black text-lg">Lembar Teori & Rumus Cepat Modul</h3>
+                </div>
+                <button type="button" onclick="closeTheoryModal()" class="p-1 rounded-lg hover:bg-indigo-700 text-indigo-200 hover:text-white transition cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div class="p-5 md:p-6 overflow-y-auto space-y-4 custom-scroll text-sm text-slate-700">
+                <div class="p-4 bg-indigo-50/70 border border-indigo-200 rounded-2xl">
+                    <h4 class="font-black text-indigo-900 mb-2">1. Kelajuan, Papasan & Menyusul</h4>
+                    <p class="mb-1"><strong>Segitiga Rumus:</strong> $s = v \times t \iff v = \dfrac{s}{t} \iff t = \dfrac{s}{v}$</p>
+                    <p class="mb-1"><strong>Konversi:</strong> $\text{km/jam} \xrightarrow{\div 3{,}6} \text{m/s}$ dan $\text{m/s} \xrightarrow{\times 3{,}6} \text{km/jam}$.</p>
+                    <p class="mb-1"><strong>Kelajuan Rata-Rata:</strong> $\bar{v} = \dfrac{s_{\text{total}}}{t_{\text{total}}}$</p>
+                    <p class="mb-1"><strong>Papasan Berhadapan:</strong> $t = \dfrac{s}{v_1 + v_2}$ | <strong>Menyusul:</strong> $t = \dfrac{\Delta s}{v_{\text{cepat}} - v_{\text{lambat}}}$</p>
+                    <p><strong>Kereta Melintasi Jembatan:</strong> $s_{\text{total}} = L_{\text{kereta}} + L_{\text{jembatan}}$</p>
+                </div>
+
+                <div class="p-4 bg-indigo-50/70 border border-indigo-200 rounded-2xl">
+                    <h4 class="font-black text-indigo-900 mb-2">2. Percepatan ($a$) & GLBB</h4>
+                    <p class="mb-1"><strong>Rumus Pokok:</strong> $a = \dfrac{v_t - v_0}{t} \iff v_t = v_0 + (a \times t) \iff t = \dfrac{v_t - v_0}{a}$</p>
+                    <p class="mb-1"><strong>Mula-mula diam:</strong> $v_0 = 0$ | <strong>Direm hingga berhenti:</strong> $v_t = 0$</p>
+                    <p><strong>Gerak Vertikal ke Atas:</strong> Diperlambat oleh gravitasi $g$, saat di puncak $v_t = 0 \Rightarrow t_{\text{puncak}} = \dfrac{v_0}{g}$.</p>
+                </div>
+
+                <div class="p-4 bg-indigo-50/70 border border-indigo-200 rounded-2xl">
+                    <h4 class="font-black text-indigo-900 mb-2">3. Resultan Gaya ($\Sigma F$) & Berat Planet</h4>
+                    <p class="mb-1"><strong>Searah:</strong> $\Sigma F = F_1 + F_2$ | <strong>Berlawanan:</strong> $\Sigma F = F_{\text{besar}} - F_{\text{kecil}}$</p>
+                    <p class="mb-1"><strong>Kesetimbangan:</strong> $\Sigma F = 0 \iff F_{\text{kiri}} = F_{\text{kanan}}$</p>
+                    <p class="mb-1"><strong>Massa ($m$):</strong> Tetap di mana pun di alam semesta (kg).</p>
+                    <p><strong>Berat ($w$):</strong> $w = m \times g$ (Newton).</p>
+                </div>
+
+                <div class="p-4 bg-indigo-50/70 border border-indigo-200 rounded-2xl">
+                    <h4 class="font-black text-indigo-900 mb-2">4. Dinamika Newton (Hukum II Newton)</h4>
+                    <p class="mb-1"><strong>Hukum II Newton:</strong> $\Sigma F = m \times a \iff a = \dfrac{\Sigma F}{m} \iff m = \dfrac{\Sigma F}{a}$</p>
+                    <p class="mb-1"><strong>Ada Gesekan ($f_g$):</strong> $\Sigma F = F_{\text{dorong}} - f_g \Rightarrow a = \dfrac{F_{\text{dorong}} - f_g}{m}$</p>
+                    <p><strong>Benda Gandeng Berdampingan:</strong> $a = \dfrac{F}{m_1 + m_2}$</p>
+                </div>
+            </div>
+            
+            <div class="p-4 bg-slate-100 border-t border-slate-200 text-right">
+                <button type="button" onclick="closeTheoryModal()" class="px-5 py-2 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition cursor-pointer">
+                    Tutup Lembar Rumus
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Hasil Latihan Pengayaan</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN SKOR & EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-lg mx-auto">Evaluasi akurasi perhitungan fisika untuk 30 butir soal isian singkat.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Isian Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="bg-white text-indigo-900 hover:bg-indigo-50 font-bold py-3.5 px-7 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer text-sm">
+                        <span>Lihat Pembahasan Lengkap</span>
+                        <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </button>
+                    <button type="button" onclick="restartQuiz()" class="bg-indigo-600/80 hover:bg-indigo-600 text-white font-bold py-3.5 px-6 rounded-full border border-white/30 transition inline-flex items-center gap-2 text-sm cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <span>Coba Ulang Latihan</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Pembahasan Lengkap</h3>
+                        <p class="text-sm text-slate-500">Kupas tuntas langkah penyelesaian matematis dan rumus fisika untuk setiap nomor soal.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">30</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah / Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                <span class="hidden sm:inline">&bull;</span>
+                <span class="text-slate-500">IPA Fisika SMP Fase D - Kurikulum Merdeka</span>
+                <span class="hidden sm:inline">&bull;</span>
+                <a href="https://wa.me/6281381374712" target="_blank" class="font-bold text-indigo-700 hover:underline">0813-813-747-12</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Data 30 Soal Berhitung Fisika SMP Fase D
+        const questionsData = [
+            // SUBTOPIK 1
+            {
+                id: 1,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Sebuah mobil patroli jalan tol melaju kencang dengan kelajuan konstan sebesar $126\\text{ km/jam}$. Ubahlah nilai kelajuan mobil patroli tersebut ke dalam satuan baku Sistem Internasional ($\\text{m/s}$)! Ketikkan hanya nilai akhirnya.",
+                unitGuide: "m/s",
+                acceptedAnswers: ["35", "35 m/s", "35m/s"],
+                displayCorrect: "35 m/s",
+                explanation: `
+                    $$\\begin{align}
+                    v &= \\dfrac{126\\text{ km}}{1\\text{ jam}} = \\dfrac{126 \\times 1.000\\text{ m}}{3.600\\text{ s}} = \\dfrac{126}{3{,}6} \\\\
+                    &= 7 \\times 5 = \\mathbf{35\\text{ m/s}}
+                    \\end{align}$$
+                    <p class="mt-2 font-bold text-indigo-700">Trik Cepat: Bagi langsung dengan 3,6 $\\rightarrow 126 : 3{,}6 = 35\\text{ m/s}$.</p>
+                `
+            },
+            {
+                id: 2,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Seorang pelari maraton menempuh lintasan lurus dengan kelajuan konstan sebesar $15\\text{ m/s}$. Nyatakanlah nilai kelajuan pelari tersebut ke dalam satuan $\\text{km/jam}$!",
+                unitGuide: "km/jam",
+                acceptedAnswers: ["54", "54 km/jam", "54km/jam"],
+                displayCorrect: "54 km/jam",
+                explanation: `
+                    $$\\begin{align}
+                    v &= 15 \\times 3{,}6 = 15 \\times \\dfrac{18}{5} = 3 \\times 18 = \\mathbf{54\\text{ km/jam}}
+                    \\end{align}$$
+                    <p class="mt-2 font-bold text-indigo-700">Trik Cepat: Kalikan dengan 3,6 $\\rightarrow 15 \\times 3{,}6 = 54\\text{ km/jam}$.</p>
+                `
+            },
+            {
+                id: 3,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Sebuah bus antarkota menempuh perjalanan 2 etape. Pada etape pertama, bus menempuh jarak $120\\text{ km}$ dalam waktu $2\\text{ jam}$. Pada etape kedua, bus melintasi jalan tol sejauh $60\\text{ km}$ selama $1\\text{ jam}$. Berapakah kelajuan rata-rata bus tersebut untuk seluruh perjalanan?",
+                unitGuide: "km/jam",
+                acceptedAnswers: ["60", "60 km/jam", "60km/jam"],
+                displayCorrect: "60 km/jam",
+                explanation: `
+                    $$\\begin{align}
+                    s_{\\text{total}} &= 120\\text{ km} + 60\\text{ km} = 180\\text{ km} \\\\
+                    t_{\\text{total}} &= 2\\text{ jam} + 1\\text{ jam} = 3\\text{ jam} \\\\
+                    \\bar{v} &= \\dfrac{s_{\\text{total}}}{t_{\\text{total}}} = \\dfrac{180}{3} = \\mathbf{60\\text{ km/jam}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 4,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Sebuah rangkaian kereta api barang dengan panjang total $150\\text{ meter}$ melintasi jembatan baja sepanjang $350\\text{ meter}$ dengan kelajuan tetap $25\\text{ m/s}$. Berapa detik waktu yang dibutuhkan sejak ujung lokomotif mulai memasuki jembatan hingga ujung ekor gerbong terakhir tepat keluar dari jembatan?",
+                unitGuide: "detik (s)",
+                acceptedAnswers: ["20", "20 detik", "20 s", "20s"],
+                displayCorrect: "20 detik",
+                explanation: `
+                    $$\\begin{align}
+                    s_{\\text{total}} &= L_{\\text{kereta}} + L_{\\text{jembatan}} = 150\\text{ m} + 350\\text{ m} = 500\\text{ m} \\\\
+                    t &= \\dfrac{s_{\\text{total}}}{v} = \\dfrac{500}{25} = \\mathbf{20\\text{ detik}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 5,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Dua orang pelari, Rian dan Danu, berada pada lintasan lurus terpisah jarak sejauh $360\\text{ meter}$. Keduanya mulai berlari saling berhadapan pada saat bersamaan. Rian berlari dengan kelajuan konstan $4\\text{ m/s}$ dan Danu berlari dengan laju $5\\text{ m/s}$. Setelah berapa detik kedua pelari tersebut akan saling berpapasan?",
+                unitGuide: "detik (s)",
+                acceptedAnswers: ["40", "40 detik", "40 s", "40s"],
+                displayCorrect: "40 detik",
+                explanation: `
+                    $$\\begin{align}
+                    v_{\\text{relatif}} &= v_{\\text{Rian}} + v_{\\text{Danu}} = 4 + 5 = 9\\text{ m/s} \\\\
+                    t_{\\text{papasan}} &= \\dfrac{s}{v_{\\text{relatif}}} = \\dfrac{360}{9} = \\mathbf{40\\text{ detik}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 6,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Dari kondisi soal nomor 5 sebelumnya, berapakah jarak yang berhasil ditempuh oleh Danu dihitung dari posisi awalnya saat ia tepat berpapasan dengan Rian?",
+                unitGuide: "meter",
+                acceptedAnswers: ["200", "200 meter", "200 m", "200m"],
+                displayCorrect: "200 meter",
+                explanation: `
+                    $$\\begin{align}
+                    s_{\\text{Danu}} &= v_{\\text{Danu}} \\times t = 5\\text{ m/s} \\times 40\\text{ s} = \\mathbf{200\\text{ meter}}
+                    \\end{align}$$
+                    <p class="text-xs text-slate-500 mt-1">Jarak tempuh Rian = $4 \\times 40 = 160\\text{ m}$, total $= 160 + 200 = 360\\text{ m}$ (terbukti tepat).</p>
+                `
+            },
+            {
+                id: 7,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Mobil patroli polisi berada $150\\text{ meter}$ di belakang sepeda motor pelanggar lalu lintas. Jika sepeda motor melaju tetap dengan kelajuan $15\\text{ m/s}$ dan mobil polisi mengejar dengan kelajuan $25\\text{ m/s}$, berapa detik waktu yang dibutuhkan mobil polisi untuk menyusul tepat di samping motor?",
+                unitGuide: "detik (s)",
+                acceptedAnswers: ["15", "15 detik", "15 s", "15s"],
+                displayCorrect: "15 detik",
+                explanation: `
+                    $$\\begin{align}
+                    v_{\\text{susul}} &= v_{\\text{polisi}} - v_{\\text{motor}} = 25 - 15 = 10\\text{ m/s} \\\\
+                    t_{\\text{susul}} &= \\dfrac{\\Delta s}{v_{\\text{susul}}} = \\dfrac{150}{10} = \\mathbf{15\\text{ detik}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 8,
+                subtopic: "Subtopik 1: Kelajuan & Gerak Lurus",
+                question: "Kota A dan Kota B terhubung jalan lurus sejauh $260\\text{ km}$. Mobil P berangkat dari kota A menuju B pukul 07.00 dengan kelajuan $60\\text{ km/jam}$. Pada pukul 08.00, mobil Q berangkat dari kota B menuju A dengan kelajuan $40\\text{ km/jam}$. Pada pukul berapakah kedua mobil tersebut berpapasan?",
+                unitGuide: "WIB",
+                acceptedAnswers: ["10.00", "10:00", "10", "10.00 wib", "pukul 10.00", "pukul 10.00 wib", "jam 10"],
+                displayCorrect: "Pukul 10.00 WIB (2 jam setelah mobil Q berangkat)",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Pukul 07.00 - 08.00 (1 jam): } s_P &= 60 \\times 1 = 60\\text{ km} \\\\
+                    \\text{Sisa jarak pada pukul 08.00: } s_{\\text{sisa}} &= 260 - 60 = 200\\text{ km} \\\\
+                    t_{\\text{papasan}} &= \\dfrac{s_{\\text{sisa}}}{v_P + v_Q} = \\dfrac{200}{60 + 40} = \\dfrac{200}{100} = 2\\text{ jam} \\\\
+                    \\text{Waktu papasan} &= 08.00 + 2\\text{ jam} = \\mathbf{10.00\\text{ WIB}}
+                    \\end{align}$$
+                `
+            },
+
+            // SUBTOPIK 2
+            {
+                id: 9,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Sebuah mobil mula-mula berhenti di lampu merah ($v_0 = 0$). Ketika lampu hijau menyala, pengemudi menginjak gas secara teratur hingga kecepatannya bertambah menjadi $18\\text{ m/s}$ dalam selang waktu $6\\text{ detik}$. Berapakah percepatan yang dialami mobil tersebut?",
+                unitGuide: "m/s²",
+                acceptedAnswers: ["3", "3 m/s^2", "3 m/s2", "3m/s2"],
+                displayCorrect: "3 m/s²",
+                explanation: `
+                    $$\\begin{align}
+                    a &= \\dfrac{v_t - v_0}{t} = \\dfrac{18 - 0}{6} = \\mathbf{3\\text{ m/s}^2}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 10,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Sebuah truk tronton sedang melaju di jalan tol dengan kecepatan awal $8\\text{ m/s}$. Pengemudi menekan pedal gas sehingga kecepatannya naik secara konstan menjadi $24\\text{ m/s}$ dalam waktu $4\\text{ detik}$. Hitunglah percepatan truk tersebut!",
+                unitGuide: "m/s²",
+                acceptedAnswers: ["4", "4 m/s^2", "4 m/s2", "4m/s2"],
+                displayCorrect: "4 m/s²",
+                explanation: `
+                    $$\\begin{align}
+                    a &= \\dfrac{v_t - v_0}{t} = \\dfrac{24 - 8}{4} = \\dfrac{16}{4} = \\mathbf{4\\text{ m/s}^2}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 11,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Sepeda motor yang melaju kencang dengan kelajuan $20\\text{ m/s}$ direm secara mendadak dan beraturan hingga berhenti sempurna tepat dalam selang waktu $5\\text{ detik}$. Berapakah besar nilai perlambatan yang dialami motor tersebut?",
+                unitGuide: "m/s²",
+                acceptedAnswers: ["4", "4 m/s^2", "4 m/s2", "-4", "-4 m/s^2"],
+                displayCorrect: "4 m/s²",
+                explanation: `
+                    $$\\begin{align}
+                    a_{\\text{lambat}} &= \\dfrac{v_0 - v_t}{t} = \\dfrac{20 - 0}{5} = \\mathbf{4\\text{ m/s}^2}
+                    \\end{align}$$
+                    <p class="text-xs text-slate-500 mt-1">Percepatan bertanda negatif ($-4\\text{ m/s}^2$), sehingga besar nilai perlambatannya adalah $4\\text{ m/s}^2$.</p>
+                `
+            },
+            {
+                id: 12,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Seorang pesepeda melaju dengan kelajuan awal $4\\text{ m/s}$. Pesepeda tersebut mengayuh pedal lebih kuat sehingga mengalami percepatan tetap sebesar $2\\text{ m/s}^2$ selama $6\\text{ detik}$. Berapakah kelajuan akhir sepeda tersebut?",
+                unitGuide: "m/s",
+                acceptedAnswers: ["16", "16 m/s", "16m/s"],
+                displayCorrect: "16 m/s",
+                explanation: `
+                    $$\\begin{align}
+                    v_t &= v_0 + (a \\times t) = 4 + (2 \\times 6) = 4 + 12 = \\mathbf{16\\text{ m/s}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 13,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Sebuah sedan bergerak dengan kelajuan $90\\text{ km/jam}$ ($25\\text{ m/s}$). Pengemudi menginjak rem sehingga kendaraan mengalami perlambatan tetap sebesar $5\\text{ m/s}^2$ sampai berhenti. Berapa detik waktu yang dibutuhkan sedan tersebut hingga berhenti total?",
+                unitGuide: "detik (s)",
+                acceptedAnswers: ["5", "5 detik", "5 s", "5s"],
+                displayCorrect: "5 detik",
+                explanation: `
+                    $$\\begin{align}
+                    t &= \\dfrac{v_0 - v_t}{a} = \\dfrac{25 - 0}{5} = \\mathbf{5\\text{ detik}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 14,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Sebuah batu dilemparkan vertikal lurus ke atas dengan kelajuan awal $30\\text{ m/s}$. Jika percepatan gravitasi bumi memberikan perlambatan konstan sebesar $10\\text{ m/s}^2$, berapa detik waktu yang dibutuhkan batu untuk mencapai titik tertingginya (berhenti sesaat)?",
+                unitGuide: "detik (s)",
+                acceptedAnswers: ["3", "3 detik", "3 s", "3s"],
+                displayCorrect: "3 detik",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Di titik tertinggi, } v_t = 0 \\implies t &= \\dfrac{v_0}{g} = \\dfrac{30}{10} = \\mathbf{3\\text{ detik}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 15,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Sebuah benda mula-mula diam ($v_0 = 0$). Benda diberi percepatan tetap sebesar $3\\text{ m/s}^2$ selama $4\\text{ detik}$ pertama, lalu kelajuannya dipertahankan konstan selama $8\\text{ detik}$ berikutnya. Berapakah kelajuan konstan benda pada fase kedua tersebut?",
+                unitGuide: "m/s",
+                acceptedAnswers: ["12", "12 m/s", "12m/s"],
+                displayCorrect: "12 m/s",
+                explanation: `
+                    $$\\begin{align}
+                    v_t &= v_0 + (a \\times t) = 0 + (3 \\times 4) = \\mathbf{12\\text{ m/s}}
+                    \\end{align}$$
+                    <p class="mt-1 font-bold text-indigo-700">Kelajuan konstan pada fase kedua sama dengan kelajuan akhir fase pertama, yaitu $12\\text{ m/s}$.</p>
+                `
+            },
+            {
+                id: 16,
+                subtopic: "Subtopik 2: Percepatan & GLBB",
+                question: "Sebuah motor balap dari keadaan diam digas teratur dengan percepatan tetap $2\\text{ m/s}^2$ selama $15\\text{ detik}$. Hitunglah kecepatan akhirnya dan nyatakan hasilnya ke dalam satuan $\\text{km/jam}$!",
+                unitGuide: "km/jam",
+                acceptedAnswers: ["108", "108 km/jam", "108km/jam"],
+                displayCorrect: "108 km/jam",
+                explanation: `
+                    $$\\begin{align}
+                    v_t &= 0 + (2 \\times 15) = 30\\text{ m/s} \\\\
+                    \\text{Konversi ke km/jam: } v_t &= 30 \\times 3{,}6 = \\mathbf{108\\text{ km/jam}}
+                    \\end{align}$$
+                `
+            },
+
+            // SUBTOPIK 3
+            {
+                id: 17,
+                subtopic: "Subtopik 3: Gaya, Kesetimbangan & Berat Planet",
+                question: "Dua orang siswa mendorong mobil mogok ke depan dengan gaya masing-masing $140\\text{ N}$ dan $210\\text{ N}$. Jika permukaan aspal kasar memberikan gaya hambat gesekan ke belakang sebesar $50\\text{ N}$, tentukan besar resultan gaya total yang bekerja pada mobil!",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["300", "300 n", "300 newton", "300n"],
+                displayCorrect: "300 Newton (ke depan)",
+                explanation: `
+                    $$\\begin{align}
+                    \\Sigma F &= (F_1 + F_2) - f_{\\text{gesek}} = (140 + 210) - 50 = 350 - 50 = \\mathbf{300\\text{ N ke depan}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 18,
+                subtopic: "Subtopik 3: Gaya, Kesetimbangan & Berat Planet",
+                question: "Dalam perlombaan tarik tambang, Tim Rajawali menarik tambang ke kiri dengan gaya total $490\\text{ N}$, sedangkan Tim Merpati menarik ke kanan dengan gaya total $560\\text{ N}$. Berapakah nilai resultan gayanya (dalam Newton)?",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["70", "70 n", "70 newton", "70n"],
+                displayCorrect: "70 Newton (ke arah kanan / Tim Merpati Menang)",
+                explanation: `
+                    $$\\begin{align}
+                    \\Sigma F &= 560 - 490 = \\mathbf{70\\text{ N ke arah kanan (Tim Merpati Menang)}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 19,
+                subtopic: "Subtopik 3: Gaya, Kesetimbangan & Berat Planet",
+                question: "Sebuah peti kayu ditarik oleh dua buah tali ke arah kanan dengan gaya masing-masing sebesar $75\\text{ N}$ dan $45\\text{ N}$. Berapakah besar gaya penahan ke arah kiri yang harus dikerjakan agar peti kayu tersebut tetap berada dalam keadaan diam seimbang?",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["120", "120 n", "120 newton", "120n"],
+                displayCorrect: "120 Newton",
+                explanation: `
+                    $$\\begin{align}
+                    \\Sigma F &= 0 \\implies F_{\\text{kiri}} = F_{\\text{kanan}} = 75 + 45 = \\mathbf{120\\text{ N ke arah kiri}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 20,
+                subtopic: "Subtopik 3: Gaya, Kesetimbangan & Berat Planet",
+                question: "Sebuah karung beras memiliki massa tepat $35\\text{ kg}$. Jika percepatan gravitasi bumi di tempat penimbangan tersebut adalah $10\\text{ m/s}^2$, hitunglah berat karung beras tersebut dalam satuan Newton!",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["350", "350 n", "350 newton", "350n"],
+                displayCorrect: "350 Newton",
+                explanation: `
+                    $$\\begin{align}
+                    w &= m \\times g = 35 \\times 10 = \\mathbf{350\\text{ Newton}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 21,
+                subtopic: "Subtopik 3: Gaya, Kesetimbangan & Berat Planet",
+                question: "Sebuah batu meteorit memiliki berat terukur $160\\text{ N}$ saat ditimbang di laboratorium geologi bumi ($g = 10\\text{ m/s}^2$). Berapakah massa batu meteorit tersebut dalam satuan kilogram ($\\text{kg}$)?",
+                unitGuide: "kg",
+                acceptedAnswers: ["16", "16 kg", "16kg"],
+                displayCorrect: "16 kg",
+                explanation: `
+                    $$\\begin{align}
+                    m &= \\dfrac{w}{g} = \\dfrac{160}{10} = \\mathbf{16\\text{ kg}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 22,
+                subtopic: "Subtopik 3: Gaya, Kesetimbangan & Berat Planet",
+                question: "Seorang astronaut memiliki berat terukur $600\\text{ N}$ saat berada di Bumi ($g_{\\text{bumi}} = 10\\text{ m/s}^2$). Berapakah berat astronaut tersebut ketika mendarat dan berjalan di permukaan Bulan yang percepatan gravitasinya $1{,}6\\text{ m/s}^2$?",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["96", "96 n", "96 newton", "96n"],
+                displayCorrect: "96 Newton",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Massa di Bumi: } m &= \\dfrac{w_{\\text{bumi}}}{g_{\\text{bumi}}} = \\dfrac{600}{10} = 60\\text{ kg} \\\\
+                    \\text{Massa di Bulan tetap } m &= 60\\text{ kg} \\\\
+                    w_{\\text{bulan}} &= m \\times g_{\\text{bulan}} = 60 \\times 1{,}6 = \\mathbf{96\\text{ Newton}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 23,
+                subtopic: "Subtopik 3: Gaya, Kesetimbangan & Berat Planet",
+                question: "Sebuah robot penjelajah antariksa memiliki massa $150\\text{ kg}$ saat dirakit di Bumi. Robot tersebut berhasil mendarat di permukaan planet Mars yang memiliki gravitasi $3{,}7\\text{ m/s}^2$. Berapakah berat robot tersebut saat berada di Mars (dalam Newton)?",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["555", "555 n", "555 newton", "555n"],
+                displayCorrect: "555 Newton (massa tetap 150 kg)",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Massa di Mars tetap: } m &= 150\\text{ kg} \\\\
+                    w_{\\text{mars}} &= m \\times g_{\\text{mars}} = 150 \\times 3{,}7 = \\mathbf{555\\text{ Newton}}
+                    \\end{align}$$
+                `
+            },
+
+            // SUBTOPIK 4
+            {
+                id: 24,
+                subtopic: "Subtopik 4: Hukum II Newton & Dinamika",
+                question: "Sebuah kotak perkakas bermassa $5\\text{ kg}$ ditarik dengan gaya mendatar sebesar $35\\text{ N}$ di atas permukaan lantai licin tanpa gesekan. Hitunglah percepatan yang dialami kotak perkakas tersebut!",
+                unitGuide: "m/s²",
+                acceptedAnswers: ["7", "7 m/s^2", "7 m/s2", "7m/s2"],
+                displayCorrect: "7 m/s²",
+                explanation: `
+                    $$\\begin{align}
+                    a &= \\dfrac{F}{m} = \\dfrac{35}{5} = \\mathbf{7\\text{ m/s}^2}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 25,
+                subtopic: "Subtopik 4: Hukum II Newton & Dinamika",
+                question: "Sebuah gaya konstan sebesar $72\\text{ N}$ mampu mendorong sebuah balok kayu sehingga melaju dengan percepatan tetap $4\\text{ m/s}^2$. Berapakah massa balok kayu tersebut dalam kilogram?",
+                unitGuide: "kg",
+                acceptedAnswers: ["18", "18 kg", "18kg"],
+                displayCorrect: "18 kg",
+                explanation: `
+                    $$\\begin{align}
+                    m &= \\dfrac{F}{a} = \\dfrac{72}{4} = \\mathbf{18\\text{ kg}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 26,
+                subtopic: "Subtopik 4: Hukum II Newton & Dinamika",
+                question: "Sebuah benda bermassa $6\\text{ kg}$ didorong ke kanan dengan gaya mendatar sebesar $42\\text{ N}$. Permukaan lantai yang agak kasar memberikan gaya gesekan sebesar $12\\text{ N}$ ke kiri. Berapakah percepatan gerak yang dialami benda tersebut?",
+                unitGuide: "m/s²",
+                acceptedAnswers: ["5", "5 m/s^2", "5 m/s2", "5m/s2"],
+                displayCorrect: "5 m/s²",
+                explanation: `
+                    $$\\begin{align}
+                    \\Sigma F &= F - f_{\\text{gesek}} = 42 - 12 = 30\\text{ N} \\\\
+                    a &= \\dfrac{\\Sigma F}{m} = \\dfrac{30}{6} = \\mathbf{5\\text{ m/s}^2}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 27,
+                subtopic: "Subtopik 4: Hukum II Newton & Dinamika",
+                question: "Sebuah balok bermassa $5\\text{ kg}$ ditarik mendatar oleh gaya $F$ ke arah kanan sehingga bergerak dengan percepatan $4\\text{ m/s}^2$. Jika lantai memberikan gaya hambat gesekan sebesar $10\\text{ N}$, berapakah nilai gaya tarik mendatar $F$ tersebut?",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["30", "30 n", "30 newton", "30n"],
+                displayCorrect: "30 Newton",
+                explanation: `
+                    $$\\begin{align}
+                    \\Sigma F &= m \\times a \\\\
+                    F - 10 &= 5 \\times 4 = 20 \\\\
+                    F &= 20 + 10 = \\mathbf{30\\text{ Newton}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 28,
+                subtopic: "Subtopik 4: Hukum II Newton & Dinamika",
+                question: "Dua buah kotak masing-masing bermassa $m_1 = 4\\text{ kg}$ dan $m_2 = 6\\text{ kg}$ diletakkan berdampingan di atas lantai licin tanpa gesekan. Gaya dorong mendatar sebesar $50\\text{ N}$ diberikan untuk mendorong kedua kotak secara bersama-sama. Hitunglah besar percepatan kedua kotak tersebut!",
+                unitGuide: "m/s²",
+                acceptedAnswers: ["5", "5 m/s^2", "5 m/s2", "5m/s2"],
+                displayCorrect: "5 m/s²",
+                explanation: `
+                    $$\\begin{align}
+                    m_{\\text{total}} &= m_1 + m_2 = 4 + 6 = 10\\text{ kg} \\\\
+                    a &= \\dfrac{F}{m_{\\text{total}}} = \\dfrac{50}{10} = \\mathbf{5\\text{ m/s}^2}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 29,
+                subtopic: "Subtopik 4: Hukum II Newton & Dinamika",
+                question: "Sebuah mobil bermassa $1.500\\text{ kg}$ yang sedang melaju cepat di jalan raya direm hingga berhenti dengan perlambatan tetap sebesar $3\\text{ m/s}^2$. Berapakah besar gaya rem yang menahan dan menghentikan mobil tersebut?",
+                unitGuide: "Newton (N)",
+                acceptedAnswers: ["4500", "4.500", "4500 n", "4.500 n", "4500 newton", "4.500 newton"],
+                displayCorrect: "4.500 Newton",
+                explanation: `
+                    $$\\begin{align}
+                    F_{\\text{rem}} &= m \\times a = 1.500 \\times 3 = \\mathbf{4.500\\text{ Newton}}
+                    \\end{align}$$
+                `
+            },
+            {
+                id: 30,
+                subtopic: "Subtopik 4: Hukum II Newton & Dinamika",
+                question: "Sebuah balok bermassa $8\\text{ kg}$ mula-mula diam ($v_0 = 0$) di atas lantai licin. Balok tersebut didorong oleh gaya mendatar konstan sebesar $32\\text{ N}$ selama $5\\text{ detik}$. Berapakah kelajuan akhirnya setelah $5\\text{ detik}$ dorongan?",
+                unitGuide: "m/s",
+                acceptedAnswers: ["20", "20 m/s", "20m/s"],
+                displayCorrect: "20 m/s (Percepatan a = 4 m/s²)",
+                explanation: `
+                    $$\\begin{align}
+                    a &= \\dfrac{F}{m} = \\dfrac{32}{8} = 4\\text{ m/s}^2 \\\\
+                    v_t &= v_0 + (a \\times t) = 0 + (4 \\times 5) = \\mathbf{20\\text{ m/s}}
+                    \\end{align}$$
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 45 * 60; // 45 menit
+        let timerInterval;
+        let isSubmitted = false;
+
+        function renderMath(targetElement) {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise(targetElement ? [targetElement] : undefined).catch(err => {
+                    console.debug("MathJax rendering:", err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Subtopic Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="bg-indigo-100 text-indigo-900 border border-indigo-200 text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide">
+                                ${q.subtopic}
+                            </span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question & Input Card -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+
+                                <!-- Short Answer Interactive Input Area -->
+                                <div class="bg-indigo-50/70 p-5 rounded-2xl border border-indigo-100 max-w-xl">
+                                    <label for="input-ans-${qNum}" class="block text-xs font-extrabold text-indigo-950 uppercase tracking-wider mb-2">
+                                        Jawaban Anda (${q.unitGuide}):
+                                    </label>
+                                    <div class="flex items-center gap-2">
+                                        <div class="relative flex-1">
+                                            <input 
+                                                type="text" 
+                                                id="input-ans-${qNum}" 
+                                                value="${userAnswers[qNum] || ''}" 
+                                                placeholder="Ketikkan jawaban..."
+                                                oninput="handleInputChange(${qNum}, this.value)"
+                                                onkeydown="handleInputKeydown(event, ${qNum})"
+                                                class="w-full text-lg md:text-xl font-black text-slate-800 bg-white border-2 border-slate-300 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 rounded-xl px-4 py-3 outline-none transition shadow-sm placeholder:font-normal placeholder:text-slate-400"
+                                            />
+                                        </div>
+                                        <span class="px-3.5 py-3 bg-indigo-600 text-white font-black text-sm rounded-xl shrink-0 shadow-sm">
+                                            ${q.unitGuide}
+                                        </span>
+                                    </div>
+                                    <p class="text-[11px] text-indigo-900/70 font-medium mt-2 flex items-center gap-1">
+                                        <svg class="w-3.5 h-3.5 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        Tekan [Enter] untuk langsung berpindah ke nomor berikutnya.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Format angka bebas spasi. Nilai koma maupun titik dapat diterima.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 ${userAnswers[qNum] ? '' : 'hidden'}">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function handleInputChange(qNum, value) {
+            if (isSubmitted) return;
+            const cleanVal = value.trim();
+            if (cleanVal.length > 0) {
+                userAnswers[qNum] = cleanVal;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+
+            if (userAnswers[qNum]) {
+                if (navBtn) {
+                    navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+                }
+                if (statusEl) statusEl.classList.remove('hidden');
+            } else {
+                if (navBtn) {
+                    navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+                if (statusEl) statusEl.classList.add('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terisi: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function handleInputKeydown(e, qNum) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                nextQuestion();
+            }
+        }
+
+        function clearCurrentAnswer() {
+            if (isSubmitted) return;
+            const inputEl = document.getElementById(`input-ans-${currentQuestion}`);
+            if (inputEl) {
+                inputEl.value = '';
+                handleInputChange(currentQuestion, '');
+                inputEl.focus();
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            showSlide(currentQuestion);
+            renderMath();
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) { // < 5 mins
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-800', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMath(activeSlide);
+                setTimeout(() => {
+                    const inp = document.getElementById(`input-ans-${n}`);
+                    if (inp) inp.focus();
+                }, 50);
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        // Theory modal
+        function openTheoryModal() {
+            document.getElementById('theory-modal').classList.remove('hidden-section');
+            renderMath(document.getElementById('theory-modal'));
+        }
+
+        function closeTheoryModal() {
+            document.getElementById('theory-modal').classList.add('hidden-section');
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Kumpul Latihan";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah mengisi <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal isian.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} nomor yang belum diisi!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua soal sudah terisi lengkap!</span>`}
+                Apakah Anda yakin ingin mengumpulkan lembar jawaban Anda sekarang?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu pengerjaan 45 menit telah selesai. Jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        // Robust answer normalization & evaluation engine
+        function checkAnswer(userAns, q) {
+            if (!userAns) return false;
+            const raw = userAns.toString().trim().toLowerCase();
+            const rawClean = raw.replace(/\s+/g, '');
+
+            // 1. Direct string match against accepted answers
+            for (let target of q.acceptedAnswers) {
+                const targetClean = target.toString().trim().toLowerCase().replace(/\s+/g, '');
+                if (rawClean === targetClean) return true;
+            }
+
+            // 2. Special format for Soal 8 (Waktu / Pukul 10.00)
+            if (q.id === 8) {
+                if (/^(pukul\s*)?10([.:]00)?(\s*wib)?$/i.test(raw)) return true;
+                if (rawClean === "10" || rawClean === "10.00" || rawClean === "10:00" || rawClean === "1000") return true;
+                return false;
+            }
+
+            // 3. Special format for Soal 29 (4.500 / 4500)
+            if (q.id === 29) {
+                if (rawClean.includes("4500") || rawClean.includes("4.500") || rawClean.includes("4,500")) {
+                    return true;
+                }
+            }
+
+            // 4. Strict numeric parsing with unit tolerance
+            // Convert comma to dot for decimal parsing (e.g. 1,6 -> 1.6)
+            let numStr = raw.replace(',', '.');
+            const match = numStr.match(/-?\d+(\.\d+)?/);
+            if (!match) return false;
+
+            const parsedUserNum = parseFloat(match[0]);
+
+            for (let target of q.acceptedAnswers) {
+                const targetDot = target.toString().replace(',', '.');
+                const targetMatch = targetDot.match(/-?\d+(\.\d+)?/);
+                if (targetMatch) {
+                    const targetNum = parseFloat(targetMatch[0]);
+                    // Exact value match prevents "40" from matching "4"
+                    if (Math.abs(parsedUserNum - targetNum) < 0.0001) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = checkAnswer(userAns, q);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+            renderMath();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (!userAns) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-900 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> KOSONG</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-900 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-900 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Card Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-bold">(${q.subtopic})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-5 font-semibold leading-relaxed">${q.question}</div>
+
+                            <!-- User Answer vs Correct Key Comparison -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                                <div class="p-3.5 rounded-2xl border ${isCorrect ? 'border-emerald-300 bg-emerald-50/70' : 'border-rose-300 bg-rose-50/70'}">
+                                    <p class="text-[11px] font-bold uppercase ${isCorrect ? 'text-emerald-800' : 'text-rose-800'} mb-1">Jawaban Anda:</p>
+                                    <p class="text-base font-black ${isCorrect ? 'text-emerald-950' : 'text-rose-950'}">
+                                        ${userAns ? userAns : '<em class="font-normal text-slate-400">Tidak diisi</em>'}
+                                    </p>
+                                </div>
+                                <div class="p-3.5 rounded-2xl border border-indigo-300 bg-indigo-50/70">
+                                    <p class="text-[11px] font-bold uppercase text-indigo-800 mb-1">Kunci Jawaban Target:</p>
+                                    <p class="text-base font-black text-indigo-950">${q.displayCorrect}</p>
+                                </div>
+                            </div>
+
+                            <!-- Step-by-step Math Solution -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-950 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Langkah Pembahasan Matematis:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed overflow-x-auto">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            renderMath(container);
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+
+        function restartQuiz() {
+            userAnswers = {};
+            isSubmitted = false;
+            currentQuestion = 1;
+            timeLeft = 45 * 60;
+
+            document.getElementById('result-screen').classList.add('hidden-section');
+            document.getElementById('start-screen').classList.remove('hidden-section');
+
+            renderQuestionsSlides();
+            renderNavigationButtons();
+            document.getElementById('answered-counter').innerText = `Terisi: 0 / ${totalQuestions}`;
+            document.getElementById('timer-display').innerText = '45:00';
+            document.getElementById('timer-display').className = 'bg-indigo-50 text-indigo-800 px-3.5 py-1 rounded-xl font-mono text-base md:text-lg font-black border border-indigo-200 shadow-inner';
+        }
+    </script>
+</body>
+</html>
