@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Ujian Matematika SMP - Pola Bilangan, Barisan & Deret</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbars */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Card Selection */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.18);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+
+        /* MathJax Responsive Container to prevent mobile overflow */
+        mjx-container {
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            max-width: 100% !important;
+            padding: 2px 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMP / MTs</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">UNBK, OSN & SMA Unggulan</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI UJIAN POLA BILANGAN, BARISAN & DERET</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi: Pola Konfigurasi Objek, Barisan Aritmetika, Deret Geometri, Pola Bertingkat & Penalaran TKA</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>56 Butir Pilihan Ganda</strong> (A, B, C, D).</li>
+                    <li>Waktu Pengerjaan: <strong>90 Menit</strong> (disertai indikator waktu digital otomatis).</li>
+                    <li>Skor Maksimal: <strong>100 Poin</strong> (dihitung proporsional berdasarkan butir soal yang dijawab benar).</li>
+                    <li>Pilihlah salah satu opsi jawaban yang Anda anggap paling tepat. Anda dapat mengubah pilihan kapan saja sebelum mengumpulkan.</li>
+                    <li>Kunci jawaban dan pembahasan analitis langkah demi langkah (<em>step-by-step</em>) akan ditampilkan lengkap di akhir ujian.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 1</p>
+                    <p class="text-xs font-black">Barisan Aritmetika</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 2</p>
+                    <p class="text-xs font-black">Barisan Geometri</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 3</p>
+                    <p class="text-xs font-black">Pola Korek & Objek</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 4</p>
+                    <p class="text-xs font-black">TKA & Asrama Unggulan</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MATEMATIKA SMP / MTs</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Pola Bilangan, Barisan & Deret</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner transition-colors" id="timer-display">
+                            90:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 56 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–56)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 56</span>
+                    </div>
+                    <div class="grid grid-cols-7 sm:grid-cols-10 md:grid-cols-14 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Multiple Choice options -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan dan mengumpulkan lembar ujian ini? Nilai dan seluruh pembahasan lengkap akan segera ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah perolehan nilai akhir dan kunci pembahasan komprehensif 56 butir soal barisan & deret.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Alternatif Pembahasan</h3>
+                        <p class="text-sm text-slate-500">Pelajari rincian rumus suku ke-$n$, deret aritmetika/geometri, dan analisis pola konfigurasi objek.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">56</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                source: "Soal UNBK Matematika SMP 2019",
+                question: "Rumus suku ke-$n$ suatu barisan adalah $U_{n}=3n+2$. Jumlah suku ke-$25$ dan suku ke-$27$ dari barisan tersebut adalah...",
+                options: [
+                    { key: "A", text: "$154$" },
+                    { key: "B", text: "$160$" },
+                    { key: "C", text: "$164$" },
+                    { key: "D", text: "$166$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    U_{n} &= 3n+2 \\\\
+                    U_{25} &= 3(25)+2 = 77 \\\\
+                    U_{27} &= 3(27)+2 = 83 \\\\
+                    U_{25}+U_{27} &= 77 + 83 = \\mathbf{160}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $160$</p>
+                `
+            },
+            {
+                id: 2,
+                source: "Soal UNBK Matematika SMP 2019",
+                question: "Peneliti $A$ dan $B$ mengembangbiakkan masing-masing $35$ amuba. Amuba Peneliti $A$ mampu membelah diri menjadi dua setiap $15$ menit sedangkan amuba Peneliti $B$ membelah diri menjadi dua setiap $25$ menit. Amuba peneliti $A$ saat ini menjadi $1.120$. Peneliti $B$ akan memiliki amuba saat ini sebanyak...",
+                options: [
+                    { key: "A", text: "$135$" },
+                    { key: "B", text: "$192$" },
+                    { key: "C", text: "$256$" },
+                    { key: "D", text: "$280$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Pembelahan amuba Peneliti $A$:</p>
+                    <p class="font-mono text-xs my-1">35 &#8594; 70 &#8594; 140 &#8594; 280 &#8594; 560 &#8594; 1.120 (5 kali membelah)</p>
+                    <p>Waktu yang telah berlalu: $5 \\times 15\\text{ menit} = 75\\text{ menit}$.</p>
+                    <p>Dalam $75$ menit, amuba Peneliti $B$ membelah sebanyak: $\\frac{75}{25} = 3$ kali.</p>
+                    $$\\begin{align}
+                    B &= 35 \\times 2^3 = 35 \\times 8 = \\mathbf{280\\text{ amuba}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $280$</p>
+                `
+            },
+            {
+                id: 3,
+                source: "Soal Simulasi UNBK Matematika SMP 2019",
+                question: `
+                    <p class="mb-2">Perhatikan pola yang dibentuk dari potongan lidi berikut ini!</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbPvQfmJ2fHAVFdeu6VYaB8r9maRL703kd-ZUN22bnmHnkIV_q00UnTMwN7XMFBUfH-GMm_fO-LDQdi-RuCGxUDQtLLvpyFlx_X9T-Lws7XIIqKKUtztxqZSE7Eum5C7INrfCwByxE8oZC/s1600/UNBK+Matematika+SMP+Potongan+Lidi.jpg" alt="Pola Potongan Lidi Persegi" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x180/eef2ff/3730a3?text=Pola+Lidi+Persegi';">
+                    </div>
+                    <p>Banyak potongan lidi pada pola ke-$55$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$166$" },
+                    { key: "B", text: "$169$" },
+                    { key: "C", text: "$170$" },
+                    { key: "D", text: "$175$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Barisan banyak lidi: $4, 7, 10, 13, 16, \\dots$ dengan $a = 4$ dan $b = 3$.</p>
+                    $$\\begin{align}
+                    U_{55} &= a + (n-1)b = 4 + (55 - 1)3 \\\\
+                    &= 4 + (54 \\times 3) = 4 + 162 = \\mathbf{166}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $166$</p>
+                `
+            },
+            {
+                id: 4,
+                source: "Soal Simulasi UNBK Matematika SMP 2019",
+                question: "Jumlah bilangan kelipatan $3$ dan $4$ antara $200$ dan $300$ adalah...",
+                options: [
+                    { key: "A", text: "$1.968$" },
+                    { key: "B", text: "$1.764$" },
+                    { key: "C", text: "$1.680$" },
+                    { key: "D", text: "$1.476$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Kelipatan $3$ dan $4$ merupakan kelipatan $\\text{KPK}(3,4) = 12$.</p>
+                    <p>Bilangan antara $200$ dan $300$: $204, 216, 228, \\dots, 288$.</p>
+                    $$\\begin{align}
+                    U_n &= 204 + (n-1)12 = 288 \\implies 12(n-1) = 84 \\implies n-1 = 7 \\implies n = 8 \\\\
+                    S_8 &= \\frac{8}{2}(204 + 288) = 4 \\times 492 = \\mathbf{1.968}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $1.968$</p>
+                `
+            },
+            {
+                id: 5,
+                source: "Soal Simulasi UNBK Matematika SMP 2019",
+                question: "Tiga suku berikutnya dari barisan $4, 6, 10, 16, 24, \\cdots$ adalah...",
+                options: [
+                    { key: "A", text: "$32, 42, 54$" },
+                    { key: "B", text: "$34, 44, 56$" },
+                    { key: "C", text: "$34, 46, 60$" },
+                    { key: "D", text: "$32, 48, 80$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Perhatikan pola selisih yang bertambah $2$ secara berkala:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$4 \\xrightarrow{+2} 6 \\xrightarrow{+4} 10 \\xrightarrow{+6} 16 \\xrightarrow{+8} 24$</li>
+                        <li>Suku ke-6: $24 + 10 = \\mathbf{34}$</li>
+                        <li>Suku ke-7: $34 + 12 = \\mathbf{46}$</li>
+                        <li>Suku ke-8: $46 + 14 = \\mathbf{60}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $34, 46, 60$</p>
+                `
+            },
+            {
+                id: 6,
+                source: "Soal UNBK Matematika SMP 2018",
+                question: `
+                    <p class="mb-2">Perhatikan pola yang dibentuk dari potongan lidi berikut ini!</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjFSOw8dzrsXRzU-mjZC7l5jJNrCp5RvWX0Aw1jQfCgaIAsbWAkBYbYMs57iBmE9NMGfLJMAuhSd8OreQ3vFiuYDC1h07iDvMuG0a1UOU0PHKbr52YNuUCdLYpXwyz6R8KQWNazmlZZdDYhzoP9tZwvgz4nxBVD2Z-lk2NEr1grCnY-g5beUxA3Uv4DaA" alt="Pola Potongan Lidi Segitiga" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x180/eef2ff/3730a3?text=Pola+Lidi+Segitiga';">
+                    </div>
+                    <p>Banyak potongan lidi pada pola ke-$50$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$195$" },
+                    { key: "B", text: "$199$" },
+                    { key: "C", text: "$203$" },
+                    { key: "D", text: "$207$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Pola lidi segitiga: $3, 7, 11, 15, 19, \\dots$ dengan $a = 3$ dan $b = 4$.</p>
+                    $$\\begin{align}
+                    U_{50} &= a + (n-1)b = 3 + (50-1)4 \\\\
+                    &= 3 + (49 \\times 4) = 3 + 196 = \\mathbf{199}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $199$</p>
+                `
+            },
+            {
+                id: 7,
+                source: "Soal UNBK Matematika SMP 2018",
+                question: "Jumlah bilangan kelipatan $2$ dan $3$ antara $200$ dan $400$ adalah...",
+                options: [
+                    { key: "A", text: "$9.900$" },
+                    { key: "B", text: "$13.200$" },
+                    { key: "C", text: "$19.600$" },
+                    { key: "D", text: "$19.800$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Kelipatan $2$ dan $3$ adalah kelipatan $6$: $204, 210, 216, \\dots, 396$.</p>
+                    $$\\begin{align}
+                    U_n &= 204 + (n-1)6 = 396 \\implies 6(n-1) = 192 \\implies n-1 = 32 \\implies n = 33 \\\\
+                    S_{33} &= \\frac{33}{2}(204 + 396) = \\frac{33}{2}(600) = 33 \\times 300 = \\mathbf{9.900}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $9.900$</p>
+                `
+            },
+            {
+                id: 8,
+                source: "Soal UNBK Matematika SMP 2018",
+                question: "Tiga suku berikutnya dari barisan $25, 27, 30, 34, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$39, 42, 46$" },
+                    { key: "B", text: "$38, 43, 49$" },
+                    { key: "C", text: "$39, 44, 49$" },
+                    { key: "D", text: "$39, 45, 52$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Pola kenaikan bertingkat satu: $+2, +3, +4, +5, +6, +7$.</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$34 + 5 = \\mathbf{39}$</li>
+                        <li>$39 + 6 = \\mathbf{45}$</li>
+                        <li>$45 + 7 = \\mathbf{52}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $39, 45, 52$</p>
+                `
+            },
+            {
+                id: 9,
+                source: "Soal Simulasi UNBK Matematika SMP 2018",
+                question: `
+                    <p class="mb-2">Perhatikan gambar berpola persegi di bawah ini:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjJ3kI_LyrbFEgNfCt5H6F5J8qy2XvigTSE1EoFoocelw9lpmcgFSbSyrZXoXO6Z4dPxbBqLuvhgozWcOGsWR3nJAOk8AVvg2_dFApeMV3nGZaf6rFz2RKyLWFrTqjVuC3n33SXQYDk71oLUw9Co6yCTExp_0biKI7PhP0PqMi65vVzQfpPTTGUfyiPBQ" alt="Pola Persegi Bertingkat" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x180/eef2ff/3730a3?text=Pola+Persegi';">
+                    </div>
+                    <p>Banyak persegi pada gambar ke-$7$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$21$" },
+                    { key: "B", text: "$25$" },
+                    { key: "C", text: "$29$" },
+                    { key: "D", text: "$46$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Banyak persegi: $1, 5, 9, 13, \\dots$ dengan $a = 1$ dan $b = 4$.</p>
+                    $$\\begin{align}
+                    U_7 &= a + (7 - 1)b = 1 + 6(4) = 1 + 24 = \\mathbf{25}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $25$</p>
+                `
+            },
+            {
+                id: 10,
+                source: "Soal UN Matematika SMP 2018",
+                question: "Tiga suku berikutnya dari barisan $1, 5, 11, 19, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$29, 42, 56$" },
+                    { key: "B", text: "$29, 41, 55$" },
+                    { key: "C", text: "$29, 40, 49$" },
+                    { key: "D", text: "$29, 39, 49$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Pola barisan: $n^2 + (n-1)$ atau selisih berurutan $+4, +6, +8, +10, +12, +14$:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$19 + 10 = \\mathbf{29}$</li>
+                        <li>$29 + 12 = \\mathbf{41}$</li>
+                        <li>$41 + 14 = \\mathbf{55}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $29, 41, 55$</p>
+                `
+            },
+            {
+                id: 11,
+                source: "Soal UN Matematika SMP 2017",
+                question: "Perhatikan barisan bilangan berikut: $12, 20, 30, 42, 56, \\dots$. Suku ke-$12$ dari barisan tersebut adalah...",
+                options: [
+                    { key: "A", text: "$132$" },
+                    { key: "B", text: "$156$" },
+                    { key: "C", text: "$182$" },
+                    { key: "D", text: "$210$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Pola perkalian dua bilangan bulat berturutan: $U_n = (n + 3)(n + 2)$.</p>
+                    $$\\begin{align}
+                    U_{12} &= (12 + 3) \\times (12 + 2) = 15 \\times 14 = \\mathbf{210}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $210$</p>
+                `
+            },
+            {
+                id: 12,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2018",
+                question: `
+                    <p class="mb-2">Gambar berikut adalah segitiga yang disusun dari batang korek api:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh88zAtwrXnE-s-XvcTGpUCxd44ojFBc4jePyxU2zD_PG4RIz1XYc5wbAgpvn9uJ-AEju_oxpQg73-bSZ34uGKIXj5uAxqGwNHcDmbpwQikc4Ilh56fmvvZNZg774F00LaKzguLaG9DMDT3/s1600/Barisan+segitiga+soal+yasop+2018.jpg" alt="Susunan Batang Korek Api Segitiga" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x220/eef2ff/3730a3?text=Segitiga+Korek+Api';">
+                    </div>
+                    <p>Banyak batang korek api yang dibutuhkan untuk membuat pola ke-$6$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$36$" },
+                    { key: "B", text: "$48$" },
+                    { key: "C", text: "$63$" },
+                    { key: "D", text: "$84$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Rumus korek api pola ke-$n$: $3 \\times \\frac{n(n+1)}{2}$.</p>
+                    $$\\begin{align}
+                    U_6 &= 3 \\times (1 + 2 + 3 + 4 + 5 + 6) = 3 \\times 21 = \\mathbf{63}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $63$</p>
+                `
+            },
+            {
+                id: 13,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2018",
+                question: "Jumlah semua bilangan asli antara $20$ dan $140$ yang habis dibagi $3$ tetapi tidak habis dibagi $2$ adalah...",
+                options: [
+                    { key: "A", text: "$1.530$" },
+                    { key: "B", text: "$1.540$" },
+                    { key: "C", text: "$1.550$" },
+                    { key: "D", text: "$1.560$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Kelipatan $3$: $21, 24, \\dots, 138$ ($n = 40$), $S_{40} = \\frac{40}{2}(21 + 138) = 3.180$.</li>
+                        <li>Kelipatan $3$ dan $2$ (kelipatan $6$): $24, 30, \\dots, 138$ ($n = 20$), $S_{20} = \\frac{20}{2}(24 + 138) = 1.620$.</li>
+                        <li>Jumlah habis dibagi 3 tetapi tidak habis 2: $3.180 - 1.620 = \\mathbf{1.560}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $1.560$</p>
+                `
+            },
+            {
+                id: 14,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2009",
+                question: "Lengkapi barisan berikut: $3, 3, 9, 45, 315, \\dots$",
+                options: [
+                    { key: "A", text: "$2.538$" },
+                    { key: "B", text: "$2.853$" },
+                    { key: "C", text: "$2.385$" },
+                    { key: "D", text: "$2.835$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Pola perkalian dengan bilangan ganjil berturutan:</p>
+                    <p class="font-mono text-xs my-1">3 &#215; 1 = 3 | 3 &#215; 3 = 9 | 9 &#215; 5 = 45 | 45 &#215; 7 = 315</p>
+                    $$\\begin{align}
+                    U_6 &= 315 \\times 9 = \\mathbf{2.835}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $2.835$</p>
+                `
+            },
+            {
+                id: 15,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2009",
+                question: "Diberikan barisan $81, 2, 27, 6, 9, 18, a, b$. Nilai $b$ dan $a$ berturut-turut adalah...",
+                options: [
+                    { key: "A", text: "$54\\text{ dan } 3$" },
+                    { key: "B", text: "$3\\text{ dan } 54$" },
+                    { key: "C", text: "$3\\text{ dan } 45$" },
+                    { key: "D", text: "$45\\text{ dan } 3$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Barisan berselang-seling (larik ganjil dan genap):</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Larik ganjil (dibagi $3$): $81, 27, 9, a \\implies a = \\frac{9}{3} = 3$.</li>
+                        <li>Larik genap (dikali $3$): $2, 6, 18, b \\implies b = 18 \\times 3 = 54$.</li>
+                    </ul>
+                    <p>Maka nilai $b$ dan $a$ adalah $54$ dan $3$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $54\\text{ dan } 3$</p>
+                `
+            },
+            {
+                id: 16,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2008",
+                question: "Lengkapi barisan berikut: $3, 6, 12, 15, 30, 33, \\dots$",
+                options: [
+                    { key: "A", text: "$36$" },
+                    { key: "B", text: "$66$" },
+                    { key: "C", text: "$99$" },
+                    { key: "D", text: "$38$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Pola operasi selang-seling: $\\times 2$ lalu $+3$:</p>
+                    <p class="font-mono text-xs my-1">3 (&#215;2) = 6 (+3) = 9 (revisi ke 12: 6 &#215; 2 = 12, 12 + 3 = 15, 15 &#215; 2 = 30, 30 + 3 = 33)</p>
+                    $$\\begin{align}
+                    U_7 &= 33 \\times 2 = \\mathbf{66}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $66$</p>
+                `
+            },
+            {
+                id: 17,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2008",
+                question: "Lengkapi barisan berikut: $3, 3, 6, 18, 72, 360, \\dots$",
+                options: [
+                    { key: "A", text: "$2.520$" },
+                    { key: "B", text: "$720$" },
+                    { key: "C", text: "$2.160$" },
+                    { key: "D", text: "$1.440$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Pola perkalian naik satu: $\\times 1, \\times 2, \\times 3, \\times 4, \\times 5, \\times 6$:</p>
+                    $$\\begin{align}
+                    U_7 &= 360 \\times 6 = \\mathbf{2.160}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $2.160$</p>
+                `
+            },
+            {
+                id: 18,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2008",
+                question: "Berapakah nilai $a$ dan $b$ pada barisan berikut ini: $2, 3, 4, 6, 8, 9, 16, a, b$?",
+                options: [
+                    { key: "A", text: "$18\\text{ dan } 19$" },
+                    { key: "B", text: "$27\\text{ dan } 32$" },
+                    { key: "C", text: "$12\\text{ dan } 32$" },
+                    { key: "D", text: "$32\\text{ dan } 33$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Larik ganjil (dikali $2$): $2, 4, 8, 16, b \\implies b = 16 \\times 2 = 32$.</li>
+                        <li>Larik genap (ditambah $3$): $3, 6, 9, a \\implies a = 9 + 3 = 12$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $12\\text{ dan } 32$</p>
+                `
+            },
+            {
+                id: 19,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2009",
+                question: "Suku ke-$n$ dari barisan bilangan segitiga $1, 3, 6, 10, 15, 21, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$n(n+1)$" },
+                    { key: "B", text: "$\\dfrac{n(n+1)}{2}$" },
+                    { key: "C", text: "$n(n+2)$" },
+                    { key: "D", text: "$\\dfrac{n(n+2)}{2}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Barisan bilangan segitiga mempunyai rumus umum:</p>
+                    $$\\begin{align}
+                    U_n &= \\mathbf{\\frac{n(n+1)}{2}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\dfrac{n(n+1)}{2}$</p>
+                `
+            },
+            {
+                id: 20,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2007",
+                question: "Dari suatu barisan aritmatika diketahui $U_{3}=5$, $U_{7}=13$ dan beda $b=2$. Rumus suku ke-$n$ barisan bilangan tersebut adalah...",
+                options: [
+                    { key: "A", text: "$U_{n}=2n+1$" },
+                    { key: "B", text: "$U_{n}=2n-1$" },
+                    { key: "C", text: "$U_{n}=3n-1$" },
+                    { key: "D", text: "$U_{n}=n^{2}-1$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    U_3 &= a + 2(2) = 5 \\implies a = 1 \\\\
+                    U_n &= a + (n-1)b = 1 + (n-1)2 = 1 + 2n - 2 = \\mathbf{2n - 1}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $U_n = 2n - 1$</p>
+                `
+            }
+        ];
+    </script>
+
+    <script>
+        const questionsPart2 = [
+            {
+                id: 21,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2007",
+                question: "Suku ke-$n$ dari barisan pola segitiga $1, 3, 6, 10, 15, 21, \\dots$ dinyatakan dengan formula...",
+                options: [
+                    { key: "A", text: "$n(n+1)$" },
+                    { key: "B", text: "$\\dfrac{n(n+1)}{2}$" },
+                    { key: "C", text: "$n(n+2)$" },
+                    { key: "D", text: "$\\dfrac{n(n+2)}{2}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    U_1 &= \\frac{1 \\times 2}{2} = 1, \\quad U_2 = \\frac{2 \\times 3}{2} = 3, \\quad U_3 = \\frac{3 \\times 4}{2} = 6 \\\\
+                    U_n &= \\mathbf{\\frac{n(n+1)}{2}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\dfrac{n(n+1)}{2}$</p>
+                `
+            },
+            {
+                id: 22,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2007",
+                question: "Rumus suku ke-$n$ dari barisan bilangan $0, 4, 10, 18, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$\\frac{1}{2}n(n+1)$" },
+                    { key: "B", text: "$2n(n+1)$" },
+                    { key: "C", text: "$(n-1)(n+2)$" },
+                    { key: "D", text: "$(n+1)(n+2)$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Faktorkan tiap suku:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$U_1 = 0 \\times 3 = (1-1)(1+2) = 0$</li>
+                        <li>$U_2 = 1 \\times 4 = (2-1)(2+2) = 4$</li>
+                        <li>$U_3 = 2 \\times 5 = (3-1)(3+2) = 10$</li>
+                        <li>$U_4 = 3 \\times 6 = (4-1)(4+2) = 18$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $(n-1)(n+2)$</p>
+                `
+            },
+            {
+                id: 23,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2006",
+                question: "Suatu barisan bilangan $2, 6, 12, 20, \\dots$. Suku yang ke-$20$ adalah...",
+                options: [
+                    { key: "A", text: "$420$" },
+                    { key: "B", text: "$480$" },
+                    { key: "C", text: "$500$" },
+                    { key: "D", text: "$602$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Pola persegi panjang: $U_n = n(n+1)$.</p>
+                    $$\\begin{align}
+                    U_{20} &= 20 \\times (20 + 1) = 20 \\times 21 = \\mathbf{420}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $420$</p>
+                `
+            },
+            {
+                id: 24,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2005",
+                question: "Bilangan-bilangan disusun dan dikelompokkan menurut pola: $(2,6), (3,7), (4,8), (5,9), \\dots$. Bilangan pada kelompok ke-$62$ adalah...",
+                options: [
+                    { key: "A", text: "$(61,65)$" },
+                    { key: "B", text: "$(62,66)$" },
+                    { key: "C", text: "$(63,67)$" },
+                    { key: "D", text: "$(64,68)$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Pola kelompok ke-$n$: $K_n = (n + 1, n + 5)$.</p>
+                    $$\\begin{align}
+                    K_{62} &= (62 + 1, 62 + 5) = \\mathbf{(63, 67)}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $(63, 67)$</p>
+                `
+            },
+            {
+                id: 25,
+                source: "Soal Masuk SMA Unggul Del 2018",
+                question: `
+                    <p class="mb-2">Perhatikan pola segitiga lingkaran berikut ini:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiItpnlmdFY7qhrYV6ogjhGylfsZB7PF3dX18ydAxvIFijO46dinEApYxSRlzK5k6yFY_nJH1I8KxSqOpDxPGR1SDWpeb0NkdCj2OKda2SCaVe31s3skuFX5kP6kge30DziAMTqfoz574Ih/s1600/Banyak+Lingkaran.jpg" alt="Pola Lingkaran Segitiga" class="max-w-xs h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/260x260/eef2ff/3730a3?text=Pola+Lingkaran';">
+                    </div>
+                    <p>Banyak lingkaran pada pola ke-$50$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$1.275$" },
+                    { key: "B", text: "$1.326$" },
+                    { key: "C", text: "$1.452$" },
+                    { key: "D", text: "$1.546$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Pola 1 = 3 ($1+2$), Pola 2 = 6 ($1+2+3$), Pola 3 = 10 ($1+2+3+4$).</p>
+                    <p>Pola ke-$50$ setara dengan $S_{51}$ dari barisan $1, 2, 3, \\dots$:</p>
+                    $$\\begin{align}
+                    S_{51} &= \\frac{51}{2}(1 + 51) = \\frac{51}{2}(52) = 51 \\times 26 = \\mathbf{1.326}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $1.326$</p>
+                `
+            },
+            {
+                id: 26,
+                source: "Soal UN Matematika SMP 2018",
+                question: `
+                    <p class="mb-2">Perhatikan pola bulatan berikut:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiVUDy1mg0r021oRfaJgPgzt8BtFNvCyGVEkLhm1cy6M3tesX32SfSCMx2i6sN5pHGM-goboU99qDNEoIy93qZ59G1HLkzw1ZaBG-Kvw-Xr-ETCUxcS9S1r8kmQT4qwkTqqUO_nX7IWyn-WuKCd8vIDGfNi3c-mZRngoqNI0i-_Z-OY8mSHk-xqUsjSLg" alt="Pola Bulatan Silang" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x200/eef2ff/3730a3?text=Pola+Bulatan';">
+                    </div>
+                    <p>Jika pola di atas dilanjutkan, banyak bulatan pada pola ke-$61$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$249$" },
+                    { key: "B", text: "$241$" },
+                    { key: "C", text: "$66$" },
+                    { key: "D", text: "$64$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Barisan bulatan: $1, 5, 9, 13, 17, \\dots$ dengan $a = 1$ dan $b = 4$.</p>
+                    $$\\begin{align}
+                    U_{61} &= a + (61 - 1)b = 1 + (60 \\times 4) = 1 + 240 = \\mathbf{241}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $241$</p>
+                `
+            },
+            {
+                id: 27,
+                source: "Soal UN Matematika SMP 2018",
+                question: "Jumlah semua bilangan kelipatan $3$ dan $4$ antara $200$ dan $450$ adalah...",
+                options: [
+                    { key: "A", text: "$8.700$" },
+                    { key: "B", text: "$6.804$" },
+                    { key: "C", text: "$6.360$" },
+                    { key: "D", text: "$6.300$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Kelipatan $12$ antara $200$ dan $450$: $204, 216, \\dots, 444$.</p>
+                    $$\\begin{align}
+                    U_n &= 204 + (n-1)12 = 444 \\implies 12(n-1) = 240 \\implies n = 21 \\\\
+                    S_{21} &= \\frac{21}{2}(204 + 444) = \\frac{21}{2}(648) = 21 \\times 324 = \\mathbf{6.804}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $6.804$</p>
+                `
+            },
+            {
+                id: 28,
+                source: "Soal UN Matematika SMP 2016",
+                question: `
+                    <p class="mb-2">Gambar berikut adalah segitiga yang disusun dari batang korek api:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh88zAtwrXnE-s-XvcTGpUCxd44ojFBc4jePyxU2zD_PG4RIz1XYc5wbAgpvn9uJ-AEju_oxpQg73-bSZ34uGKIXj5uAxqGwNHcDmbpwQikc4Ilh56fmvvZNZg774F00LaKzguLaG9DMDT3/s1600/Barisan+segitiga+soal+yasop+2018.jpg" alt="Susunan Segitiga Korek Api" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x220/eef2ff/3730a3?text=Segitiga+Korek+Api';">
+                    </div>
+                    <p>Banyak batang korek api yang diperlukan untuk membuat pola ke-$7$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$45$" },
+                    { key: "B", text: "$63$" },
+                    { key: "C", text: "$84$" },
+                    { key: "D", text: "$108$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    U_7 &= 3 \\times (1 + 2 + 3 + 4 + 5 + 6 + 7) \\\\
+                    &= 3 \\times 28 = \\mathbf{84}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $84$</p>
+                `
+            },
+            {
+                id: 29,
+                source: "Soal UN Matematika SMP 2016",
+                question: "Suku pertama dan kelima suatu barisan geometri berturut-turut $5$ dan $80$. Suku ke-$9$ barisan tersebut adalah...",
+                options: [
+                    { key: "A", text: "$90$" },
+                    { key: "B", text: "$405$" },
+                    { key: "C", text: "$940$" },
+                    { key: "D", text: "$1.280$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    U_5 &= ar^4 = 5r^4 = 80 \\implies r^4 = 16 \\implies r = 2 \\\\
+                    U_9 &= ar^8 = 5(2^8) = 5 \\times 256 = \\mathbf{1.280}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $1.280$</p>
+                    <p class="text-xs text-slate-500 mt-2 bg-slate-100 p-2 rounded-lg border border-slate-200"><em>Catatan QC: Pada naskah asli blog terdapat saltik pengetikan 1.028 di baris akhir, namun hasil perhitungan presisi $5 \\times 256 = 1.280$ (opsi D).</em></p>
+                `
+            },
+            {
+                id: 30,
+                source: "Soal UN Matematika SMP 2016",
+                question: "Seutas tali dipotong menjadi $5$ bagian sehingga ukurannya membentuk deret geometri. Jika panjang potongan tali terpendek $4\\text{ cm}$ dan potongan tali terpanjang $324\\text{ cm}$, maka panjang tali semula adalah...",
+                options: [
+                    { key: "A", text: "$328\\text{ cm}$" },
+                    { key: "B", text: "$484\\text{ cm}$" },
+                    { key: "C", text: "$648\\text{ cm}$" },
+                    { key: "D", text: "$820\\text{ cm}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    U_5 &= 4r^4 = 324 \\implies r^4 = 81 \\implies r = 3 \\\\
+                    S_5 &= \\frac{4(3^5 - 1)}{3 - 1} = \\frac{4(243 - 1)}{2} = 2 \\times 242 = \\mathbf{484\\text{ cm}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $484\\text{ cm}$</p>
+                `
+            },
+            {
+                id: 31,
+                source: "Soal UN Matematika SMP 2015",
+                question: "Seutas tali dipotong menjadi $5$ bagian dengan panjang masing-masing bagian membentuk barisan geometri. Jika potongan tali yang terpendek $5\\text{ cm}$ dan potongan tali terpanjang $80\\text{ cm}$, maka panjang tali semula adalah...",
+                options: [
+                    { key: "A", text: "$170\\text{ cm}$" },
+                    { key: "B", text: "$165\\text{ cm}$" },
+                    { key: "C", text: "$160\\text{ cm}$" },
+                    { key: "D", text: "$155\\text{ cm}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    U_5 &= 5r^4 = 80 \\implies r^4 = 16 \\implies r = 2 \\\\
+                    S_5 &= \\frac{5(2^5 - 1)}{2 - 1} = 5(32 - 1) = 5 \\times 31 = \\mathbf{155\\text{ cm}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $155\\text{ cm}$</p>
+                `
+            },
+            {
+                id: 32,
+                source: "Soal UN Matematika SMP 2015",
+                question: "Jumlah bilangan kelipatan $3$ antara $200$ dan $400$ adalah...",
+                options: [
+                    { key: "A", text: "$19.500$" },
+                    { key: "B", text: "$20.100$" },
+                    { key: "C", text: "$30.360$" },
+                    { key: "D", text: "$40.200$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Barisan kelipatan $3$: $201, 204, \\dots, 399$.</p>
+                    $$\\begin{align}
+                    U_n &= 201 + (n-1)3 = 399 \\implies 3(n-1) = 198 \\implies n = 67 \\\\
+                    S_{67} &= \\frac{67}{2}(201 + 399) = \\frac{67}{2}(600) = 67 \\times 300 = \\mathbf{20.100}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $20.100$</p>
+                `
+            },
+            {
+                id: 33,
+                source: "Soal UN Matematika SMP 2015",
+                question: "Diketahui barisan bilangan $3, 8, 13, 18, 23, \\dots$. Suku ke-$32$ adalah...",
+                options: [
+                    { key: "A", text: "$465$" },
+                    { key: "B", text: "$168$" },
+                    { key: "C", text: "$158$" },
+                    { key: "D", text: "$153$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Barisan aritmetika dengan $a = 3$ dan beda $b = 5$:</p>
+                    $$\\begin{align}
+                    U_{32} &= a + (32 - 1)b = 3 + 31(5) = 3 + 155 = \\mathbf{158}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $158$</p>
+                    <p class="text-xs text-slate-500 mt-2 bg-slate-100 p-2 rounded-lg border border-slate-200"><em>Catatan QC: Pada naskah blog tertulis $3 + (33)(5) = 168$ (salah indeks $n-1$). Perhitungan yang benar untuk suku ke-32 adalah $3 + 31 \\times 5 = 158$ (Opsi C).</em></p>
+                `
+            },
+            {
+                id: 34,
+                source: "Soal UN Matematika SMP 2014",
+                question: "Suku ketiga dan suku kelima barisan aritmetika adalah $17$ dan $31$. Suku ke-$20$ dari barisan tersebut adalah...",
+                options: [
+                    { key: "A", text: "$136$" },
+                    { key: "B", text: "$168$" },
+                    { key: "C", text: "$158$" },
+                    { key: "D", text: "$153$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    U_5 - U_3 &= 2b = 31 - 17 = 14 \\implies b = 7 \\\\
+                    a &= U_3 - 2b = 17 - 14 = 3 \\\\
+                    U_{20} &= a + 19b = 3 + 19(7) = 3 + 133 = \\mathbf{136}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $136$</p>
+                `
+            },
+            {
+                id: 35,
+                source: "Soal UN Matematika SMP 2014",
+                question: "Dari barisan aritmetika diketahui $u_{3}=18$ dan $u_{7}=38$. Jumlah $24$ suku pertama adalah...",
+                options: [
+                    { key: "A", text: "$786$" },
+                    { key: "B", text: "$1.248$" },
+                    { key: "C", text: "$1.572$" },
+                    { key: "D", text: "$3.144$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    4b &= 38 - 18 = 20 \\implies b = 5 \\\\
+                    a &= 18 - 2(5) = 8 \\\\
+                    S_{24} &= \\frac{24}{2}(2(8) + 23(5)) = 12(16 + 115) = 12 \\times 131 = \\mathbf{1.572}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $1.572$</p>
+                `
+            },
+            {
+                id: 36,
+                source: "Soal UN Matematika SMP 2014",
+                question: "Banyak kursi pada baris pertama sebuah gedung pertunjukan adalah $20$ kursi, baris kedua $23$ kursi, dan seterusnya sehingga banyak kursi baris berikutnya selalu bertambah $3$ kursi. Jika dalam gedung terdapat $20$ baris kursi, maka jumlah kursi pada gedung tersebut adalah...",
+                options: [
+                    { key: "A", text: "$270\\text{ kursi}$" },
+                    { key: "B", text: "$970\\text{ kursi}$" },
+                    { key: "C", text: "$1.000\\text{ kursi}$" },
+                    { key: "D", text: "$1.003\\text{ kursi}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    S_{20} &= \\frac{20}{2}(2(20) + (20-1)3) = 10(40 + 57) = 10 \\times 97 = \\mathbf{970\\text{ kursi}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $970\\text{ kursi}$</p>
+                `
+            },
+            {
+                id: 37,
+                source: "Soal UN Matematika SMP 2013",
+                question: "Suku ke-$48$ dari barisan bilangan $3, 10, 17, 24, 31, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$147$" },
+                    { key: "B", text: "$151$" },
+                    { key: "C", text: "$332$" },
+                    { key: "D", text: "$336$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    U_{48} &= a + (48 - 1)b = 3 + 47(7) = 3 + 329 = \\mathbf{332}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $332$</p>
+                `
+            },
+            {
+                id: 38,
+                source: "Soal UN Matematika SMP 2013",
+                question: "Rumus suku ke-$n$ dari barisan geometri $\\dfrac{1}{2}, 1, 2, 4, 8, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$2^{n+1}$" },
+                    { key: "B", text: "$2^{n}$" },
+                    { key: "C", text: "$2^{n-1}$" },
+                    { key: "D", text: "$2^{n-2}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    U_n &= a \\cdot r^{n-1} = \\frac{1}{2} \\cdot 2^{n-1} = 2^{-1} \\cdot 2^{n-1} = \\mathbf{2^{n-2}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $2^{n-2}$</p>
+                `
+            },
+            {
+                id: 39,
+                source: "Soal UN Matematika SMP 2013",
+                question: "Suatu barisan aritmetika suku ke-$2$ dan suku ke-$5$ masing-masing $19$ dan $31$. Jumlah $30$ suku pertama adalah...",
+                options: [
+                    { key: "A", text: "$2.280$" },
+                    { key: "B", text: "$2.190$" },
+                    { key: "C", text: "$1.815$" },
+                    { key: "D", text: "$364$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    3b &= 31 - 19 = 12 \\implies b = 4 \\\\
+                    a &= 19 - 4 = 15 \\\\
+                    S_{30} &= \\frac{30}{2}(2(15) + 29(4)) = 15(30 + 116) = 15 \\times 146 = \\mathbf{2.190}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $2.190$</p>
+                `
+            },
+            {
+                id: 40,
+                source: "Soal UN Matematika SMP 2012",
+                question: "Dua suku berikutnya dari barisan $3, 4, 6, 9, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$13, 18$" },
+                    { key: "B", text: "$13, 17$" },
+                    { key: "C", text: "$12, 26$" },
+                    { key: "D", text: "$12, 15$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Pola pertambahan: $+1, +2, +3, +4, +5$:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$9 + 4 = \\mathbf{13}$</li>
+                        <li>$13 + 5 = \\mathbf{18}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $13, 18$</p>
+                `
+            }
+        ];
+        questionsData.push(...questionsPart2);
+    </script>
+
+    <script>
+        const questionsPart3 = [
+            {
+                id: 41,
+                source: "Soal UN Matematika SMP 2012",
+                question: "Dari barisan aritmetika diketahui suku ke-$7$ adalah $22$ dan suku ke-$11$ adalah $34$. Jumlah $18$ suku pertama adalah...",
+                options: [
+                    { key: "A", text: "$531$" },
+                    { key: "B", text: "$666$" },
+                    { key: "C", text: "$1.062$" },
+                    { key: "D", text: "$1.332$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    4b &= 34 - 22 = 12 \\implies b = 3 \\\\
+                    a &= 22 - 6(3) = 4 \\\\
+                    S_{18} &= \\frac{18}{2}(2(4) + 17(3)) = 9(8 + 51) = 9 \\times 59 = \\mathbf{531}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $531$</p>
+                `
+            },
+            {
+                id: 42,
+                source: "Soal UN Matematika SMP 2012",
+                question: "Bakteri akan membelah diri menjadi dua setiap $30$ menit. Jika mula-mula ada $25$ bakteri, maka banyaknya bakteri selama $4$ jam adalah...",
+                options: [
+                    { key: "A", text: "$3.000$" },
+                    { key: "B", text: "$3.200$" },
+                    { key: "C", text: "$6.000$" },
+                    { key: "D", text: "$6.400$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Banyak periode pembelahan: $n = \\frac{4 \\times 60}{30} = 8$ kali.</p>
+                    $$\\begin{align}
+                    U_9 &= 25 \\times 2^8 = 25 \\times 256 = \\mathbf{6.400\\text{ bakteri}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $6.400$</p>
+                `
+            },
+            {
+                id: 43,
+                source: "Soal UN Matematika SMP 2011",
+                question: "Diketahui $U_{n}=2n^{2}-5$. Nilai dari $U_{4}+U_{5}$ adalah...",
+                options: [
+                    { key: "A", text: "$154$" },
+                    { key: "B", text: "$82$" },
+                    { key: "C", text: "$72$" },
+                    { key: "D", text: "$26$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    U_4 &= 2(4^2) - 5 = 32 - 5 = 27 \\\\
+                    U_5 &= 2(5^2) - 5 = 50 - 5 = 45 \\\\
+                    U_4 + U_5 &= 27 + 45 = \\mathbf{72}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $72$</p>
+                `
+            },
+            {
+                id: 44,
+                source: "Soal UN Matematika SMP 2011",
+                question: "Dua suku berikutnya dari barisan $1, 3, 7, 13, \\dots$ adalah...",
+                options: [
+                    { key: "A", text: "$21\\text{ dan } 31$" },
+                    { key: "B", text: "$19\\text{ dan } 27$" },
+                    { key: "C", text: "$19\\text{ dan } 25$" },
+                    { key: "D", text: "$17\\text{ dan } 23$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Pola pertambahan bilangan genap berturutan: $+2, +4, +6, +8, +10$:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$13 + 8 = \\mathbf{21}$</li>
+                        <li>$21 + 10 = \\mathbf{31}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $21\\text{ dan } 31$</p>
+                `
+            },
+            {
+                id: 45,
+                source: "Soal TUK Masuk SMA Unggul DEL 2022",
+                question: "Satu pasukan parade drum band yang berjumlah $49$ orang membentuk formasi barisan. Paling depan $1$ orang, kemudian di belakangnya bertambah $2$, dan berikutnya bertambah $2$ lagi dan seterusnya. Maka banyaknya orang pada barisan terakhir adalah...",
+                options: [
+                    { key: "A", text: "$11$" },
+                    { key: "B", text: "$13$" },
+                    { key: "C", text: "$15$" },
+                    { key: "D", text: "$17$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Deret bilangan ganjil: $S_n = n^2 = 49 \\implies n = 7$ baris.</p>
+                    $$\\begin{align}
+                    U_7 &= 1 + (7 - 1)2 = 1 + 12 = \\mathbf{13\\text{ orang}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $13$</p>
+                `
+            },
+            {
+                id: 46,
+                source: "Soal US-UM Matematika SMP",
+                question: "Diketahui deret aritmetika dengan nilai suku ke-$6$ adalah $35$ dan suku ke-$9$ adalah $26$. Jumlah $25$ suku pertama deret tersebut adalah...",
+                options: [
+                    { key: "A", text: "$275$" },
+                    { key: "B", text: "$312$" },
+                    { key: "C", text: "$350$" },
+                    { key: "D", text: "$396$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    3b &= 26 - 35 = -9 \\implies b = -3 \\\\
+                    a &= 35 - 5(-3) = 50 \\\\
+                    S_{25} &= \\frac{25}{2}(2(50) + 24(-3)) = \\frac{25}{2}(100 - 72) = \\frac{25}{2}(28) = 25 \\times 14 = \\mathbf{350}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $350$</p>
+                `
+            },
+            {
+                id: 47,
+                source: "Soal US-UM Matematika SMP",
+                question: "Suku ke-$4$ dan suku ke-$9$ suatu barisan aritmetika berturut-turut adalah $110$ dan $150$. Suku ke-$30$ barisan tersebut adalah...",
+                options: [
+                    { key: "A", text: "$308$" },
+                    { key: "B", text: "$318$" },
+                    { key: "C", text: "$326$" },
+                    { key: "D", text: "$344$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    5b &= 150 - 110 = 40 \\implies b = 8 \\\\
+                    a &= 110 - 3(8) = 86 \\\\
+                    U_{30} &= 86 + 29(8) = 86 + 232 = \\mathbf{318}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $318$</p>
+                `
+            },
+            {
+                id: 48,
+                source: "Soal US-UM Matematika SMP",
+                question: "Dari barisan geometri diketahui bahwa $u_{3}=4$ dan $u_{9}=256$, maka nilai suku ke-$12$ ($u_{12}$) adalah...",
+                options: [
+                    { key: "A", text: "$2.049$" },
+                    { key: "B", text: "$2.048$" },
+                    { key: "C", text: "$2.047$" },
+                    { key: "D", text: "$2.046$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    \\frac{u_9}{u_3} &= r^6 = \\frac{256}{4} = 64 \\implies r = 2 \\\\
+                    a &= \\frac{4}{2^2} = 1 \\\\
+                    u_{12} &= ar^{11} = 1 \\times 2^{11} = \\mathbf{2.048}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $2.048$</p>
+                `
+            },
+            {
+                id: 49,
+                source: "Soal UNBK Matematika SMP 2019",
+                question: "Rumus suku ke-$n$ suatu barisan adalah $U_{n}=3n+2$. Jumlah suku ke-$25$ dan suku ke-$27$ dari barisan tersebut adalah...",
+                options: [
+                    { key: "A", text: "$154$" },
+                    { key: "B", text: "$160$" },
+                    { key: "C", text: "$164$" },
+                    { key: "D", text: "$166$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    U_{25} &= 3(25)+2 = 77 \\\\
+                    U_{27} &= 3(27)+2 = 83 \\\\
+                    U_{25} + U_{27} &= 77 + 83 = \\mathbf{160}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $160$</p>
+                `
+            },
+            {
+                id: 50,
+                source: "Soal UNBK Matematika SMP 2019",
+                question: "Peneliti $A$ dan $B$ mengembangbiakkan masing-masing $35$ amuba. Amuba $A$ membelah diri menjadi dua setiap $15$ menit sedangkan amuba $B$ setiap $25$ menit. Jika amuba $A$ telah menjadi $1.120$, amuba $B$ saat ini berjumlah...",
+                options: [
+                    { key: "A", text: "$135$" },
+                    { key: "B", text: "$192$" },
+                    { key: "C", text: "$256$" },
+                    { key: "D", text: "$280$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    $$\\begin{align}
+                    \\text{Waktu} &= 5 \\times 15\\text{ mnt} = 75\\text{ mnt} \\\\
+                    \\text{Banyak Amuba } B &= 35 \\times 2^{75/25} = 35 \\times 2^3 = 35 \\times 8 = \\mathbf{280}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $280$</p>
+                `
+            },
+            {
+                id: 51,
+                source: "Soal TO TKA Matematika SMP",
+                question: `
+                    <p class="mb-2">Perhatikan susunan titik berikut!</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi57T420P1hVLtZIOQO3Xc38kAXsTkP2p4Fbu1VcZz34Wu7ySl__TtaEQkXyRWBBOUJ_VDNSLLX4hoHLIoSjLNfnUNVyDYmjTHDtr511cgjmFOGe4nm489wdh6sexElRq1ko0_rxOgHOYd2-sEIVtT1tCae1v_xHJQb62NvomI6mZuokQzRGAoybqMTszD7/s1600/soal-to-tka-sas-matematika-smp-mts-kelas-9-dan-kunci-jawaban.jpg" alt="Susunan Titik Pola Segitiga" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x100/eef2ff/3730a3?text=Pola+Titik';">
+                    </div>
+                    <p>Jika pola tersebut berlanjut, maka jumlah titik pada pola ke-$6$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$15$" },
+                    { key: "B", text: "$18$" },
+                    { key: "C", text: "$21$" },
+                    { key: "D", text: "$28$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    U_6 &= 1 + 2 + 3 + 4 + 5 + 6 = \\frac{6 \\times 7}{2} = \\mathbf{21}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $21$</p>
+                `
+            },
+            {
+                id: 52,
+                source: "Soal TO TKA Matematika SMP",
+                question: `
+                    <p class="mb-2">Seorang tukang memotong papan kayu dengan berbagai ukuran panjang. Potongan pertama panjangnya $240\\text{ cm}$, dan setiap potongan berikutnya lebih pendek $12\\text{ cm}$ dari potongan sebelumnya ($n = 9$ potongan).</p>
+                    <p class="mb-2">Evaluasi ketiga pernyataan berikut:</p>
+                    <ol class="list-decimal list-inside text-sm space-y-1 my-2">
+                        <li>Panjang potongan ke-$5$ adalah $190\\text{ cm}$.</li>
+                        <li>Panjang potongan terakhir adalah $144\\text{ cm}$.</li>
+                        <li>Selisih panjang antara potongan ke-$2$ dan potongan ke-$8$ adalah $72\\text{ cm}$.</li>
+                    </ol>
+                    <p>Urutan nilai kebenaran ketiga pernyataan di atas berturut-turut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Salah – Benar – Benar" },
+                    { key: "B", text: "Benar – Benar – Salah" },
+                    { key: "C", text: "Salah – Salah – Benar" },
+                    { key: "D", text: "Benar – Salah – Benar" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Pernyataan 1: $U_5 = 240 + 4(-12) = 192\\text{ cm} \\neq 190\\text{ cm}$ (Salah &#10060;).</li>
+                        <li>Pernyataan 2: $U_9 = 240 + 8(-12) = 144\\text{ cm}$ (Benar &#9989;).</li>
+                        <li>Pernyataan 3: Selisih $= |6 \\times (-12)| = 72\\text{ cm}$ (Benar &#9989;).</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) Salah – Benar – Benar</p>
+                `
+            },
+            {
+                id: 53,
+                source: "Contoh Soal TKA Matematika SMP",
+                question: `
+                    <p class="mb-2">Diketahui barisan aritmetika: $4, 6, p, 10, 12, 14, q, \\dots$</p>
+                    <p class="mb-2">Perhatikan 3 pernyataan berikut:</p>
+                    <ol class="list-decimal list-inside text-sm space-y-1 my-2">
+                        <li>Nilai $p + q = 24$.</li>
+                        <li>Nilai suku ke-$50$ adalah $102$.</li>
+                        <li>Selisih suku ke-$50$ dengan suku ke-$3$ adalah $98$.</li>
+                    </ol>
+                    <p>Pernyataan yang <strong>Benar</strong> adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Pernyataan 1 dan 2" },
+                    { key: "B", text: "Pernyataan 1 dan 3" },
+                    { key: "C", text: "Pernyataan 2 dan 3" },
+                    { key: "D", text: "Pernyataan 1, 2, dan 3" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Beda barisan $b = 2$, sehingga $p = 8$ dan $q = 16$.</li>
+                        <li>Pernyataan 1: $p + q = 8 + 16 = 24$ (Benar &#9989;).</li>
+                        <li>Pernyataan 2: $U_{50} = 4 + 49(2) = 102$ (Benar &#9989;).</li>
+                        <li>Pernyataan 3: Selisih $= U_{50} - U_3 = 102 - 8 = 94 \\neq 98$ (Salah &#10060;).</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) Pernyataan 1 dan 2</p>
+                `
+            },
+            {
+                id: 54,
+                source: "Contoh Soal TKA Matematika SMP",
+                question: "Seorang pelari marathon berlatih setiap hari. Pada hari pertama ia menempuh jarak $10\\text{ km}$, dan untuk setiap hari berikutnya ia selalu menambah jarak larinya sejauh $2\\text{ km}$. Jika pelari tersebut berlatih selama $10$ hari, maka jumlah jarak total yang telah ia tempuh selama $10$ hari adalah...",
+                options: [
+                    { key: "A", text: "$162\\text{ km}$" },
+                    { key: "B", text: "$190\\text{ km}$" },
+                    { key: "C", text: "$200\\text{ km}$" },
+                    { key: "D", text: "$220\\text{ km}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    S_{10} &= \\frac{10}{2}(2(10) + (10 - 1)2) \\\\
+                    &= 5(20 + 18) = 5 \\times 38 = \\mathbf{190\\text{ km}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $190\\text{ km}$</p>
+                `
+            },
+            {
+                id: 55,
+                source: "Contoh Soal TKA Matematika SMP",
+                question: `
+                    <p class="mb-2">Perhatikan susunan pola persegi kuning dan biru berikut ini:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRqbkJRzJdBlhG7wHXI9Ul3rn53Vf3BLVSfgVrzo-2YT73OPhI4syTuz0cKng2Yhn1-CnEAL_CgWhcIAVTQSX7gTmNm3B1M86o3gr9vrkoOE1InrliFZASVvxrrwbLJVRMIw-tCqZwoQirVvAPY2aHUai4n-pTtJoiFIl4bjhqV_1d0nj5I8wR19PT-7ej/s1600/soal-tka-matematika-smp-19.jpg" alt="Pola Persegi Kuning dan Biru" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x180/eef2ff/3730a3?text=Pola+Persegi+Warna';">
+                    </div>
+                    <p class="mb-2">Diberikan 4 pernyataan:</p>
+                    <ol class="list-decimal list-inside text-sm space-y-1 my-2">
+                        <li>Banyak persegi berwarna kuning pada pola ke-$6$ adalah $30$.</li>
+                        <li>Banyak persegi berwarna biru pada pola ke-$6$ adalah $42$.</li>
+                        <li>Selisih persegi berwarna kuning dan biru pada pola ke-$6$ adalah $12$.</li>
+                        <li>Jumlah persegi berwarna kuning dan biru pada pola ke-$6$ adalah $72$.</li>
+                    </ol>
+                    <p>Pernyataan yang <strong>benar</strong> adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Pernyataan 1, 2, dan 3" },
+                    { key: "B", text: "Pernyataan 1, 3, dan 4" },
+                    { key: "C", text: "Pernyataan 2, 3, dan 4" },
+                    { key: "D", text: "Pernyataan 1, 2, 3, dan 4" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Biru pola ke-6: $6 \\times 7 = 42$ (Pernyataan 2 Benar &#9989;).</li>
+                        <li>Total persegi pola ke-6: $(6+2) \\times (6+3) = 8 \\times 9 = 72$ (Pernyataan 4 Benar &#9989;).</li>
+                        <li>Kuning pola ke-6: $72 - 42 = 30$ (Pernyataan 1 Benar &#9989;).</li>
+                        <li>Selisih: $42 - 30 = 12$ (Pernyataan 3 Benar &#9989;).</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) Semua Pernyataan (1, 2, 3, dan 4) Benar</p>
+                `
+            },
+            {
+                id: 56,
+                source: "Contoh Soal TKA Matematika SMP",
+                question: `
+                    <p class="mb-2">Perhatikan gambar susunan kubus Borobudur bertingkat:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsxYli9yGKx93VW1Q2Fved3lbd8JnoPzZT8z1ppvQtb12a136MrRR1R_3B3tPVMOaphyCw9qYkTRWjDGKhQptM2f80jZZfkPf7-b3soeCllc3owRc4ivYmT8DnmzlITXSB9ZTnnkCGkKuPiK2-nOFJJreHpcuFUBW1HId38XgOFAv92cBKgiYqpx4Xnsos/s1600/soal-tka-matematika-smp-20.jpg" alt="Model Kubus Candi Borobudur" class="max-w-xs sm:max-w-sm h-auto rounded-2xl border border-slate-200 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/360x220/eef2ff/3730a3?text=Model+Borobudur';">
+                    </div>
+                    <p>Rijal berencana membuat model Candi Borobudur dengan kubus bertingkat sebanyak $10$ tingkat berselang warna (tingkat $1, 3, 5, 7, 9$ berwarna kuning). Banyak kubus berwarna kuning yang diperlukan Rijal adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$165\\text{ buah}$" },
+                    { key: "B", text: "$220\\text{ buah}$" },
+                    { key: "C", text: "$385\\text{ buah}$" },
+                    { key: "D", text: "$506\\text{ buah}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Banyak kubus kuning adalah jumlah kuadrat bilangan ganjil dari tingkat $1$ hingga $9$:</p>
+                    $$\\begin{align}
+                    1^2 + 3^2 + 5^2 + 7^2 + 9^2 &= 1 + 9 + 25 + 49 + 81 = \\mathbf{165\\text{ buah}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $165\\text{ buah}$</p>
+                `
+            }
+        ];
+        questionsData.push(...questionsPart3);
+    </script>
+
+    <script>
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 90 * 60; // 90 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        function renderMath(targetElement) {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise(targetElement ? [targetElement] : undefined).catch((err) => {
+                    console.debug('MathJax queue handling:', err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                
+                let badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+                if (q.source.includes("DEL") || q.source.includes("TKA") || q.source.includes("YASOP") || q.source.includes("US-UM")) {
+                    badgeClass = "bg-amber-100 text-amber-900 border-amber-300";
+                }
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-base md:text-lg font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header Info -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.source}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question & Choices Card -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilih salah satu kartu opsi untuk menjawab.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (opt.key === key) {
+                    optEl.classList.add('selected');
+                } else {
+                    optEl.classList.remove('selected');
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            showSlide(currentQuestion);
+            renderMath();
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) { // < 5 mins remaining
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMath(activeSlide);
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua soal sudah terisi dengan lengkap!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 90 menit telah berakhir. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+            renderMath();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.source})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            <!-- Pilihan Jawaban Review -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            renderMath(container);
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
