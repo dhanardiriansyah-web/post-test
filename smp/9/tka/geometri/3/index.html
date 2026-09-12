@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Ujian Matematika SMP - Teorema Pythagoras (24 Soal)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbars */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Card Selection */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.18);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+
+        /* MathJax Responsive Container to prevent mobile overflow */
+        mjx-container {
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            max-width: 100% !important;
+            padding: 2px 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMP / MTs</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">UNBK, TKA, US-UM & YASOP</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI UJIAN TEOREMA PYTHAGORAS</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi Lengkap: Segitiga Siku-siku, Tripel Pythagoras, Jenis Segitiga, Geometri Bidang & Soal Cerita Terapan</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>Lengkap 24 Butir Pilihan Ganda</strong> (A, B, C, D).</li>
+                    <li>Waktu Pengerjaan: <strong>40 Menit</strong> (disertai indikator waktu digital otomatis).</li>
+                    <li>Skor Maksimal: <strong>100 Poin</strong> (dihitung proporsional berdasarkan butir soal yang dijawab benar).</li>
+                    <li>Pilihlah salah satu kartu opsi jawaban yang paling tepat. Anda dapat berpindah nomor dan mengubah pilihan jawaban kapan saja.</li>
+                    <li>Kunci jawaban dan alternatif pembahasan langkah demi langkah (<em>step-by-step</em>) beserta gambar ilustrasi akan ditampilkan secara menyeluruh di akhir sesi.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 1</p>
+                    <p class="text-xs font-black">Konsep Dasar</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 2</p>
+                    <p class="text-xs font-black">Tripel & Jenis Segitiga</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 3</p>
+                    <p class="text-xs font-black">Geometri Bidang & Ruang</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 4</p>
+                    <p class="text-xs font-black">Soal Cerita Terapan</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang (24 Soal)</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span> &bull; 
+            <span class="font-medium text-slate-500">Simulasi Ujian Matematika SMP</span>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MATEMATIKA SMP / MTs</h1>
+                        <p class="text-xs text-slate-500 font-semibold hidden sm:block">Teorema Pythagoras (24 Butir Soal)</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner transition-colors" id="timer-display">
+                            40:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 24 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–24)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 24</span>
+                    </div>
+                    <div class="grid grid-cols-6 sm:grid-cols-12 gap-2" id="nav-container">
+                        <!-- Nav buttons injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides injected by JS -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span> &bull; 
+            <span class="font-medium text-slate-500">All Rights Reserved</span>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian ini? Skor dan pembahasan lengkap 24 butir soal akan segera dimunculkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah perolehan nilai akhir dan kunci pembahasan lengkap 24 butir soal Teorema Pythagoras.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap (24 Soal)</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Pembahasan Lengkap</h3>
+                        <p class="text-sm text-slate-500">Analisis komprehensif teorema Pythagoras, tripel Pythagoras, bidang datar, serta gambar asli.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">24</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span> &bull; 
+            <span class="font-medium text-slate-500">All Rights Reserved</span>
+        </footer>
+    </div>
+
+    <!-- SCRIPT DATA 24 SOAL LENGKAP DARI SUMBER -->
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                source: "Soal UNBK Matematika SMP 2018",
+                question: `
+                    <p class="mb-3">Perhatikan gambar! <br />Jika panjang $BD = 12\\ \\text{cm}$, Keliling bidang $ABCD$ adalah...</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnYuJOKiuyXoU1mk_onwN80gqXKV8anTiCAU0OsOixPQFE6aWHbM_Ri6cHpWVVM7UfU2mem2vRNi-oRq2tnRlbETH-UHLQuV25uJI4YxphtD4LV-rN8s83EcqzTaICSbDeJgir3NqY8Z0c/s1600/UNBK+Matematika+SMP+Keliling+Bidang.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Keliling Bidang ABCD" /></div>
+                `,
+                options: [
+                    { key: "A", text: "$66\\ \\text{cm}$" },
+                    { key: "B", text: "$60\\ \\text{cm}$" },
+                    { key: "C", text: "$55\\ \\text{cm}$" },
+                    { key: "D", text: "$54\\ \\text{cm}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Dengan memperhatikan gambar, kita dapat dua segitiga siku-siku yaitu $ABD$ dan $BCD$.</p>
+                    <p class="mt-2">$\\bigtriangleup\\ ABD$ siku-siku di $D$,</p>
+                    $$\\begin{align}
+                    AB^{2} &= AD^{2}+BD^{2} \\\\
+                    20^{2} &= AD^{2}+12^{2} \\\\
+                    400 &= AD^{2}+144 \\\\
+                    400-144 &= AD^{2} \\\\
+                    \\sqrt{256} &= AD \\\\
+                    16 &= AD
+                    \\end{align}$$
+                    <p class="mt-2">$\\bigtriangleup\\ BCD$ siku-siku di $B$,</p>
+                    $$\\begin{align}
+                    CD^{2} &= BC^{2}+BD^{2} \\\\
+                    &= 5^{2}+12^{2} \\\\
+                    &= 25+144 \\\\
+                    CD &= \\sqrt{169} \\\\
+                    &= 13
+                    \\end{align}$$
+                    <p class="mt-2">Keliling bidang adalah $AB+BC+CD+DA = 20+5+13+16=54$</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $54\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 2,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2018",
+                question: `
+                    <p class="mb-3">Perhatikan gambar berikut ini!</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTuPY1u5Nx1ZsKyiYz0SPVSqoQZhyxAOb9A4XFhvsMMCUSfUl7aFWTb9IOKWItvPw_8PIcnBq0JArJ2CV_XAjAH-Cx2_zsP5kNLcPEDk0jOG33mk7haPV9lxiBtB5Wml385ajSBCpZ1gIH/s1600/segitiga-segitiga+soal+yasop+2018.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Segitiga YASOP 2018" /></div>
+                    <p>Jika $AE=12\\ \\text{cm}$, $BE=15\\ \\text{cm}$, $BC=7\\ \\text{cm}$, dan $BD=25\\ \\text{cm}$ maka $CD-CE=\\dots\\ \\text{cm}$</p>
+                `,
+                options: [
+                    { key: "A", text: "$8$" },
+                    { key: "B", text: "$7$" },
+                    { key: "C", text: "$4$" },
+                    { key: "D", text: "$2$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Dari gambar di atas ada beberapa segitiga siku-siku, sehingga untuk menghitung unsur-unsur segitiga yang belum diketahui kita cari dengan menggunakan teorema pythagoras.</p>
+                    <p class="mt-2">Dari $\\bigtriangleup ABE$:</p>
+                    $$\\begin{align}
+                    AB^{2} &= BE^{2}-AE^{2} \\\\
+                    AB^{2} &= 15^{2}-12^{2} \\\\
+                    AB^{2} &= 225-144=81 \\\\
+                    AB &= 9
+                    \\end{align}$$
+                    <p class="mt-2">Dari $\\bigtriangleup ACE$:</p>
+                    $$\\begin{align}
+                    CE^{2} &= AE^{2}+AC^{2} \\\\
+                    CE^{2} &= 12^{2}+16^{2} \\\\
+                    CE^{2} &= 144+256=400 \\\\
+                    CE &= 20
+                    \\end{align}$$
+                    <p class="mt-2">Dari $\\bigtriangleup BCD$:</p>
+                    $$\\begin{align}
+                    CD^{2} &= BD^{2}-BC^{2} \\\\
+                    CD^{2} &= 25^{2}-7^{2} \\\\
+                    CD^{2} &= 625-49=576 \\\\
+                    CD &= 24
+                    \\end{align}$$
+                    <p class="mt-2">$CD-CE=24-20=4$</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $4$</p>
+                `
+            },
+            {
+                id: 3,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2007",
+                question: `
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEis6gnAW4JRZMU3Ig6ego8aU7RJmfvu9fxS3CTAoA587gugLlDNl7qPy1-MUf7UgZIV5NEQtVwyG1hGPs9ZY5vGEASlye2pMQHoE0acH-wKCjmhAoG75n4xucra6BShB-ZIujurY7WxHXlD/s1600/Bidang+25+soal+yasop+2007.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="YASOP 2007" /></div>
+                    <p>Diketahui $AC=15\\ \\text{cm}$, $EC=5\\ \\text{cm}$, $AD=6\\ \\text{cm}$, dan $BC=3\\ \\text{cm}$. Panjang $AB$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$5\\sqrt{6}$" },
+                    { key: "B", text: "$6\\sqrt{5}$" },
+                    { key: "C", text: "$10\\sqrt{18}$" },
+                    { key: "D", text: "$18\\sqrt{10}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari gambar informasi yang bisa kita ambil adalah:</p>
+                    <ul class="list-disc list-inside space-y-1 mt-1 text-sm">
+                        <li>$AC=15$ dan $EC=5$ maka $AE=10$</li>
+                        <li>Dengan menggunakan tripel pythagoras pada $AE=10$ dan $AD=6$ maka $ED=8$</li>
+                        <li>Dengan menggunakan teorema pythagoras pada $BC=3$ dan $EC=5$ maka $EB=4$</li>
+                        <li>Masih dengan menggunakan teorema pythagoras pada $AD=6$ dan $BD=DE+EB=8+4=12$ maka:
+                            $$\\begin{align}
+                            AB &= \\sqrt{6^{2}+12^{2}} \\\\
+                            AB &= \\sqrt{36+144} \\\\
+                            AB &= \\sqrt{180} = 6\\sqrt{5}
+                            \\end{align}$$
+                        </li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $6\\sqrt{5}$</p>
+                `
+            },
+            {
+                id: 4,
+                source: "Soal Masuk Asrama YASOP - SMAN 2 Balige 2006",
+                question: `
+                    <p>Panjang sisi-sisi segitiga siku-siku adalah $x\\ \\text{cm}$, $(x+1)\\ \\text{cm}$ dan $(x+2)\\ \\text{cm}$, maka $x=\\dots$</p>
+                `,
+                options: [
+                    { key: "A", text: "$1\\ \\text{cm}$" },
+                    { key: "B", text: "$2\\ \\text{cm}$" },
+                    { key: "C", text: "$3\\ \\text{cm}$" },
+                    { key: "D", text: "$4\\ \\text{cm}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Berdasarkan bilangan tripel pythagoras sisi yang terpanjang adalah sisi miring, sehingga dari sisi-sisi $x\\ \\text{cm}$, $(x+1)\\ \\text{cm}$ dan $(x+2)\\ \\text{cm}$ sisi miring adalah $(x+2)\\ \\text{cm}$.</p>
+                    <p class="mt-2">Dengan teorema pythagoras kita peroleh:</p>
+                    $$\\begin{align}
+                    (x+2)^{2} &= (x+1)^{2}+x^{2} \\\\
+                    x^{2}+4x+4 &= x^{2}+2x+1+x^{2} \\\\
+                    x^{2}+4x+4 &= 2x^{2}+2x+1 \\\\
+                    2x^{2}-x^{2}+2x-4x+1-4 &= 0 \\\\
+                    x^{2}-2x-3 &= 0 \\\\
+                    (x-3)(x+1) &= 0 \\\\
+                    x=3 \\text{ atau } &x=-1\\ (\\text{TM})
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $3\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 5,
+                source: "Soal UN Matematika SMP 2018",
+                question: `
+                    <p>Seorang pengamat berada di atas mercusuar yang tingginya $12$ meter. Ia melihat kapal $A$ dan kapal $B$ yang berlayar di laut. Jarak pengamat dengan kapal $A$ dan kapal $B$ berturut-turut $20$ meter dan $13$ meter. Posisi kapal $A$, kapal $B$, dan kaki mercusuar terletak segaris. Jarak kapal $A$ dan kapal $B$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$7\\ \\text{meter}$" },
+                    { key: "B", text: "$11\\ \\text{meter}$" },
+                    { key: "C", text: "$12\\ \\text{meter}$" },
+                    { key: "D", text: "$15\\ \\text{meter}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi pada soal, jika kita gambarkan keadaan pengamat dan kedua kapal dapat seperti berikut ini:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1g-24iazrqY3K5sG9pNeTs3mZaOpEZHfruhCEG7VKWbL-CLHKciTZEk7Y7qUBBwPZfn-XrcksgD2gkVOVC6dDG6j_sYHFQu4XjDnyQZcAMI_3jLB27srPjvPduoP5LL-qvksytg6XHA4BiEqTw6rDEr77IqYSe5b-oq90rNH_uznnc9A48snk6PJ7LQ/s1600/kapal%20dan%20mercusuar.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Kapal dan Mercusuar" /></div>
+                    <p>Dari gambar di atas dapat kita hitung jarak mercusuar dengan kapal $B$ yaitu jarak $BC$:</p>
+                    $$\\begin{align}
+                    BP^{2} &= BC^{2} + CP^{2} \\\\
+                    13^{2} &= BC^{2} + 12^{2} \\\\
+                    169 &= BC^{2} + 144 \\\\
+                    BC^{2} &= 169-144 \\\\
+                    BC &= \\sqrt{25}= 5
+                    \\end{align}$$
+                    <p class="mt-2">Jarak mercusuar dengan kapal $A$ yaitu jarak $AC$:</p>
+                    $$\\begin{align}
+                    AP^{2} &= AC^{2} + CP^{2} \\\\
+                    20^{2} &= AC^{2} + 12^{2} \\\\
+                    400 &= AC^{2} + 144 \\\\
+                    AC^{2} &= 400-144 \\\\
+                    AC &= \\sqrt{256}= 16
+                    \\end{align}$$
+                    <p class="mt-2">Jarak kedua kapal adalah jarak $AB$ yaitu $16-5=11$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $11\\ \\text{meter}$</p>
+                `
+            },
+            {
+                id: 6,
+                source: "Soal UN Matematika SMP 2017",
+                question: `
+                    <p class="mb-3">Perhatikan gambar dari pernyataan-pernyataan di bawah ini:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY0lvEkdIbHni6nHbx44GxaObU4dZej6JufwfuK5e8apqJpNe4iZuIHOyCPvPUOzog5EH-6U_I5p8YMjnxv-hmadkw2AKKAJdjFADY_Je99cvTJbZojGWhISWHm1nij0GQfIXn3NaXN6xu0Ic3mrGSnMo08Cwo5SmwPVoBeUcSCwuaMhtkPjlFrofyYA/s1600/pythagoras.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Pythagoras Pernyataan" /></div>
+                    <p>Pernyataan yang benar adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$(i)\\ \\text{dan}\\ (ii)$" },
+                    { key: "B", text: "$(i)\\ \\text{dan}\\ (iii)$" },
+                    { key: "C", text: "$(ii)\\ \\text{dan}\\ (iii)$" },
+                    { key: "D", text: "$(ii)\\ \\text{dan}\\ (iv)$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Berdasarkan teorema pythagoras yang tepat adalah:</p>
+                    $$\\begin{align}
+                    (i).\\ & p^{2}-q^{2} = r^{2}\\ \\ \\text{Pernyataan Salah} \\\\
+                    (ii).\\ & p^{2}+q^{2} = r^{2}\\ \\ \\text{Pernyataan Benar} \\\\
+                    (iii).\\ & r^{2}+p^{2} = q^{2}\\ \\ \\text{Pernyataan Salah} \\\\
+                    (iv).\\ & r^{2}-p^{2} = q^{2}\\ \\ \\text{Pernyataan Benar}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah $(C)\\ (2)\\ \\text{dan}\\ (4)$</p>
+                `
+            },
+            {
+                id: 7,
+                source: "Soal UN Matematika SMP 2016",
+                question: `
+                    <p>Sebuah kapal berlayar sejauh $100\\ \\text{km}$ ke arah timur, kemudian berbelok ke arah utara sejauh $75\\ \\text{km}$. Jarak terpendek kapal tersebut dari titik awal tersebut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$175\\ \\text{km}$" },
+                    { key: "B", text: "$125\\ \\text{km}$" },
+                    { key: "C", text: "$100\\ \\text{km}$" },
+                    { key: "D", text: "$75\\ \\text{km}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi pada soal, jika kita gambarkan keadaan kapal dari tempat semula dapat seperti berikut ini:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhng6JU4WbBAX9SVkY6QdGIm9c2D_3Az_jeIHIlRwdAUVHV2Ozyb6W6eMhGUa83LBPSsSGiupUtOKNyfEfOzuv7lQaYpyZihMt5TOedwYZ8LgifdPNZJ916HpBohTGmEXaxZU0ePcOKuMXIFmaNCdVzCdWuC8hEgtOPBb1Pi3NAahgWuxRvXpCsRcBNoQ/s1600/jarak%20titik%20awal.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Jarak Titik Awal Kapal" /></div>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $125\\ \\text{km}$</p>
+                `
+            },
+            {
+                id: 8,
+                source: "Soal UN Matematika SMP 2016",
+                question: `
+                    <p>Sebuah tangga dengan panjang $2,5\\ \\text{m}$ disandarkan pada tembok. Jika jarak ujung bawah tangga dengan tembok $1,5\\ \\text{m}$, tinggi ujung atas tangga dari lantai adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$1\\ \\text{m}$" },
+                    { key: "B", text: "$2\\ \\text{m}$" },
+                    { key: "C", text: "$2,2\\ \\text{m}$" },
+                    { key: "D", text: "$3,5\\ \\text{m}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi pada soal, jika kita gambarkan keadaan tangga dan tembok dapat seperti berikut ini:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQgphZB9pGzIH2CX07IT9q9qs3JX5JAU3pc8zkXDiMBvTKgarx_Oitgdq3tIhkQWj1vglxUTumXyEP4-VuUUFU-fQp7IkL9ndL9ZS7876Ygzlo3FmY1YAjRZPD2Ja4auhdCwIGGuSXLRQSFKhC4_dxTNF_GKoKZlRVxZuAYeqboodcFxQlbFwGSzrQpg/s1600/jarak%20tangga%20dengan%20lantai.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Jarak Tangga dengan Lantai" /></div>
+                    <p>Dari gambar di atas untuk menghitung tinggi ujung tangga ke lantai dapat kita gunakan teorema pythagoras yaitu:</p>
+                    $$\\begin{align}
+                    \\text{tinggi}^{2} &= (2,5)^{2}-(1,5)^{2} \\\\
+                    \\text{tinggi}^{2} &= 6,25-2,25 \\\\
+                    \\text{tinggi} &= \\sqrt{6,25-2,25} \\\\
+                    &= \\sqrt{4} = 2
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $2\\ \\text{m}$</p>
+                `
+            },
+            {
+                id: 9,
+                source: "Soal UN Matematika SMP 2011",
+                question: `
+                    <p class="mb-3">Perhatikan gambar! <br />Panjang $AD$ adalah...</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaWJEjvBQT6wsysmKXQ46uxpM3SnHfSWeftcLTc5H9vHaQLVPKCmfLKACIZackIPlaE1r4JMImTdfoPQJn3tCgxaI49SLv5K_Dpf8foRJnYD3YFB958jCEka7gfiTP5hQeZldlq1bd3shPYJBoAzPe69j1wIsGTiF0v36nwqEQWOnBnNcF8M67aRZBSA/s1600/segitiga%20siku-siku%20berimpit.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Segitiga Berimpit" /></div>
+                `,
+                options: [
+                    { key: "A", text: "$15\\ \\text{cm}$" },
+                    { key: "B", text: "$17\\ \\text{cm}$" },
+                    { key: "C", text: "$24\\ \\text{cm}$" },
+                    { key: "D", text: "$25\\ \\text{cm}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dengan memperhatikan gambar, kita dapat dua segitiga siku-siku yaitu $ABC$ dan $ACD$.</p>
+                    <p class="mt-2">$\\bigtriangleup\\ ABC$ siku-siku di $B$,</p>
+                    $$\\begin{align}
+                    AC^{2} &= AB^{2}+BC^{2} \\\\
+                    AC^{2} &= 12^{2}+9^{2} \\\\
+                    &= 144+81 \\\\
+                    &= 225 \\\\
+                    AC &= \\sqrt{225}=15
+                    \\end{align}$$
+                    <p class="mt-2">$\\bigtriangleup\\ ACD$ siku-siku di $C$,</p>
+                    $$\\begin{align}
+                    AD^{2} &= AC^{2}+CD^{2} \\\\
+                    &= 15^{2}+8^{2} \\\\
+                    &= 225+64 \\\\
+                    &= 289 \\\\
+                    AD &= \\sqrt{289} = 17
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $17\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 10,
+                source: "Soal UN Matematika SMP 2011",
+                question: `
+                    <p class="mb-3">Perhatikan gambar berikut!</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEhJrrT27BhGHhhZcEdLvXaoVLoY7Huso7syOHo2WF1RdccW8Vud_zxs7r-2qjkwY-0mN7fgfHTdT7AW_XjTWTKRP6X33jZNlP9WIkD166LsQInLpaoodFFqtGp-Pn0FJ2GRm41fSqe8p5kPqPD2_L9BtrnwDURVb19DDdzw5QAy_lzjRLHl-UkU3H0mfA" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Segitiga Samakaki" /></div>
+                    <p>Segitiga $ABC$ adalah segitiga siku-siku samakaki.<br>Jika $AB=10\\ \\text{cm}$ dan $CD$ garis bagi sudut $C$, panjang $BD$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$5\\ \\text{cm}$" },
+                    { key: "B", text: "$\\left(10 \\sqrt{2} - 10  \\right)\\ \\text{cm}$" },
+                    { key: "C", text: "$\\left( 10 - 5 \\sqrt{2} \\right)\\ \\text{cm}$" },
+                    { key: "D", text: "$\\left( 5 \\sqrt{2} - 5  \\right)\\ \\text{cm}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi pada soal, jika kita gambarkan dapat seperti berikut ini:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgBnp5IB8skgp9wfSnBuc1z1y651L7K7_bYc_tAdPLr-ZEQKbemQA-2WfFZkC6RGlAPU7S8PuBBg-5WJyq8a9ZWDvNS-BqQLVdeY1j3CrYjgVELZs5OsMZvVnU_tSq29hxWLcuAxBVNJp6j2Cjr384r_GIqbVFOwjnUHJ6nmXKeseMqZqMMUfw9n-ccew" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Pembahasan Garis Bagi" /></div>
+                    <p>Dari gambar di atas kita peroleh $\\bigtriangleup CBD$ dan $\\bigtriangleup CED$ adalah kongruen.</p>
+                    <p class="mt-2">Jika kita misalkan panjang $BD=x$ maka pada segitiga $AED$ kita peroleh:</p>
+                    $$\\begin{align}
+                    AD^{2} &= AE^{2}+ED^{2} \\\\
+                    \\left( 10-x \\right)^{2} &= \\left( x \\right)^{2}+\\left( 10\\sqrt{2}- 10 \\right)^{2} \\\\
+                    100 -20x+x^{2} &= x^{2}+ 200 - 200\\sqrt{2} + 100 \\\\
+                    -20x &= 200 - 200\\sqrt{2} \\\\
+                    x &= -10 + 10\\sqrt{2} = 10\\sqrt{2} - 10
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\left(10 \\sqrt{2} - 10  \\right)\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 11,
+                source: "Soal UN Matematika SMP 2010",
+                question: `
+                    <p class="mb-3">Perhatikan gambar! <br />$ABCD$ adalah jajargenjang dengan panjang $\\overline{CD}=7\\ \\text{cm}$, $\\overline{AD}=25\\ \\text{cm}$, dan $\\overline{AE}=22\\ \\text{cm}$. Panjang $\\overline{CE}$ adalah...</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh91K8-KKI4ChYllDyRoSJLot0la-4J43idLi4y9qgpbIekhuZN7fOJ4KryeSADNtKb5dJIJDpRTlNWSEtpOqNPZ0uGDci4X8F9F-CMamDjHlMnIyCuKBlQ2VSUn3oBY16A8yk0cuBr3P0vlP_hPztaVTPZqP_QsWygNmlu58w1MEiWdUGvufSLLPK90g/s1600/jajargenjang%20dan%20segitiga%20siku-siku.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Jajargenjang dan Segitiga" /></div>
+                `,
+                options: [
+                    { key: "A", text: "$17\\ \\text{cm}$" },
+                    { key: "B", text: "$20\\ \\text{cm}$" },
+                    { key: "C", text: "$22\\ \\text{cm}$" },
+                    { key: "D", text: "$24\\ \\text{cm}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari gambar di atas untuk menghitung panjang $\\overline{CE}$ dapat kita gunakan teorema pythagoras pada segitiga $BCE$, yaitu:</p>
+                    $$\\begin{align}
+                    BC^{2} &= BE^{2}+CE^{2} \\\\
+                    BC &= AD = 25, \\quad BE = AE-AB = 22-7 = 15 \\\\
+                    25^{2} &= 15^{2}+CE^{2} \\\\
+                    625 &= 225+CE^{2} \\\\
+                    625-225 &= CE^{2} \\\\
+                    400 &= CE^{2} \\implies CE = \\sqrt{400}=20
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $20\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 12,
+                source: "Soal UN Matematika SMP 2010",
+                question: `
+                    <p class="mb-3">Perhatikan gambar! <br />Panjang $\\overline{BC}$ adalah...</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGI2TfWmNf-bzcBVkQjYnf2NTBOhUS8f1sNuoKl3xyOwfirWnB2L7VYhsSoocdfm8d6RsCzQVxRxII77r3OzORLDvDDj6qPYDN3G_vJxwxsxdDnVdcQhJMtp3jZnPBLKQJPSELbrexzu4qRmPgKlJyf1Bqj35hk4O-MV1CDcSuTmt0efF6pz7r5Rbnhg/s1600/segitiga%20siku-siku%20ABC.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Segitiga ABC 2010" /></div>
+                `,
+                options: [
+                    { key: "A", text: "$3\\ \\text{cm}$" },
+                    { key: "B", text: "$6\\ \\text{cm}$" },
+                    { key: "C", text: "$8\\ \\text{cm}$" },
+                    { key: "D", text: "$9\\ \\text{cm}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Dari gambar di atas untuk menghitung panjang $\\overline{BC}$ dapat kita gunakan teorema pythagoras yaitu:</p>
+                    $$\\begin{align}
+                    AB^{2} &= AC^{2}+BC^{2} \\\\
+                    15^{2} &= 12^{2}+BC^{2} \\\\
+                    225 &= 144+BC^{2} \\\\
+                    225-144 &= BC^{2} \\\\
+                    81 &= BC^{2} \\implies BC = \\sqrt{81}=9
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $9\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 13,
+                source: "Model Soal Tes Masuk SMA Unggul DEL 2022",
+                question: `
+                    <p class="mb-3">Perhatikan gambar di bawah ini.</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgPwnztmmVtBQKDgi71km8f_X_1mkH2D9tBjSc05J_C4DpxSDZEqp4UbWDw5aoc9EbIw0PffuFE13LggLE_Msm-v_YncadyoK5ZWYtn_yow70Bt_U5K7kO4Qnj4oYOdRJFnIrdrCs03o_4LUsORF6fOSsSgWXuJhYJa_Z6nTU-PDVTGSPdD9Ks9kNwhKw" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="SMA Unggul DEL" /></div>
+                    <p>Jika diberikan segitiga $ABC$ dengan $AE$, $BF$ dan $CD$ masing-masing merupakan garis tinggi segitiga. Jika panjang $AC=15\\ \\text{cm}$ dan panjang $EC=12\\ \\text{cm}$, maka panjang $AO$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$3\\ \\text{cm}$" },
+                    { key: "B", text: "$4\\ \\text{cm}$" },
+                    { key: "C", text: "$5\\ \\text{cm}$" },
+                    { key: "D", text: "$6\\ \\text{cm}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Dari informasi pada gambar di soal $AE$, $BF$ dan $CD$ masing-masing merupakan garis tinggi sehingga segitiga $AEC$ adalah segitiga siku-siku dapat diterapkan teorema pythagoras, yaitu:</p>
+                    $$\\begin{align}
+                    AC^{2} &= AE^{2}+EC^{2} \\\\
+                    15^{2} &= 12^{2}+EC^{2} \\\\
+                    225 &= 144+EC^{2} \\\\
+                    EC^{2} &= 225-144 \\\\
+                    EC &= \\sqrt{81} = 9
+                    \\end{align}$$
+                    <p class="mt-2">Titik $O$ pada segitiga $ABC$ merupakan titik pusat segitiga, dimana berlaku hubungan $AO:OE=2:1$. Untuk $AE=9$ maka $AO=\\dfrac{2}{3} \\times 9=6$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $6\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 14,
+                source: "Model Soal US-UM Matematika SMP",
+                question: `
+                    <p>Sebuah tiang tingginya $12\\ \\text{m}$ berdiri tegak di atas tanah datar. Dari ujung atas tiang ditarik seutas tali ke sebuah patok pada tanah. Jika panjang tali $15\\ \\text{m}$, maka jarak patok dengan pangkal tiang bagian bawah adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$13\\ \\text{m}$" },
+                    { key: "B", text: "$10\\ \\text{m}$" },
+                    { key: "C", text: "$9\\ \\text{m}$" },
+                    { key: "D", text: "$3\\ \\text{m}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Jika kita gambarkan tiang dengan tali maka ilustrasinya dapat seperti berikut ini:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuFk93MXBp3YE_CNj-1eAQ3TX4Yd1OeNyenVZnSiwcn-jGKXWbNLo913RMsugUhGpF0GJf531H0qKZNdEsZj2qHiRSi7fSlfa1w1JYO05QSCi2zZ6McjqLLO_wnDlvwbq36PyC7UntotUm70bnANDtIxsx6UR6FwZGoKsPWfUTpibSNAA4Yy3ND3tZ3Q/s1600/jarak_patok_ke_tiang.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Jarak Patok ke Tiang" /></div>
+                    <p>Tiang berdiri tegak dengan tanah sehingga membentuk sudut siku-siku. Untuk menghitung jarak patok dengan tiang bagian bawah maka dapat kita gunakan teorema pythagoras.</p>
+                    $$\\begin{align}
+                    \\text{Jarak} &= \\sqrt{15^{2}-12^{2}} \\\\
+                    &= \\sqrt{225-144} \\\\
+                    &= \\sqrt{169} \\\\
+                    &= 13
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $13\\ \\text{m}$</p>
+                `
+            },
+            {
+                id: 15,
+                source: "Model Soal PAS Matematika SMP",
+                question: `
+                    <p class="mb-3">Perhatikan gambar berikut. Panjang sisi $PR = \\dots\\ \\text{cm}$</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFlzy99xTtGxn0fsnbBjbPkvzE9pcrpYPPqlolzplwkQtcWLTa3XN1aySwzE0SDpsmWIbrNdm51C0ixlN6T6YcYytZdNH9wCVqtQKnJumPnfEHc0I4AAMrGgfooOBUlLHSF_Sm3aAIaBI3GFpDChfhYwAWKnbwRaLUPpS8glcO0-Hkfp9HlnUyop2H1g/s1600/segitiga%20siku-siku%20PQR%20soal.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Segitiga Siku Siku PQR" /></div>
+                `,
+                options: [
+                    { key: "A", text: "$20$" },
+                    { key: "B", text: "$24$" },
+                    { key: "C", text: "$26$" },
+                    { key: "D", text: "$28$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Gambar segitiga $PQR$ adalah segitiga siku-siku sehingga untuk menghitung panjang sisi $PR$ dapat kita gunakan teorema pythagoras yaitu kuadrat panjang sisi miring sebuah segitiga siku-siku sama dengan jumlah kuadrat panjang sisi-sisi penyikunya.</p>
+                    $$\\begin{align}
+                    QR^{2} &= PR^{2}+PQ^{2} \\\\
+                    52^{2} &= PR^{2}+48^{2} \\\\
+                    2.704 &= PR^{2}+2.304 \\\\
+                    PR^{2} &= 1.704-2.304 \\\\
+                    PR^{2} &= 400 \\\\
+                    PR &= \\sqrt{400}=20
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $20$</p>
+                `
+            },
+            {
+                id: 16,
+                source: "Model Soal PAS Matematika SMP",
+                question: `
+                    <p class="mb-2">Diketahui kelompok tiga bilangan berikut:</p>
+                    <p>$(1).\\ 3,\\ 4,\\ 5$</p>
+                    <p>$(2).\\ 5,\\ 13,\\ 14$</p>
+                    <p>$(3).\\ 7,\\ 24,\\ 25$</p>
+                    <p>$(4).\\ 20,\\ 21,\\ 29$</p>
+                    <p class="mt-2">Kelompok bilangan di atas yang merupakan tripel Pythagoras adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$(1)\\ \\text{dan}\\ (3)$" },
+                    { key: "B", text: "$(2)\\ \\text{dan}\\ (3)$" },
+                    { key: "C", text: "$(1),\\ (3),\\ \\text{dan}\\ (4)$" },
+                    { key: "D", text: "$(1),\\ (2),\\ (3),\\ \\text{dan}\\ (4)$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Secara sederhana dikatakan tripel Pythagoras apabila jumlah kuadrat dua bilangan terkecil sama dengan kuadrat bilangan terbesar. Untuk bilangan yang ada pilihan dapat kita buktikan langsung seperti berikut ini:</p>
+                    <ul class="list-disc list-inside space-y-1 mt-2 text-sm">
+                        <li>$(1).\\ 3,\\ 4,\\ 5 \\implies 3^{2}+4^{2} = 9+16 = 25 = 5^{2}$</li>
+                        <li>$(2).\\ 5,\\ 13,\\ 14 \\implies 5^{2}+13^{2} = 25+169 = 194 \\neq 196 = 14^{2}$</li>
+                        <li>$(3).\\ 7,\\ 24,\\ 25 \\implies 7^{2}+24^{2} = 49+576 = 625 = 25^{2}$</li>
+                        <li>$(4).\\ 20,\\ 21,\\ 29 \\implies 20^{2}+21^{2} = 400+441 = 841 = 29^{2}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $(1),\\ (2),\\ (3),\\ \\text{dan}\\ (4)$</p>
+                `
+            },
+            {
+                id: 17,
+                source: "Model Soal PAS Matematika SMP",
+                question: `
+                    <p class="mb-2">Perhatikan ukuran sisi-sisi segitiga berikut.</p>
+                    <p>$(1).\\ 4\\ \\text{cm},\\ 5\\ \\text{cm},\\ 6\\ \\text{cm}$</p>
+                    <p>$(2).\\ 5\\ \\text{cm},\\ 12\\ \\text{cm},\\ 13\\ \\text{cm}$</p>
+                    <p>$(3).\\ 16\\ \\text{cm},\\ 24\\ \\text{cm},\\ 32\\ \\text{cm}$</p>
+                    <p>$(4).\\ 20\\ \\text{cm},\\ 30\\ \\text{cm},\\ 34\\ \\text{cm}$</p>
+                    <p class="mt-2">Ukuran sisi yang membentuk segitiga lancip ditunjukkan oleh...</p>
+                `,
+                options: [
+                    { key: "A", text: "$(1)\\ \\text{dan}\\ (2)$" },
+                    { key: "B", text: "$(1)\\ \\text{dan}\\ (3)$" },
+                    { key: "C", text: "$(1)\\ \\text{dan}\\ (4)$" },
+                    { key: "D", text: "$(3)\\ \\text{dan}\\ (4)$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Dari teorema pythagoras, untuk $a$, $b$ dan $c$ merupakan panjang sisi-sisi sebuah segitiga yang diurutkan dari terkecil ke terbesar, jika $a^{2}+b^{2} \\gt c^{2}$ maka segitiga adalah segitiga lancip.</p>
+                    <ul class="list-disc list-inside space-y-1 mt-2 text-sm">
+                        <li>$(1).\\ 4,\\ 5,\\ 6 \\implies 4^{2}+5^{2} = 16+25 = 41 \\gt 36$</li>
+                        <li>$(2).\\ 5,\\ 12,\\ 13 \\implies 5^{2}+12^{2} = 25+144 = 169 = 169$</li>
+                        <li>$(3).\\ 16,\\ 24,\\ 32 \\implies 16^{2}+24^{2} = 256+576 = 832 \\lt 1024$</li>
+                        <li>$(4).\\ 20,\\ 30,\\ 34 \\implies 20^{2}+30^{2} = 400+900 = 1300 \\gt 1156$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $(1)\\ \\text{dan}\\ (4)$</p>
+                `
+            },
+            {
+                id: 18,
+                source: "Model Soal PAS Matematika SMP",
+                question: `
+                    <p>Diketahui suatu layang-layang berkoordinat di titik $K(-5, 0),$ $L(0, 12),$ $M(16, 0),$ dan $N(0, -12).$ Keliling layang-layang $KLMN$ adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$33\\ \\text{satuan panjang}$" },
+                    { key: "B", text: "$52\\ \\text{satuan panjang}$" },
+                    { key: "C", text: "$58\\ \\text{satuan panjang}$" },
+                    { key: "D", text: "$66\\ \\text{satuan panjang}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Apabila kita gambarkan layang-layang pada koordinat kartesius maka akan kita peroleh gambaran seperti berikut:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7R3wFf0ebXk9-G7u2u2jFl7Lyo4WlWNQ_Uizl45eLDIjS0X0EZGj1c2L9PJAYB27umdPos0R272eIb-PnRMMOps-Z5mW2QAz_I1Ab9GTB8Dj4vA1hB4b_hviI6O1adVJaPjoTkQZ_P2QpeIpIiN9ni4PCyOaesFeD1Fpgl3gyMnCvhrViRKMakF7YVw/s1600/layang-layang%20dan%20teorema%20pythagoras.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Layang-layang dan Teorema Pythagoras" /></div>
+                    <p>Keliling layang-layang $KLMN$ adalah $KL+LM+MN+NK$ dimana ada dua sisi layang-layang yang sama yaitu $KL=KN$ dan $LM=MN$. Dengan menggunakan teorema pythagoras dapat kita peroleh panjang $KL$ dan $LM$.</p>
+                    $$\\begin{align}
+                    KL^{2} &= OK^{2} + OL^{2} = 5^{2} + 12^{2} = 25 + 144 \\implies KL = \\sqrt{169}=13 \\\\
+                    LM^{2} &= OL^{2} + OM^{2} = 12^{2} + 16^{2} = 144 + 256 \\implies LM = \\sqrt{400}=20
+                    \\end{align}$$
+                    <p class="mt-2">Keliling layang-layang $KLMN$ adalah $KL+LM+MN+NK$ atau $13+13+20+20=66$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $66\\ \\text{satuan panjang}$</p>
+                `
+            },
+            {
+                id: 19,
+                source: "Model Soal PAS Matematika SMP",
+                question: `
+                    <p>Sebuah kapal berlayar ke arah utara sejauh $11\\ \\text{km}$ kemudian kapal tersebut berbelok ke arah barat dan berlayar sejauh $9\\ \\text{km}$. Jarak kapal dari titik awal keberangkatan ke titik akhir adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$\\sqrt{102}\\ \\text{km}$" },
+                    { key: "B", text: "$\\sqrt{202}\\ \\text{km}$" },
+                    { key: "C", text: "$102\\ \\text{km}$" },
+                    { key: "D", text: "$202\\ \\text{km}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Apabila kita gambarkan lintasan kapal berlayar maka akan kita peroleh gambaran seperti berikut:</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7R3wFf0ebXk9-G7u2u2jFl7Lyo4WlWNQ_Uizl45eLDIjS0X0EZGj1c2L9PJAYB27umdPos0R272eIb-PnRMMOps-Z5mW2QAz_I1Ab9GTB8Dj4vA1hB4b_hviI6O1adVJaPjoTkQZ_P2QpeIpIiN9ni4PCyOaesFeD1Fpgl3gyMnCvhrViRKMakF7YVw/s1600/layang-layang%20dan%20teorema%20pythagoras.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Lintasan Kapal" /></div>
+                    <p>Dengan menggunakan teorema pythagoras dapat kita peroleh jarak kapal dari titik awal keberangkatan ke titik akhir yaitu:</p>
+                    $$\\begin{align}
+                    AB^{2} &= AU^{2} + UB^{2} \\\\
+                    AB^{2} &= 11^{2} + 9^{2} \\\\
+                    AB^{2} &= 121 + 81 = 202 \\\\
+                    AB &= \\sqrt{202}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $\\sqrt{202}\\ \\text{km}$</p>
+                `
+            },
+            {
+                id: 20,
+                source: "Model Soal PAS Matematika SMP",
+                question: `
+                    <p class="mb-3">Luas daerah yang diarsir dari gambar berikut adalah...</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirRVQ1TXAtcy9RkxFcrpPj6T-NN-SSZi0oOoKVTYI58Yso3NvzIfbFAtioBGW6YBQKNCZT8KpFNw_DUi4FLyrlNJHoE5Vf4s6UHQFXPkcdS9x8V_ojTs-qIZEVnncQX2kmwzsmqeUrhjWcONyKAxF68uVCklnWzaAAKS7qXcL6ZUfTx2N2z0glCa6eJQ/s1600/luas%20bidang%20diagonal%20dan%20teorema%20pythagoras.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Luas Bidang Diagonal" /></div>
+                `,
+                options: [
+                    { key: "A", text: "$5\\ \\text{dm}^{2}$" },
+                    { key: "B", text: "$10\\ \\text{dm}^{2}$" },
+                    { key: "C", text: "$12\\ \\text{dm}^{2}$" },
+                    { key: "D", text: "$20\\ \\text{dm}^{2}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Daerah yang diarsir pada gambar adalah sebuah persegi panjang $BCHE$ yang sisi-sisnya adalah $BC$ dan $EB$. Kita sudah ketahui $BC=10\\ \\text{cm}$ dan $EB$ dapat kita hitung dari segitiga siku-siku $ABE$ dengan bantuan teorema pythagoras yaitu:</p>
+                    $$\\begin{align}
+                    EB^{2} &= AB^{2} + AE^{2} \\\\
+                    EB^{2} &= 40^{2} + 30^{2} \\\\
+                    EB^{2} &= 1600 + 900 = 2500 \\\\
+                    EB &= \\sqrt{2500}=50
+                    \\end{align}$$
+                    <p class="mt-2">Luas persegi panjang $BCHE$ adalah:</p>
+                    $$\\begin{align}
+                    [BCHE] &= BC \\times EB \\\\
+                    &= 50\\ \\text{cm} \\times 10\\ \\text{cm} \\\\
+                    &= 500\\ \\text{cm}^{2} \\\\
+                    &= 5\\ \\text{dm}^{2}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $5\\ \\text{dm}^{2}$</p>
+                `
+            },
+            {
+                id: 21,
+                source: "Contoh Soal TKA Matematika SMP/MTs",
+                question: `
+                    <p class="mb-3">Perhatikan gambar berikut.</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3Ii1COtiUlIsS-jAEqkv-AFlLTU2jHmQvJbv4nDZ5oi0wVSapTrtND5Z_Irr9VRWbj_PDnAfwevenqu953OZdm2h9g3QFwAMeP8B5omyjCEwyqiVEg3riLUMa05CfahgF805vlgv7VcAmJfanqhi7437IEVTpS6En6-30GLdq5uACeNQ4Qll-ljSwCbC3/s1600/soal-tka-matematika-smp-6.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Conan dan Nobita" /></div>
+                    <p>Apabila Conan akan bermain ke rumah Nobita, maka jarak yang Conan tempuh adalah.... $\\left(\\sqrt{2}=1,4 \\right)$, $\\left(\\sqrt{3}=1,73 \\right)$, $\\left(\\sqrt{5}=2,24 \\right)$</p>
+                `,
+                options: [
+                    { key: "A", text: "$4,00\\ \\text{km}$" },
+                    { key: "B", text: "$5,60\\ \\text{km}$" },
+                    { key: "C", text: "$6,92\\ \\text{km}$" },
+                    { key: "D", text: "$8,96\\ \\text{km}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Dari informasi yang diberikan posisi rumah Nobita $(N)$, rumah Conan $(C)$, dan Sekolah $(S)$ membentuk segitiga siku-siku, sehingga jarak rumah Conan $(C)$ dan Nobita $(N)$ dapat kita hitung dengan menggunakan teorema Pythagoras:</p>
+                    $$\\begin{align}
+                    CN^{2} &= CS^{2}+NS^{2} \\\\
+                    &= 8^{2}+4^{2} \\\\
+                    &= 64+16 \\\\
+                    CN &= \\sqrt{80} = \\sqrt{16 \\times 5} \\\\
+                    &= 4 \\sqrt{5} = 4 \\times 2,24 \\\\
+                    &= 8,96
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $8,96\\ \\text{km}$</p>
+                `
+            },
+            {
+                id: 22,
+                source: "Contoh Soal TKA Matematika SMP/MTs",
+                question: `
+                    <p class="mb-3">Sebuah pohon terletak di antara Mamat dan Mahmud yang sedang berdiri. Jarak antara Mamat dan Mahmud adalah $28\\ \\text{m}$, sedangkan jarak antara Mahmud dan pohon adalah $20\\ \\text{m}$.</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrpq4pok9WULpEeUYhXlCb8U3SdF0jspuQBJbKrQ3CgmQTNStJdbMhQRxq0zDY9mr5a-tFhRLwvELd7CPZlwKgVrmikZdiEEDMEz4j9MmuGp_Tbo9Wu3MiNHfpA6H0WGtzONHGgzW2VdlICoikaQDmV-6JTF6fPmSKGO0IrM2N4jCeF6pW94CpW0D5wBW8/s1600/soal-tka-matematika-smp-22.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Mamat Mahmud dan Pohon" /></div>
+                    <p>Tinggi pohon adalah....</p>
+                `,
+                options: [
+                    { key: "A", text: "$12\\ \\text{m}$" },
+                    { key: "B", text: "$13\\ \\text{m}$" },
+                    { key: "C", text: "$15\\ \\text{m}$" },
+                    { key: "D", text: "$16\\ \\text{m}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Dari informasi pada soal, karena jarak antara Mamat dan Mahmud adalah $28\\ \\text{m}$, sedangkan jarak antara Mahmud dan pohon adalah $20\\ \\text{m}$ sehingga jarak antara Mamat dan pohon adalah $MP=8\\ \\text{m}$.</p>
+                    <p class="mt-2">Dengan menggunakan teorema Pythagoras kita peroleh:</p>
+                    $$\\begin{align}
+                    17^{2} &= MP^{2}+t_{\\text{pohon}}^{2} \\\\
+                    289 &= 8^{2}+t_{\\text{pohon}}^{2} \\\\
+                    289 &= 64 + t_{\\text{pohon}}^{2} \\\\
+                    289-64 &= t_{\\text{pohon}}^{2} \\\\
+                    225 &= t_{\\text{pohon}}^{2} \\\\
+                    \\sqrt{225} &= t_{\\text{pohon}} \\\\
+                    15 &= t_{\\text{pohon}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $15\\ \\text{m}$</p>
+                `
+            },
+            {
+                id: 23,
+                source: "Contoh Soal TKA Matematika SMP/MTs",
+                question: `
+                    <p class="mb-3">Perhatikan gambar!</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheltwbPmceh2EmYDtI4CRJoAVpwEAB3nJjyAyWJCXksEKRTs3DdHD5hd0njjRNOm8wu6ROXvY8oz-JP6CHbWL5o5V7dyPe-6HtXYDUm0HJ19l3_hRvHo5WDl-75xiQoXu8NKVH9k2grmNjsN0ilaAXhR7u_jl1q4voz-wvXm_0DAXBbq7QgupZcaw2kYlH/s1600/soal-tka-smp-mts-matematika-dan-pembahasan-kunci-jawaban.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Tank dan Pesawat" /></div>
+                    <p>Diketahui jarak dua tank $(AB)$ adalah $240\\ \\text{m}$, jarak pandang pesawat $C$ dengan tank $A$ adalah $260\\ \\text{m}$, dan pesawat $D$ dengan tank $A$ adalah $300\\ \\text{m}$.</p>
+                    <p class="mt-2 mb-1 text-sm font-semibold">Tentukan status (Benar/Salah) untuk setiap pernyataan berikut:</p>
+                    <ul class="list-disc list-inside text-xs bg-slate-100 p-3 rounded-xl border border-slate-200 space-y-1">
+                        <li>Jarak tank $B$ dengan pesawat $C$ adalah $100\\ \\text{m}$</li>
+                        <li>Jarak tank $B$ dengan pesawat $D$ adalah $120\\ \\text{m}$</li>
+                        <li>Jarak pesawat $C$ dan $D$ adalah $80\\ \\text{m}$</li>
+                    </ul>
+                `,
+                options: [
+                    { key: "A", text: "Benar, Benar, Benar" },
+                    { key: "B", text: "Benar, Salah, Benar" },
+                    { key: "C", text: "Salah, Benar, Benar" },
+                    { key: "D", text: "Benar, Salah, Salah" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi pada soal, posisi tank dan pesawat membentuk segitiga siku-siku, sehingga untuk menghitung jarak-jarak yang diminta dapat kita gunakan teorema pythagoras:</p>
+                    $$\\begin{align}
+                    \\text{AC}^{2} &= \\text{AB}^{2}+\\text{BC}^{2} \\\\
+                    260^{2} &= 240^{2}+\\text{BC}^{2} \\\\
+                    \\text{BC}^{2} &= 260^{2}-240^{2} \\\\
+                    \\text{BC}^{2} &= (260+240)(260-240) = (500)(20) \\\\
+                    \\text{BC} &= \\sqrt{10.000}=100
+                    \\end{align}$$
+                    $$\\begin{align}
+                    \\text{AD}^{2} &= \\text{AB}^{2}+\\text{BD}^{2} \\\\
+                    300^{2} &= 240^{2}+\\text{BD}^{2} \\\\
+                    \\text{BD}^{2} &= 300^{2}-240^{2} = (300+240)(300-240) = (540)(60) \\\\
+                    \\text{BD} &= \\sqrt{32.400}=180
+                    \\end{align}$$
+                    <p class="mt-2">Kita akan periksa kebenaran dari pernyataan yang diberikan:</p>
+                    <ol class="list-decimal list-inside space-y-1 mt-1 text-sm">
+                        <li>Jarak tank $B$ dengan pesawat $C$ adalah $100\\ \\text{m}$ (Benar)</li>
+                        <li>Jarak tank $B$ dengan pesawat $D$ adalah $120\\ \\text{m}$ (Salah)</li>
+                        <li>Jarak pesawat $C$ dan $D$ adalah $80\\ \\text{m}$ (Benar)</li>
+                    </ol>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah Benar, Salah, Benar.</p>
+                `
+            },
+            {
+                id: 24,
+                source: "Contoh Soal TKA Matematika SMP/MTs",
+                question: `
+                    <p class="mb-3">Gambar di bawah ini menunjukkan bagian dari suatu konstruksi jembatan.</p>
+                    <div class="flex justify-center my-3"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHq0hPrizLg9MT7F6-ggii87mvteZxB48ntJkcuC64fY3eXC1OVm424w8SF5QiiLGUF_0g6mLACAwEYb1PVsNvmiT1x7Z1loa3I6s7CtEjWgvWLN0Fd8L1xEGcz_RAgXpWYcmEsln-Tv0sw9-VIJ_rnzcKFkBdPXB5eB1fA0fUyln7uOKhekKH6ViDr-ck/s1600/soal-tka-smp-mts-matematika-dan-pembahasan-kunci-jawaban.jpg" class="max-h-64 object-contain rounded-xl border border-slate-200" alt="Konstruksi Jembatan" /></div>
+                    <p>Tali baja $AC$ dan $DC$ menyangga tiang $AB$ dari titik pancang yang sama yaitu titik $C$.</p>
+                    <p class="mt-2 text-sm font-semibold">Berdasarkan informasi di atas, tentukan pernyataan berikut yang Benar!</p>
+                    <ol class="list-decimal list-inside text-xs bg-slate-100 p-2.5 rounded-xl border border-slate-200 space-y-1 my-2">
+                        <li>tinggi tiang $AB$ adalah $25$ meter.</li>
+                        <li>jarak dari titik $A$ ke titik $D$ adalah $7$ meter</li>
+                        <li>jarak dari titik $B$ ke titik $D$ adalah $9$ meter</li>
+                        <li>titik $D$ tepat berada di tengah tiang $AB$</li>
+                    </ol>
+                `,
+                options: [
+                    { key: "A", text: "Pernyataan $1$ dan $2$" },
+                    { key: "B", text: "Pernyataan $1$ dan $3$" },
+                    { key: "C", text: "Pernyataan $2$ dan $3$" },
+                    { key: "D", text: "Pernyataan $2$ dan $4$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Dari informasi pada soal, kita akan menghitung objek yang diperlukan sesuai dengan pernyataan yang diberikan.</p>
+                    <p class="mt-2 font-semibold text-slate-800">Nilai kebenaran pernyataan yang diberikan:</p>
+                    <ol class="list-decimal list-inside space-y-2 mt-1 text-sm">
+                        <li>Tinggi tiang $AB$ adalah $25$ meter (Salah)
+                            $$\\begin{align}
+                            \\text{AC}^{2} &= \\text{AB}^{2}+12^{2} \\\\
+                            20^{2} &= \\text{AB}^{2}+144 \\\\
+                            \\text{AB}^{2} &= 400-144 = 256 \\implies \\text{AB} = 16
+                            \\end{align}$$
+                        </li>
+                        <li>Jarak dari titik $A$ ke titik $D$ adalah $7$ meter (Benar)
+                            $$\\text{AD} = \\text{AB} - \\text{BD} = 16 - 9 = 7$$
+                        </li>
+                        <li>Jarak dari titik $B$ ke titik $D$ adalah $9$ meter (Benar)
+                            $$\\begin{align}
+                            \\text{CD}^{2} &= \\text{BC}^{2}+\\text{BD}^{2} \\\\
+                            15^{2} &= 12^{2}+\\text{BD}^{2} \\\\
+                            \\text{BD}^{2} &= 225-144 = 81 \\implies \\text{BD} = 9
+                            \\end{align}$$
+                        </li>
+                        <li>Titik $D$ tepat berada di tengah tiang $AB$ (Salah)</li>
+                    </ol>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) Pernyataan 2 dan 3</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 40 * 60; // 40 minutes timer
+        let timerInterval;
+        let isSubmitted = false;
+
+        function renderMath(targetElement) {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise(targetElement ? [targetElement] : undefined).catch((err) => {
+                    console.debug('MathJax handling:', err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                let badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+                if (q.source.includes("TKA") || q.source.includes("YASOP") || q.source.includes("DEL") || q.source.includes("PAS")) {
+                    badgeClass = "bg-amber-100 text-amber-900 border-amber-300";
+                }
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-base md:text-lg font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.source}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilih salah satu kartu opsi untuk menjawab.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (opt.key === key) {
+                    optEl.classList.add('selected');
+                } else {
+                    optEl.classList.remove('selected');
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            showSlide(currentQuestion);
+            renderMath();
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMath(activeSlide);
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua 24 soal sudah terisi dengan lengkap!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 40 menit telah berakhir. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+            renderMath();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">TIDAK DIJAWAB</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">SALAH</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.source})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            renderMath(container);
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
