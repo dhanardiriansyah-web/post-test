@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSTS Grade 8 Mathematics - Decimals &amp; Fractions (20 Soal Isian Singkat)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax Configuration for seamless inline math rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' },
+            options: {
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbars */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* MathJax baseline alignment & responsive display fix */
+        mjx-container[display="true"] {
+            display: block !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            max-width: 100% !important;
+            padding: 4px 0 !important;
+        }
+
+        mjx-container:not([display="true"]) {
+            display: inline-block !important;
+            overflow: visible !important;
+            max-width: none !important;
+            padding: 0 !important;
+            margin: 0 0.15em !important;
+            vertical-align: baseline !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Cambridge Lower Secondary ICP</span>
+                <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-black rounded-full uppercase tracking-wider">PSTS Level 8 &bull; Part 2</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI PSTS MATEMATIKA LEVEL 8</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi Khusus: Unit 4 (Decimals &amp; Metric Units) &amp; Unit 7 (Fractions, Recurring Decimals &amp; Area)</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk &amp; Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>20 Butir Isian Singkat</strong> (English Short Answer).</li>
+                    <li>Komposisi Tingkat Kesulitan: <strong>3 Soal Mudah (Low)</strong>, <strong>7 Soal Sedang (Medium)</strong>, dan <strong>10 Soal HOTS</strong>.</li>
+                    <li>Waktu Pengerjaan: <strong>40 Menit</strong> (disertai penghitung waktu mundur otomatis).</li>
+                    <li>Skor Maksimal: <strong>100 Poin</strong> (dihitung proporsional berdasarkan butir soal yang dijawab benar).</li>
+                    <li>Ketikkan jawaban akhir berupa angka, simbol pertidaksamaan, atau pecahan dalam bentuk paling sederhana (contoh pecahan: <code class="bg-indigo-100 px-1 py-0.5 rounded text-indigo-900 font-mono">a/b</code>).</li>
+                    <li>Kunci jawaban resmi dan alternatif pembahasan langkah demi langkah (<em>step-by-step</em>) akan ditampilkan lengkap setelah ujian selesai.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-emerald-600 font-black">3 Soal Low</p>
+                    <p class="text-xs font-black">Konversi &amp; Simbol Desimal</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-blue-600 font-black">7 Soal Medium</p>
+                    <p class="text-xs font-black">Operasi Pecahan &amp; Satuan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-rose-600 font-black">10 Soal HOTS</p>
+                    <p class="text-xs font-black">Luas, Resep &amp; Model Pecahan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-black">Durasi Ujian</p>
+                    <p class="text-xs font-black">40 Menit</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang (20 Soal)</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">PSTS MATEMATIKA LEVEL 8 ICP</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Unit 4: Decimals &amp; Unit 7: Fractions &bull; 20 Butir Isian Singkat</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner transition-colors" id="timer-display">
+                            40:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 20 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–20)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 20</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-20 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault(); nextQuestion();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides injected by JS -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearActiveAnswer(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Jawaban
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian ini? Skor dan pembahasan lengkap 20 butir soal akan segera dimunculkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL &amp; EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah perolehan nilai akhir dan pembahasan lengkap 20 butir soal Decimals and Fractions.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap (20 Soal)</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban &amp; Pembahasan Lengkap</h3>
+                        <p class="text-sm text-slate-500">Analisis komprehensif berdasarkan silabus Unit 4 (Decimals) dan Unit 7 (Fractions).</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">20</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 20 Soal Isian Singkat: Unit 4 (Decimals) & Unit 7 (Fractions)
+        // Komposisi: 3 Low, 7 Medium, 10 HOTS
+        const questionsData = [
+            // 1. Low - Unit 4: Metric unit conversions (L to mL)
+            {
+                id: 1,
+                level: "Low (Easy)",
+                source: "Unit 4: Metric units",
+                question: `<p>Convert $3.45\\text{ litres}$ into millilitres ($\\text{mL}$).</p>`,
+                acceptedAnswers: ["3450", "3450 mL", "3450mL", "3450 ml", "3,450"],
+                explanation: `
+                    <p>Konversi satuan volume dari liter ke mililiter ($1\\text{ L} = 1000\\text{ mL}$):</p>
+                    $$\\begin{aligned}
+                    3.45\\text{ L} &= 3.45 \\times 1000 \\\\
+                    &= 3450\\text{ mL}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Jawaban yang benar adalah <strong>3450</strong></p>
+                `
+            },
+
+            // 2. Low - Unit 4: Inequalities between decimals
+            {
+                id: 2,
+                level: "Low (Easy)",
+                source: "Unit 4: Inequalities between decimals",
+                question: `<p>Write the correct inequality symbol ($<$, $>$, or $=$) to make the mathematical statement true:</p><div class="my-3 text-center text-lg font-semibold">$$0.407 \\quad \\Box \\quad 0.47$$</div>`,
+                acceptedAnswers: ["<"],
+                explanation: `
+                    <p>Bandingkan nilai tempat pada kedua bilangan desimal:</p>
+                    $$\\begin{aligned}
+                    0.407 &= 4\\text{ persepuluhan} + 0\\text{ perseratusan} + 7\\text{ perseribuan} \\\\
+                    0.470 &= 4\\text{ persepuluhan} + 7\\text{ perseratusan} + 0\\text{ perseribuan}
+                    \\end{aligned}$$
+                    <p>Karena $0 < 7$ pada digit perseratusan, maka $0.407 < 0.47$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Simbol yang tepat adalah <strong>&lt;</strong></p>
+                `
+            },
+
+            // 3. Low - Unit 7: Terminating and recurring decimals
+            {
+                id: 3,
+                level: "Low (Easy)",
+                source: "Unit 7: Terminating and recurring decimals",
+                question: `<p>State whether the fraction $\\dfrac{7}{8}$ converts to a <strong>terminating</strong> or <strong>recurring</strong> decimal.</p>`,
+                acceptedAnswers: ["terminating", "terminating decimal"],
+                explanation: `
+                    <p>Ubah pecahan menjadi bentuk desimal melalui pembagian bersusun:</p>
+                    $$\\frac{7}{8} = 7 \\div 8 = 0.875$$
+                    <p>Faktor prima dari penyebut $8 = 2^3$ hanya terdiri dari angka $2$, sehingga menghasilkan desimal berujung (<em>terminating decimal</em>).</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Jawaban yang benar adalah <strong>terminating</strong></p>
+                `
+            },
+
+            // 4. Medium - Unit 4: Metric unit conversions (m and cm)
+            {
+                id: 4,
+                level: "Medium",
+                source: "Unit 4: Metric units",
+                question: `<p>A spool holds $4.85\\text{ metres}$ of ribbon. If $195\\text{ cm}$ of ribbon is cut off, find the remaining length in <strong>centimetres</strong> ($\\text{cm}$).</p>`,
+                acceptedAnswers: ["290", "290 cm", "290cm"],
+                explanation: `
+                    <p>Samakan satuan panjang ke sentimeter ($1\\text{ m} = 100\\text{ cm}$):</p>
+                    $$\\begin{aligned}
+                    4.85\\text{ m} &= 4.85 \\times 100 = 485\\text{ cm} \\\\
+                    \\text{Sisa pita} &= 485\\text{ cm} - 195\\text{ cm} \\\\
+                    &= 290\\text{ cm}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Panjang pita yang tersisa adalah <strong>290</strong></p>
+                `
+            },
+
+            // 5. Medium - Unit 4: Compare and order decimals
+            {
+                id: 5,
+                level: "Medium",
+                source: "Unit 4: Decimal place value",
+                question: `<p>Which of the following five decimal numbers is the <strong>smallest</strong>?</p><div class="my-3 text-center text-base font-semibold">$$7.08, \\quad 7.8, \\quad 7.008, \\quad 7.18, \\quad 7.081$$</div>`,
+                acceptedAnswers: ["7.008", "7,008"],
+                explanation: `
+                    <p>Samakan banyak angka di belakang koma menjadi 3 digit:</p>
+                    $$7.080, \\quad 7.800, \\quad 7.008, \\quad 7.180, \\quad 7.081$$
+                    <p>Urutan dari yang terkecil ke terbesar:</p>
+                    $$7.008 < 7.080 < 7.081 < 7.180 < 7.800$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Bilangan terkecil adalah <strong>7.008</strong></p>
+                `
+            },
+
+            // 6. Medium - Unit 7: Fraction addition in simplest form
+            {
+                id: 6,
+                level: "Medium",
+                source: "Unit 7: Fraction operations",
+                question: `<p>Work out the exact value of the calculation, giving your answer in its <strong>simplest form</strong>:</p><div class="my-3 text-center text-lg font-semibold">$$\\frac{5}{12} + \\frac{3}{8}$$</div>`,
+                acceptedAnswers: ["19/24"],
+                explanation: `
+                    <p>Tentukan KPK dari penyebut $12$ dan $8$, yaitu $\\text{LCM}(12, 8) = 24$:</p>
+                    $$\\begin{aligned}
+                    \\frac{5}{12} + \\frac{3}{8} &= \\frac{5 \\times 2}{24} + \\frac{3 \\times 3}{24} \\\\
+                    &= \\frac{10}{24} + \\frac{9}{24} \\\\
+                    &= \\frac{19}{24}
+                    \\end{aligned}$$
+                    <p>Pecahan $\\frac{19}{24}$ sudah berada dalam bentuk paling sederhana.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Jawaban dalam bentuk paling sederhana adalah <strong>19/24</strong></p>
+                `
+            },
+
+            // 7. Medium - Unit 7: Multiplication of fractions
+            {
+                id: 7,
+                level: "Medium",
+                source: "Unit 7: Multiplication of fractions",
+                question: `<p>Work out and express the answer as a fraction in its <strong>simplest form</strong>:</p><div class="my-3 text-center text-lg font-semibold">$$\\frac{4}{9} \\times \\frac{15}{16}$$</div>`,
+                acceptedAnswers: ["5/12"],
+                explanation: `
+                    <p>Sederhanakan silang faktor pembilang dan penyebut sebelum mengalikan:</p>
+                    $$\\begin{aligned}
+                    \\frac{4}{9} \\times \\frac{15}{16} &= \\frac{4 \\div 4}{9 \\div 3} \\times \\frac{15 \\div 3}{16 \\div 4} \\\\
+                    &= \\frac{1}{3} \\times \\frac{5}{4} \\\\
+                    &= \\frac{5}{12}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Jawaban paling sederhana adalah <strong>5/12</strong></p>
+                `
+            },
+
+            // 8. Medium - Unit 4: Unit price (Unitary method)
+            {
+                id: 8,
+                level: "Medium",
+                source: "Unit 4: Unitary method",
+                question: `<p>A grocery shop sells $2.5\\text{ kg}$ of organic rice for $\\$7.50$. Work out the cost in dollars for <strong>$1\\text{ kg}$</strong> of rice.</p>`,
+                acceptedAnswers: ["3", "3.00", "3.0", "$3", "$3.00"],
+                explanation: `
+                    <p>Gunakan metode nilai satuan (<em>unitary method</em>):</p>
+                    $$\\begin{aligned}
+                    \\text{Harga per kg} &= \\frac{\\$7.50}{2.5} \\\\
+                    &= \\frac{75}{25} = 3
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Harga per $1\\text{ kg}$ adalah <strong>3</strong></p>
+                `
+            },
+
+            // 9. Medium - Unit 7: Division of fractions
+            {
+                id: 9,
+                level: "Medium",
+                source: "Unit 7: Fraction operations",
+                question: `<p>Work out the value of the division, giving your answer as a fraction in its <strong>simplest form</strong>:</p><div class="my-3 text-center text-lg font-semibold">$$\\frac{7}{10} \\div \\frac{14}{15}$$</div>`,
+                acceptedAnswers: ["3/4"],
+                explanation: `
+                    <p>Ubah pembagian menjadi perkalian dengan kebalikan dari pecahan pembagi:</p>
+                    $$\\begin{aligned}
+                    \\frac{7}{10} \\div \\frac{14}{15} &= \\frac{7}{10} \\times \\frac{15}{14} \\\\
+                    &= \\frac{7 \\div 7}{10 \\div 5} \\times \\frac{15 \\div 5}{14 \\div 7} \\\\
+                    &= \\frac{1}{2} \\times \\frac{3}{2} = \\frac{3}{4}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Jawaban dalam bentuk paling sederhana adalah <strong>3/4</strong></p>
+                `
+            },
+
+            // 10. Medium - Unit 7: Fraction comparison
+            {
+                id: 10,
+                level: "Medium",
+                source: "Unit 7: Fraction comparison",
+                question: `<p>Which of the two fractions is greater, $\\dfrac{5}{7}$ or $\\dfrac{7}{10}$?</p>`,
+                acceptedAnswers: ["5/7"],
+                explanation: `
+                    <p>Samakan penyebut kedua pecahan dengan $\\text{LCM}(7, 10) = 70$:</p>
+                    $$\\begin{aligned}
+                    \\frac{5}{7} &= \\frac{5 \\times 10}{70} = \\frac{50}{70} \\\\
+                    \\frac{7}{10} &= \\frac{7 \\times 7}{70} = \\frac{49}{70}
+                    \\end{aligned}$$
+                    <p>Karena $50 > 49$, maka $\\frac{5}{7} > \\frac{7}{10}$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pecahan yang lebih besar adalah <strong>5/7</strong></p>
+                `
+            },
+
+            // 11. HOTS - Unit 4: Multi-step decimals calculation
+            {
+                id: 11,
+                level: "HOTS",
+                source: "Unit 4: Decimal operations",
+                question: `<p>A fabric store sells curtain material for $\\$14.80$ per metre. Mrs. Davies buys $3.5\\text{ metres}$ of this material and pays with a $\\$100$ bill. How much <strong>change</strong> in dollars should she receive?</p>`,
+                acceptedAnswers: ["48.2", "48.20", "$48.20", "$48.2", "48,2", "48,20"],
+                explanation: `
+                    <p>Hitung total harga bahan tirai terlebih dahulu:</p>
+                    $$\\begin{aligned}
+                    \\text{Total harga} &= 14.80 \\times 3.5 \\\\
+                    &= 14.8 \\times \\frac{7}{2} = 7.4 \\times 7 = \\$51.80
+                    \\end{aligned}$$
+                    <p class="mt-2">Hitung uang kembalian yang diterima:</p>
+                    $$\\text{Kembalian} = 100 - 51.80 = 48.20$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Uang kembalian yang diterima adalah <strong>48.2</strong></p>
+                `
+            },
+
+            // 12. HOTS - Unit 7: Fractions in context (Books pages)
+            {
+                id: 12,
+                level: "HOTS",
+                source: "Unit 7: Fractions in context",
+                question: `<p>Amira is reading a novel that has $360$ pages in total. On Monday, she reads $\\dfrac{2}{5}$ of the book. On Tuesday, she reads $\\dfrac{1}{3}$ of the <strong>remaining</strong> pages. How many pages does she have left to read?</p>`,
+                acceptedAnswers: ["144", "144 pages", "144 halaman"],
+                explanation: `
+                    <p>Hitung halaman yang dibaca pada hari Senin:</p>
+                    $$\\text{Senin} = \\frac{2}{5} \\times 360 = 144\\text{ halaman}$$
+                    <p class="mt-2">Sisa halaman setelah hari Senin:</p>
+                    $$\\text{Sisa 1} = 360 - 144 = 216\\text{ halaman}$$
+                    <p class="mt-2">Hitung halaman yang dibaca pada hari Selasa:</p>
+                    $$\\text{Selasa} = \\frac{1}{3} \\times 216 = 72\\text{ halaman}$$
+                    <p class="mt-2">Halaman yang belum dibaca:</p>
+                    $$\\text{Sisa akhir} = 216 - 72 = 144\\text{ halaman}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Banyak halaman yang belum dibaca adalah <strong>144</strong></p>
+                `
+            },
+
+            // 13. HOTS - Unit 7: Fractions and area (Missing width)
+            {
+                id: 13,
+                level: "HOTS",
+                source: "Unit 7: Fractions and area",
+                question: `<p>The area of a rectangular garden plot is $4\\dfrac{1}{6}\\text{ m}^2$. The length of the plot is $2\\dfrac{1}{2}\\text{ m}$.</p><p class="mt-2">Find the <strong>width</strong> of the plot in metres, giving your answer as a simplified fraction or mixed number.</p>`,
+                acceptedAnswers: ["5/3", "1 2/3", "12/3"],
+                explanation: `
+                    <p>Rumus luas persegi panjang $A = l \\times w \\implies w = A \\div l$:</p>
+                    $$\\begin{aligned}
+                    w &= 4\\frac{1}{6} \\div 2\\frac{1}{2} \\\\
+                    &= \\frac{25}{6} \\div \\frac{5}{2} \\\\
+                    &= \\frac{25}{6} \\times \\frac{2}{5} \\\\
+                    &= \\frac{5}{3} = 1\\frac{2}{3}\\text{ m}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Lebar petak kebun adalah <strong>5/3</strong></p>
+                `
+            },
+
+            // 14. HOTS - Unit 4: Metric conversions & multi-container problem
+            {
+                id: 14,
+                level: "HOTS",
+                source: "Unit 4: Metric units & division",
+                question: `<p>A storage vessel contains $18.6\\text{ litres}$ of cough syrup. Small dosage bottles are each filled with $75\\text{ mL}$ of the syrup.</p><p class="mt-2">How many dosage bottles can be <strong>completely filled</strong> from the vessel?</p>`,
+                acceptedAnswers: ["248", "248 bottles", "248 botol"],
+                explanation: `
+                    <p>Konversikan volume sirup dari liter ke mililiter ($1\\text{ L} = 1000\\text{ mL}$):</p>
+                    $$18.6\\text{ L} = 18.6 \\times 1000 = 18{,}600\\text{ mL}$$
+                    <p class="mt-2">Bagi total volume dengan kapasitas masing-masing botol:</p>
+                    $$\\text{Banyak botol} = \\frac{18{,}600}{75} = 248$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Banyak botol yang dapat terisi penuh adalah <strong>248</strong></p>
+                `
+            },
+
+            // 15. HOTS - Unit 7: Mixed operations with fractions
+            {
+                id: 15,
+                level: "HOTS",
+                source: "Unit 7: Fraction operations",
+                question: `<p>Calculate the exact value of the numerical expression, giving your answer as a fraction in its <strong>simplest form</strong>:</p><div class="my-3 text-center text-lg font-semibold">$$\\left( 1\\frac{3}{4} - \\frac{5}{6} \\right) \\div 1\\frac{3}{8}$$</div>`,
+                acceptedAnswers: ["2/3"],
+                explanation: `
+                    <p>Selesaikan operasi di dalam tanda kurung terlebih dahulu:</p>
+                    $$1\\frac{3}{4} - \\frac{5}{6} = \\frac{7}{4} - \\frac{5}{6} = \\frac{21 - 10}{12} = \\frac{11}{12}$$
+                    <p class="mt-2">Lakukan operasi pembagian:</p>
+                    $$\\begin{aligned}
+                    \\frac{11}{12} \\div 1\\frac{3}{8} &= \\frac{11}{12} \\div \\frac{11}{8} \\\\
+                    &= \\frac{11}{12} \\times \\frac{8}{11} \\\\
+                    &= \\frac{8}{12} = \\frac{2}{3}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Hasil paling sederhana adalah <strong>2/3</strong></p>
+                `
+            },
+
+            // 16. HOTS - Unit 7: Terminating vs recurring unit fractions
+            {
+                id: 16,
+                level: "HOTS",
+                source: "Unit 7: Recurring decimals",
+                question: `<p>Consider the set of nine unit fractions:</p><div class="my-3 text-center text-base font-semibold">$$\\frac{1}{2}, \\quad \\frac{1}{3}, \\quad \\frac{1}{4}, \\quad \\frac{1}{5}, \\quad \\frac{1}{6}, \\quad \\frac{1}{7}, \\quad \\frac{1}{8}, \\quad \\frac{1}{9}, \\quad \\frac{1}{10}$$</div><p>How many of these fractions produce <strong>recurring</strong> decimals?</p>`,
+                acceptedAnswers: ["4"],
+                explanation: `
+                    <p>Pecahan biasa $\\frac{1}{n}$ bernilai <em>terminating</em> jika dan hanya jika faktor prima penyebutnya hanya memuat $2$ atau $5$:</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm mt-2">
+                        <li>$2, 4(2^2), 5, 8(2^3), 10(2 \\times 5)$ $\\implies$ <strong>Terminating</strong> ($5$ pecahan).</li>
+                        <li>$3, 6(2 \\times 3), 7, 9(3^2)$ $\\implies$ <strong>Recurring</strong> ($4$ pecahan).</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Ada <strong>4</strong> pecahan yang menghasilkan desimal berulang</p>
+                `
+            },
+
+            // 17. HOTS - Unit 7: Real-life recipe scaling
+            {
+                id: 17,
+                level: "HOTS",
+                source: "Unit 7: Fractions in context",
+                question: `<p>A pancake recipe for $8$ people requires $2\\dfrac{1}{4}\\text{ cups}$ of flour. How many cups of flour are needed to make the pancakes for <strong>$12$ people</strong>?</p><p class="mt-2 text-xs text-slate-500">(Give your answer as an improper fraction or mixed number in simplest form).</p>`,
+                acceptedAnswers: ["27/8", "3 3/8", "33/8"],
+                explanation: `
+                    <p>Tentukan faktor pengali skala resep:</p>
+                    $$\\text{Faktor skala} = \\frac{12}{8} = \\frac{3}{2}$$
+                    <p class="mt-2">Kalikan takaran tepung mula-mula dengan faktor skala:</p>
+                    $$\\begin{aligned}
+                    \\text{Tepung yang dibutuhkan} &= 2\\frac{1}{4} \\times \\frac{3}{2} \\\\
+                    &= \\frac{9}{4} \\times \\frac{3}{2} = \\frac{27}{8} = 3\\frac{3}{8}\\text{ cups}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Banyak tepung yang dibutuhkan adalah <strong>27/8</strong></p>
+                `
+            },
+
+            // 18. HOTS - Unit 4: Fuel efficiency comparison (Unitary method)
+            {
+                id: 18,
+                level: "HOTS",
+                source: "Unit 4: Unitary method",
+                question: `<p>Car A travels $234\\text{ km}$ on $18\\text{ litres}$ of petrol. Car B travels $312\\text{ km}$ on $25\\text{ litres}$ of petrol.</p><p class="mt-2">Which car is more fuel-efficient by travelling a <strong>greater distance per litre</strong>? (Type <code>Car A</code> or <code>Car B</code>).</p>`,
+                acceptedAnswers: ["Car A", "car a", "A", "a"],
+                explanation: `
+                    <p>Hitung efisiensi bahan bakar masing-masing mobil (jarak per liter):</p>
+                    $$\\begin{aligned}
+                    \\text{Efisiensi Mobil A} &= \\frac{234\\text{ km}}{18\\text{ L}} = 13\\text{ km/L} \\\\
+                    \\text{Efisiensi Mobil B} &= \\frac{312\\text{ km}}{25\\text{ L}} = 12.48\\text{ km/L}
+                    \\end{aligned}$$
+                    <p>Karena $13 > 12.48$, Mobil A menempuh jarak lebih jauh untuk setiap liter bensin.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Mobil yang lebih hemat adalah <strong>Car A</strong></p>
+                `
+            },
+
+            // 19. HOTS - Unit 7: Fractions and Area of shaded region
+            {
+                id: 19,
+                level: "HOTS",
+                source: "Unit 7: Fractions and area",
+                question: `<p>A square photograph with side length $12\\text{ cm}$ is mounted on a rectangular card measuring $18\\text{ cm}$ by $15\\text{ cm}$.</p><p class="mt-2">What <strong>fraction of the card's total area</strong> is covered by the photograph? Give your answer as a fraction in its simplest form.</p>`,
+                acceptedAnswers: ["8/15"],
+                explanation: `
+                    <p>Hitung luas kartu persegi panjang dan foto persegi:</p>
+                    $$\\begin{aligned}
+                    \\text{Luas kartu} &= 18 \\times 15 = 270\\text{ cm}^2 \\\\
+                    \\text{Luas foto} &= 12 \\times 12 = 144\\text{ cm}^2
+                    \\end{aligned}$$
+                    <p class="mt-2">Bentuk pecahan dari luas foto terhadap luas kartu lalu sederhanakan:</p>
+                    $$\\text{Fraksi} = \\frac{144}{270} = \\frac{144 \\div 18}{270 \\div 18} = \\frac{8}{15}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Bagian area yang tertutup foto adalah <strong>8/15</strong></p>
+                `
+            },
+
+            // 20. HOTS - Unit 7: Real-life quantities & full portions
+            {
+                id: 20,
+                level: "HOTS",
+                source: "Unit 7: Fractions in context",
+                question: `<p>A punch bowl contains $3\\dfrac{3}{4}\\text{ litres}$ of fruit punch. Glasses with a capacity of $\\dfrac{3}{10}\\text{ litre}$ are filled to the brim from the bowl.</p><p class="mt-2">How many <strong>complete full glasses</strong> can be poured?</p>`,
+                acceptedAnswers: ["12", "12 glasses", "12 gelas"],
+                explanation: `
+                    <p>Bagi volume total punch dengan kapasitas tiap gelas:</p>
+                    $$\\begin{aligned}
+                    \\text{Banyak gelas} &= 3\\frac{3}{4} \\div \\frac{3}{10} \\\\
+                    &= \\frac{15}{4} \\times \\frac{10}{3} \\\\
+                    &= \\frac{5}{2} \\times 5 = \\frac{25}{2} = 12.5
+                    \\end{aligned}$$
+                    <p>Nilai $12.5$ berarti dapat mengisi $12$ gelas penuh dan tersisa $0.5$ porsi gelas.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Banyak gelas penuh yang dapat dituangkan adalah <strong>12</strong></p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 40 * 60; // 40 minutes (2400 seconds)
+        let timerInterval;
+        let isSubmitted = false;
+
+        function renderMath(targetElement) {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise(targetElement ? [targetElement] : undefined).catch((err) => {
+                    console.debug('MathJax handling:', err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                let badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+                if (q.level === "Low (Easy)") {
+                    badgeClass = "bg-emerald-100 text-emerald-900 border-emerald-300";
+                } else if (q.level === "HOTS") {
+                    badgeClass = "bg-rose-100 text-rose-900 border-rose-300";
+                } else {
+                    badgeClass = "bg-blue-100 text-blue-900 border-blue-300";
+                }
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.level}</span>
+                                <span class="text-xs font-semibold text-slate-500 hidden sm:inline-block">${q.source}</span>
+                            </div>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                
+                                <!-- Clean Short Answer Input Field -->
+                                <div class="mt-6 max-w-xl">
+                                    <label for="ans-input-${qNum}" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+                                        Your Short Answer:
+                                    </label>
+                                    <div class="relative">
+                                        <input 
+                                            type="text" 
+                                            id="ans-input-${qNum}" 
+                                            placeholder="Type your answer here..." 
+                                            autocomplete="off"
+                                            oninput="handleAnswerInput(${qNum}, this.value)"
+                                            class="w-full px-4 py-3 rounded-2xl border-2 border-slate-200 bg-white text-slate-900 font-bold text-base focus:border-indigo-600 focus:outline-none transition-all placeholder:text-slate-400"
+                                        />
+                                    </div>
+                                    <div class="flex items-center gap-1.5 mt-3 flex-wrap">
+                                        <span class="text-[11px] font-bold text-slate-400 mr-1">Simbol cepat:</span>
+                                        <button type="button" onclick="insertSymbol(${qNum}, '/')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-xs font-mono font-bold text-slate-700 transition cursor-pointer">/</button>
+                                        <button type="button" onclick="insertSymbol(${qNum}, '<')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-xs font-mono font-bold text-slate-700 transition cursor-pointer">&lt;</button>
+                                        <button type="button" onclick="insertSymbol(${qNum}, '>')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-xs font-mono font-bold text-slate-700 transition cursor-pointer">&gt;</button>
+                                        <button type="button" onclick="insertSymbol(${qNum}, '.')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-xs font-mono font-bold text-slate-700 transition cursor-pointer">.</button>
+                                        <button type="button" onclick="insertSymbol(${qNum}, '-')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-xs font-mono font-bold text-slate-700 transition cursor-pointer">-</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Ketik jawaban akhir Anda, lalu tekan Enter atau klik Soal Berikutnya.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function handleAnswerInput(qNum, value) {
+            if (isSubmitted) return;
+            const cleanVal = value.trim();
+
+            if (cleanVal !== "") {
+                userAnswers[qNum] = cleanVal;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+
+            if (cleanVal !== "") {
+                if (navBtn) {
+                    navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+                }
+                if (statusEl) {
+                    statusEl.innerText = `Tersimpan: "${cleanVal}"`;
+                    statusEl.classList.remove('hidden');
+                }
+            } else {
+                if (navBtn) {
+                    navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+                if (statusEl) {
+                    statusEl.classList.add('hidden');
+                }
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function insertSymbol(qNum, sym) {
+            const input = document.getElementById(`ans-input-${qNum}`);
+            if (!input) return;
+            const start = input.selectionStart || input.value.length;
+            const end = input.selectionEnd || input.value.length;
+            input.value = input.value.substring(0, start) + sym + input.value.substring(end);
+            input.focus();
+            input.setSelectionRange(start + sym.length, start + sym.length);
+            handleAnswerInput(qNum, input.value);
+        }
+
+        function clearActiveAnswer(qNum) {
+            if (isSubmitted) return;
+            const input = document.getElementById(`ans-input-${qNum}`);
+            if (input) {
+                input.value = "";
+                handleAnswerInput(qNum, "");
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            showSlide(currentQuestion);
+            renderMath();
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMath(activeSlide);
+                const input = document.getElementById(`ans-input-${n}`);
+                if (input) input.focus();
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua 20 soal sudah terisi dengan lengkap!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 40 menit telah berakhir. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function normalizeStr(str) {
+            if (!str) return "";
+            let s = str.toString().toLowerCase().trim();
+
+            // 1. Hapus tanda dollar dan spasi di sekitar
+            s = s.replace(/\$/g, '');
+
+            // 2. Hapus unit/satuan umum di akhir
+            s = s.replace(/\s*(ml|millilitres?|l|litres?|cm|m|metres?|kg|pages?|halaman|bottles?|botol|cups?|glasses?|gelas)$/, '');
+
+            // 3. Ubah koma desimal ke titik desimal (misal: "7,008" -> "7.008", "48,2" -> "48.2")
+            s = s.replace(/(\d+),(\d{1,4})$/, '$1.$2');
+
+            // 4. Hapus tanda koma pemisah ribuan
+            s = s.replace(/,/g, '');
+
+            // 5. Tangani bentuk pecahan campuran: misal "1 2/3" -> "5/3", "3 3/8" -> "27/8"
+            const mixedMatch = s.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+            if (mixedMatch) {
+                const whole = parseInt(mixedMatch[1], 10);
+                const num = parseInt(mixedMatch[2], 10);
+                const den = parseInt(mixedMatch[3], 10);
+                s = `${whole * den + num}/${den}`;
+            }
+
+            // 6. Hapus semua spasi tersisa
+            s = s.replace(/\s+/g, '');
+
+            return s;
+        }
+
+        function checkCorrectness(qId, userVal, acceptedList) {
+            if (!userVal) return false;
+            const normUser = normalizeStr(userVal);
+            if (!normUser) return false;
+
+            // Khusus nomor 18: membandingkan 'car a' atau 'a'
+            if (qId === 18) {
+                if (normUser === "cara" || normUser === "a") return true;
+            }
+
+            return acceptedList.some(acc => normalizeStr(acc) === normUser);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = checkCorrectness(q.id, userAns, q.acceptedAnswers);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+            renderMath();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">TIDAK DIJAWAB</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">SALAH</span>`;
+                }
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.level} &bull; ${q.source})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+                                <div class="p-3.5 rounded-2xl border ${isCorrect ? 'border-emerald-300 bg-emerald-50 text-emerald-900' : 'border-rose-300 bg-rose-50 text-rose-900'}">
+                                    <span class="text-xs font-bold uppercase tracking-wider block mb-1">Jawaban Anda:</span>
+                                    <span class="font-mono font-black text-base">${userAns ? userAns : '<span class="italic font-normal text-slate-500">Tidak Dijawab</span>'}</span>
+                                </div>
+                                <div class="p-3.5 rounded-2xl border border-indigo-200 bg-indigo-50 text-indigo-950">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 block mb-1">Kunci Jawaban Resmi:</span>
+                                    <span class="font-mono font-black text-base">${q.acceptedAnswers[0]}</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            renderMath(container);
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
