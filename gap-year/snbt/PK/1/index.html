@@ -68,7 +68,7 @@
                 </h2>
                 <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
                     <li>Jumlah Soal: <strong>20 Butir Soal Pilihan Ganda</strong> (Opsi A, B, C, D, E).</li>
-                    <li>Alokasi Waktu: <strong>30 Menit</strong> (Dilengkapi penghitung mundur otomatis).</li>
+                    <li>Alokasi Waktu: <strong>45 Menit</strong> (Dilengkapi penghitung mundur otomatis).</li>
                     <li>Sistem Penilaian: Setiap butir bernilai <strong>5 Poin</strong> (Skor Maksimal: 100).</li>
                     <li>Hasil pengerjaan & skor akan langsung tersimpan ke lembar rekapitulasi Google Spreadsheet.</li>
                     <li>Seluruh pembahasan langkah demi langkah (<em>step-by-step</em>) dan <strong>Analisis Pilihan Pengecoh</strong> ditampilkan setelah ujian dikumpulkan.</li>
@@ -189,7 +189,7 @@
                     <div class="flex items-center gap-3">
                         <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
                         <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
-                            30:00
+                            45:00
                         </div>
                     </div>
                 </div>
@@ -1084,7 +1084,7 @@
         let currentQuestion = 1;
         let userAnswers = {};
         let questionEvaluation = [];
-        let timeLeft = 30 * 60; // 30 minutes in seconds
+        let timeLeft = 45 * 60; // 45 minutes in seconds
         let timerInterval = null;
         let isSubmitted = false;
 
@@ -1341,7 +1341,7 @@
         function showTimeUpModal() {
             document.getElementById('modal-title').innerText = "Waktu Try Out Habis!";
             document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
-            document.getElementById('modal-message').innerText = "Alokasi waktu 30 menit telah berakhir. Lembar pengerjaan dikumpulkan secara otomatis.";
+            document.getElementById('modal-message').innerText = "Alokasi waktu 45 menit telah berakhir. Lembar pengerjaan dikumpulkan secara otomatis.";
             document.getElementById('modal-actions').innerHTML = `
                 <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
             `;
