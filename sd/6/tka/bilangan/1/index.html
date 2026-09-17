@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Soal Literasi Numerasi Matematika SD: Topik Bilangan - Asesmen & Pembahasan Lengkap</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax Configuration for LaTeX rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f0fdfa; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #99f6e4; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #5eead4; }
+
+        .list-roman {
+            list-style-type: lower-roman;
+        }
+
+        .option-card.selected {
+            border-color: #0f766e !important;
+            background-color: #f0fdfa !important;
+            box-shadow: 0 4px 14px -2px rgba(15, 118, 110, 0.18);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #0f766e !important;
+            color: #ffffff !important;
+            border-color: #0f766e !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-teal-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-teal-50 via-slate-50 to-emerald-100 p-3 sm:p-5 md:p-8">
+        <div class="pt-2"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-3xl w-full border-t-8 border-teal-700 my-auto">
+            <!-- Header Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span class="px-3.5 py-1 bg-teal-100 text-teal-900 text-xs font-black rounded-full uppercase tracking-wider">Literasi Numerasi SD/MI</span>
+                <span class="px-3.5 py-1 bg-emerald-100 text-emerald-900 text-xs font-black rounded-full uppercase tracking-wider">Topik Bilangan</span>
+                <span class="px-3.5 py-1 bg-amber-100 text-amber-900 text-xs font-black rounded-full uppercase tracking-wide">Standar TPM & Asesmen Kota</span>
+            </div>
+
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">
+                30 SOAL LITERASI NUMERASI MATEMATIKA
+            </h1>
+            <p class="text-center text-teal-800 font-bold mb-6 text-sm md:text-base">
+                Fokus Topik: Bilangan Bulat, Pecahan, FPB/KPK, Perbandingan & Aritmetika Sosial
+            </p>
+
+            <!-- Student Identity Box -->
+            <div class="bg-teal-50/70 p-5 rounded-2xl mb-6 border border-teal-200 shadow-sm">
+                <h2 class="font-bold text-teal-950 flex items-center text-sm md:text-base mb-3">
+                    <svg class="w-5 h-5 mr-2 text-teal-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    Identitas Peserta Ujian / Siswa:
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs md:text-sm">
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Nama Siswa</label>
+                        <input type="text" id="input-student-name" placeholder="Nama Lengkap..." class="w-full px-3 py-2 bg-white rounded-xl border border-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Kelas / No. Presensi</label>
+                        <input type="text" id="input-student-class" placeholder="Contoh: 6A / 12" class="w-full px-3 py-2 bg-white rounded-xl border border-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Asal Sekolah</label>
+                        <input type="text" id="input-student-school" placeholder="Nama SD / MI..." class="w-full px-3 py-2 bg-white rounded-xl border border-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions and Rules -->
+            <div class="bg-slate-50 p-5 rounded-2xl mb-6 border border-slate-200 shadow-sm space-y-2.5">
+                <h3 class="font-bold text-slate-900 flex items-center text-sm md:text-base">
+                    <svg class="w-5 h-5 mr-2 text-teal-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Format Asesmen:
+                </h3>
+                <ul class="list-disc list-inside text-xs md:text-sm text-slate-700 space-y-1.5 leading-relaxed">
+                    <li>Terdiri atas <strong>30 Butir Soal Pilihan Ganda</strong> berbasis cerita nyata & penalaran numerasi.</li>
+                    <li>Waktu Pengerjaan: <strong>60 Menit</strong> (penghitung waktu mundur otomatis).</li>
+                    <li>Setiap jawaban benar bernilai <strong>3,33 Poin</strong> (Skor Maksimal: 100 Poin).</li>
+                    <li>Anda bebas melompat ke nomor mana saja menggunakan panel navigasi soal.</li>
+                    <li>Hasil analisis nilai, statistik, dan pembahasan langkah demi langkah (<em>step-by-step</em>) akan langsung ditampilkan setelah ujian dikumpulkan.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs font-bold mb-8">
+                <div class="p-2.5 bg-teal-50 text-teal-900 border border-teal-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-teal-600 font-extrabold">Bagian I</p>
+                    <p class="text-xs font-black">Aritmetika Sosial</p>
+                    <span class="text-[10px] text-teal-700">Soal 1–6</span>
+                </div>
+                <div class="p-2.5 bg-teal-50 text-teal-900 border border-teal-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-teal-600 font-extrabold">Bagian II</p>
+                    <p class="text-xs font-black">Bilangan Bulat</p>
+                    <span class="text-[10px] text-teal-700">Soal 7–12</span>
+                </div>
+                <div class="p-2.5 bg-teal-50 text-teal-900 border border-teal-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-teal-600 font-extrabold">Bagian III</p>
+                    <p class="text-xs font-black">FPB & KPK Nyata</p>
+                    <span class="text-[10px] text-teal-700">Soal 13–18</span>
+                </div>
+                <div class="p-2.5 bg-teal-50 text-teal-900 border border-teal-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-teal-600 font-extrabold">Bagian IV</p>
+                    <p class="text-xs font-black">Pecahan & Desimal</p>
+                    <span class="text-[10px] text-teal-700">Soal 19–24</span>
+                </div>
+                <div class="p-2.5 bg-teal-50 text-teal-900 border border-teal-200 rounded-2xl col-span-2 sm:col-span-1">
+                    <p class="text-[10px] uppercase text-teal-600 font-extrabold">Bagian V</p>
+                    <p class="text-xs font-black">Perbandingan & Skala</p>
+                    <span class="text-[10px] text-teal-700">Soal 25–30</span>
+                </div>
+            </div>
+
+            <!-- Start Action Button -->
+            <button type="button" onclick="startQuiz()" class="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-[0.98] hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Simulasi Ujian</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-teal-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/90 hover:bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-teal-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-teal-950 leading-tight">LITERASI NUMERASI MATEMATIKA SD</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">30 Soal Standar Asesmen Akhir Jenjang & TPM Kota</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-teal-50 text-teal-800 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-teal-200 shadow-inner" id="timer-display">
+                            60:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Grid for 30 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-700 inline-block"></span>
+                            <p class="text-xs font-black text-slate-600 uppercase tracking-wider">Navigasi Butir Soal (1–30)</p>
+                        </div>
+                        <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg border border-teal-200" id="answered-counter">Terjawab: 0 / 30</span>
+                    </div>
+                    <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-[repeat(15,minmax(0,1fr))] gap-1.5" id="nav-container">
+                        <!-- Navigation buttons dynamically injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slides Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- 30 Dynamic Question Slides -->
+                    </div>
+
+                    <!-- Navigation Footer Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-teal-700 text-white font-bold rounded-2xl hover:bg-teal-800 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="text-teal-800 font-semibold">mtkbarengkakdhanar</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 text-xs">
+                    <span>Konsultasi Belajar: 0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan simulasi ujian ini? Nilai dan seluruh 30 kunci pembahasan lengkap akan langsung ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-700 text-white font-bold rounded-xl hover:bg-teal-800 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-teal-800 via-teal-900 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-52 h-52 bg-teal-400/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">EVALUASI HASIL & RAPOR SIMULASI</h2>
+                <div id="student-summary-badge" class="text-teal-200 font-semibold mb-6 text-sm"></div>
+
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Total Skor</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-teal-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-teal-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-teal-900 hover:bg-teal-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap (30 Soal)</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Pembahasan Lengkap</h3>
+                        <p class="text-sm text-slate-500">Pelajari analisis matematis dan cara cepat pengerjaan setiap butir soal berikut.</p>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-teal-800 shadow-sm transition cursor-pointer">Semua (<span id="cnt-all">30</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Injected dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="text-teal-800 font-semibold">mtkbarengkakdhanar</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 text-xs">
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Data Lengkap 30 Soal Literasi Numerasi
+        const questionsData = [
+            {
+                id: 1,
+                category: "BAGIAN I: Aritmetika Sosial & Daftar Harga",
+                source: "Soal 1",
+                question: `
+                    <p class="mb-3">Saat berwisata kuliner ke Yogyakarta, Bima dan teman-temannya mampir di warung makan <em>"Geprek Sambal Matah Bu Har"</em>. Di dinding warung tertera papan daftar menu dan penawaran promo paket makan siang sebagaimana terlihat pada gambar.</p>
+                    <div class="my-4 flex justify-center">
+                        <div class="w-full max-w-sm bg-teal-50 border-2 border-teal-800 rounded-2xl p-4 shadow-md text-slate-800">
+                            <div class="bg-teal-800 text-white font-bold text-center py-1.5 px-3 rounded-xl text-xs md:text-sm uppercase tracking-wide mb-1">
+                                Warung Makan Bu Har
+                            </div>
+                            <p class="text-center text-[11px] italic text-teal-900 mb-2 border-b border-teal-300 pb-1.5">Spesial Ayam Geprek & Masakan Nusantara</p>
+                            <table class="w-full text-xs font-semibold">
+                                <tr class="border-b border-teal-100"><td class="py-1">Ayam Geprek Original</td><td class="text-right font-bold text-teal-950">Rp18.500</td></tr>
+                                <tr class="border-b border-teal-100"><td class="py-1">Ayam Geprek Keju</td><td class="text-right font-bold text-teal-950">Rp22.000</td></tr>
+                                <tr class="border-b border-teal-100"><td class="py-1">Jamur Crispy</td><td class="text-right font-bold text-teal-950">Rp10.500</td></tr>
+                                <tr class="border-b border-teal-200"><td class="py-1">Tahu / Tempe Goreng</td><td class="text-right font-bold text-teal-950">Rp4.000</td></tr>
+                                <tr class="border-b border-teal-100"><td class="py-1 text-slate-600">Es Teh Manis</td><td class="text-right font-bold text-teal-950">Rp3.500</td></tr>
+                                <tr><td class="py-1 text-slate-600">Es Jeruk Peras</td><td class="text-right font-bold text-teal-950">Rp4.500</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <p>Bima memesan <strong>1 porsi Ayam Geprek Original</strong> dan <strong>1 porsi Jamur Crispy</strong>. Ia membayar di kasir menggunakan 1 lembar uang kertas Rp50.000,00. Sisa uang kembalian yang diterima Bima adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Rp19.500,00" },
+                    { key: "B", text: "Rp20.500,00" },
+                    { key: "C", text: "Rp21.000,00" },
+                    { key: "D", text: "Rp21.500,00" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Harga Ayam Geprek Original = Rp18.500,00</li>
+                        <li>Harga Jamur Crispy = Rp10.500,00</li>
+                        <li>Total belanja Bima = $\\text{Rp}18.500 + \\text{Rp}10.500 = \\text{Rp}29.000,00$</li>
+                        <li>Uang dibayarkan = Rp50.000,00</li>
+                        <li>Kembalian = $\\text{Rp}50.000 - \\text{Rp}29.000 = \\mathbf{\\text{Rp}21.000,00}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) Rp21.000,00</p>
+                `
+            },
+            {
+                id: 2,
+                category: "BAGIAN I: Aritmetika Sosial & Promo",
+                source: "Soal 2",
+                question: `
+                    <p class="mb-3">Sebuah kedai bakso mengadakan promo paket istimewa bagi rombongan sekolah seperti tercantum pada spanduk pengumuman:</p>
+                    <div class="my-3 flex justify-center">
+                        <div class="bg-amber-50 border-2 border-amber-500 rounded-2xl p-4 shadow text-center max-w-xs">
+                            <span class="bg-amber-500 text-white font-black text-xs px-3 py-1 rounded-full uppercase">PROMO SPESIAL</span>
+                            <p class="font-black text-amber-950 mt-2 text-sm leading-snug">Beli 4 Mangkuk Bakso<br><span class="text-rose-600 font-extrabold">GRATIS 1 Es Campur!</span></p>
+                            <p class="text-[11px] text-slate-500 mt-1 border-t border-amber-200 pt-1">Berlaku kelipatan pesanan. Segar, Gurih, & Halal.</p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-2">
+                        <li>Harga 1 mangkuk Bakso Spesial = Rp24.000,00.</li>
+                        <li>Harga 1 gelas Es Campur Segar = Rp6.000,00.</li>
+                        <li><strong>Promo:</strong> Setiap pembelian 4 mangkuk Bakso Spesial gratis 1 gelas Es Campur.</li>
+                    </ul>
+                    <p>Pak Guru mentraktir muridnya dengan memesan <strong>8 mangkuk Bakso Spesial</strong> dan membawa pulang <strong>10 gelas Es Campur Segar</strong>. Jika Pak Guru membayar dengan 2 lembar uang seratus ribuan dan 1 lembar lima puluh ribuan, uang kembalian yang diterima adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Rp10.000,00" },
+                    { key: "B", text: "Rp12.000,00" },
+                    { key: "C", text: "Rp16.000,00" },
+                    { key: "D", text: "Rp18.000,00" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Harga 8 mangkuk bakso = $8 \\times \\text{Rp}24.000 = \\text{Rp}192.000,00$.</li>
+                        <li>Promo: Pembelian 8 bakso mendapat gratis $8 : 4 = 2$ gelas Es Campur.</li>
+                        <li>Total es campur yang dibawa = 10 gelas, sehingga yang harus dibayar adalah $10 - 2 = 8$ gelas.</li>
+                        <li>Harga 8 es campur = $8 \\times \\text{Rp}6.000 = \\text{Rp}48.000,00$.</li>
+                        <li>Total tagihan = $\\text{Rp}192.000 + \\text{Rp}48.000 = \\text{Rp}240.000,00$.</li>
+                        <li>Uang diserahkan: $(2 \\times 100.000) + 50.000 = \\text{Rp}250.000,00$.</li>
+                        <li>Kembalian = $\\text{Rp}250.000 - \\text{Rp}240.000 = \\mathbf{\\text{Rp}10.000,00}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) Rp10.000,00</p>
+                `
+            },
+            {
+                id: 3,
+                category: "BAGIAN I: Pecahan Uang Kertas & Belanja",
+                source: "Soal 3",
+                question: `
+                    <p class="mb-3">Rere, Dania, dan Salsa pergi ke toko buku untuk membeli perlengkapan belajar. Rere membawa sejumlah uang kertas pecahan berikut di dalam dompetnya:</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-3 text-center text-xs">
+                        <div class="bg-blue-50 border border-blue-400 p-2.5 rounded-xl">
+                            <span class="font-bold text-blue-900 block">Rp50.000</span>
+                            <span class="text-[11px] text-slate-600 font-semibold">1 Lembar</span>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-400 p-2.5 rounded-xl">
+                            <span class="font-bold text-emerald-900 block">Rp20.000</span>
+                            <span class="text-[11px] text-slate-600 font-semibold">2 Lembar</span>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-400 p-2.5 rounded-xl">
+                            <span class="font-bold text-purple-900 block">Rp10.000</span>
+                            <span class="text-[11px] text-slate-600 font-semibold">1 Lembar</span>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-400 p-2.5 rounded-xl">
+                            <span class="font-bold text-amber-900 block">Rp5.000</span>
+                            <span class="text-[11px] text-slate-600 font-semibold">2 Lembar</span>
+                        </div>
+                    </div>
+                    <p>Rere membeli <strong>1 pack buku tulis seharga Rp38.500,00</strong> dan <strong>3 buah pulpen gel seharga @Rp4.500,00</strong>. Jika Rere membayar total belanjaannya dari dompet tersebut, sisa total seluruh uang milik Rere sekarang adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Rp56.000,00" },
+                    { key: "B", text: "Rp58.000,00" },
+                    { key: "C", text: "Rp60.000,00" },
+                    { key: "D", text: "Rp62.000,00" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Total uang awal Rere = $(1 \\times 50.000) + (2 \\times 20.000) + (1 \\times 10.000) + (2 \\times 5.000) = 50.000 + 40.000 + 10.000 + 10.000 = \\text{Rp}110.000,00$.</li>
+                        <li>Harga 3 pulpen gel = $3 \\times \\text{Rp}4.500 = \\text{Rp}13.500,00$.</li>
+                        <li>Total belanja = $\\text{Rp}38.500 + \\text{Rp}13.500 = \\text{Rp}52.000,00$.</li>
+                        <li>Sisa total uang Rere = $\\text{Rp}110.000 - \\text{Rp}52.000 = \\mathbf{\\text{Rp}58.000,00}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) Rp58.000,00</p>
+                `
+            },
+            {
+                id: 4,
+                category: "BAGIAN I: Analisis Pernyataan Belanja Kantin",
+                source: "Soal 4",
+                question: `
+                    <p class="mb-2">Tiga anak, yaitu Fani, Gita, dan Hendra membeli jajanan di kantin kejujuran sekolah:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-3">
+                        <li>Fani membeli 2 roti bakar (@Rp6.500,00) dan 1 kotak susu cokelat (Rp5.000,00), membayar dengan uang Rp20.000,00.</li>
+                        <li>Gita membeli 1 mangkuk siomay (Rp12.000,00) dan 1 es jeruk (Rp4.000,00), membayar dengan uang Rp20.000,00.</li>
+                        <li>Hendra membeli 3 pastel (@Rp3.000,00) dan 1 teh botol (Rp4.500,00), membayar dengan uang Rp20.000,00.</li>
+                    </ul>
+                    <p class="font-semibold mb-1">Perhatikan pernyataan-pernyataan berikut:</p>
+                    <ol class="list-roman list-inside text-sm space-y-1 mb-3 bg-slate-100 p-3 rounded-xl">
+                        <li>Uang kembalian yang diterima Fani adalah Rp3.000,00.</li>
+                        <li>Uang kembalian Gita dan Hendra bernilai sama besar.</li>
+                        <li>Selisih uang kembalian antara Fani dan Hendra adalah Rp4.500,00.</li>
+                        <li>Total seluruh uang kembalian ketiga anak tersebut adalah Rp12.500,00.</li>
+                    </ol>
+                    <p>Pernyataan yang tepat ditunjukkan oleh nomor...</p>
+                `,
+                options: [
+                    { key: "A", text: "(i) dan (ii)" },
+                    { key: "B", text: "(i) dan (iv)" },
+                    { key: "C", text: "(ii) dan (iii)" },
+                    { key: "D", text: "(iii) dan (iv)" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Analisis Pernyataan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Fani: Belanja $= (2 \\times 6.500) + 5.000 = 13.000 + 5.000 = 18.000$. Kembalian $= 20.000 - 18.000 = \\text{Rp}2.000,00$. Pernyataan (i) SALAH.</li>
+                        <li>Gita: Belanja $= 12.000 + 4.000 = 16.000$. Kembalian $= 20.000 - 16.000 = \\text{Rp}4.000,00$.</li>
+                        <li>Hendra: Belanja $= (3 \\times 3.000) + 4.500 = 9.000 + 4.500 = 13.500$. Kembalian $= 20.000 - 13.500 = \\text{Rp}6.500,00$. Pernyataan (ii) SALAH karena $4.000 \\neq 6.500$.</li>
+                        <li>Selisih kembalian Hendra dan Fani $= 6.500 - 2.000 = \\text{Rp}4.500,00$. Pernyataan (iii) BENAR.</li>
+                        <li>Total kembalian $= 2.000 + 4.000 + 6.500 = \\text{Rp}12.500,00$. Pernyataan (iv) BENAR.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) (iii) dan (iv)</p>
+                `
+            },
+            {
+                id: 5,
+                category: "BAGIAN I: Kupon Diskon & Alat Tulis",
+                source: "Soal 5",
+                question: `
+                    <p class="mb-2">Sebuah toko alat tulis menyediakan paket hemat perlengkapan ujian akhir sekolah dengan potongan kupon diskon langsung:</p>
+                    <div class="my-3 flex justify-center">
+                        <div class="border-2 border-dashed border-teal-600 bg-teal-50/80 p-3 rounded-2xl text-center max-w-xs">
+                            <span class="text-xs font-black text-teal-800 uppercase tracking-wider block">KUPON HEMAT UJIAN</span>
+                            <span class="text-sm font-black text-rose-600 block mt-1">DISKON Rp2.500 / Paket</span>
+                            <p class="text-[10px] text-slate-500 mt-1">Berlaku untuk paket pensil, papan jalan, dan mistar.</p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-2">
+                        <li>Harga 1 kotak pensil 2B = Rp18.000,00.</li>
+                        <li>Harga 1 papan jalan / <em>clipboard</em> ujian = Rp14.500,00.</li>
+                        <li>Harga 1 penggaris busur komplit = Rp7.500,00.</li>
+                    </ul>
+                    <p>Sekolah membeli 5 paket yang masing-masing terdiri dari 1 kotak pensil 2B, 1 papan jalan, dan 1 penggaris. Kasir memberikan potongan diskon sebesar Rp2.500,00 untuk setiap paket yang dibeli. Total biaya yang wajib dibayarkan oleh pihak sekolah adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Rp175.000,00" },
+                    { key: "B", text: "Rp187.500,00" },
+                    { key: "C", text: "Rp190.000,00" },
+                    { key: "D", text: "Rp200.000,00" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Harga 1 paket sebelum diskon = $18.000 + 14.500 + 7.500 = \\text{Rp}40.000,00$.</li>
+                        <li>Harga 1 paket setelah diskon = $40.000 - 2.500 = \\text{Rp}37.500,00$.</li>
+                        <li>Total biaya untuk 5 paket = $5 \\times \\text{Rp}37.500,00 = \\mathbf{\\text{Rp}187.500,00}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) Rp187.500,00</p>
+                `
+            },
+            {
+                id: 6,
+                category: "BAGIAN I: Aritmetika Pasar Buah",
+                source: "Soal 6",
+                question: `
+                    <p class="mb-3">Pak Joko berbelanja di pasar induk buah. Ia membeli $4\\text{ kg}$ apel fuji seharga @Rp32.500,00/kg dan $3\\text{ kg}$ jeruk medan seharga @Rp22.000,00/kg. Pak Joko menyerahkan 2 lembar uang kertas seratus ribuan di kasir.</p>
+                    <p>Uang kembalian yang diterima Pak Joko adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Rp4.000,00" },
+                    { key: "B", text: "Rp4.500,00" },
+                    { key: "C", text: "Rp5.000,00" },
+                    { key: "D", text: "Rp6.000,00" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Harga apel fuji = $4 \\times \\text{Rp}32.500 = \\text{Rp}130.000,00$.</li>
+                        <li>Harga jeruk medan = $3 \\times \\text{Rp}22.000 = \\text{Rp}66.000,00$.</li>
+                        <li>Total belanjaan = $130.000 + 66.000 = \\text{Rp}196.000,00$.</li>
+                        <li>Uang diserahkan = $2 \\times 100.000 = \\text{Rp}200.000,00$.</li>
+                        <li>Uang kembalian = $200.000 - 196.000 = \\mathbf{\\text{Rp}4.000,00}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) Rp4.000,00</p>
+                `
+            },
+            {
+                id: 7,
+                category: "BAGIAN II: Bilangan Bulat & Garis Bilangan",
+                source: "Soal 7",
+                question: `
+                    <p class="mb-2">Dua siswa, Radit dan Dimas, mempraktikkan operasi hitung bilangan bulat melalui permainan langkah berpetak pada lantai aula bertanda garis bilangan horizontal.</p>
+                    <div class="bg-slate-100 p-3 rounded-xl border border-slate-200 my-2 text-sm">
+                        <strong class="text-teal-900">Aturan Permainan:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-0.5">
+                            <li>Bidak mula-mula diletakkan tepat pada angka 3 menghadap ke arah kanan (bilangan positif).</li>
+                            <li>Bidak digerakkan mundur sejauh 7 langkah.</li>
+                            <li>Selanjutnya, bidak digerakkan maju sebanyak 10 langkah.</li>
+                            <li>Pada gerakan terakhir, bidak melangkah mundur sejauh 5 langkah.</li>
+                        </ul>
+                    </div>
+                    <p>Posisi akhir bidak berada pada bilangan bulat...</p>
+                `,
+                options: [
+                    { key: "A", text: "1" },
+                    { key: "B", text: "3" },
+                    { key: "C", text: "5" },
+                    { key: "D", text: "-1" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Operasi Hitung:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Posisi awal: $3$</li>
+                        <li>Mundur 7 langkah $\\implies 3 - 7 = -4$</li>
+                        <li>Maju 10 langkah $\\implies -4 + 10 = 6$</li>
+                        <li>Mundur 5 langkah $\\implies 6 - 5 = \\mathbf{1}$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) 1</p>
+                `
+            },
+            {
+                id: 8,
+                category: "BAGIAN II: Penurunan Suhu Mesin Pendingin",
+                source: "Soal 8",
+                question: `
+                    <p class="mb-3">Suhu awal di dalam ruangan pembekuan daging segar sebuah rumah potong hewan adalah $-4^\\circ\\text{C}$. Ketika tombol pembekuan cepat (<em>super freeze</em>) diaktifkan, mesin pendingin bekerja secara berkala sehingga suhu ruangan turun sebesar $3^\\circ\\text{C}$ setiap 12 menit.</p>
+                    <p>Berdasarkan cara kerja mesin pendingin tersebut, suhu di dalam ruangan pembekuan daging setelah tombol diaktifkan terus-menerus selama 1 jam (60 menit) adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$-15^\\circ\\text{C}$" },
+                    { key: "B", text: "$-19^\\circ\\text{C}$" },
+                    { key: "C", text: "$-21^\\circ\\text{C}$" },
+                    { key: "D", text: "$-23^\\circ\\text{C}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Waktu operasi = $1\\text{ jam} = 60\\text{ menit}$.</li>
+                        <li>Banyak kali penurunan suhu = $60 : 12 = 5\\text{ kali}$.</li>
+                        <li>Total penurunan suhu = $5 \\times 3^\\circ\\text{C} = 15^\\circ\\text{C}$.</li>
+                        <li>Suhu akhir = $-4^\\circ\\text{C} - 15^\\circ\\text{C} = \\mathbf{-19^\\circ\\text{C}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $-19^\\circ\\text{C}$</p>
+                `
+            },
+            {
+                id: 9,
+                category: "BAGIAN II: Jarak Vertikal Kedalaman & Ketinggian",
+                source: "Soal 9",
+                question: `
+                    <p class="mb-3">Pada kegiatan survei ekosistem laut di perairan Nusa Tenggara, seekor burung camar laut sedang terbang melayang mencari mangsa pada ketinggian 16 meter di atas permukaan air laut. Tepat berada di garis vertikal tegak lurus di bawah lintasan burung camar tersebut, sebuah kapal selam riset kelautan sedang bermanuver pada kedalaman 85 meter di bawah permukaan air laut.</p>
+                    <p>Jarak vertikal sesungguhnya antara burung camar laut dan kapal selam riset tersebut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$69\\text{ meter}$" },
+                    { key: "B", text: "$71\\text{ meter}$" },
+                    { key: "C", text: "$99\\text{ meter}$" },
+                    { key: "D", text: "$101\\text{ meter}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Ketinggian burung camar = $+16\\text{ meter}$.</li>
+                        <li>Kedalaman kapal selam = $-85\\text{ meter}$.</li>
+                        <li>Jarak vertikal sesungguhnya = $\\text{Ketinggian} - \\text{Kedalaman} = 16 - (-85) = 16 + 85 = \\mathbf{101\\text{ meter}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $101\\text{ meter}$</p>
+                `
+            },
+            {
+                id: 10,
+                category: "BAGIAN II: Sistem Penilaian Cerdas Cermat",
+                source: "Soal 10",
+                question: `
+                    <p class="mb-2">Dalam babak final kuis cerdas cermat matematika yang terdiri dari 30 butir soal, panitia menetapkan sistem penilaian skor sebagai berikut:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-2">
+                        <li>Setiap jawaban <strong>benar</strong> diberi skor $+4$.</li>
+                        <li>Setiap jawaban <strong>salah</strong> diberi skor $-2$.</li>
+                        <li>Soal yang <strong>tidak dijawab</strong> diberi skor $-1$.</li>
+                    </ul>
+                    <p>Regu Garuda berhasil menjawab 23 soal dengan benar dan 4 soal dijawab salah, sedangkan sisanya tidak sempat dijawab karena waktu habis. Total perolehan nilai akhir yang didapat Regu Garuda adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "81" },
+                    { key: "B", text: "83" },
+                    { key: "C", text: "84" },
+                    { key: "D", text: "88" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Soal tidak dijawab = $30 - (23 + 4) = 30 - 27 = 3\\text{ soal}$.</li>
+                        <li>Skor jawaban benar = $23 \\times 4 = +92$.</li>
+                        <li>Skor jawaban salah = $4 \\times (-2) = -8$.</li>
+                        <li>Skor tidak dijawab = $3 \\times (-1) = -3$.</li>
+                        <li>Total nilai akhir = $92 - 8 - 3 = \\mathbf{81}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) 81</p>
+                `
+            },
+            {
+                id: 11,
+                category: "BAGIAN II: Pangkat Tiga & Luas Sisi Kotak Kubus",
+                source: "Soal 11",
+                question: `
+                    <p class="mb-3">Alif membuat sebuah kotak penyimpanan berbentuk kubus tanpa tutup dari tripleks tebal. Volume bagian dalam kotak kubus tersebut adalah $1.728\\text{ cm}^3$.</p>
+                    <p>Alif berencana menempelkan kertas stiker warna merah pada seluruh sisi tegak bagian luar dan dalam kotak tersebut. Luas minimal kertas stiker yang dibutuhkan Alif adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$576\\text{ cm}^2$" },
+                    { key: "B", text: "$864\\text{ cm}^2$" },
+                    { key: "C", text: "$1.152\\text{ cm}^2$" },
+                    { key: "D", text: "$1.440\\text{ cm}^2$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Panjang rusuk kubus ($s$) = $\\sqrt[3]{1.728} = 12\\text{ cm}$.</li>
+                        <li>Luas 1 bidang sisi = $12 \\times 12 = 144\\text{ cm}^2$.</li>
+                        <li>Sisi tegak kubus terdiri dari 4 sisi.</li>
+                        <li>Karena ditempel di bagian luar dan bagian dalam, total sisi tegak yang dilapisi stiker = $4 \\times 2 = 8\\text{ permukaan}$.</li>
+                        <li>Luas minimal stiker = $8 \\times 144 = \\mathbf{1.152\\text{ cm}^2}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $1.152\\text{ cm}^2$</p>
+                `
+            },
+            {
+                id: 12,
+                category: "BAGIAN II: Operasi Hitung Campuran Bilangan Bulat",
+                source: "Soal 12",
+                question: `
+                    <p class="mb-3">Hasil dari pengerjaan operasi hitung campuran bilangan bulat berikut:</p>
+                    <p class="text-center font-bold text-lg my-2 text-teal-900">\\[ (-24) + 15 \\times (-4) - (-72) : 6 \\]</p>
+                    <p>adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$-96$" },
+                    { key: "B", text: "$-72$" },
+                    { key: "C", text: "$-60$" },
+                    { key: "D", text: "$48$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Urutan Operasi Hitung (Kabataku):</p>
+                    $$\\begin{align}
+                    (-24) + [15 \\times (-4)] - [(-72) : 6] &= (-24) + (-60) - (-12) \\\\
+                    &= -84 + 12 \\\\
+                    &= \\mathbf{-72}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $-72$</p>
+                `
+            },
+            {
+                id: 13,
+                category: "BAGIAN III: FPB Paket Bantuan Sosial",
+                source: "Soal 13",
+                question: `
+                    <p class="mb-2">Dalam rangka bakti sosial memperingati Hari Kemerdekaan, panitia mengumpulkan bantuan berupa 96 bungkus mie instan, 72 saset susu bubuk, dan 48 kaleng sarden.</p>
+                    <div class="my-3 flex justify-center">
+                        <div class="bg-teal-50 border-2 border-teal-700 rounded-2xl p-3 max-w-xs w-full text-center">
+                            <span class="text-xs font-black text-teal-900 uppercase">Paket Bingkisan Sembako</span>
+                            <div class="text-xs text-left font-semibold text-slate-700 mt-2 space-y-1">
+                                <p>&bull; 96 Bungkus Mie Instan</p>
+                                <p>&bull; 72 Saset Susu Bubuk</p>
+                                <p>&bull; 48 Kaleng Ikan Sarden</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Seluruh barang tersebut akan dimasukkan ke dalam kantong bingkisan dengan jumlah dan jenis barang yang sama banyak di setiap kantong tanpa tersisa. Jumlah kantong bingkisan paling banyak yang dapat dibuat panitia adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "12 kantong" },
+                    { key: "B", text: "16 kantong" },
+                    { key: "C", text: "24 kantong" },
+                    { key: "D", text: "32 kantong" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan Menggunakan FPB:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Faktorisasi prima $96 = 2^5 \\times 3$</li>
+                        <li>Faktorisasi prima $72 = 2^3 \\times 3^2$</li>
+                        <li>Faktorisasi prima $48 = 2^4 \\times 3$</li>
+                        <li>$\\text{FPB}(96, 72, 48) = 2^3 \\times 3 = 8 \\times 3 = \\mathbf{24\\text{ kantong}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) 24 kantong</p>
+                `
+            },
+            {
+                id: 14,
+                category: "BAGIAN III: Analisis Rincian Isi Bingkisan",
+                source: "Soal 14",
+                question: `
+                    <p class="mb-2">Berdasarkan keterangan pembagian barang pada paket bakti sosial di <strong>Soal 13</strong>, perhatikan beberapa pernyataan berikut:</p>
+                    <ol class="list-roman list-inside text-sm space-y-1 mb-3 bg-slate-100 p-3 rounded-xl">
+                        <li>Setiap kantong bingkisan memuat 4 bungkus mie instan.</li>
+                        <li>Setiap kantong bingkisan memuat 2 saset susu bubuk.</li>
+                        <li>Banyaknya ikan sarden dalam setiap kantong adalah 2 kaleng.</li>
+                        <li>Jumlah seluruh barang di dalam setiap kantong bingkisan adalah 10 buah.</li>
+                    </ol>
+                    <p>Pernyataan yang bernilai benar ditunjukkan oleh nomor...</p>
+                `,
+                options: [
+                    { key: "A", text: "(i) dan (ii)" },
+                    { key: "B", text: "(i) dan (iii)" },
+                    { key: "C", text: "(ii) dan (iv)" },
+                    { key: "D", text: "(iii) dan (iv)" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Analisis Isi Setiap Kantong (dari total 24 kantong):</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Mie instan per kantong = $96 : 24 = 4\\text{ bungkus}$ $\\implies$ Pernyataan (i) BENAR.</li>
+                        <li>Susu bubuk per kantong = $72 : 24 = 3\\text{ saset}$ $\\implies$ Pernyataan (ii) SALAH (bukan 2 saset).</li>
+                        <li>Ikan sarden per kantong = $48 : 24 = 2\\text{ kaleng}$ $\\implies$ Pernyataan (iii) BENAR.</li>
+                        <li>Total isi tiap kantong = $4 + 3 + 2 = 9\\text{ buah}$ $\\implies$ Pernyataan (iv) SALAH (bukan 10 buah).</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) (i) dan (iii)</p>
+                `
+            },
+            {
+                id: 15,
+                category: "BAGIAN III: KPK Tanggal Jadwal Les Renang",
+                source: "Soal 15",
+                question: `
+                    <p class="mb-2">Tiga sahabat, yaitu Galih, Kevin, dan Bagas, mengikuti les renang di tempat latihan yang sama:</p>
+                    <div class="my-3 flex justify-center">
+                        <div class="bg-sky-50 border border-sky-400 p-3.5 rounded-2xl max-w-xs w-full text-center">
+                            <span class="bg-sky-700 text-white font-bold text-xs px-3 py-0.5 rounded-full uppercase">Jadwal Les Renang</span>
+                            <div class="text-xs text-left font-semibold text-slate-700 mt-2 space-y-1">
+                                <p>&bull; <strong>Galih:</strong> setiap 4 hari sekali</p>
+                                <p>&bull; <strong>Kevin:</strong> setiap 5 hari sekali</p>
+                                <p>&bull; <strong>Bagas:</strong> setiap 6 hari sekali</p>
+                            </div>
+                            <p class="text-[11px] text-sky-800 font-bold border-t border-sky-200 mt-2 pt-1">Mulai bersama: Sabtu, 10 Agustus 2024</p>
+                        </div>
+                    </div>
+                    <p>Pada tanggal berapakah mereka akan berlatih bersama untuk kedua kalinya?</p>
+                `,
+                options: [
+                    { key: "A", text: "8 Oktober 2024" },
+                    { key: "B", text: "9 Oktober 2024" },
+                    { key: "C", text: "10 Oktober 2024" },
+                    { key: "D", text: "11 Oktober 2024" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Mencari KPK dari 4, 5, dan 6: $\\text{KPK}(4, 5, 6) = 60\\text{ hari}$.</li>
+                        <li>Mulai: 10 Agustus 2024 $+ 60\\text{ hari}$.</li>
+                        <li>Sisa hari bulan Agustus (31 hari) $= 31 - 10 = 21\\text{ hari}$.</li>
+                        <li>Hari di bulan September $= 30\\text{ hari}$.</li>
+                        <li>Total yang sudah lewat $= 21 + 30 = 51\\text{ hari}$.</li>
+                        <li>Sisa hari yang masuk ke bulan Oktober $= 60 - 51 = 9\\text{ hari}$.</li>
+                        <li>Maka mereka berlatih bersama lagi pada tanggal $\\mathbf{9\\text{ Oktober } 2024}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) 9 Oktober 2024</p>
+                `
+            },
+            {
+                id: 16,
+                category: "BAGIAN III: KPK Waktu Lampu Mercusuar",
+                source: "Soal 16",
+                question: `
+                    <p class="mb-3">Dua buah lampu mercusuar di pelabuhan menyala secara berkedip secara teratur. Lampu kuning berkedip setiap 24 detik sekali dan lampu biru berkedip setiap 36 detik sekali. Jika kedua lampu menyala bersamaan tepat pada pukul 20.15 WIB, maka kedua lampu tersebut akan menyala bersamaan lagi untuk kedua kalinya pada pukul...</p>
+                `,
+                options: [
+                    { key: "A", text: "20.16 lewat 12 detik WIB" },
+                    { key: "B", text: "20.16 lewat 24 detik WIB" },
+                    { key: "C", text: "20.17 lewat 12 detik WIB" },
+                    { key: "D", text: "20.17 lewat 36 detik WIB" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Faktorisasi $24 = 2^3 \\times 3$</li>
+                        <li>Faktorisasi $36 = 2^2 \\times 3^2$</li>
+                        <li>$\\text{KPK}(24, 36) = 2^3 \\times 3^2 = 8 \\times 9 = 72\\text{ detik} = 1\\text{ menit } 12\\text{ detik}$.</li>
+                        <li>Waktu menyala bersama lagi = $20.15 + 1\\text{ menit } 12\\text{ detik} = \\mathbf{20.16\\text{ lewat } 12\\text{ detik WIB}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) 20.16 lewat 12 detik WIB</p>
+                `
+            },
+            {
+                id: 17,
+                category: "BAGIAN III: FPB Keranjang Parcel Buah",
+                source: "Soal 17",
+                question: `
+                    <p class="mb-3">Bu Dewi memiliki persediaan 45 buah apel hijau, 60 buah pir kuning, dan 75 buah mangga harum manis. Bu Dewi ingin menata buah-buahan tersebut ke dalam beberapa keranjang parcel buah sehingga setiap keranjang berisi setiap jenis buah dalam jumlah yang sama banyak. Banyaknya buah pir pada setiap keranjang adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "3 buah" },
+                    { key: "B", text: "4 buah" },
+                    { key: "C", text: "5 buah" },
+                    { key: "D", text: "15 buah" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Banyak parcel maksimal dihitung menggunakan FPB dari 45, 60, dan 75: $\\text{FPB}(45, 60, 75) = 15\\text{ keranjang}$.</li>
+                        <li>Banyaknya buah pir pada setiap keranjang = $60 : 15 = \\mathbf{4\\text{ buah}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) 4 buah</p>
+                `
+            },
+            {
+                id: 18,
+                category: "BAGIAN III: KPK Keberangkatan Bus Terminal",
+                source: "Soal 18",
+                question: `
+                    <p class="mb-3">Tiga armada bus antarkota berangkat secara rutin dari Terminal Giwangan. Bus Jalur A berangkat setiap 20 menit, Bus Jalur B setiap 30 menit, dan Bus Jalur C setiap 45 menit. Pada pukul 05.30 pagi, ketiga bus berangkat bersamaan. Pukul berapakah ketiga bus tersebut akan berangkat bersamaan untuk yang berikutnya?</p>
+                `,
+                options: [
+                    { key: "A", text: "Pukul 07.30" },
+                    { key: "B", text: "Pukul 08.00" },
+                    { key: "C", text: "Pukul 08.30" },
+                    { key: "D", text: "Pukul 09.00" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Faktorisasi $20 = 2^2 \\times 5$, $30 = 2 \\times 3 \\times 5$, $45 = 3^2 \\times 5$.</li>
+                        <li>$\\text{KPK}(20, 30, 45) = 2^2 \\times 3^2 \\times 5 = 4 \\times 9 \\times 5 = 180\\text{ menit} = 3\\text{ jam}$.</li>
+                        <li>Waktu berangkat bersama lagi = $05.30 + 03.00 = \\mathbf{\\text{Pukul } 08.30}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) Pukul 08.30</p>
+                `
+            },
+            {
+                id: 19,
+                category: "BAGIAN IV: Mengurutkan Pecahan Terbesar ke Terkecil",
+                source: "Soal 19",
+                question: `
+                    <p class="mb-2">Lima siswa berdiri di depan kelas sambil masing-masing memegang kartu bilangan pecahan dan desimal seperti tampak pada gambar:</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 my-3 text-center text-xs">
+                        <div class="bg-amber-50 border border-amber-400 p-2.5 rounded-xl shadow-sm">
+                            <span class="text-base font-bold text-slate-800 block mb-1">$1\\dfrac{3}{5}$</span>
+                            <span class="font-extrabold text-amber-800">Aldi</span>
+                        </div>
+                        <div class="bg-cyan-50 border border-cyan-400 p-2.5 rounded-xl shadow-sm">
+                            <span class="text-base font-bold text-slate-800 block mb-1">$175\\%$</span>
+                            <span class="font-extrabold text-cyan-800">Bela</span>
+                        </div>
+                        <div class="bg-yellow-50 border border-yellow-400 p-2.5 rounded-xl shadow-sm">
+                            <span class="text-base font-bold text-slate-800 block mb-1">$1{,}58$</span>
+                            <span class="font-extrabold text-yellow-800">Cici</span>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-400 p-2.5 rounded-xl shadow-sm">
+                            <span class="text-base font-bold text-slate-800 block mb-1">$1\\dfrac{1}{2}$</span>
+                            <span class="font-extrabold text-emerald-800">Dodi</span>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-400 p-2.5 rounded-xl shadow-sm col-span-2 sm:col-span-1">
+                            <span class="text-base font-bold text-slate-800 block mb-1">$1\\dfrac{5}{8}$</span>
+                            <span class="font-extrabold text-purple-800">Erna</span>
+                        </div>
+                    </div>
+                    <p>Guru meminta siswa berbaris urut dari pemegang nilai kartu yang <strong>terbesar ke terkecil</strong>. Urutan barisan siswa yang tepat adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Bela, Erna, Aldi, Cici, Dodi" },
+                    { key: "B", text: "Bela, Erna, Dodi, Aldi, Cici" },
+                    { key: "C", text: "Erna, Bela, Aldi, Cici, Dodi" },
+                    { key: "D", text: "Bela, Aldi, Erna, Cici, Dodi" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Konversi ke Bentuk Desimal:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Bela: $175\\% = 1{,}750$</li>
+                        <li>Erna: $1\\frac{5}{8} = 1{,}625$</li>
+                        <li>Aldi: $1\\frac{3}{5} = 1{,}600$</li>
+                        <li>Cici: $1{,}58 = 1{,}580$</li>
+                        <li>Dodi: $1\\frac{1}{2} = 1{,}500$</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Urutan dari terbesar ke terkecil: Bela, Erna, Aldi, Cici, Dodi (Pilihan A)</p>
+                `
+            },
+            {
+                id: 20,
+                category: "BAGIAN IV: Operasi Pecahan Resep Kue",
+                source: "Soal 20",
+                question: `
+                    <p class="mb-2">Ibu Rina membuka catatan resep kue tradisional untuk membuat pesanan kue bolu dan lapis legit. Pada buku resep tercantum takaran terigu sebagai berikut:</p>
+                    <div class="my-3 flex justify-center">
+                        <div class="bg-amber-50 border border-amber-300 p-3 rounded-xl text-xs max-w-xs w-full text-slate-800">
+                            <span class="font-black text-amber-900 block mb-1 border-b border-amber-200 pb-1 text-center">Buku Resep Ibu Rina</span>
+                            <p>&bull; <strong>Bolu Panggang:</strong> Terigu $1{,}5\\text{ kg}$</p>
+                            <p>&bull; <strong>Lapis Legit:</strong> Terigu $\\dfrac{7}{8}\\text{ kg}$</p>
+                        </div>
+                    </div>
+                    <p>Ibu Rina memiliki persediaan tepung terigu sebanyak $3\\dfrac{1}{4}\\text{ kg}$. Sebanyak $1{,}5\\text{ kg}$ digunakan untuk membuat kue bolu dan $\\dfrac{7}{8}\\text{ kg}$ digunakan untuk adonan kue lapis. Sisa tepung terigu yang masih dimiliki Ibu Rina adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$0{,}750\\text{ kg}$" },
+                    { key: "B", text: "$0{,}825\\text{ kg}$" },
+                    { key: "C", text: "$0{,}875\\text{ kg}$" },
+                    { key: "D", text: "$0{,}925\\text{ kg}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan Desimal:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Tepung awal = $3\\frac{1}{4} = 3{,}250\\text{ kg}$</li>
+                        <li>Digunakan bolu = $1{,}500\\text{ kg}$</li>
+                        <li>Digunakan lapis legit = $\\frac{7}{8} = 0{,}875\\text{ kg}$</li>
+                        <li>Sisa terigu = $3{,}250 - 1{,}500 - 0{,}875 = 1{,}750 - 0{,}875 = \\mathbf{0{,}875\\text{ kg}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $0{,}875\\text{ kg}$</p>
+                `
+            },
+            {
+                id: 21,
+                category: "BAGIAN IV: Penjumlahan Pecahan & Desimal",
+                source: "Soal 21",
+                question: `
+                    <p class="mb-3">Koperasi siswa SD Harapan Bangsa menerima kiriman sayuran segar hasil panen kebun hidroponik sekolah dari dua kelompok budidaya siswa:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-2">
+                        <li>Kelompok Tani Tunas Hijau menyetorkan $1{,}7\\text{ kg}$ selada keriting.</li>
+                        <li>Kelompok Tani Mandiri menyetorkan $1\\dfrac{1}{4}\\text{ kg}$ sawi sendok (pakcoy).</li>
+                    </ul>
+                    <p>Total seluruh berat sayuran hidroponik yang diterima oleh pihak koperasi sekolah adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$2{,}95\\text{ kg}$" },
+                    { key: "B", text: "$3{,}05\\text{ kg}$" },
+                    { key: "C", text: "$3{,}15\\text{ kg}$" },
+                    { key: "D", text: "$3{,}20\\text{ kg}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Selada keriting = $1{,}7\\text{ kg}$.</li>
+                        <li>Sawi sendok = $1\\frac{1}{4}\\text{ kg} = 1{,}25\\text{ kg}$.</li>
+                        <li>Total berat = $1{,}7 + 1{,}25 = \\mathbf{2{,}95\\text{ kg}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $2{,}95\\text{ kg}$</p>
+                `
+            },
+            {
+                id: 22,
+                category: "BAGIAN IV: Konversi Satuan Panjang & Sambungan Pipa",
+                source: "Soal 22",
+                question: `
+                    <p class="mb-3">Pak Santo menyambung tiga batang pipa paralon air. Panjang paralon pertama $1{,}4\\text{ m}$, paralon kedua $110\\text{ cm}$, dan paralon ketiga $9\\text{ dm}$. Pada setiap sambungan antarujung pipa, salah satu pipa dimasukkan ke dalam pipa lainnya sedalam $5\\text{ cm}$. Jika saluran air yang hendak dipasang hanya membutuhkan pipa sepanjang $315\\text{ cm}$, maka sisa panjang pipa paralon hasil sambungan yang harus dipotong adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$12\\text{ cm}$" },
+                    { key: "B", text: "$15\\text{ cm}$" },
+                    { key: "C", text: "$20\\text{ cm}$" },
+                    { key: "D", text: "$25\\text{ cm}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan dalam cm:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Paralon 1: $1{,}4\\text{ m} = 140\\text{ cm}$.</li>
+                        <li>Paralon 2: $110\\text{ cm}$.</li>
+                        <li>Paralon 3: $9\\text{ dm} = 90\\text{ cm}$.</li>
+                        <li>Banyak sambungan untuk 3 batang pipa = 2 sambungan.</li>
+                        <li>Pengurangan panjang karena sambungan = $2 \\times 5\\text{ cm} = 10\\text{ cm}$.</li>
+                        <li>Panjang total hasil sambungan = $(140 + 110 + 90) - 10 = 340 - 10 = 330\\text{ cm}$.</li>
+                        <li>Sisa yang harus dipotong = $330 - 315 = \\mathbf{15\\text{ cm}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $15\\text{ cm}$</p>
+                `
+            },
+            {
+                id: 23,
+                category: "BAGIAN IV: Pembagian Pecahan Madu",
+                source: "Soal 23",
+                question: `
+                    <p class="mb-3">Pak Hasan memiliki madu murni sebanyak $8\\dfrac{3}{4}\\text{ liter}$. Seluruh madu tersebut akan dimasukkan ke dalam botol-botol kaca kecil berukuran kapasitas $\\dfrac{1}{4}\\text{ liter}$ sampai penuh. Banyak botol kaca kecil yang dibutuhkan Pak Hasan adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "32 botol" },
+                    { key: "B", text: "35 botol" },
+                    { key: "C", text: "36 botol" },
+                    { key: "D", text: "40 botol" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan Pembagian Pecahan:</p>
+                    $$\\begin{align}
+                    \\text{Banyak Botol} &= 8\\frac{3}{4} : \\frac{1}{4} = \\frac{35}{4} : \\frac{1}{4} \\\\
+                    &= \\frac{35}{4} \\times \\frac{4}{1} = \\mathbf{35\\text{ botol}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) 35 botol</p>
+                `
+            },
+            {
+                id: 24,
+                category: "BAGIAN IV: Anggaran Penghasilan Bulanan",
+                source: "Soal 24",
+                question: `
+                    <p class="mb-2">Paman memiliki penghasilan bulanan yang disisihkan untuk beberapa pos anggaran:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-2">
+                        <li>Sebanyak $30\\%$ disisihkan untuk tabungan masa depan.</li>
+                        <li>Sebanyak $\\dfrac{2}{5}$ bagian digunakan untuk keperluan belanja dapur.</li>
+                        <li>Sebanyak $0{,}15$ bagian digunakan untuk biaya operasional listrik dan air.</li>
+                        <li>Sisanya sebesar Rp750.000,00 digunakan untuk dana darurat kesehatan.</li>
+                    </ul>
+                    <p>Total seluruh penghasilan bulanan Paman tersebut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Rp4.500.000,00" },
+                    { key: "B", text: "Rp5.000.000,00" },
+                    { key: "C", text: "Rp6.000.000,00" },
+                    { key: "D", text: "Rp7.500.000,00" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan Bagian Pecahan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Tabungan = $30\\% = 0{,}30$</li>
+                        <li>Belanja dapur = $\\frac{2}{5} = 0{,}40$</li>
+                        <li>Listrik & air = $0{,}15$</li>
+                        <li>Total yang terpakai = $0{,}30 + 0{,}40 + 0{,}15 = 0{,}85\\text{ bagian}$.</li>
+                        <li>Sisa dana darurat = $1 - 0{,}85 = 0{,}15\\text{ bagian}$.</li>
+                        <li>$0{,}15 \\times \\text{Gaji} = \\text{Rp}750.000,00$</li>
+                        <li>Total penghasilan = $\\text{Rp}750.000 : 0{,}15 = \\mathbf{\\text{Rp}5.000.000,00}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) Rp5.000.000,00</p>
+                `
+            },
+            {
+                id: 25,
+                category: "BAGIAN V: Perbandingan Tiga Tabungan",
+                source: "Soal 25",
+                question: `
+                    <p class="mb-3">Perbandingan jumlah uang tabungan sekolah milik Anggita dan Basith adalah $3 : 2$, sedangkan perbandingan uang tabungan Basith dan Citra adalah $1 : 3$. Jika jumlah uang tabungan Anggita dan Citra adalah Rp72.000,00, maka jumlah seluruh uang tabungan milik ketiga anak tersebut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "Rp88.000,00" },
+                    { key: "B", text: "Rp96.000,00" },
+                    { key: "C", text: "Rp104.000,00" },
+                    { key: "D", text: "Rp112.000,00" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$A : B = 3 : 2$ dan $B : C = 1 : 3 = 2 : 6$.</li>
+                        <li>Perbandingan gabungan $A : B : C = 3 : 2 : 6$.</li>
+                        <li>Jumlah rasio $A + C = 3 + 6 = 9\\text{ bagian} = \\text{Rp}72.000,00$.</li>
+                        <li>Nilai $1\\text{ bagian} = 72.000 : 9 = \\text{Rp}8.000,00$.</li>
+                        <li>Total ketiga anak $= 3 + 2 + 6 = 11\\text{ bagian}$.</li>
+                        <li>Jumlah total $= 11 \\times \\text{Rp}8.000,00 = \\mathbf{\\text{Rp}88.000,00}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) Rp88.000,00</p>
+                `
+            },
+            {
+                id: 26,
+                category: "BAGIAN V: Rasio Kelereng Tiga Anak",
+                source: "Soal 26",
+                question: `
+                    <p class="mb-3">Perbandingan banyak kelereng Farhan dan Gilang adalah $4 : 5$, sedangkan perbandingan banyak kelereng Gilang dan Hanif adalah $3 : 4$. Jika selisih kelereng milik Farhan dan Hanif adalah 16 butir, maka jumlah seluruh kelereng ketiga anak tersebut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "72 butir" },
+                    { key: "B", text: "94 butir" },
+                    { key: "C", text: "102 butir" },
+                    { key: "D", text: "116 butir" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>$F : G = 4 : 5 = 12 : 15$</li>
+                        <li>$G : H = 3 : 4 = 15 : 20$</li>
+                        <li>Rasio gabungan $F : G : H = 12 : 15 : 20$.</li>
+                        <li>Selisih rasio $H - F = 20 - 12 = 8\\text{ bagian} = 16\\text{ butir}$.</li>
+                        <li>Nilai $1\\text{ bagian} = 16 : 8 = 2\\text{ butir}$.</li>
+                        <li>Total kelereng $= 12 + 15 + 20 = 47\\text{ bagian}$.</li>
+                        <li>Total = $47 \\times 2 = \\mathbf{94\\text{ butir}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) 94 butir</p>
+                `
+            },
+            {
+                id: 27,
+                category: "BAGIAN V: Skala Peta Denah",
+                source: "Soal 27",
+                question: `
+                    <p class="mb-2">Fathin mengamati denah jalan lingkungan kotanya yang memuat lintasan lurus dari Sekolah menuju Toko Berkah dan berakhir di Pasar Beringharjo:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1 mb-2">
+                        <li>Jarak Sekolah ke Toko Berkah pada peta adalah $3\\text{ cm}$.</li>
+                        <li>Jarak Toko Berkah ke Pasar adalah 3 kali lipat jarak Sekolah ke Toko Berkah.</li>
+                        <li>Jarak lurus sesungguhnya dari Sekolah langsung ke Pasar adalah $6\\text{ km}$.</li>
+                    </ul>
+                    <p>Skala denah peta mula-mula yang diamati Fathin tersebut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$1 : 50.000$" },
+                    { key: "B", text: "$1 : 100.000$" },
+                    { key: "C", text: "$1 : 200.000$" },
+                    { key: "D", text: "$1 : 500.000$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Jarak peta Toko ke Pasar = $3 \\times 3 = 9\\text{ cm}$.</li>
+                        <li>Total jarak pada peta Sekolah ke Pasar = $3 + 9 = 12\\text{ cm}$.</li>
+                        <li>Jarak sesungguhnya = $6\\text{ km} = 600.000\\text{ cm}$.</li>
+                        <li>$\\text{Skala} = \\dfrac{\\text{Jarak Peta}}{\\text{Jarak Sebenarnya}} = \\dfrac{12}{600.000} = \\mathbf{1 : 50.000}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $1 : 50.000$</p>
+                `
+            },
+            {
+                id: 28,
+                category: "BAGIAN V: Perbesaran Skala Peta",
+                source: "Soal 28",
+                question: `
+                    <p class="mb-3">Berdasarkan denah pada <strong>Soal 27</strong>, Fathin ditugaskan menyalin denah tersebut dengan <strong>memperbesar ukurannya menjadi 2 kali lipat</strong> dari ukuran denah semula. Skala baru yang digunakan Fathin pada denah hasil perbesaran adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$1 : 25.000$" },
+                    { key: "B", text: "$1 : 50.000$" },
+                    { key: "C", text: "$1 : 100.000$" },
+                    { key: "D", text: "$1 : 200.000$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan Konsep Skala:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Jika peta diperbesar $n$ kali, maka angka penyebut skala dibagi dengan $n$.</li>
+                        <li>Skala awal = $1 : 50.000$.</li>
+                        <li>Penyebut skala baru = $50.000 : 2 = 25.000$.</li>
+                        <li>Maka skala baru hasil perbesaran = $\\mathbf{1 : 25.000}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $1 : 25.000$</p>
+                `
+            },
+            {
+                id: 29,
+                category: "BAGIAN V: Perbandingan Berbalik Nilai Pekerja",
+                source: "Soal 29",
+                question: `
+                    <p class="mb-3">Pekerjaan pemasangan paving blok halaman upacara sekolah diperkirakan dapat diselesaikan oleh 8 orang pekerja dalam waktu 15 hari. Jika pekerjaan tersebut harus selesai lebih cepat dalam waktu hanya 10 hari, berapa banyak <strong>tambahan pekerja</strong> yang harus diundang untuk membantu proyek tersebut?</p>
+                `,
+                options: [
+                    { key: "A", text: "3 orang" },
+                    { key: "B", text: "4 orang" },
+                    { key: "C", text: "6 orang" },
+                    { key: "D", text: "12 orang" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan Berbalik Nilai:</p>
+                    $$\\begin{align}
+                    \\text{Total beban kerja} &= 8 \\times 15 = 120\\text{ orang-hari} \\\\
+                    \\text{Pekerja yang dibutuhkan} &= \\frac{120}{10} = 12\\text{ orang} \\\\
+                    \\text{Tambahan pekerja} &= 12 - 8 = \\mathbf{4\\text{ orang}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) 4 orang</p>
+                `
+            },
+            {
+                id: 30,
+                category: "BAGIAN V: Perbandingan Umur Tiga Generasi",
+                source: "Soal 30",
+                question: `
+                    <p class="mb-3">Perbandingan umur kakek, ayah, dan cucu adalah $15 : 9 : 2$. Jika selisih umur kakek dan ayah adalah 30 tahun, maka jumlah umur ayah dan cucu adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "45 tahun" },
+                    { key: "B", text: "50 tahun" },
+                    { key: "C", text: "55 tahun" },
+                    { key: "D", text: "60 tahun" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1 text-teal-900">Langkah Pengerjaan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Rasio Kakek : Ayah : Cucu = $15 : 9 : 2$.</li>
+                        <li>Selisih rasio Kakek dan Ayah = $15 - 9 = 6\\text{ bagian} = 30\\text{ tahun}$.</li>
+                        <li>Nilai $1\\text{ bagian} = 30 : 6 = 5\\text{ tahun}$.</li>
+                        <li>Jumlah rasio Ayah dan Cucu = $9 + 2 = 11\\text{ bagian}$.</li>
+                        <li>Jumlah umur Ayah dan Cucu = $11 \\times 5 = \\mathbf{55\\text{ tahun}}$.</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) 55 tahun</p>
+                `
+            }
+        ];
+
+        // Global State
+        const totalQuestions = questionsData.length; // 30
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 60 * 60; // 60 menit
+        let timerInterval = null;
+        let isSubmitted = false;
+
+        let studentInfo = {
+            name: "",
+            classPresensi: "",
+            school: ""
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                let optionsHTML = '';
+
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-teal-400 hover:bg-teal-50/40 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-teal-500">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-sm md:text-base font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="bg-teal-100 text-teal-900 border border-teal-300 text-xs font-black px-3 py-1 rounded-xl tracking-wide">${q.category}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions} (+3.33 Poin)</span>
+                        </div>
+
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[380px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-normal mb-6">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilih salah satu jawaban yang menurut Anda paling tepat.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-teal-700 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) {
+                    if (opt.key === key) {
+                        optEl.classList.add('selected');
+                    } else {
+                        optEl.classList.remove('selected');
+                    }
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-teal-700', 'text-white', 'border-teal-800');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-teal-700', 'text-white', 'border-teal-800');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            studentInfo.name = document.getElementById('input-student-name').value.trim() || "Siswa Cerdas";
+            studentInfo.classPresensi = document.getElementById('input-student-class').value.trim() || "-";
+            studentInfo.school = document.getElementById('input-student-school').value.trim() || "SD / MI";
+
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+
+            showSlide(currentQuestion);
+            startTimer();
+
+            triggerMathJax();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) { // Sisa < 5 menit
+                    timerDisplay.classList.replace('bg-teal-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-teal-800', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-teal-500', 'border-teal-700'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-teal-500', 'border-teal-700');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-teal-700', 'bg-emerald-700');
+                nextBtn.classList.replace('hover:bg-teal-800', 'hover:bg-emerald-800');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-700', 'bg-teal-700');
+                nextBtn.classList.replace('hover:bg-emerald-800', 'hover:bg-teal-800');
+            }
+
+            triggerMathJax();
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Peserta <strong>${studentInfo.name}</strong> (${studentInfo.school}), Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1.5 block">Masih ada ${unanswered} soal yang belum Anda jawab!</span>` : `<span class="text-emerald-700 font-bold mt-1.5 block">Luar biasa! Seluruh 30 butir soal sudah terjawab.</span>`}
+                Apakah Anda yakin ingin mengakhiri dan mengumpulkan lembar jawaban ini?
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Pengerjaan Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Waktu 60 menit telah selesai. Lembar jawaban Anda secara otomatis akan dikumpulkan dan dinilai.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan Lengkap</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            if (timerInterval) clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            // Kalkulasi Skor Akhir
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            document.getElementById('student-summary-badge').innerHTML = `
+                Siswa: <span class="text-white font-bold">${studentInfo.name}</span> | Kelas: <span class="text-white font-bold">${studentInfo.classPresensi}</span> | Sekolah: <span class="text-white font-bold">${studentInfo.school}</span>
+            `;
+
+            renderReviewCards('all');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-900 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">TIDAK DIJAWAB (0 Poin)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-900 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">BENAR (+3.33 Poin)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-900 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">SALAH (0 Poin)</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-950 font-bold';
+                        mark = '<span class="text-xs bg-emerald-700 text-white px-2 py-0.5 rounded-md ml-auto font-bold">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-950 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto font-bold">Jawaban Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-700 text-white px-2 py-0.5 rounded-md ml-auto font-bold">Jawaban Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/60' : 'bg-rose-50/60'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-900">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.category})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 leading-relaxed">${q.question}</div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+
+                            <div class="bg-teal-50/70 rounded-2xl p-5 border border-teal-200 mt-4">
+                                <h4 class="font-black text-teal-950 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                    Kunci & Cara Pengerjaan Lengkap:
+                                </h4>
+                                <div class="text-sm text-slate-800 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            triggerMathJax();
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-teal-800', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-teal-800', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+
+        // Helper untuk rendering MathJax dengan aman
+        function triggerMathJax() {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise().catch(err => console.error("MathJax typesetting error:", err));
+            }
+        }
+    </script>
+</body>
+</html>
