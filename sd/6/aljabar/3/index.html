@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Test Pengayaan Eksponen SMP (Subtopik 1-3) - Kak Dhanar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-blue-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <!-- Main Card -->
+        <div class="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 text-[11px] font-black rounded-full uppercase tracking-wider">Matematika SD Pengayaan</span>
+                <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 text-[11px] font-black rounded-full uppercase tracking-wider">Subtopik 1 - 3 Pengayaan</span>
+            </div>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-black text-center text-slate-900 mb-1">POST-TEST EKSPONEN & PERPANGKATAN</h1>
+            <p class="text-center text-slate-500 font-semibold mb-4 text-xs md:text-sm">15 Soal Isian Singkat Perhitungan Bilangan (5 Mudah, 6 Sedang, 4 Sulit)</p>
+            
+            <div class="bg-indigo-50/70 p-4 rounded-xl md:rounded-2xl mb-4 border border-indigo-100 shadow-sm space-y-2">
+                <h2 class="font-bold text-indigo-900 flex items-center text-xs md:text-sm">
+                    <svg class="w-4 h-4 mr-1.5 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Pengerjaan Tes:
+                </h2>
+                <ul class="list-disc list-inside text-xs text-indigo-950 space-y-1 leading-relaxed">
+                    <li>Semua butir soal (Soal 1–15) berfokus pada <strong>perhitungan bilangan</strong> dan dijawab dalam bentuk <strong>Isian Singkat</strong> pada kolom yang disediakan.</li>
+                    <li>Cakupan Materi: Operasi Campuran Tanda Kurung, Trik Pengelompokan Perpangkatan, serta Pangkat Nol dan Pangkat Negatif/Kebalikan Pecahan.</li>
+                    <li>Waktu Pengerjaan: <strong>40 Menit</strong>. Timer otomatis berjalan saat tombol mulai ditekan.</li>
+                    <li>Kunci jawaban lengkap beserta penjabaran langkah sistematis dapat langsung diakses setelah mengumpulkan tes.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2.5 text-center text-xs font-bold mb-5">
+                <div class="p-2.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-emerald-600">Level Dasar</p>
+                    <p class="text-[12px] font-black">5 Soal Mudah</p>
+                </div>
+                <div class="p-2.5 bg-blue-50 text-blue-800 border border-blue-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-blue-600">Level Menengah</p>
+                    <p class="text-[12px] font-black">6 Soal Sedang</p>
+                </div>
+                <div class="p-2.5 bg-purple-50 text-purple-800 border border-purple-200 rounded-xl">
+                    <p class="text-[9px] uppercase text-purple-600">Level HOTS</p>
+                    <p class="text-[12px] font-black">4 Soal Sulit</p>
+                </div>
+            </div>
+
+            <button type="button" id="start-btn" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-base md:text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <footer class="w-full py-2.5 md:py-3 text-center text-xs text-slate-600">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">Modul Eksponen Pengayaan</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">POST-TEST EKSPONEN (SUBTOPIK 1-3)</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">15 Soal Isian Singkat Pengayaan Eksponen</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            40:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 15 Questions -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-2.5">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Soal (1–15)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 15</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-15 gap-1.5" id="nav-container">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelum
+                        </button>
+                        <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                            <span>Soal Berikutnya</span> &#8594;
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">mtkbarengkakdhanar</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Pengumpulan Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian sekarang? Jawaban tidak dapat diubah setelah dikumpulkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali ke Ujian</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section max-w-5xl mx-auto px-4 mt-6">
+        <!-- Summary Header Card -->
+        <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+            <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & NILAI UJIAN</h2>
+            <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Laporan hasil pengerjaan Modul Eksponen Subtopik 1–3 dengan kunci jawaban dan analisis langkah.</p>
+            
+            <!-- Score Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                <div class="p-2 text-center">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Nilai</p>
+                    <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                    <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                    <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                </div>
+                <div class="p-2 text-center border-l border-white/20 col-span-1">
+                    <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                    <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                <span>Lihat Pembahasan Lengkap</span>
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Detailed Review Section -->
+        <div id="review-section" class="mt-10 mb-16">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800">Pembahasan Lengkap & Kunci Jawaban</h3>
+                    <p class="text-sm text-slate-500">Evaluasi lembar pengerjaan Anda dengan langkah-langkah aljabar sistematis.</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                    <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">20</span>)</button>
+                    <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                    <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Review Cards List Container -->
+            <div id="review-cards-container" class="space-y-6">
+                <!-- Generated dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questionsData = [
+            // 5 SOAL MUDAH (SOAL 1 - 5)
+            {
+                id: 1,
+                level: "Mudah",
+                badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                section: "Subtopik 1: Konsep Dasar & Operasi Campuran",
+                question: "Hitunglah nilai akhir dari operasi bilangan berpangkat berikut: $$2^4 + 3^3 - 4^2$$",
+                correctAnswer: "27",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$2^4 = 2 \\times 2 \\times 2 \\times 2 = 16$.</li>
+                        <li>$3^3 = 3 \\times 3 \\times 3 = 27$.</li>
+                        <li>$4^2 = 4 \\times 4 = 16$.</li>
+                        <li>Operasikan secara berurutan: $$16 + 27 - 16 = \\mathbf{27}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 27</p>
+                `
+            },
+            {
+                id: 2,
+                level: "Mudah",
+                badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                section: "Subtopik 1: Konsep Dasar & Tanda Kurung",
+                question: "Tentukan hasil perhitungan dari operasi campuran berikut: $$(-1)^{100} \\times 5^2 + (-2)^3 \\times (-3) - 7^0$$",
+                correctAnswer: "48",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$(-1)^{100} = 1$ (pangkat bilangan bulat genap bernilai $+1$).</li>
+                        <li>$5^2 = 25$, sehingga $(-1)^{100} \\times 5^2 = 1 \\times 25 = 25$.</li>
+                        <li>$(-2)^3 = -8$, sehingga $(-2)^3 \\times (-3) = (-8) \\times (-3) = +24$.</li>
+                        <li>$7^0 = 1$ (setiap bilangan tak nol berpangkat $0$ bernilai $1$).</li>
+                        <li>Jumlahkan hasilnya: $$25 + 24 - 1 = 49 - 1 = \\mathbf{48}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 48</p>
+                `
+            },
+            {
+                id: 3,
+                level: "Mudah",
+                badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                section: "Subtopik 2: Sifat Pengelompokan Pangkat Berbasis Sama",
+                question: "Hitunglah hasil pembagian bilangan berpangkat berikut: $$\\frac{2^6 + 2^5}{2^3}$$",
+                correctAnswer: "12",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$2^6 = 64$ dan $2^5 = 32$, sehingga pembilang $= 64 + 32 = 96$.</li>
+                        <li>Penyebut $= 2^3 = 8$.</li>
+                        <li>Hasil pembagian: $$\\frac{96}{8} = \\mathbf{12}$$</li>
+                        <li><em>(Atau menggunakan faktorisasi):</em> $\\frac{2^5(2 + 1)}{2^3} = 2^2 \\times 3 = 4 \\times 3 = 12$.</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 12</p>
+                `
+            },
+            {
+                id: 4,
+                level: "Mudah",
+                badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                section: "Subtopik 3: Pangkat Negatif & Kebalikan Pecahan",
+                question: "Tentukan nilai dari pecahan bertingkat berpangkat negatif berikut: $$\\frac{2^{-1} + 6^{-1}}{3^{-2}}$$",
+                correctAnswer: "6",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Ubah eksponen negatif ke pecahan biasa:
+                            $$2^{-1} = \\frac{1}{2}, \\quad 6^{-1} = \\frac{1}{6}, \\quad 3^{-2} = \\frac{1}{3^2} = \\frac{1}{9}$$</li>
+                        <li>Hitung pembilang:
+                            $$\\frac{1}{2} + \\frac{1}{6} = \\frac{3}{6} + \\frac{1}{6} = \\frac{4}{6} = \\frac{2}{3}$$</li>
+                        <li>Bagi dengan penyebut:
+                            $$\\frac{\\frac{2}{3}}{\\frac{1}{9}} = \\frac{2}{3} \\times \\frac{9}{1} = \\frac{18}{3} = \\mathbf{6}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 6</p>
+                `
+            },
+            {
+                id: 5,
+                level: "Mudah",
+                badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                section: "Subtopik 3: Pangkat Negatif & Sifat Kebalikan",
+                question: "Hitunglah hasil dari operasi pecahan berpangkat negatif berikut: $$\\frac{3^{-1} + 6^{-1}}{2^{-3}}$$",
+                correctAnswer: "4",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Ubah ke pecahan biasa:
+                            $$3^{-1} = \\frac{1}{3}, \\quad 6^{-1} = \\frac{1}{6}, \\quad 2^{-3} = \\frac{1}{2^3} = \\frac{1}{8}$$</li>
+                        <li>Hitung pembilang:
+                            $$\\frac{1}{3} + \\frac{1}{6} = \\frac{2}{6} + \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}$$</li>
+                        <li>Bagi pembilang dengan penyebut:
+                            $$\\frac{\\frac{1}{2}}{\\frac{1}{8}} = \\frac{1}{2} \\times \\frac{8}{1} = \\mathbf{4}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 4</p>
+                `
+            },
+
+            // 6 SOAL SEDANG (SOAL 6 - 11)
+            {
+                id: 6,
+                level: "Sedang",
+                badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+                section: "Subtopik 1: Konsep Dasar & Operasi Campuran",
+                question: "Tentukan hasil akhir dari pembagian bilangan berpangkat berikut: $$\\frac{(-3)^4 - (-2)^5 + (-5)^2}{(-1)^{25} \\times (-2) + 1}$$",
+                correctAnswer: "46",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Hitung suku pembilang:
+                            $$(-3)^4 = 81, \\quad (-2)^5 = -32, \\quad (-5)^2 = 25$$
+                            Pembilang $= 81 - (-32) + 25 = 81 + 32 + 25 = 138$.</li>
+                        <li>Hitung penyebut:
+                            $$(-1)^{25} = -1 \\implies (-1) \\times (-2) + 1 = 2 + 1 = 3$$</li>
+                        <li>Bagi pembilang dengan penyebut:
+                            $$\\frac{138}{3} = \\mathbf{46}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 46</p>
+                `
+            },
+            {
+                id: 7,
+                level: "Sedang",
+                badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+                section: "Subtopik 1: Tanda Kurung & Pangkat Bertingkat",
+                question: "Hitunglah nilai dari ekspresi pangkat bertingkat berikut: $$[(-2)^3]^2 - (-2^2)^3 + (-1)^{2026} \\times 10^2$$",
+                correctAnswer: "228",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$[(-2)^3]^2 = (-8)^2 = 64$.</li>
+                        <li>Perhatikan posisi tanda minus: $-2^2 = -(4) = -4$.
+                            Maka $(-4)^3 = -64$, sehingga $-(-2^2)^3 = -(-64) = +64$.</li>
+                        <li>$(-1)^{2026} = 1$ dan $10^2 = 100$, sehingga $1 \\times 100 = 100$.</li>
+                        <li>Jumlahkan seluruhnya: $$64 + 64 + 100 = 128 + 100 = \\mathbf{228}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 228</p>
+                `
+            },
+            {
+                id: 8,
+                level: "Sedang",
+                badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+                section: "Subtopik 2: Trik Pemfaktoran Bilangan Berpangkat",
+                question: "Tentukan hasil perhitungan dari bentuk pecahan perpangkatan berikut: $$\\frac{3^7 - 3^5}{3^4 \\times 8}$$",
+                correctAnswer: "3",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Faktorkan $3^5$ pada pembilang:
+                            $$3^7 - 3^5 = 3^5 \\times (3^2 - 1) = 3^5 \\times (9 - 1) = 3^5 \\times 8$$</li>
+                        <li>Tuliskan kembali pecahan:
+                            $$\\frac{3^5 \\times 8}{3^4 \\times 8}$$</li>
+                        <li>Bagi angka 8 dan kurangkan eksponen basis 3:
+                            $$\\frac{3^5}{3^4} = 3^{5-4} = 3^1 = \\mathbf{3}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 3</p>
+                `
+            },
+            {
+                id: 9,
+                level: "Sedang",
+                badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+                section: "Subtopik 2: Penguraian Faktor Prima Bilangan Komposit",
+                question: "Hitunglah nilai dari perkalian bilangan komposit berpangkat berikut: $$\\frac{6^5 \\times 10^3}{15^3 \\times 2^6}$$",
+                correctAnswer: "36",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Uraikan Setiap Basis ke Faktor Prima (2, 3, 5):</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$6^5 = (2 \\times 3)^5 = 2^5 \\times 3^5$</li>
+                        <li>$10^3 = (2 \\times 5)^3 = 2^3 \\times 5^3$</li>
+                        <li>Pembilang $= 2^5 \\times 3^5 \\times 2^3 \\times 5^3 = 2^{5+3} \\times 3^5 \\times 5^3 = 2^8 \\times 3^5 \\times 5^3$</li>
+                        <li>$15^3 = (3 \\times 5)^3 = 3^3 \\times 5^3$</li>
+                        <li>Penyebut $= 3^3 \\times 5^3 \\times 2^6 = 2^6 \\times 3^3 \\times 5^3$</li>
+                        <li>Bagi dengan mengurangkan eksponen basis sejenis:
+                            $$2^{8-6} \\times 3^{5-3} \\times 5^{3-3} = 2^2 \\times 3^2 \\times 1 = 4 \\times 9 = \\mathbf{36}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 36</p>
+                `
+            },
+            {
+                id: 10,
+                level: "Sedang",
+                badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+                section: "Subtopik 2: Trik Pemfaktoran Pangkat Besar",
+                question: "Tentukan hasil penyederhanaan dari bilangan berpangkat besar berikut: $$\\frac{2^{20} + 2^{18}}{2^{17} + 2^{15}}$$ ",
+                correctAnswer: "8",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Gunakan Trik Faktorisasi Pangkat Terkecil:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Faktorkan $2^{18}$ pada pembilang:
+                            $$2^{20} + 2^{18} = 2^{18}(2^2 + 1) = 2^{18}(4 + 1) = 5 \\times 2^{18}$$</li>
+                        <li>Faktorkan $2^{15}$ pada penyebut:
+                            $$2^{17} + 2^{15} = 2^{15}(2^2 + 1) = 2^{15}(4 + 1) = 5 \\times 2^{15}$$</li>
+                        <li>Bagi kedua bentuk:
+                            $$\\frac{5 \\times 2^{18}}{5 \\times 2^{15}} = \\frac{2^{18}}{2^{15}} = 2^{18-15} = 2^3 = \\mathbf{8}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 8</p>
+                `
+            },
+            {
+                id: 11,
+                level: "Sedang",
+                badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+                section: "Subtopik 3: Pangkat Negatif Bertingkat",
+                question: "Tentukan hasil dari pecahan berpangkat negatif berikut: $$\\frac{2^{-2} + 4^{-1}}{8^{-2}}$$",
+                correctAnswer: "32",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Ubah ke pecahan biasa:
+                            $$2^{-2} = \\frac{1}{2^2} = \\frac{1}{4}, \\quad 4^{-1} = \\frac{1}{4}$$
+                            Maka pembilang $= \\frac{1}{4} + \\frac{1}{4} = \\frac{2}{4} = \\frac{1}{2}$.</li>
+                        <li>Hitung nilai penyebut:
+                            $$8^{-2} = \\frac{1}{8^2} = \\frac{1}{64}$$</li>
+                        <li>Bagi pembilang dengan penyebut:
+                            $$\\frac{\\frac{1}{2}}{\\frac{1}{64}} = \\frac{1}{2} \\times \\frac{64}{1} = \\mathbf{32}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 32</p>
+                `
+            },
+
+            // 4 SOAL SULIT / HOTS (SOAL 12 - 15)
+            {
+                id: 12,
+                level: "Sulit",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
+                section: "Subtopik 1: Deret Pangkat Tiga Berganti Tanda (HOTS)",
+                question: "Tentukan hasil perhitungan dari deret pangkat tiga selang-seling berikut: $$1^3 - 2^3 + 3^3 - 4^3 + 5^3 - 6^3 + 7^3$$",
+                correctAnswer: "208",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Hitung Nilai Masing-Masing Suku Kubik:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$1^3 = 1$</li>
+                        <li>$2^3 = 8$</li>
+                        <li>$3^3 = 27$</li>
+                        <li>$4^3 = 64$</li>
+                        <li>$5^3 = 125$</li>
+                        <li>$6^3 = 216$</li>
+                        <li>$7^3 = 343$</li>
+                        <li>Operasikan secara teratur:
+                            $$(1 - 8) + (27 - 64) + (125 - 216) + 343$$
+                            $$= (-7) + (-37) + (-91) + 343$$
+                            $$= -135 + 343 = \\mathbf{208}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 208</p>
+                `
+            },
+            {
+                id: 13,
+                level: "Sulit",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
+                section: "Subtopik 2: Faktorisasi Prima Lanjutan (HOTS)",
+                question: "Hitunglah nilai akhir dari operasi perpangkatan bilangan komposit berikut: $$\\frac{12^5 \\times 15^2}{18^3 \\times 10^2}$$",
+                correctAnswer: "96",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Ubah ke Faktor Prima Masing-Masing Basis:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>$12^5 = (2^2 \\times 3)^5 = 2^{10} \\times 3^5$</li>
+                        <li>$15^2 = (3 \\times 5)^2 = 3^2 \\times 5^2$</li>
+                        <li>Pembilang $= 2^{10} \\times 3^{5+2} \\times 5^2 = 2^{10} \\times 3^7 \\times 5^2$</li>
+                        <li>$18^3 = (2 \\times 3^2)^3 = 2^3 \\times 3^6$</li>
+                        <li>$10^2 = (2 \\times 5)^2 = 2^2 \\times 5^2$</li>
+                        <li>Penyebut $= 2^{3+2} \\times 3^6 \\times 5^2 = 2^5 \\times 3^6 \\times 5^2$</li>
+                        <li>Sederhanakan dengan membagi basis yang sama:
+                            $$2^{10-5} \\times 3^{7-6} \\times 5^{2-2} = 2^5 \\times 3^1 \\times 1 = 32 \\times 3 = \\mathbf{96}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 96</p>
+                `
+            },
+            {
+                id: 14,
+                level: "Sulit",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
+                section: "Subtopik 3: Pecahan Bertumpuk Pangkat Negatif (HOTS)",
+                question: "Hitunglah nilai dari pecahan eksponen bertumpuk berikut: $$\\left( \\frac{2^{-1} + 3^{-1} + 6^{-1}}{4^{-1} - 5^{-1}} \\right) \\times 3$$",
+                correctAnswer: "60",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Langkah-Langkah Perhitungan:</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Hitung pembilang:
+                            $$\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = \\frac{3}{6} + \\frac{2}{6} + \\frac{1}{6} = \\frac{6}{6} = 1$$</li>
+                        <li>Hitung penyebut:
+                            $$\\frac{1}{4} - \\frac{1}{5} = \\frac{5 - 4}{20} = \\frac{1}{20}$$</li>
+                        <li>Bagi pembilang dengan penyebut:
+                            $$\\frac{1}{\\frac{1}{20}} = 1 \\times 20 = 20$$</li>
+                        <li>Kalikan dengan $3$:
+                            $$20 \\times 3 = \\mathbf{60}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 60</p>
+                `
+            },
+            {
+                id: 15,
+                level: "Sulit",
+                badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
+                section: "Subtopik 3: Trik Selisih Kuadrat pada Pangkat Negatif (HOTS)",
+                question: "Tentukan hasil dari bentuk perhitungan berikut: $$\\left( \\frac{3^{-2} - 5^{-2}}{3^{-1} - 5^{-1}} \\right) \\times 45$$",
+                correctAnswer: "24",
+                explanation: `
+                    <p class="font-bold text-slate-800 mb-1">Gunakan Pola Selisih Dua Kuadrat: $a^2 - b^2 = (a - b)(a + b)$</p>
+                    <ul class="list-disc list-inside space-y-1.5 my-2">
+                        <li>Misalkan $a = 3^{-1}$ dan $b = 5^{-1}$, maka:
+                            $$\\frac{a^2 - b^2}{a - b} = a + b = 3^{-1} + 5^{-1}$$</li>
+                        <li>Hitung nilai $3^{-1} + 5^{-1}$:
+                            $$\\frac{1}{3} + \\frac{1}{5} = \\frac{5 + 3}{15} = \\frac{8}{15}$$</li>
+                        <li>Kalikan dengan $45$:
+                            $$\\frac{8}{15} \\times 45 = 8 \\times 3 = \\mathbf{24}$$</li>
+                    </ul>
+                    <p class="text-xs font-bold text-indigo-700 mt-2">Jawaban Akhir: 24</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 40 * 60; // 40 menit tepat
+        let timerInterval;
+        let isSubmitted = false;
+
+        function initQuiz() {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        }
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const inputSectionHTML = `
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Jawaban Akhir :</label>
+                        <div class="flex items-center gap-3 max-w-sm">
+                            <input type="text" id="input-q${qNum}" placeholder="Ketik jawaban..." 
+                                   class="w-full text-lg font-black font-mono px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-600 focus:bg-white focus:outline-none transition-all shadow-inner"
+                                   oninput="onShortInput(${qNum}, this.value)"
+                                   onkeydown="if(event.key==='Enter'){event.preventDefault(); nextQuestion();}">
+                            <button type="button" onclick="clearShortInput(${qNum})" class="px-3.5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-xs transition cursor-pointer">Hapus</button>
+                        </div>
+                    </div>
+                `;
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="${q.badgeColor} text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wide border">${q.level}</span>
+                                <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">${q.section}</span>
+                            </div>
+                            <span class="text-slate-500 font-extrabold text-sm">Soal ${qNum} dari ${totalQuestions}</span>
+                        </div>
+                        <!-- Question Box -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[260px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-800 text-base md:text-xl font-semibold leading-relaxed mb-4">${q.question}</div>
+                            </div>
+                            ${inputSectionHTML}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            if (!navContainer) return;
+            navContainer.innerHTML = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        window.startQuiz = function startQuiz() {
+            const slidesContainer = document.getElementById('slides-container');
+            if (!slidesContainer || slidesContainer.children.length === 0) {
+                initQuiz();
+            }
+            const startScreen = document.getElementById('start-screen');
+            const quizApp = document.getElementById('quiz-app');
+            
+            if (startScreen) startScreen.classList.add('hidden-section');
+            if (quizApp) quizApp.classList.remove('hidden-section');
+            
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        };
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                if (timerDisplay) timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300 && timerDisplay) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const targetSlide = document.getElementById(`slide-${n}`);
+            if (targetSlide) {
+                targetSlide.classList.remove('hidden-section');
+                const currentInput = document.getElementById(`input-q${n}`);
+                if (currentInput) {
+                    setTimeout(() => currentInput.focus(), 50);
+                }
+            }
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            if (prevBtn) prevBtn.disabled = (n === 1);
+            if (nextBtn) {
+                if (n === totalQuestions) {
+                    nextBtn.innerHTML = '<span>Kumpulkan Lembar Ujian</span>';
+                    nextBtn.className = "px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = openSubmitModal;
+                } else {
+                    nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                    nextBtn.className = "px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition shadow-md flex items-center gap-2 cursor-pointer";
+                    nextBtn.onclick = nextQuestion;
+                }
+            }
+        }
+
+        window.jumpToQuestion = function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        };
+
+        window.nextQuestion = function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        };
+
+        window.prevQuestion = function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        };
+
+        window.onShortInput = function onShortInput(qNum, val) {
+            const cleaned = val.replace(/\s+/g, '');
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = cleaned;
+
+            if (cleaned.length > 0) {
+                userAnswers[qNum] = cleaned;
+            } else {
+                delete userAnswers[qNum];
+            }
+
+            updateNavState(qNum);
+        };
+
+        window.clearShortInput = function clearShortInput(qNum) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            if (inputEl) inputEl.value = '';
+            delete userAnswers[qNum];
+            updateNavState(qNum);
+        };
+
+        function updateNavState(qNum) {
+            const btn = document.getElementById(`nav-btn-${qNum}`);
+            if (btn) {
+                if (userAnswers[qNum] !== undefined) {
+                    btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    btn.classList.remove('bg-slate-50', 'text-slate-600');
+                } else {
+                    btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    btn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            const counterEl = document.getElementById('answered-counter');
+            if (counterEl) counterEl.innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        window.openSubmitModal = function openSubmitModal() {
+            document.getElementById('modal-title').innerText = "Konfirmasi Pengumpulan Ujian";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-slate-800";
+            document.getElementById('modal-message').innerText = "Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian sekarang? Jawaban tidak dapat diubah setelah kumpul.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali ke Ujian</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        };
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Waktu pengerjaan 40 menit telah selesai. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+        }
+
+        window.closeModal = function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden-section');
+        };
+
+        window.executeSubmit = function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalCorrect = 0;
+            let totalIncorrect = 0;
+
+            questionEvaluation = [];
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] !== undefined ? userAnswers[qNum] : null;
+                const isCorrect = (userAns !== null && userAns.toString().trim() === q.correctAnswer.toString().trim());
+
+                if (isCorrect) {
+                    totalCorrect++;
+                } else {
+                    totalIncorrect++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const pointsPerQuestion = (100 / totalQuestions);
+            const totalScore = Math.round(totalCorrect * pointsPerQuestion);
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = totalCorrect;
+            document.getElementById('incorrect-count').innerText = totalIncorrect;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = totalCorrect;
+            document.getElementById('cnt-wrong').innerText = totalIncorrect;
+
+            renderReviewCards('all');
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> KOSONG</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                const userAnsDisplay = userAns !== null ? userAns : '<em>Kosong</em>';
+                const keyDisplay = q.correctAnswer;
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Soal #${qNum}</span>
+                                <span class="text-xs ${q.badgeColor} font-bold px-2 py-0.5 rounded-md border">${q.level}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.section})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base font-semibold text-slate-800 mb-4 leading-relaxed">${q.question}</div>
+                            <!-- Answer Comparison Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200' : 'bg-rose-50/30 border-rose-200'}">
+                                    <p class="text-xs font-black uppercase tracking-wider mb-1 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">Jawaban Anda:</p>
+                                    <p class="font-black text-lg ${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAnsDisplay}</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+                                    <p class="text-xs font-black uppercase tracking-wider text-indigo-800 mb-1">Kunci Jawaban Resmi:</p>
+                                    <p class="font-black text-lg text-indigo-700">${keyDisplay}</p>
+                                </div>
+                            </div>
+                            <!-- Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Rinci & Langkah demi Langkah:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        }
+
+        window.filterReview = function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+            if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                try { window.MathJax.typesetPromise(); } catch(e) {}
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initQuiz);
+        } else {
+            initQuiz();
+        }
+    </script>
+</body>
+</html>
