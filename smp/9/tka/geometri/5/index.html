@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Ujian Matematika SMP - Bangun Ruang Sisi Lengkung (BRSL)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax Configuration and Script -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Selection Style (Indigo Theme) */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.15);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMP / MTs</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">Persiapan UN & TKA</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI BANGUN RUANG SISI LENGKUNG</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi: Tabung, Kerucut, Bola, dan Bangun Gabungan</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>20 Butir Pilihan Ganda</strong> (A, B, C, D) Bangun Ruang Sisi Lengkung.</li>
+                    <li>Waktu Pengerjaan: <strong>40 Menit</strong> (disertai penghitung waktu mundur otomatis).</li>
+                    <li>Setiap butir soal bernilai <strong>5 Poin</strong> (Skor Maksimal: 100 Poin).</li>
+                    <li>Pilihlah salah satu opsi jawaban yang Anda anggap paling tepat pada tiap nomor.</li>
+                    <li>Kunci jawaban dan pembahasan asli langkah demi langkah disajikan lengkap setelah ujian dikumpulkan.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 1</p>
+                    <p class="text-xs font-black">Tabung (Silinder)</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 2</p>
+                    <p class="text-xs font-black">Kerucut</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 3</p>
+                    <p class="text-xs font-black">Bola & Belahan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Kategori 4</p>
+                    <p class="text-xs font-black">Gabungan & HOTS</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN BANGUN RUANG SISI LENGKUNG</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">Tabung &bull; Kerucut &bull; Bola &bull; Soal UN & TKA</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            40:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 20 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–20)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 20</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-20 gap-1.5" id="nav-container">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container Form -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides injected by JS -->
+                    </div>
+
+                    <!-- Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan dan mengumpulkan lembar ujian ini? Nilai dan seluruh pembahasan lengkap akan segera ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & EVALUASI BRSL</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Laporan pencapaian nilai dan kunci pembahasan komprehensif.</p>
+                
+                <!-- Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Skor</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Pembahasan Lengkap</h3>
+                        <p class="text-sm text-slate-500">Pelajari rincian rumus dan cara penyelesaian praktis setiap soal langsung dari sumbernya.</p>
+                    </div>
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">20</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Injected via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                source: "46. Soal UN Matematika SMP 2018",
+                topic: "Tabung",
+                points: 5,
+                question: "Sebuah tabung berdiameter $14\\ \\text{cm}$ dengan tinggi $34\\ \\text{cm}$. Luas seluruh permukaan tabung adalah... $\\left(\\pi=\\dfrac{22}{7} \\right)$",
+                options: [
+                    { key: "A", text: "$4.224\\ \\text{cm}^{2}$" },
+                    { key: "B", text: "$2.112\\ \\text{cm}^{2}$" },
+                    { key: "C", text: "$1.804\\ \\text{cm}^{2}$" },
+                    { key: "D", text: "$902\\ \\text{cm}^{2}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Luas permukaan tabung adalah luas selimut berupa persegipanjang ditambah dua kali luas alas yang berupa lingkaran:</p>
+                    $$\\begin{align}
+                    L_{t} &= t \\cdot 2 \\pi r + 2 \\pi \\cdot r^{2} \\\\
+                    L_{t} &= 34 \\cdot 2 \\left( \\dfrac{22}{7} \\right) \\left( 7 \\right) + 2 \\left( \\dfrac{22}{7} \\right) \\cdot \\left( 7 \\right)^{2} \\\\
+                    &= 68 \\left( 22 \\right) + 2 \\left( 22 \\right) \\cdot \\left( 7 \\right) \\\\
+                    &= 1.496 + 308 \\\\
+                    &= 1.804
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $1.804\\ \\text{cm}^{2}$</p>
+                `
+            },
+            {
+                id: 2,
+                source: "47. Soal UN Matematika SMP 2017",
+                topic: "Setengah Bola",
+                points: 5,
+                question: "Kubah masjid berbentuk setengah bola yang akan dilapisi aluminium di sisi luarnya. Panjang jari-jari kubah $3,5\\ \\text{meter}$, luas minimal yang dibutuhkan adalah...",
+                options: [
+                    { key: "A", text: "$77\\ \\text{m}^{2}$" },
+                    { key: "B", text: "$154\\ \\text{m}^{2}$" },
+                    { key: "C", text: "$770\\ \\text{m}^{2}$" },
+                    { key: "D", text: "$1.504\\ \\text{m}^{2}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Luas permukaan kubah masjid berbentuk setengah bola, luas permukaannya adalah:</p>
+                    $$\\begin{align}
+                    L_{b} &= \\dfrac{1}{2} \\cdot 4 \\pi \\cdot r^{2} \\\\
+                    &= \\dfrac{1}{2} \\cdot 4 \\cdot \\dfrac{22}{7} \\cdot (3,5)^{2} \\\\
+                    &= 2 \\cdot \\dfrac{22}{7} \\cdot (3,5) \\cdot (3,5) \\\\
+                    &= \\dfrac{22}{7} \\cdot (7) \\cdot (3,5) \\\\
+                    &= 22 \\cdot (3,5) \\\\
+                    &= 77
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $77\\ \\text{m}^{2}$</p>
+                `
+            },
+            {
+                id: 3,
+                source: "48. Soal UN Matematika SMP 2016",
+                topic: "Kerucut",
+                points: 5,
+                question: "Sebuah kerucut mempunyai volume $27\\ \\text{cm}^{3}$. Jika diameter alas kerucut diperbesar $2$ kali dan tingginya diperbesar $3$ kali, maka volume kerucut yang baru adalah...",
+                options: [
+                    { key: "A", text: "$162\\ \\text{cm}^{3}$" },
+                    { key: "B", text: "$324\\ \\text{cm}^{3}$" },
+                    { key: "C", text: "$486\\ \\text{cm}^{3}$" },
+                    { key: "D", text: "$972\\ \\text{cm}^{3}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Rumus bangun ruang sampai SMP masih bisa kita bagi menjadi 3 kategori:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Kelompok Prisma: $V= \\text{Luas Alas} \\times \\text{Tinggi}$</li>
+                        <li>Kelompok Limas: $V= \\frac{1}{3} \\times \\text{Luas Alas} \\times \\text{Tinggi}$</li>
+                        <li>Bola: $V= \\frac{4}{3} \\times \\pi\\ r^{3}$</li>
+                    </ul>
+                    <p class="mt-2">Kerucut masuk kedalam kategori Limas:<br>$V= \\frac{1}{3} \\times \\text{Luas Alas} \\times \\text{Tinggi}$<br>
+                    Misalkan:<br>
+                    $d_{o}:\\ \\text{diameter mula-mula}$;<br>
+                    $t_{o}:\\ \\text{tinggi mula-mula}$;<br>
+                    $V_{o}:\\ \\text{Volume mula-mula}$;</p>
+                    $$\\begin{align}
+                    V_{o} &= \\dfrac{1}{3} \\times \\pi\\ r_{o}^{2} \\times t_{o} \\\\
+                    27\\ \\text{cm}^{3} &= \\frac{1}{3} \\times \\pi\\ \\left(\\frac{d_{o}}{2} \\right)^{2} \\times t_{o} \\\\
+                    27\\ \\text{cm}^{3} &= \\frac{1}{3} \\times \\frac{1}{4} \\pi\\ d_{o}^{2} \\times t_{o} \\\\
+                    27\\ \\text{cm}^{3} &= \\frac{1}{12} \\times \\pi\\ d_{o}^{2} \\times t_{o} \\\\
+                    27\\ \\text{cm}^{3} \\times 12 &= \\pi\\ d_{o}^{2} \\times t_{o} \\\\
+                    324\\ \\text{cm}^{3} &= \\pi\\ d_{o}^{2} \\times t_{o}
+                    \\end{align}$$
+                    <p>Misalkan:<br>
+                    $d_{t}:$ diameter setelah perubahan;<br>
+                    $t_{t}:$ tinggi setelah perubahan;<br>
+                    $V_{t}:$ Volume setelah perubahan;<br>
+                    $V_{t}= \\frac{1}{3} \\times \\pi\\ r_{t}^{2} \\times t_{t}$</p>
+                    <p>Karena diameter alas kerucut diperbesar $2$ kali $(d_{t}=2d_{o})$ dan tingginya diperbesar $3$ kali $(t_{t}=3t_{o})$, maka:</p>
+                    $$\\begin{align}
+                    V_{t} &= \\frac{1}{3} \\times \\pi\\ r_{t}^{2} \\times t_{t} \\\\
+                    V_{t} &= \\frac{1}{3} \\pi\\ \\left( \\frac{d_{t}}{2} \\right)^{2} \\times t_{t} \\\\
+                    V_{t} &= \\frac{1}{3} \\pi\\ \\left( \\frac{2d_{o}}{2} \\right)^{2} \\times 3t_{o} \\\\
+                    V_{t} &= \\frac{1}{3} \\pi\\ d_{o}^{2} \\times 3t_{o} \\\\
+                    V_{t} &= \\frac{3}{3} \\pi\\ d_{o}^{2} \\times t_{o} \\\\
+                    V_{t} &= 324\\ \\text{cm}^{3}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $324\\ \\text{cm}^{3}$</p>
+                `
+            },
+            {
+                id: 4,
+                source: "49. Soal UN Matematika SMP 2015",
+                topic: "Belahan Bola",
+                points: 5,
+                question: "Sebuah benda berbentuk belahan bola dengan panjang diameter $18\\ \\text{cm}$. Volume benda adalah...",
+                options: [
+                    { key: "A", text: "$72 \\pi \\ \\text{cm}^{3}$" },
+                    { key: "B", text: "$616 \\pi \\ \\text{cm}^{3}$" },
+                    { key: "C", text: "$486 \\pi \\ \\text{cm}^{3}$" },
+                    { key: "D", text: "$243 \\pi \\ \\text{cm}^{3}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Volume benda berbentuk setengah bola adalah:</p>
+                    $$\\begin{align}
+                    V_{b} &= \\dfrac{1}{2} \\times \\dfrac{4}{3} \\times \\pi\\ r^{3} \\\\
+                    &= \\dfrac{1}{2} \\times \\dfrac{4}{3} \\times \\pi\\ \\left( 9\\ \\text{cm} \\right)^{3} \\\\
+                    &= \\dfrac{2}{3} \\times \\pi\\ \\times 729\\ \\text{cm}^{3} \\\\
+                    &= 486\\pi\\ \\text{cm}^{3}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $486 \\pi \\ \\text{cm}^{3}$</p>
+                `
+            },
+            {
+                id: 5,
+                source: "50. Soal UN Matematika SMP 2015",
+                topic: "Kerucut",
+                points: 5,
+                question: "Panjang jari-jari alas kerucut $7\\ \\text{cm}$. Jika tinggi kerucut $9\\ \\text{cm}$ maka volume kerucut adalah...",
+                options: [
+                    { key: "A", text: "$462\\ \\text{cm}^{3}$" },
+                    { key: "B", text: "$704\\ \\text{cm}^{3}$" },
+                    { key: "C", text: "$924\\ \\text{cm}^{3}$" },
+                    { key: "D", text: "$986\\ \\text{cm}^{3}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Volume kerucut dengan $r=7\\ \\text{cm}$, $t=9\\ \\text{cm}$ dan $\\pi$ yang kita gunakan $\\pi=\\dfrac{22}{7}$ adalah...</p>
+                    $$\\begin{align}
+                    V_{k} &= \\dfrac{1}{3} \\cdot L_{\\text{alas}} \\cdot t \\\\
+                    V_{k} &= \\dfrac{1}{3} \\cdot \\pi \\cdot r^{2} \\cdot t \\\\
+                    &= \\dfrac{1}{3} \\cdot \\left( \\dfrac{22}{7} \\right) \\cdot 7^{2} \\cdot 9 \\\\
+                    &= \\left( \\dfrac{22}{7} \\right) \\cdot 7 \\cdot 7 \\cdot 3 \\\\
+                    &= (22) (7) (3) \\\\
+                    &= 462
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $462\\ \\text{cm}^{3}$</p>
+                `
+            },
+            {
+                id: 6,
+                source: "51. Soal UN Matematika SMP 2015",
+                topic: "Bola dalam Tabung",
+                points: 5,
+                question: `
+                    <p class="mb-2">Perhatikan gambar!</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgFu7kk5ksDOvOkFwZAZ0KsoiCPolWzrWQIHPC8g32GDeIf9U6OU1W00I6X4b2s9s6EnNKt6d-9oZmHH46lMxeJ46OYPoajw4TjyeR9jIeS3J_Alk1eGS3MtaZfRgzlth1SjKkVqBlaO7Fx3fxR65rod_JHAyRGbkdAms3OKXHj9HqcCfE8AfKq7D-A9w" alt="Soal 51" class="max-h-56 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Jika luas permukaan bola $160\\ \\text{cm}^{2}$, maka luas seluruh permukaan tabung adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$200\\ \\text{cm}^{2}$" },
+                    { key: "B", text: "$220\\ \\text{cm}^{2}$" },
+                    { key: "C", text: "$240\\ \\text{cm}^{2}$" },
+                    { key: "D", text: "$320\\ \\text{cm}^{2}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Luas permukaan bola adalah $160\\ \\text{cm}^{2}$ sehingga dapat kita peroleh:</p>
+                    $$\\begin{align}
+                    L_{b} &= 4 \\cdot \\pi \\cdot r^{2} \\\\
+                    160 &= 4 \\cdot \\pi \\cdot r^{2} \\\\
+                    \\dfrac{160}{4} &= \\pi \\cdot r^{2} \\\\
+                    40 &= \\pi \\cdot r^{2}
+                    \\end{align}$$
+                    <p>Karena bola menyinggung sisi-sisi tabung maka tinggi tabung merupakan diameter bola.</p>
+                    $$\\begin{align}
+                    L_{t} &= 2 \\cdot \\pi \\cdot r^{2} + t \\cdot 2 \\pi r \\\\
+                    &= 2 \\cdot 40 + 2r \\cdot 2 \\pi \\cdot r \\\\
+                    &= 80 + 4 \\cdot \\pi \\cdot r^{2} \\\\
+                    &= 80 + 4 \\cdot 40 \\\\
+                    &= 40 + 160 \\\\
+                    &= 200
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $200\\ \\text{cm}^{2}$</p>
+                `
+            },
+            {
+                id: 7,
+                source: "53. Soal UN Matematika SMP 2014",
+                topic: "Gabungan Kerucut dan Tabung",
+                points: 5,
+                question: `
+                    <p class="mb-2">Perhatikan gambar gabungan kerucut dan tabung di bawah ini!</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjvwbmbgDmashs4dDIBswivrosfx82JGLBkhocmPqv6sZjhSgknbf0N4_1kK0K4-RwWXcSuXTmOUx45Za9aWuRKMSQxBeYYX90mwXLzjjldsELMrqH32hvL1IxuswcXZZ08TLelJ6-nwnYLkx1gSaDVnP8redx17vCAtPo2gui1-MKqD5AGNsDkg1MS6w" alt="Soal 53" class="max-h-56 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Luas permukaan bangun tersebut adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$704\\ \\text{cm}^{2}$" },
+                    { key: "B", text: "$1.078\\ \\text{cm}^{2}$" },
+                    { key: "C", text: "$1.232\\ \\text{cm}^{2}$" },
+                    { key: "D", text: "$1.386\\ \\text{cm}^{2}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh230T42bkIG8K-h9kXWBnIqVEA80sebgwOZCpHD7a4_EUchaIVctZeFmuEdCJia1TF-QRfwFJxFvOdz92Dk88SIzcgdyXcC1SOuO3Wj6DI4mTeZqjFiUYtiluExXZoBpjQ_9TOTbGS1KkB6SIjhgI3QprsWG01ykqODUobgXh8qhya_UqJHLZvpgAXjQ" alt="Pembahasan 53" class="max-h-60 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Bangun terdiri dari tabung dan kerucut dimana kerucut hanya selimut dan tabung tanpa tutup sehingga luas permukaan adalah:</p>
+                    <p class="font-bold mt-2 underline">Luas selimut kerucut</p>
+                    $$\\begin{align}
+                    L_{k} &= \\pi \\cdot r \\cdot s \\\\
+                    &= \\dfrac{22}{7} \\cdot 7 \\cdot 25 \\\\
+                    &= 22 \\cdot 25 = 550
+                    \\end{align}$$
+                    <p class="font-bold mt-2 underline">Luas permukaan tabung</p>
+                    $$\\begin{align}
+                    L_{t} &= \\pi \\cdot r^{2} + t \\cdot 2 \\pi r \\\\
+                    &= \\dfrac{22}{7} \\cdot 7^{2} + 12 \\cdot 2 \\cdot \\dfrac{22}{7} \\cdot 7 \\\\
+                    &= 22 \\cdot 7 + 24 \\cdot 22 \\\\
+                    &= 154 + 528 \\\\
+                    &= 682
+                    \\end{align}$$
+                    <p class="mt-2">Total luas permukaan adalah $682+550=1.232\\ \\text{cm}^{2}$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $1.232\\ \\text{cm}^{2}$</p>
+                `
+            },
+            {
+                id: 8,
+                source: "54. Soal UN Matematika SMP 2013",
+                topic: "Bola dalam Kubus",
+                points: 5,
+                question: "Sebuah bola akan dimasukkan ke dalam kubus dengan panjang rusuk $20\\ \\text{cm}$. Volume bola terbesar yang dapat masuk ke dalam kubus adalah... $\\left(\\pi=3,14 \\right)$",
+                options: [
+                    { key: "A", text: "$418,67\\ \\text{cm}^{3}$" },
+                    { key: "B", text: "$2.093,33\\ \\text{cm}^{3}$" },
+                    { key: "C", text: "$3.140,00\\ \\text{cm}^{3}$" },
+                    { key: "D", text: "$4.186,67\\ \\text{cm}^{3}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Bola akan dimasukkan ke dalam kubus dengan panjang rusuk kubus $20\\ \\text{cm}$ maka jari-jari bola yang bisa masuk paling besar adalah $10\\ \\text{cm}$. Sehingga volume bola terbesar adalah:</p>
+                    $$\\begin{align}
+                    V_{b} &= \\dfrac{4}{3} \\cdot \\pi \\cdot r^{3} \\\\
+                    &= \\dfrac{4}{3} \\cdot 3,14 \\cdot (10)^{3} \\\\
+                    &= \\dfrac{4}{3} \\cdot 3,14 \\cdot 1.000 \\\\
+                    &= \\dfrac{4}{3} \\cdot 3.140 \\\\
+                    &= \\dfrac{12.560}{3} \\\\
+                    &= 4.186,67
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $4.186,67\\ \\text{cm}^{3}$</p>
+                `
+            },
+            {
+                id: 9,
+                source: "55. Soal UN Matematika SMP 2013",
+                topic: "Tabung",
+                points: 5,
+                question: "Sebuah tabung berdiameter $28\\ \\text{cm}$ dengan tinggi $26\\ \\text{cm}$. Luas seluruh permukaan tabung adalah... $\\left(\\pi=\\dfrac{22}{7} \\right)$",
+                options: [
+                    { key: "A", text: "$880\\ \\text{cm}^{2}$" },
+                    { key: "B", text: "$1.760\\ \\text{cm}^{2}$" },
+                    { key: "C", text: "$3.520\\ \\text{cm}^{2}$" },
+                    { key: "D", text: "$4.928\\ \\text{cm}^{2}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Luas seluruh permukaan tabung adalah:</p>
+                    $$\\begin{align}
+                    L_{t} &= t \\cdot 2 \\pi r + 2 \\pi \\cdot r^{2} \\\\
+                    L_{t} &= 26 \\cdot 2 \\cdot \\left( \\dfrac{22}{7} \\right) \\left( 14 \\right) + 2 \\cdot \\left( \\dfrac{22}{7} \\right) \\cdot \\left( 14 \\right)^{2} \\\\
+                    &= 52 \\cdot \\left( 22 \\right) \\left( 2 \\right) + 2 \\cdot \\left( 22 \\right) \\cdot \\left( 2 \\right) \\cdot \\left( 14 \\right) \\\\
+                    &= 52 \\cdot 44 + 44 \\cdot 28 \\\\
+                    &= 44 \\left( 52 + 28 \\right) \\\\
+                    &= 3.520
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $3.520\\ \\text{cm}^{2}$</p>
+                `
+            },
+            {
+                id: 10,
+                source: "56. Soal UN Matematika SMP 2012",
+                topic: "Kerucut",
+                points: 5,
+                question: "Volume kerucut yang panjang diameter alasnya $20\\ \\text{cm}$ dan tinggi $12\\ \\text{cm}$ adalah... $\\left( \\pi=3,14 \\right)$",
+                options: [
+                    { key: "A", text: "$1.256\\ \\text{cm}^{3}$" },
+                    { key: "B", text: "$1.884\\ \\text{cm}^{3}$" },
+                    { key: "C", text: "$5.024\\ \\text{cm}^{3}$" },
+                    { key: "D", text: "$7.536\\ \\text{cm}^{3}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Volume kerucut dengan $d=20\\ \\text{cm}$ maka $r=10\\ \\text{cm}$ dan $t=12\\ \\text{cm}$ dengan $\\pi$ yang kita gunakan $\\pi=3,14$ adalah...</p>
+                    $$\\begin{align}
+                    V_{k} &= \\dfrac{1}{3} \\cdot L_{\\text{alas}} \\cdot t \\\\
+                    V_{k} &= \\dfrac{1}{3} \\cdot \\pi \\cdot r^{2} \\cdot t \\\\
+                    &= \\dfrac{1}{3} \\cdot \\left( 3,14 \\right) \\cdot 10^{2} \\cdot 12 \\\\
+                    &= 4 \\cdot 3,14 \\cdot 100 \\\\
+                    &= 4 \\cdot 314 \\\\
+                    &= 1.256
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $1.256\\ \\text{cm}^{3}$</p>
+                `
+            },
+            {
+                id: 11,
+                source: "59. Soal UN Matematika SMP 2011",
+                topic: "Tabung dan Bola",
+                points: 5,
+                question: "Ke dalam tabung berisi air setinggi $30\\ \\text{cm}$ dimasukkan $6$ bola besi yang masing-masing berjari-jari $7\\ \\text{cm}$. Jika diameter tabung $28\\ \\text{cm}$, tinggi air dalam tabung setelah dimasukkan enam bola besi adalah...",
+                options: [
+                    { key: "A", text: "$37\\ \\text{cm}$" },
+                    { key: "B", text: "$42\\ \\text{cm}$" },
+                    { key: "C", text: "$44\\ \\text{cm}$" },
+                    { key: "D", text: "$52\\ \\text{cm}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Volume $6$ bola besi yang berjari-jari $7\\ \\text{cm}$ adalah:</p>
+                    $$\\begin{align}
+                    V_{b} &= 6 \\times \\dfrac{4}{3} \\cdot \\pi \\cdot r^{3} \\\\
+                    &= 8 \\cdot \\pi \\cdot (7)^{3} \\\\
+                    &= 8 \\cdot 343 \\pi \\\\
+                    &= 2.744 \\pi
+                    \\end{align}$$
+                    <p>Volume air dalam tabung adalah volume tabung dengan tinggi air $30\\ \\text{cm}$ dan $r=14\\ \\text{cm}$:</p>
+                    $$\\begin{align}
+                    V_{a} &= \\pi \\cdot r^{2} \\cdot t \\\\
+                    &= \\pi \\cdot 14^{2} \\cdot 30 \\\\
+                    &= \\pi \\cdot 196 \\cdot 30 \\\\
+                    &= 5.880 \\pi
+                    \\end{align}$$
+                    <p>Volume di dalam tabung setelah dimasukkan $6$ bola adalah volume air ditambah volume $6$ bola yaitu:</p>
+                    $$\\begin{align}
+                    V_{a+b} &= 5.880 \\pi + 2.744 \\pi \\\\
+                    &= 8.624 \\pi
+                    \\end{align}$$
+                    <p>Tinggi air di tabung setelah dimasukkan $6$ bola adalah $8.624 \\pi$ sehingga dapat kita peroleh:</p>
+                    $$\\begin{align}
+                    V_{a+b} &= 8.624 \\pi \\\\
+                    \\pi \\cdot 14^{2} \\cdot t_{a} &= 8.624 \\pi \\\\
+                    \\pi \\cdot 196 \\cdot t_{a} &= 8.624 \\pi \\\\
+                    t_{a} &= \\dfrac{8.624 \\pi}{\\pi \\cdot 196} \\\\
+                    &= 44
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $44\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 12,
+                source: "60. Soal UN Matematika SMP 2011",
+                topic: "Kerucut",
+                points: 5,
+                question: "Sebuah kerucut memiliki diameter alas $14\\ \\text{cm}$ dan tinggi $24\\ \\text{cm}$. Luas permukaan kerucut adalah...",
+                options: [
+                    { key: "A", text: "$546 \\pi\\ \\text{cm}^{2}$" },
+                    { key: "B", text: "$532 \\pi\\ \\text{cm}^{2}$" },
+                    { key: "C", text: "$224 \\pi\\ \\text{cm}^{2}$" },
+                    { key: "D", text: "$217 \\pi\\ \\text{cm}^{2}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Untuk $d=14\\ \\text{cm}$ maka $r=7\\ \\text{cm}$, jika $t=24\\ \\text{cm}$ maka dapat kita peroleh garis pelukis $s$, yaitu:</p>
+                    $$\\begin{align}
+                    s^{2} &= t^{2}+r^{2} \\\\
+                    &= 24^{2}+7^{2} \\\\
+                    &= 576+49 \\\\
+                    &= 625 \\\\
+                    s &= \\sqrt{625}=25
+                    \\end{align}$$
+                    <p>Luas permukaan kerucut adalah luas alas kerucut ditambah luas selimut kerucut, yaitu:</p>
+                    $$\\begin{align}
+                    L &= \\pi \\cdot r^{2} + \\pi \\cdot r \\cdot s \\\\
+                    &= \\pi \\cdot 7^{2} + \\pi \\cdot 7 \\cdot 25 \\\\
+                    &= 49 \\pi + 175 \\pi \\\\
+                    &= 224 \\pi
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $224 \\pi\\ \\text{cm}^{2}$</p>
+                `
+            },
+            {
+                id: 13,
+                source: "61. Soal UN Matematika SMP 2010",
+                topic: "Tabung",
+                points: 5,
+                question: "Tabung dengan panjang jari-jari alas $10\\ \\text{cm}$ berisi minyak setinggi $14\\ \\text{cm}$. Ke dalam tabung itu dimasukkan minyak lagi sebanyak $1,884\\ \\text{liter}$. Tinggi minyak dalam tabung sekarang adalah... $\\left( \\pi=3,14 \\right)$",
+                options: [
+                    { key: "A", text: "$16\\ \\text{cm}$" },
+                    { key: "B", text: "$18\\ \\text{cm}$" },
+                    { key: "C", text: "$19\\ \\text{cm}$" },
+                    { key: "D", text: "$20\\ \\text{cm}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Tabung dengan jari-jari alas $10\\ \\text{cm}$ berisi minyak setinggi $14\\ \\text{cm}$, maka banyak minyak sama dengan volume tabung dengan tinggi $14\\ \\text{cm}$, yaitu:</p>
+                    $$\\begin{align}
+                    V_{m} &= \\pi \\cdot r^{2} \\cdot t_{m} \\\\
+                    &= 3,14 \\cdot 10^{2}\\ \\text{cm}^{2} \\cdot 14\\ \\text{cm} \\\\
+                    &= 314 \\cdot 14\\ \\text{cm}^{3} \\\\
+                    &= 4.396\\ \\text{cm}^{3}
+                    \\end{align}$$
+                    <p>Ke dalam tabung itu dimasukkan minyak lagi sebanyak $1,884\\ \\text{liter}$. Jika ukuran liter kita ubah dalam satuan $\\text{cm}^{3}$ maka akan kita peroleh:</p>
+                    $$\\begin{align}
+                    1,884\\ \\text{liter} &= 1,884\\ \\text{dm}^{3} \\\\
+                    &= 1,884 \\times 10^{3}\\ \\text{cm}^{3} \\\\
+                    &= 1.884\\ \\text{cm}^{3}
+                    \\end{align}$$
+                    <p>Volume minyak dalam tabung setelah dimasukkan minyak adalah $1.884\\ \\text{cm}^{3}+4.396\\ \\text{cm}^{3}$ atau $6.280\\ \\text{cm}^{3}$. Sehingga tinggi minyak dalam tabung adalah:</p>
+                    $$\\begin{align}
+                    V_{m} &= \\pi \\cdot r^{2} \\cdot t_{m} \\\\
+                    6.280 &= 3,14 \\cdot 10^{2} \\cdot t_{m} \\\\
+                    6.280 &= 314 \\cdot t_{m} \\\\
+                    \\dfrac{6.280}{314} &= t_{m} \\\\
+                    20 &= t_{m}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $20\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 14,
+                source: "62. Soal UN Matematika SMP 2010",
+                topic: "Setengah Bola",
+                points: 5,
+                question: "Sebuah kubah menara berbentuk setengah bola dengan diameter $7\\ \\text{meter}$. Bagian luar kubah tersebut akan dicat, dan setiap $11\\ \\text{m}^{2}$ memerlukan satu kaleng cat. Berapa kaleng cat yang diperlukan untuk mengecat kubah tersebut... $\\left(\\pi=\\dfrac{22}{7} \\right)$",
+                options: [
+                    { key: "A", text: "$7\\ \\text{kaleng}$" },
+                    { key: "B", text: "$14\\ \\text{kaleng}$" },
+                    { key: "C", text: "$21\\ \\text{kaleng}$" },
+                    { key: "D", text: "$28\\ \\text{kaleng}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Permukaan kubah menara berbentuk setengah bola dengan diameter $7\\ \\text{meter}$ maka $r=3,5\\ \\text{meter}$, luas permukaannya adalah:</p>
+                    $$\\begin{align}
+                    L_{b} &= \\dfrac{1}{2} \\cdot 4 \\pi \\cdot r^{2} \\\\
+                    &= \\dfrac{1}{2} \\cdot 4 \\cdot \\dfrac{22}{7} \\cdot (3,5)^{2} \\\\
+                    &= 2 \\cdot \\dfrac{22}{7} \\cdot (3,5) \\cdot (3,5) \\\\
+                    &= \\dfrac{22}{7} \\cdot (7) \\cdot (3,5) \\\\
+                    &= 22 \\cdot (3,5) \\\\
+                    &= 77
+                    \\end{align}$$
+                    <p>Luas permukaan kubah adalah $77\\ \\text{m}^{2}$ dan untuk $11\\ \\text{m}^{2}$ memerlukan satu kaleng cat. Sehingga untuk $77\\ \\text{m}^{2}$ diperlukan $\\dfrac{77}{11}=7$ kaleng cat.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $7\\ \\text{kaleng}$</p>
+                `
+            },
+            {
+                id: 15,
+                source: "64. Model Soal TKA YASOP - SMAN 2 Balige",
+                topic: "Kerucut (Kesebangunan)",
+                points: 5,
+                question: "Tinggi air di dalam sebuah kerucut yang jari-jarinya alasnya $10\\ \\text{cm}$ dan tingginya $15\\ \\text{cm}$ adalah $12\\ \\text{cm}$. Jika kerucut tersebut dibalik, maka tinggi air di dalam kerucut adalah... $\\left( \\pi=3,14 \\right)$",
+                options: [
+                    { key: "A", text: "$3\\sqrt{499}\\ \\text{cm}$" },
+                    { key: "B", text: "$6\\sqrt[3]{31} \\ \\text{cm}$" },
+                    { key: "C", text: "$3\\sqrt[3]{124} \\ \\text{cm}$" },
+                    { key: "D", text: "$8\\sqrt{31}\\ \\text{cm}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Volume kerucut dengan $r=10\\ \\text{cm}$ dan $t=15\\ \\text{cm}$ adalah...</p>
+                    $$\\begin{align}
+                    V_{k} &= \\dfrac{1}{3} \\cdot L_{\\text{alas}} \\cdot t \\\\
+                    V_{k} &= \\dfrac{1}{3} \\cdot \\pi \\cdot r^{2} \\cdot t \\\\
+                    &= \\dfrac{1}{3} \\cdot \\pi \\cdot 10^{2} \\cdot 15 \\\\
+                    &= 500 \\pi
+                    \\end{align}$$
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjk1z26X4hFCWKGBpJgRzp1TzNK5nk3stAxlS0L5OeOHVvLHp68QQteVNEjKu238J-gnAP4zh8XtQecmYHB8jdcT_-GH-2aA5nsozX2yq3PZSk0fDS6g1jFynA9yHot4N7X9bszObIgb6tSB0y6sKbFlLGH_5hHBRt8yhp2Sb0FUG7RPsh-5JYK3ZKyaS8U/s1600/kerucut-berisi-air.jpg" alt="Kerucut Berisi Air" class="max-h-60 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Dari gambar di atas dengan menggunakan perbandingan pada segitiga yang sebangun kita peroleh:</p>
+                    $$\\begin{align}
+                    \\dfrac{15}{3} &= \\dfrac{10}{x} \\\\
+                    x &= 2
+                    \\end{align}$$
+                    <p>Untuk $x=2$ maka kita peroleh volume kerucut yang kosong dari air dengan $r=2\\ \\text{cm}$ dan $t=3\\ \\text{cm}$ yaitu:</p>
+                    $$\\begin{align}
+                    V_{ko} &= \\dfrac{1}{3} \\cdot L_{\\text{alas}} \\cdot t \\\\
+                    V_{ko} &= \\dfrac{1}{3} \\cdot \\pi \\cdot r^{2} \\cdot t \\\\
+                    &= \\dfrac{1}{3} \\cdot \\pi \\cdot 2^{2} \\cdot 3 \\\\
+                    &= 4 \\pi
+                    \\end{align}$$
+                    <p>Volume air adalah:</p>
+                    $$\\begin{align}
+                    V_{air} &= V_{k}-V_{ko} \\\\
+                    V_{air} &= 500 \\pi-4 \\pi \\\\
+                    &= 496 \\pi
+                    \\end{align}$$
+                    <p class="text-xs text-slate-500 italic">Volume air dapat juga dihitung dengan volume kerucut terpancung, yaitu $V=\\frac{1}{3} \\pi \\times t \\left( R^{2}+Rr+r^{2} \\right)$.</p>
+                    <p class="mt-2">Kemudian kerucut dibalik sehingga tinggi air pada kerucut berubah seperti gambar di sebelah kanan. Dengan menggunakan perbandingan pada segitiga yang sebangun kita peroleh:</p>
+                    $$\\begin{align}
+                    \\dfrac{10}{y} &= \\dfrac{15}{t_{air}} \\\\
+                    y &= \\dfrac{2}{3}t_{air}
+                    \\end{align}$$
+                    <p>Volume air sebelum kerucut di balik dan sesudah kerucut dibalik adalah sama, sehingga dapat kita peroleh:</p>
+                    $$\\begin{align}
+                    V_{air} &= \\dfrac{1}{3} \\cdot \\pi \\cdot r^{2} \\cdot t \\\\
+                    496 \\pi &= \\dfrac{1}{3} \\cdot \\pi \\cdot y^{2} \\cdot t_{air} \\\\
+                    496 \\pi &= \\dfrac{1}{3} \\cdot \\pi \\cdot \\left( \\dfrac{2}{3}t_{air} \\right)^{2} \\cdot t_{air} \\\\
+                    496 \\cdot 3 &= \\dfrac{4}{9}t^{2}_{air} \\cdot t_{air} \\\\
+                    496 \\cdot \\dfrac{27}{4} &= t^{3}_{air} \\\\
+                    124 \\cdot 27 &= t^{3}_{air} \\\\
+                    t_{air} &= \\sqrt[3]{124 \\cdot 27} \\\\
+                    t_{air} &= 3 \\sqrt[3]{124}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $3\\sqrt[3]{124} \\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 16,
+                source: "66. Model Soal US-UM Matematika SMP 2023",
+                topic: "Bola",
+                points: 5,
+                question: "Diketahui volume sebuah bola adalah $36 \\pi\\ \\text{m}^{3}$, luas permukaan bola tersebut adalah...",
+                options: [
+                    { key: "A", text: "$36\\pi\\ \\text{m}^{2}$" },
+                    { key: "B", text: "$18\\pi\\ \\text{m}^{2}$" },
+                    { key: "C", text: "$9\\pi\\ \\text{m}^{2}$" },
+                    { key: "D", text: "$3\\pi\\ \\text{m}^{2}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Dari volume bola yang diketahui dapat kita peroleh:</p>
+                    $$\\begin{align}
+                    V_{b} &= \\frac{4}{3} \\cdot \\pi \\cdot r^{3} \\\\
+                    36 \\pi &= \\frac{4}{3} \\cdot \\pi \\cdot r^{3} \\\\
+                    36 &= \\frac{4}{3} \\cdot r^{3} \\\\
+                    9 &= \\frac{1}{3} \\cdot r^{3} \\\\
+                    27 &= r^{3} \\longrightarrow r=3
+                    \\end{align}$$
+                    <p>Luas permukaan bola adalah:</p>
+                    $$\\begin{align}
+                    L_{b} &= 4 \\pi \\cdot r^{2} \\\\
+                    &= 4 \\cdot \\pi \\cdot (3)^{2} \\\\
+                    &= 4 \\cdot \\pi \\cdot 9 \\\\
+                    &= 36 \\pi
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $36\\pi\\ \\text{m}^{2}$</p>
+                `
+            },
+            {
+                id: 17,
+                source: "77. Contoh Soal TKA Matematika SMP/MTs",
+                topic: "Tabung & Lingkaran",
+                points: 5,
+                question: `
+                    <p class="mb-2">Perhatikan balok berikut!</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh81t_l4U60qG2EL7l3TjozYEQxW7PiI3Ahqgr_-0F9qTWaYt6srJpadEQMqWCGKvH4YnXp_57Lib-w4LL4w7cR-c1n9PfMKTSjcvZdZEAZlkbcqn-acN0CsZntcK8vJ7X8GlKhVI3fOHjnRr-oauStLJH4T_3d6uhZ4NmivfIdzsbZbxL-K9MOjXcwbiIK/s1600/soal-tka-matematika-smp-26.jpg" alt="Soal 77" class="max-h-56 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Aldo bermaksud membuat topi pesulap menggunakan kertas manila yang akan ia gunakan saat ujian praktik seni budaya. Topi pesulap yang ia akan buat berukuran seperti pada gambar. Luas minimal kertas manila yang harus ia sediakan adalah... $\\left(\\pi=\\frac{22}{7}\\right)$</p>
+                `,
+                options: [
+                    { key: "A", text: "$2.942,5\\ \\text{cm}^{2}$" },
+                    { key: "B", text: "$2.842,5\\ \\text{cm}^{2}$" },
+                    { key: "C", text: "$2.280\\ \\text{cm}^{2}$" },
+                    { key: "D", text: "$1.980\\ \\text{cm}^{2}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Dari informasi pada soal, topi pesulap dapat kita hitung dengan menghitung luas permukaan lingkaran dan tabung, gambarannya seperti berikut ini:</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKGopa_UNl-LxZmANpisVOn4CjvoHxSwWHSQlWAlowurXBCIsMxojrK7P1e8ciw0wQ_9EGZ5sSQW8JziBEgeDiCNfCXJyT1fNth_5R8PFRMSlHMPqaeMJZtjBy1Rmn4zUovzECAnPeiVqrY3XTiKT77VpXbRJEaUh-v1-MnGBaeFr6_bvhdLOJ78nqHkGm/s1600/soal-tka-matematika-smp-26.jpg" alt="Pembahasan 77" class="max-h-60 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p class="font-bold">Luas permukaan I: Luas lingkaran dengan jari-jari $r= \\frac{35}{2}$:</p>
+                    $$\\begin{align}
+                    \\text{L}_{\\text{I}} &= \\pi \\times r^{2} \\\\
+                    \\text{L}_{\\text{I}} &= \\frac{22}{7} \\times \\left( \\frac{35}{2} \\right)^{2} \\\\
+                    &= \\frac{22}{7} \\times \\frac{35}{2} \\times \\frac{35}{2} \\\\
+                    &= \\frac{11}{1} \\times \\frac{5}{1} \\times \\frac{35}{2} \\\\
+                    &= \\frac{1}{2} \\times 1925 \\\\
+                    &= 962,5
+                    \\end{align}$$
+                    <p class="font-bold mt-2">Luas permukaan II: Luas permukaan tabung tanpa tutup dengan jari-jari $r=9$ dan tinggi $t=35$:</p>
+                    $$\\begin{align}
+                    \\text{L}_{\\text{II}} &= 2\\pi \\times r \\times t \\\\
+                    \\text{L}_{\\text{II}} &= 2 \\times \\frac{22}{7} \\times 9 \\times 35 \\\\
+                    &= 2 \\times \\frac{22}{1} \\times 9 \\times 5 \\\\
+                    &= 44 \\times 45 \\\\
+                    &= 1980
+                    \\end{align}$$
+                    <p class="font-bold mt-2">Luas minimal kertas manila yang harus ia sediakan adalah:</p>
+                    $$\\begin{align}
+                    \\text{L}_{\\text{t}} &= 962,5 + 1980 \\\\
+                    &= 2.942,5
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $2.942,5\\ \\text{cm}^{2}$</p>
+                `
+            },
+            {
+                id: 18,
+                source: "78. Contoh Soal TKA Matematika SMP/MTs",
+                topic: "Kerucut & Setengah Bola",
+                points: 5,
+                question: `
+                    <p class="mb-2">Perhatikan gambar.</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiC2R67FpAKtFz8dVXtk5T2zccao5i2g7frXRRJwe_AS-qfD9i9M7dofWnK_a2owItbLLZDJBP29XgOQZmvNTRYSvHrNiOp2zOCbQDWGHfn_KnI3ZHl1_aaiC-I_AERFAhFMUSKf8Xy6r-eSFoURJ940PmxUy5L7hhk29ioAe6yEdQ_g9qYub9EJHvbmwZ/s1600/soal-tka-matematika-smp-35.jpg" alt="Soal 78" class="max-h-56 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Toni membuat sebuah pelampung pancingan dengan ukuran seperti pada gambar. Volume pelampung pancingan tersebut adalah....</p>
+                `,
+                options: [
+                    { key: "A", text: "$1.215 \\pi\\ \\text{mm}^{3}$" },
+                    { key: "B", text: "$1.458 \\pi\\ \\text{mm}^{3}$" },
+                    { key: "C", text: "$1.701 \\pi\\ \\text{mm}^{3}$" },
+                    { key: "D", text: "$1.944 \\pi\\ \\text{mm}^{3}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi pada soal, volume pelampung dapat kita hitung dengan menggunakan rumus volume kerucut dan setengah bola.</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQihveBVkdouzKD4659c-Q6tDdTnDgWBtnpmWu6nn8yZzrOsRInYLic27V9Wa4Sbz1YG-hk-L7RA9Bo2LlTwj0Ba4Phkn3xfztxeQCeVpOGsmCdN3L685ydlKd_SSDgQscCt__e5LTg5Jc-ZhToKD6-pzrAai02KL1n2yDRFrcK3_MXnDiz7vP6SI6UAT-/s1600/soal-tka-matematika-smp-34-a.jpg" alt="Pembahasan 78" class="max-h-60 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    $$\\begin{align}
+                    V_{\\text{Kerucut}} &= \\frac{1}{3} \\times L_{\\text{alas}} \\times t \\\\
+                    &= \\frac{1}{3} \\times \\pi \\times r^{2} \\times 36 \\\\
+                    &= \\frac{1}{3} \\times \\pi \\times 9^{2} \\times 36 \\\\
+                    &= 972 \\pi
+                    \\end{align}$$
+                    $$\\begin{align}
+                    V_{\\text{Bola}} &= \\frac{1}{2} \\times \\frac{4}{3} \\times \\pi \\times r^{3} \\\\
+                    &= \\frac{2}{3} \\times \\pi \\times 9^{3} \\\\
+                    &= 486 \\pi
+                    \\end{align}$$
+                    <p class="mt-2 font-bold">Volume pelampung adalah:</p>
+                    $$\\begin{align}
+                    V_{\\text{pelampung}} &= 972 \\pi + 486 \\pi \\\\
+                    &= 1.458 \\pi
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $1.458 \\pi\\ \\text{mm}^{3}$</p>
+                `
+            },
+            {
+                id: 19,
+                source: "82. Contoh Soal TKA Matematika SMP/MTs",
+                topic: "Tabung & Setengah Bola",
+                points: 5,
+                question: `
+                    <p class="mb-2">Perhatikan gambar.</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7h37XIhjA0T2tE57deIwiQxyRRlcrxOyhJpg3-0YAZla_Gdc8jnCUfcy2DSVW3bjkVPU2fe1gOfFkTietnU3LPYlhvCuUhDM_JdYCm_G3BgcOMFugLbSkPFvR1jcULvyW9ELjp4wlyWDb7GnlJj4Ep3PJWglNBaJQGhQ3HMkUZDaWvMBCdQMu0mHdV7cN/s1600/soal-tka-smp-mts-matematika-dan-pembahasan-kunci-jawaban.jpg" alt="Soal 82" class="max-h-56 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Sebuah tabung berisi penuh air $900\\ \\text{cm}^{3}$. Air tersebut dituang ke dalam dua buah mangkuk berbentuk setengah bola sampai penuh. Sisa air dalam tabung adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$150\\ \\text{cm}^{3}$" },
+                    { key: "B", text: "$300\\ \\text{cm}^{3}$" },
+                    { key: "C", text: "$450\\ \\text{cm}^{3}$" },
+                    { key: "D", text: "$600\\ \\text{cm}^{3}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi pada soal, kita ketahui air pada tabung akan dituang pada dua buah mangkuk. Dimana jika kedua mangkuk kita gabungkan, akan tercipta sebuah bola. Sehingga kita menghitung selisih volume tabung dan volume bola dengan jari-jari $\\frac{1}{2}d$.</p>
+                    $$\\begin{align}
+                    V_{\\text{tabung}} &= \\pi \\times r^{2} \\times t \\\\
+                    900 &= \\pi \\times \\left( \\frac{1}{2}d \\right)^{2} \\times d \\\\
+                    900 &= \\pi \\times \\frac{1}{4}d^{3} \\\\
+                    3600 &= \\pi d^{3}
+                    \\end{align}$$
+                    <p class="font-bold mt-2">Volume bola:</p>
+                    $$\\begin{align}
+                    V_{\\text{bola}} &= \\frac{4}{3} \\times \\pi r^{3} \\\\
+                    &= \\frac{4}{3} \\times \\pi \\left( \\frac{1}{2} d \\right)^{3} \\\\
+                    &= \\frac{4}{3} \\times \\pi \\frac{1}{8}d^{3} \\\\
+                    &= \\frac{1}{6} \\pi d^{3} \\\\
+                    &= \\frac{1}{6} \\times 3600 \\\\
+                    &= 600
+                    \\end{align}$$
+                    <p class="font-bold mt-2">Selisih air jika air pada tabung dituang ke dua mangkuk:</p>
+                    $$\\begin{align}
+                    V_{\\text{Sisa}} &= V_{\\text{tabung}}-V_{\\text{bola} } \\\\
+                    &= 900 - 600 \\\\
+                    &= 300
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $300\\ \\text{cm}^{3}$</p>
+                `
+            },
+            {
+                id: 20,
+                source: "83. Contoh Soal TKA Matematika SMP/MTs",
+                topic: "Bandul (Kerucut & Setengah Bola)",
+                points: 5,
+                question: `
+                    <p class="mb-2">Perhatikan gambar.</p>
+                    <div class="flex justify-center my-3">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9gXGFHDe35NS4rCWXUuyS2v5hyHIxYmF07GSONQYi1uV_oaVIBb6CwmUeDXLY8Z1AwsMNrMpMV9KVW-tC3zCUptvrdNGMGIWjbb5ObnIo3ErW5kWrPOYRly3Q8AQEUJ5D8kHO0I8aRgcqFhfv7tNh0wk9hpHvumsG6uOOwwQGObHaJKI7uLoBHPD7iZVJ/s1600/soal-tka-smp-mts-matematika-dan-pembahasan-kunci-jawaban.jpg" alt="Soal 83" class="max-h-56 mx-auto rounded-xl border border-slate-200 shadow-sm object-contain" />
+                    </div>
+                    <p>Sebuah bandul tampak seperti pada gambar. Luas permukaan bandul adalah...</p>
+                `,
+                options: [
+                    { key: "A", text: "$60 \\pi \\ \\text{mm}^{2}$" },
+                    { key: "B", text: "$72 \\pi \\ \\text{mm}^{2}$" },
+                    { key: "C", text: "$132 \\pi \\ \\text{mm}^{2}$" },
+                    { key: "D", text: "$204 \\pi \\ \\text{mm}^{2}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Dari informasi pada soal, kita ketahui bandul tampak terdiri dari sebuah kerucut dan setengah bola. Luas permukaan terdiri dari luas permukaan selimut kerucut dan luas permukaan setengah bola.</p>
+                    <p class="font-bold mt-2">Luas permukaan selimut kerucut dengan $r=6\\ \\text{mm}$ dan $t=8\\ \\text{mm}$:</p>
+                    $$\\begin{align}
+                    L_{\\text{selimut}} &= \\pi \\times r \\times s \\\\
+                    &= \\pi \\times 6 \\times \\sqrt{r^{2}+t^{2}} \\\\
+                    &= 6\\pi \\times \\sqrt{6^{2}+8^{2}} \\\\
+                    &= 6\\pi \\times \\sqrt{100} \\\\
+                    &= 60\\pi
+                    \\end{align}$$
+                    <p class="font-bold mt-2">Luas permukaan setengah bola dengan $r=6\\ \\text{mm}$:</p>
+                    $$\\begin{align}
+                    L_{\\text{bola}} &= \\frac{1}{2} \\times 4 \\pi r^{2} \\\\
+                    &= \\frac{1}{2} \\times 4 \\pi \\times 6^{2} \\\\
+                    &= 2 \\pi \\times 36 \\\\
+                    &= 72 \\pi
+                    \\end{align}$$
+                    <p class="font-bold mt-2">Luas permukaan bandul adalah $72 \\pi + 60 \\pi=132 \\pi$</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $132 \\pi \\ \\text{mm}^{2}$</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 40 * 60; // 40 menit
+        let timerInterval;
+        let isSubmitted = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                let badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+                if (q.source.includes("TKA") || q.source.includes("YASOP")) {
+                    badgeClass = "bg-amber-100 text-amber-900 border-amber-300";
+                }
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-base md:text-lg font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.source}</span>
+                                <span class="bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-bold px-2.5 py-1 rounded-xl">${q.topic}</span>
+                            </div>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions} (+5 Poin)</span>
+                        </div>
+
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-4">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-4" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilih jawaban yang paling tepat. Anda dapat mengubah pilihan sewaktu-waktu.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) {
+                    if (opt.key === key) optEl.classList.add('selected');
+                    else optEl.classList.remove('selected');
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-10 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua soal sudah terisi dengan baik!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 40 menit telah berakhir. Lembar jawaban Anda dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalScore = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    totalScore += q.points;
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const maxScore = totalQuestions * 5; // 20 * 5 = 100
+            const percentage = ((totalScore / maxScore) * 100).toFixed(1);
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB (0 Poin)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR (+5 Poin)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH (0 Poin)</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.source})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
