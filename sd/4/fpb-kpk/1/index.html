@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Ujian Matematika SD Kelas 6 - KPK & FPB (Soal 1 – 25)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbars */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Numeric input focus state */
+        .answer-input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+            background-color: #ffffff;
+        }
+
+        /* MathJax Responsive Container */
+        mjx-container {
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            max-width: 100% !important;
+            padding: 2px 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SD Kelas 6</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">Kurikulum Merdeka</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI MATEMATIKA: KPK & FPB (SOAL 1 – 25)</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi: Faktor, Kelipatan, Bilangan Prima, Faktorisasi Prima, serta FPB & KPK Dua Bilangan</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>25 Butir Soal Isian Numerik</strong> (Bagian I & II Lembar Latihan).</li>
+                    <li>Waktu Pengerjaan: <strong>25 Menit</strong> (hitungan mundur digital otomatis).</li>
+                    <li>Skor Maksimal: <strong>100 Poin</strong> (dihitung proporsional berdasarkan jawaban benar).</li>
+                    <li>Kunci jawaban lengkap dan uraian pembahasan analitis tersedia segera setelah ujian diselesaikan.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-emerald-600">10 Soal</p>
+                    <p class="text-xs font-black">Bagian I: Fondasi</p>
+                </div>
+                <div class="p-3 bg-indigo-50 text-indigo-800 border border-indigo-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-indigo-600">15 Soal</p>
+                    <p class="text-xs font-black">Bagian II: FPB & KPK</p>
+                </div>
+                <div class="p-3 bg-amber-50 text-amber-800 border border-amber-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-amber-600">Tipe Jawaban</p>
+                    <p class="text-xs font-black">Isian Numerik</p>
+                </div>
+                <div class="p-3 bg-rose-50 text-rose-800 border border-rose-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-rose-600">Durasi</p>
+                    <p class="text-xs font-black">25 Menit</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Simulasi KPK & FPB</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">Lembar Latihan KPK & FPB Kelas 6 SD</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">LATIHAN KPK & FPB (SOAL 1 – 25)</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">25 Soal Isian Singkat &bull; Durasi 25 Menit</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner transition-colors" id="timer-display">
+                            25:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 25 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1 – 25)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 25</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-13 gap-2" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Numeric Inputs -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearCurrentInput()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Jawaban
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>Lembar Latihan Matematika SD (KPK & FPB)</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan simulasi ini? Skor dan seluruh pembahasan lengkap akan langsung ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Simulasi Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">HASIL EVALUASI KPK & FPB (SOAL 1 – 25)</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut perolehan nilai akhir dan rincian langkah kerja analitis 25 butir soal fondasi dan operasi FPB & KPK.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Pembahasan Lengkap</h3>
+                        <p class="text-sm text-slate-500">Pelajari teknik pohon faktor, faktorisasi prima, pasangan pembagi, dan relasi perkalian FPB & KPK.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">25</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span>Modul Matematika SD (KPK & FPB)</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const questionsData = [
+            // ==========================================
+            // --- BAGIAN I: FONDASI (SOAL 1 - 10) ---
+            // ==========================================
+            {
+                id: 1,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Tuliskan semua faktor dari bilangan $24$. Ada berapa banyak faktor yang dimiliki oleh bilangan tersebut?",
+                correctAnswer: "8",
+                explanation: `
+                    <p>Faktor suatu bilangan dapat ditentukan melalui pasangan perkalian yang menghasilkan bilangan tersebut:</p>
+                    $$24 = 1 \\times 24 = 2 \\times 12 = 3 \\times 8 = 4 \\times 6$$
+                    <p>Seluruh faktor dari bilangan $24$ terurut dari yang terkecil adalah:</p>
+                    $$\\{1, 2, 3, 4, 6, 8, 12, 24\\}$$
+                    <p>Banyaknya seluruh faktor pembagi ada <strong>8</strong> buah.</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 8</p>
+                `
+            },
+            {
+                id: 2,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Tentukan seluruh kelipatan dari bilangan $6$ yang bernilai di antara $20$ dan $50$. Ada berapa banyak bilangan yang memenuhi?",
+                correctAnswer: "5",
+                explanation: `
+                    <p>Daftar kelipatan bilangan $6$ yang bernilai di antara $20$ dan $50$:</p>
+                    $$6 \\times 4 = 24$$
+                    $$6 \\times 5 = 30$$
+                    $$6 \\times 6 = 36$$
+                    $$6 \\times 7 = 42$$
+                    $$6 \\times 8 = 48$$
+                    <p>Bilangan-bilangan tersebut adalah: $\\{24, 30, 36, 42, 48\\}$.</p>
+                    <p>Jadi, terdapat sebanyak <strong>5</strong> bilangan yang memenuhi.</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 5</p>
+                `
+            },
+            {
+                id: 3,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Sebutkan semua bilangan prima yang terletak di antara bilangan $10$ dan $30$. Ada berapa banyak bilangan prima tersebut?",
+                correctAnswer: "6",
+                explanation: `
+                    <p><strong>Definisi:</strong> Bilangan prima adalah bilangan asli lebih dari $1$ yang tepat hanya memiliki $2$ faktor pembagi, yaitu $1$ dan dirinya sendiri.</p>
+                    <p>Bilangan prima yang terletak di antara $10$ dan $30$ adalah:</p>
+                    $$\\{11, 13, 17, 19, 23, 29\\}$$
+                    <p>Total ada <strong>6</strong> bilangan prima.</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 6</p>
+                `
+            },
+            {
+                id: 4,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Tentukan faktorisasi prima dari bilangan $60$ dalam bentuk perkalian pangkat $2^a \\times 3 \\times 5$. Berapakah nilai pangkat (eksponen) $a$ dari bilangan prima $2$?",
+                correctAnswer: "2",
+                explanation: `
+                    <p>Membagi $60$ bertahap dengan bilangan-bilangan prima terkecil (pohon faktor):</p>
+                    $$60 = 2 \\times 30 = 2 \\times (2 \\times 15) = 2 \\times 2 \\times 3 \\times 5$$
+                    <p>Ditulis dalam bentuk perkalian pangkat:</p>
+                    $$60 = 2^{\\mathbf{2}} \\times 3^1 \\times 5^1$$
+                    <p>Nilai eksponen/pangkat $a$ untuk faktor prima $2$ adalah <strong>2</strong>.</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 2</p>
+                `
+            },
+            {
+                id: 5,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Tentukan bentuk faktorisasi prima dari bilangan $84$. Jika ditulis dalam bentuk perkalian pangkat $2^x \\times 3 \\times 7$, berapakah nilai pangkat (eksponen) $x$?",
+                correctAnswer: "2",
+                explanation: `
+                    <p>Membagi $84$ menggunakan pohon faktor:</p>
+                    $$84 = 2 \\times 42 = 2 \\times (2 \\times 21) = 2 \\times 2 \\times 3 \\times 7$$
+                    <p>Bentuk faktorisasi primanya adalah:</p>
+                    $$84 = 2^{\\mathbf{2}} \\times 3 \\times 7$$
+                    <p>Sehingga nilai pangkat $x$ pada bilangan prima $2$ adalah <strong>2</strong>.</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 2</p>
+                `
+            },
+            {
+                id: 6,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Suatu bilangan memiliki faktorisasi prima $2^3 \\times 3 \\times 5$. Nilai dari bilangan tersebut adalah ...",
+                correctAnswer: "120",
+                explanation: `
+                    <p>Hitung perpangkatan terlebih dahulu:</p>
+                    $$2^3 = 2 \\times 2 \\times 2 = 8$$
+                    <p>Kalikan faktor-faktor primanya secara berurutan:</p>
+                    $$8 \\times 3 \\times 5 = (8 \\times 3) \\times 5 = 24 \\times 5 = \\mathbf{120}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 120</p>
+                `
+            },
+            {
+                id: 7,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Tentukan seluruh faktor persekutuan dari bilangan $18$ dan $30$. Ada berapa banyak faktor persekutuan yang dimiliki oleh kedua bilangan tersebut?",
+                correctAnswer: "4",
+                explanation: `
+                    <p>Faktor pembagi dari $18$:</p>
+                    $$\\{1, 2, 3, 6, 9, 18\\}$$
+                    <p>Faktor pembagi dari $30$:</p>
+                    $$\\{1, 2, 3, 5, 6, 10, 15, 30\\}$$
+                    <p>Faktor persekutuan (faktor yang sama) dari $18$ dan $30$ adalah:</p>
+                    $$\\{1, 2, 3, 6\\}$$
+                    <p>Banyaknya faktor persekutuan tersebut ada <strong>4</strong> buah (dengan faktor terbesar / FPB = $6$).</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 4</p>
+                `
+            },
+            {
+                id: 8,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Tuliskan dua kelipatan persekutuan yang pertama dari bilangan $4$ dan $6$. Berapakah nilai kelipatan persekutuan yang pertama (KPK-nya)?",
+                correctAnswer: "12",
+                explanation: `
+                    <p>Daftar kelipatan masing-masing bilangan:</p>
+                    $$\\text{Kelipatan } 4: 4, 8, \\mathbf{12}, 16, 20, \\mathbf{24}, 28, \\dots$$
+                    $$\\text{Kelipatan } 6: 6, \\mathbf{12}, 18, \\mathbf{24}, 30, \\dots$$
+                    <p>Dua kelipatan persekutuan yang pertama adalah $12$ dan $24$.</p>
+                    <p>Kelipatan persekutuan yang pertama (terkecil atau KPK) bernilai <strong>12</strong>.</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 12</p>
+                `
+            },
+            {
+                id: 9,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Sebutkan semua faktor prima yang berbeda dari bilangan $90$. Ada berapa banyak faktor prima yang berbeda tersebut?",
+                correctAnswer: "3",
+                explanation: `
+                    <p>Faktorisasi prima dari bilangan $90$:</p>
+                    $$90 = 9 \\times 10 = (3 \\times 3) \\times (2 \\times 5) = 2 \\times 3^2 \\times 5$$
+                    <p>Faktor-faktor prima pembentuknya yang berlainan adalah:</p>
+                    $$\\{2, 3, 5\\}$$
+                    <p>Banyaknya faktor prima yang berbeda ada <strong>3</strong> buah.</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 3</p>
+                `
+            },
+            {
+                id: 10,
+                level: "Fondasi",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+                question: "Hitunglah hasil penjumlahan dari semua faktor dari bilangan $20$!",
+                correctAnswer: "42",
+                explanation: `
+                    <p>Faktor pembagi dari $20$ diperoleh dari pasangan perkalian:</p>
+                    $$20 = 1 \\times 20 = 2 \\times 10 = 4 \\times 5$$
+                    <p>Seluruh faktor dari $20$ adalah: $1, 2, 4, 5, 10, 20$.</p>
+                    <p>Jumlahkan seluruh faktor tersebut:</p>
+                    $$\\text{Jumlah} = 1 + 2 + 4 + 5 + 10 + 20$$
+                    $$= (1 + 2 + 4) + 5 + 10 + 20 = 7 + 5 + 10 + 20 = 12 + 10 + 20 = \\mathbf{42}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 42</p>
+                `
+            },
+
+            // ==========================================
+            // --- BAGIAN II: FPB & KPK DUA BILANGAN (SOAL 11 - 25) ---
+            // ==========================================
+            {
+                id: 11,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan Faktor Persekutuan Terbesar (FPB) dari $12$ dan $18$.",
+                correctAnswer: "6",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$12 = 2^2 \\times 3$$
+                    $$18 = 2 \\times 3^2$$
+                    <p><strong>Prinsip FPB:</strong> Ambil faktor prima yang sama pada kedua bilangan dengan pangkat terkecil:</p>
+                    $$\\text{FPB}(12, 18) = 2^1 \\times 3^1 = \\mathbf{6}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 6</p>
+                `
+            },
+            {
+                id: 12,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan Kelipatan Persekutuan Terkecil (KPK) dari $15$ dan $20$.",
+                correctAnswer: "60",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$15 = 3 \\times 5$$
+                    $$20 = 2^2 \\times 5$$
+                    <p><strong>Prinsip KPK:</strong> Ambil semua faktor prima yang muncul dengan pangkat tertinggi:</p>
+                    $$\\text{KPK}(15, 20) = 2^2 \\times 3 \\times 5 = 4 \\times 15 = \\mathbf{60}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 60</p>
+                `
+            },
+            {
+                id: 13,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan nilai FPB dari bilangan $28$ dan $42$.",
+                correctAnswer: "14",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$28 = 2^2 \\times 7$$
+                    $$42 = 2 \\times 3 \\times 7$$
+                    <p>Faktor prima yang bersekutu adalah $2$ dan $7$. Ambil pangkat terkecil:</p>
+                    $$\\text{FPB}(28, 42) = 2^1 \\times 7^1 = \\mathbf{14}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 14</p>
+                `
+            },
+            {
+                id: 14,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan nilai KPK dari bilangan $14$ dan $21$.",
+                correctAnswer: "42",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$14 = 2 \\times 7$$
+                    $$21 = 3 \\times 7$$
+                    <p>Ambil seluruh faktor prima dengan eksponen tertinggi:</p>
+                    $$\\text{KPK}(14, 21) = 2 \\times 3 \\times 7 = 6 \\times 7 = \\mathbf{42}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 42</p>
+                `
+            },
+            {
+                id: 15,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan FPB dari bilangan $36$ dan $48$ menggunakan cara faktorisasi prima atau tabel sengkedan.",
+                correctAnswer: "12",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$36 = 2^2 \\times 3^2$$
+                    $$48 = 2^4 \\times 3^1$$
+                    <p>FPB adalah perkalian faktor sekutu dengan eksponen terkecil:</p>
+                    $$\\text{FPB}(36, 48) = 2^2 \\times 3^1 = 4 \\times 3 = \\mathbf{12}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 12</p>
+                `
+            },
+            {
+                id: 16,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan KPK dari bilangan $18$ dan $24$.",
+                correctAnswer: "72",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$18 = 2 \\times 3^2$$
+                    $$24 = 2^3 \\times 3^1$$
+                    <p>KPK adalah perkalian seluruh faktor prima dengan eksponen terbesar:</p>
+                    $$\\text{KPK}(18, 24) = 2^3 \\times 3^2 = 8 \\times 9 = \\mathbf{72}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 72</p>
+                `
+            },
+            {
+                id: 17,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan nilai FPB dari bilangan $45$ dan $75$.",
+                correctAnswer: "15",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$45 = 3^2 \\times 5^1$$
+                    $$75 = 3^1 \\times 5^2$$
+                    <p>Faktor sekutu prima dengan pangkat terkecil:</p>
+                    $$\\text{FPB}(45, 75) = 3^1 \\times 5^1 = \\mathbf{15}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 15</p>
+                `
+            },
+            {
+                id: 18,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan nilai KPK dari bilangan $25$ dan $30$.",
+                correctAnswer: "150",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$25 = 5^2$$
+                    $$30 = 2 \\times 3 \\times 5^1$$
+                    <p>Ambil seluruh faktor prima dengan pangkat terbesar:</p>
+                    $$\\text{KPK}(25, 30) = 2 \\times 3 \\times 5^2 = 6 \\times 25 = \\mathbf{150}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 150</p>
+                `
+            },
+            {
+                id: 19,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Diberikan dua bilangan dalam bentuk faktorisasi prima: <br><span class='text-xl font-bold text-indigo-950 mt-1 inline-block'>$A = 2^2 \\times 3^2 \\times 5$</span> dan <span class='text-xl font-bold text-indigo-950 mt-1 inline-block'>$B = 2^3 \\times 3 \\times 7$</span>. <br>Tentukan nilai FPB dari bilangan $A$ dan $B$.",
+                correctAnswer: "12",
+                explanation: `
+                    <p>Faktor persekutuan yang sama-sama dimiliki oleh $A$ dan $B$ adalah faktor prima $2$ dan $3$ (faktor $5$ dan $7$ diabaikan karena bukan faktor sekutu):</p>
+                    <p>Pilih pangkat terkecil:</p>
+                    $$\\text{Untuk prima } 2: \\min(2, 3) = 2 \\implies 2^2$$
+                    $$\\text{Untuk prima } 3: \\min(2, 1) = 1 \\implies 3^1$$
+                    $$\\text{FPB}(A, B) = 2^2 \\times 3^1 = 4 \\times 3 = \\mathbf{12}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 12</p>
+                `
+            },
+            {
+                id: 20,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Diberikan $P = 2^3 \\times 3$ dan $Q = 2 \\times 3^2 \\times 5$. Tentukan KPK dari bilangan $P$ dan $Q$.",
+                correctAnswer: "360",
+                explanation: `
+                    <p>KPK mengambil semua faktor prima yang ada dengan eksponen tertinggi:</p>
+                    $$\\text{Untuk prima } 2: \\max(3, 1) = 3 \\implies 2^3$$
+                    $$\\text{Untuk prima } 3: \\max(1, 2) = 2 \\implies 3^2$$
+                    $$\\text{Untuk prima } 5: \\max(0, 1) = 1 \\implies 5^1$$
+                    $$\\text{KPK}(P, Q) = 2^3 \\times 3^2 \\times 5^1 = 8 \\times 9 \\times 5 = 72 \\times 5 = \\mathbf{360}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 360</p>
+                `
+            },
+            {
+                id: 21,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan FPB dari bilangan $56$ dan $84$.",
+                correctAnswer: "28",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$56 = 2^3 \\times 7$$
+                    $$84 = 2^2 \\times 3 \\times 7$$
+                    <p>Ambil faktor prima sekutu dengan pangkat terkecil ($2^2$ dan $7$):</p>
+                    $$\\text{FPB}(56, 84) = 2^2 \\times 7 = 4 \\times 7 = \\mathbf{28}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 28</p>
+                `
+            },
+            {
+                id: 22,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan KPK dari bilangan $32$ dan $48$.",
+                correctAnswer: "96",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$32 = 2^5$$
+                    $$48 = 2^4 \\times 3$$
+                    <p>KPK mengambil seluruh faktor prima dengan pangkat tertinggi:</p>
+                    $$\\text{KPK}(32, 48) = 2^5 \\times 3 = 32 \\times 3 = \\mathbf{96}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 96</p>
+                `
+            },
+            {
+                id: 23,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan nilai FPB dari bilangan $72$ dan $96$.",
+                correctAnswer: "24",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$72 = 2^3 \\times 3^2$$
+                    $$96 = 2^5 \\times 3^1$$
+                    <p>FPB adalah perkalian faktor sekutu berpangkat terendah:</p>
+                    $$\\text{FPB}(72, 96) = 2^3 \\times 3^1 = 8 \\times 3 = \\mathbf{24}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 24</p>
+                `
+            },
+            {
+                id: 24,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Tentukan FPB dan KPK berturut-turut dari pasangan bilangan $40$ dan $60$. Berapakah nilai Kelipatan Persekutuan Terkecil (KPK) dari kedua bilangan tersebut?",
+                correctAnswer: "120",
+                explanation: `
+                    <p>Faktorisasi prima:</p>
+                    $$40 = 2^3 \\times 5$$
+                    $$60 = 2^2 \\times 3 \\times 5$$
+                    <p>Perhitungan nilai FPB dan KPK:</p>
+                    $$\\text{FPB}(40, 60) = 2^2 \\times 5 = \\mathbf{20}$$
+                    $$\\text{KPK}(40, 60) = 2^3 \\times 3 \\times 5 = 8 \\times 15 = \\mathbf{120}$$
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Nilai KPK yang tepat adalah: 120</p>
+                `
+            },
+            {
+                id: 25,
+                level: "FPB & KPK",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+                question: "Dua buah bilangan memiliki $\\text{FPB} = 6$ dan $\\text{KPK} = 90$. Jika salah satu bilangan bernilai $18$, berapakah nilai bilangan yang lainnya?",
+                correctAnswer: "30",
+                explanation: `
+                    <p>Gunakan rumus hubungan perkalian dua bilangan terhadap FPB dan KPK:</p>
+                    $$A \\times B = \\text{FPB}(A, B) \\times \\text{KPK}(A, B)$$
+                    <p>Substitusikan nilai yang diketahui ($A = 18$, $\\text{FPB} = 6$, $\\text{KPK} = 90$):</p>
+                    $$18 \\times B = 6 \\times 90$$
+                    $$18 \\times B = 540$$
+                    $$B = \\frac{540}{18} = \\mathbf{30}$$
+                    <p>Uji kebenaran: Faktorisasi $18 = 2 \\times 3^2$ dan $30 = 2 \\times 3 \\times 5$. FPB $= 2 \\times 3 = 6$ dan KPK $= 2 \\times 3^2 \\times 5 = 90$ (Terbukti Cocok).</p>
+                    <p class="font-bold text-emerald-700 mt-2">$\\therefore$ Kunci jawaban yang tepat: 30</p>
+                `
+            }
+        ];
+    </script>
+
+    <script>
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 25 * 60; // 25 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        function renderMath(targetElement) {
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise(targetElement ? [targetElement] : undefined).catch((err) => {
+                    console.debug('MathJax handling:', err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header Info -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${q.badgeColor} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.level}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question & Numeric Input Card -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[340px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                
+                                <!-- Input Box for Answer -->
+                                <div class="mt-4 max-w-md">
+                                    <label for="input-ans-${qNum}" class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">
+                                        Jawaban Anda (Angka):
+                                    </label>
+                                    <div class="relative">
+                                        <input 
+                                            type="text" 
+                                            inputmode="numeric" 
+                                            pattern="[0-9]*"
+                                            id="input-ans-${qNum}" 
+                                            placeholder="Ketik jawaban numerik..."
+                                            oninput="handleAnswerInput(${qNum}, this.value)" 
+                                            autocomplete="off"
+                                            class="answer-input w-full px-5 py-4 text-xl md:text-2xl font-black text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl transition-all duration-200 tracking-wider placeholder:text-slate-300 placeholder:text-base placeholder:font-normal"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Status jawaban otomatis tersimpan.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-10 rounded-xl font-black text-sm transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function handleAnswerInput(qNum, value) {
+            if (isSubmitted) return;
+
+            // Sanitize: allow only digits
+            const cleanedValue = value.replace(/[^0-9]/g, '');
+            const inputEl = document.getElementById(`input-ans-${qNum}`);
+            if (inputEl && inputEl.value !== cleanedValue) {
+                inputEl.value = cleanedValue;
+            }
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+
+            if (cleanedValue.length > 0) {
+                userAnswers[qNum] = cleanedValue;
+                if (navBtn) {
+                    navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+                }
+                if (statusEl) {
+                    statusEl.innerText = `Jawaban: ${cleanedValue}`;
+                    statusEl.classList.remove('hidden');
+                }
+            } else {
+                delete userAnswers[qNum];
+                if (navBtn) {
+                    navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+                if (statusEl) {
+                    statusEl.classList.add('hidden');
+                }
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearCurrentInput() {
+            if (isSubmitted) return;
+            const inputEl = document.getElementById(`input-ans-${currentQuestion}`);
+            if (inputEl) {
+                inputEl.value = '';
+                handleAnswerInput(currentQuestion, '');
+                inputEl.focus();
+            }
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            showSlide(currentQuestion);
+            renderMath();
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 180) { // < 3 mins remaining
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMath(activeSlide);
+                const inputEl = document.getElementById(`input-ans-${n}`);
+                if (inputEl) {
+                    setTimeout(() => inputEl.focus(), 100);
+                }
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah mengisi <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Terdapat ${unanswered} soal yang belum Anda isi!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Hebat! Seluruh 25 butir soal telah terisi.</span>`}
+                Apakah Anda yakin ingin menyelesaikan simulasi ini sekarang?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Periksa Kembali</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Ya, Kumpulkan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 25 menit telah habis. Seluruh lembar isian Anda berhasil dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const rawUserAns = userAnswers[qNum] || "";
+                const cleanUserAns = rawUserAns.toString().trim().replace(/[\s\.,%]/g, '');
+                const cleanTargetAns = q.correctAnswer.toString().trim().replace(/[\s\.,%]/g, '');
+
+                const isCorrect = (cleanUserAns !== "" && cleanUserAns === cleanTargetAns);
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: cleanUserAns || null,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(0);
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+            renderMath();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="${q.badgeColor} text-xs font-black px-2.5 py-0.5 rounded-lg uppercase tracking-wide border">${q.level}</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            <!-- User vs Correct Answer Comparison -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+                                <div class="p-3.5 rounded-2xl border ${isCorrect ? 'border-emerald-300 bg-emerald-50/70 text-emerald-900' : 'border-rose-300 bg-rose-50/70 text-rose-900'}">
+                                    <p class="text-xs uppercase font-extrabold mb-1">Jawaban Anda:</p>
+                                    <p class="text-lg font-black">${userAns !== null ? userAns : '<span class="text-slate-400 font-normal italic">Tidak diisi</span>'}</p>
+                                </div>
+                                <div class="p-3.5 rounded-2xl border border-emerald-300 bg-emerald-50 text-emerald-900">
+                                    <p class="text-xs uppercase font-extrabold mb-1">Kunci Jawaban Tepat:</p>
+                                    <p class="text-lg font-black">${q.correctAnswer}</p>
+                                </div>
+                            </div>
+
+                            <!-- Step-by-step Explanation Box -->
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Pembahasan Analitis:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            renderMath(container);
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
