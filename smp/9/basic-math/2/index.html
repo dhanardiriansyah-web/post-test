@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi TKA Matematika SMP/MTs - 30 Butir Soal Lengkap</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax Configuration for LaTeX formatting -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar */
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Selection Style */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.2);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-2"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-4xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">TKA Matematika SMP / MTs</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">Prosedural & Konseptual</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">30 Butir Soal Terstandar</span>
+            </div>
+            
+            <!-- Branding Header di Start Screen -->
+            <div class="flex justify-center items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-8 md:h-10 w-auto text-indigo-900 shrink-0" fill="none">
+                    <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                    <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                    <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                    <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                    <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                </svg>
+            </div>
+
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI TKA MATEMATIKA SMP / MTs</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-xs sm:text-sm md:text-base">Materi: Bilangan (Bulat & Pecahan) &bull; PLSV &bull; Persamaan Kuadrat (Tingkat Easy, Medium, Semi-HOTS Prosedural)</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>30 Butir Pilihan Ganda Prosedural</strong> (A, B, C, D) yang menguji pemahaman konsep matematis langsung dan alur pengerjaan aljabar.</li>
+                    <li>Waktu Pengerjaan: <strong>60 Menit</strong> (dilengkapi penghitung waktu mundur interaktif).</li>
+                    <li>Bobot Penilaian: Setiap butir soal bernilai <strong>$3\frac{1}{3}$ Poin</strong> (Skor Maksimal: <strong>100 Poin</strong>).</li>
+                    <li>Fokus Materi: <strong>Operasi Bilangan Bulat & Pecahan, PLSV / Bentuk Aljabar, dan Persamaan Kuadrat</strong> (Tanpa Materi Bentuk Akar).</li>
+                    <li>Kunci jawaban lengkap dan langkah pembahasan sistematis terbuka otomatis setelah ujian dikumpulkan.</li>
+                </ul>
+            </div>
+
+            <!-- Composition Information Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3.5 bg-emerald-50 text-emerald-950 border border-emerald-200 rounded-2xl flex flex-col justify-center">
+                    <p class="text-[11px] uppercase text-emerald-700 font-extrabold tracking-wide">Level 1 (Easy)</p>
+                    <p class="text-sm font-black mt-0.5">Operasi & Konsep Dasar</p>
+                    <span class="text-[11px] text-emerald-600 mt-1 font-semibold">10 Soal (No. 1–10)</span>
+                </div>
+                <div class="p-3.5 bg-sky-50 text-sky-950 border border-sky-200 rounded-2xl flex flex-col justify-center">
+                    <p class="text-[11px] uppercase text-sky-700 font-extrabold tracking-wide">Level 2 (Medium)</p>
+                    <p class="text-sm font-black mt-0.5">Aljabar & Prosedural Bertingkat</p>
+                    <span class="text-[11px] text-sky-600 mt-1 font-semibold">12 Soal (No. 11–22)</span>
+                </div>
+                <div class="p-3.5 bg-amber-50 text-amber-950 border border-amber-200 rounded-2xl flex flex-col justify-center">
+                    <p class="text-[11px] uppercase text-amber-700 font-extrabold tracking-wide">Level 3 (Semi-HOTS)</p>
+                    <p class="text-sm font-black mt-0.5">Manipulasi Matematis Prosedural</p>
+                    <span class="text-[11px] text-amber-600 mt-1 font-semibold">8 Soal (No. 23–30)</span>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-xl transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Simulasi TKA Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">mtkbarengkakdhanar</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">TKA Matematika SMP</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>Konsultasi WA: 0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-7 md:h-8 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-sm md:text-base font-black text-indigo-950 leading-tight">SIMULASI TKA MATEMATIKA SMP / MTs</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">30 Butir Soal Prosedural &bull; Bilangan, PLSV & Persamaan Kuadrat</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-3.5 py-1.5 rounded-xl font-mono text-base md:text-lg font-extrabold border border-indigo-200 shadow-inner flex items-center gap-1.5" id="timer-display">
+                            <svg class="w-4 h-4 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span id="timer-text">60:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 30 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex flex-wrap justify-between items-center mb-3 gap-2">
+                        <div class="flex items-center gap-2">
+                            <p class="text-xs font-black text-slate-600 uppercase tracking-wider">Navigasi Lembar Jawaban (1–30)</p>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-500">Klik nomor untuk melompat</span>
+                        </div>
+                        <span class="text-xs font-extrabold text-indigo-700 bg-indigo-50 px-3 py-1 rounded-xl border border-indigo-100" id="answered-counter">Terjawab: 0 / 30</span>
+                    </div>
+                    <!-- 30 Questions Grid Layout -->
+                    <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-2" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides injected by JS -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-10">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-5 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span>&copy; Dhanardi Riansyah &bull; mtkbarengkakdhanar</span>
+                </div>
+                <span>&bull;</span>
+                <a href="https://wa.me/6281381374712" target="_blank" class="text-emerald-700 font-bold hover:underline">WhatsApp: 0813-813-747-12</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Selesai Ujian?</h3>
+            <div id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin mengakhiri ujian dan mengumpulkan seluruh jawaban?</div>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-800 via-indigo-900 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Hasil Evaluasi TKA SMP</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">LAPORAN SKOR & ANALISIS KEMAMPUAN</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-lg mx-auto">Berikut adalah capaian nilai Anda beserta pembahasan lengkap kunci jawaban 30 butir soal.</p>
+                
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Skor Akhir</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-amber-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Jawaban Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="bg-white text-indigo-900 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer text-sm">
+                        <span>Lihat Pembahasan Step-by-Step</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </button>
+                    <button type="button" onclick="location.reload()" class="bg-indigo-700/80 hover:bg-indigo-600 text-white font-bold py-3.5 px-6 rounded-full border border-indigo-400 transition text-sm">
+                        Ulangi Simulasi
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Solusi Langkah Demi Langkah</h3>
+                        <p class="text-sm text-slate-500">Analisis penalaran matematis terstruktur untuk 30 butir soal TKA.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua (30)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Injected dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-5 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span>&copy; Dhanardi Riansyah &bull; mtkbarengkakdhanar</span>
+                </div>
+                <span>&bull;</span>
+                <a href="https://wa.me/6281381374712" target="_blank" class="text-emerald-700 font-bold hover:underline">0813-813-747-12</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        /*
+          30 BUTIR SOAL PROSEDURAL TKA MATEMATIKA SMP/MTs (QC VERIFIED 100%):
+          - Materi 1 : Bilangan Bulat & Pecahan (10 Soal)
+          - Materi 2 : Persamaan Linear Satu Variabel / PLSV (10 Soal)
+          - Materi 3 : Persamaan Kuadrat Koefisien x^2 = 1 (10 Soal)
+          - Level    : Easy (No 1-10), Medium (No 11-22), Semi-HOTS Prosedural (No 23-30)
+          - Bebas dari materi bentuk akar dan fokus pada alur prosedural sistematis.
+        */
+        const questionsData = [
+            /* ------------------ BAGIAN 1: LEVEL EASY (NO 1 - 10) ------------------ */
+            {
+                id: 1,
+                level: "Easy",
+                source: "Operasi Bilangan Bulat",
+                points: 3.333,
+                question: "Hasil dari operasi hitung $-16 + 28 : (-4) - (-9)$ adalah...",
+                options: [
+                    { key: "A", text: "$-14$" },
+                    { key: "B", text: "$-33$" },
+                    { key: "C", text: "$5$" },
+                    { key: "D", text: "$-7$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Dahulukan operasi pembagian:</p>
+                    $$28 : (-4) = -7$$
+                    <p class="mb-1">2. Selesaikan operasi penjumlahan dan pengurangan dari kiri ke kanan:</p>
+                    $$\\begin{align}
+                    -16 + 28 : (-4) - (-9) &= -16 + (-7) - (-9) \\\\
+                    &= -23 + 9 \\\\
+                    &= \\mathbf{-14}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $-14$</p>
+                `
+            },
+            {
+                id: 2,
+                level: "Easy",
+                source: "Operasi Bilangan Bulat",
+                points: 3.333,
+                question: "Hasil dari operasi $(-5) \\times (7 - 12) + (-24) : 6$ adalah...",
+                options: [
+                    { key: "A", text: "$-29$" },
+                    { key: "B", text: "$21$" },
+                    { key: "C", text: "$29$" },
+                    { key: "D", text: "$-21$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Operasi di dalam tanda kurung:</p>
+                    $$7 - 12 = -5$$
+                    <p class="mb-1">2. Operasi perkalian dan pembagian:</p>
+                    $$(-5) \\times (-5) = 25$$
+                    $$(-24) : 6 = -4$$
+                    <p class="mb-1">3. Jumlahkan kedua hasil:</p>
+                    $$25 + (-4) = \\mathbf{21}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $21$</p>
+                `
+            },
+            {
+                id: 3,
+                level: "Easy",
+                source: "Operasi Bilangan Pecahan",
+                points: 3.333,
+                question: "Hasil dari operasi pecahan $\\frac{3}{5} + \\frac{1}{2} \\times \\frac{4}{5}$ adalah...",
+                options: [
+                    { key: "A", text: "$\\frac{22}{25}$" },
+                    { key: "B", text: "$\\frac{7}{10}$" },
+                    { key: "C", text: "$1$" },
+                    { key: "D", text: "$\\frac{4}{5}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Dahulukan perkalian pecahan:</p>
+                    $$\\frac{1}{2} \\times \\frac{4}{5} = \\frac{4}{10} = \\frac{2}{5}$$
+                    <p class="mb-1">2. Lakukan penjumlahan pecahan:</p>
+                    $$\\frac{3}{5} + \\frac{2}{5} = \\frac{5}{5} = \\mathbf{1}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $1$</p>
+                `
+            },
+            {
+                id: 4,
+                level: "Easy",
+                source: "Operasi Bilangan Pecahan",
+                points: 3.333,
+                question: "Hasil dari operasi pecahan campuran $2\\frac{1}{4} : \\frac{3}{8} - 1\\frac{1}{2}$ adalah...",
+                options: [
+                    { key: "A", text: "$3\\frac{1}{2}$" },
+                    { key: "B", text: "$4\\frac{1}{2}$" },
+                    { key: "C", text: "$5$" },
+                    { key: "D", text: "$4$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    $$2\\frac{1}{4} = \\frac{9}{4}$$
+                    $$\\frac{9}{4} : \\frac{3}{8} = \\frac{9}{4} \\times \\frac{8}{3} = \\frac{72}{12} = 6$$
+                    $$6 - 1\\frac{1}{2} = 6 - \\frac{3}{2} = \\frac{12 - 3}{2} = \\frac{9}{2} = \\mathbf{4\\frac{1}{2}}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $4\\frac{1}{2}$</p>
+                `
+            },
+            {
+                id: 5,
+                level: "Easy",
+                source: "Persamaan Linear Satu Variabel",
+                points: 3.333,
+                question: "Nilai $x$ yang memenuhi persamaan linear $5x - 7 = 23$ adalah...",
+                options: [
+                    { key: "A", text: "$x = 4$" },
+                    { key: "B", text: "$x = 5$" },
+                    { key: "C", text: "$x = 6$" },
+                    { key: "D", text: "$x = 7$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    $$\\begin{align}
+                    5x - 7 &= 23 \\\\
+                    5x &= 23 + 7 \\\\
+                    5x &= 30 \\\\
+                    x &= \\frac{30}{5} = \\mathbf{6}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $x = 6$</p>
+                `
+            },
+            {
+                id: 6,
+                level: "Easy",
+                source: "Persamaan Linear Satu Variabel",
+                points: 3.333,
+                question: "Penyelesaian dari persamaan linear $3(2x - 4) = 18$ adalah...",
+                options: [
+                    { key: "A", text: "$x = 3$" },
+                    { key: "B", text: "$x = 4$" },
+                    { key: "C", text: "$x = 6$" },
+                    { key: "D", text: "$x = 5$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    $$\\begin{align}
+                    3(2x - 4) &= 18 \\\\
+                    2x - 4 &= \\frac{18}{3} \\\\
+                    2x - 4 &= 6 \\\\
+                    2x &= 10 \\\\
+                    x &= \\mathbf{5}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $x = 5$</p>
+                `
+            },
+            {
+                id: 7,
+                level: "Easy",
+                source: "Persamaan Kuadrat",
+                points: 3.333,
+                question: "Akar-akar penyelesaian dari persamaan kuadrat $x^2 + 8x + 15 = 0$ adalah...",
+                options: [
+                    { key: "A", text: "$x = 3\\text{ atau } x = 5$" },
+                    { key: "B", text: "$x = -3\\text{ atau } x = 5$" },
+                    { key: "C", text: "$x = -3\\text{ atau } x = -5$" },
+                    { key: "D", text: "$x = 1\\text{ atau } x = 15$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Pemfaktoran Persamaan Kuadrat:</p>
+                    $$p + q = 8 \\quad \\text{dan} \\quad p \\times q = 15 \\implies p = 3, \\; q = 5$$
+                    $$(x + 3)(x + 5) = 0$$
+                    $$x + 3 = 0 \\implies x = -3 \\quad \\text{atau} \\quad x + 5 = 0 \\implies x = -5$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $x = -3\\text{ atau } x = -5$</p>
+                `
+            },
+            {
+                id: 8,
+                level: "Easy",
+                source: "Persamaan Kuadrat",
+                points: 3.333,
+                question: "Himpunan penyelesaian dari persamaan kuadrat $x^2 - 9x + 14 = 0$ adalah...",
+                options: [
+                    { key: "A", text: "$\\{-2, -7\\}$" },
+                    { key: "B", text: "$\\{2, 7\\}$" },
+                    { key: "C", text: "$\\{-2, 7\\}$" },
+                    { key: "D", text: "$\\{1, 14\\}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Pemfaktoran:</p>
+                    $$p + q = -9 \\quad \\text{dan} \\quad p \\times q = 14 \\implies p = -2, \\; q = -7$$
+                    $$(x - 2)(x - 7) = 0 \\implies x = 2 \\text{ atau } x = 7$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $\\{2, 7\\}$</p>
+                `
+            },
+            {
+                id: 9,
+                level: "Easy",
+                source: "Persamaan Kuadrat",
+                points: 3.333,
+                question: "Akar-akar penyelesaian dari persamaan kuadrat $x^2 - 2x - 8 = 0$ adalah...",
+                options: [
+                    { key: "A", text: "$x = -4 \\text{ atau } x = 2$" },
+                    { key: "B", text: "$x = 4 \\text{ atau } x = 2$" },
+                    { key: "C", text: "$x = -4 \\text{ atau } x = -2$" },
+                    { key: "D", text: "$x = 4 \\text{ atau } x = -2$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Pemfaktoran ($a = 1$):</p>
+                    $$p + q = -2 \\quad \\text{dan} \\quad p \\times q = -8 \\implies p = -4, \\; q = 2$$
+                    $$(x - 4)(x + 2) = 0$$
+                    $$x - 4 = 0 \\implies x = 4 \\quad \\text{atau} \\quad x + 2 = 0 \\implies x = -2$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $x = 4 \\text{ atau } x = -2$</p>
+                `
+            },
+            {
+                id: 10,
+                level: "Easy",
+                source: "Persamaan Linear Satu Variabel",
+                points: 3.333,
+                question: "Jika $4x + 3 = 2x + 15$, maka nilai dari $x$ adalah...",
+                options: [
+                    { key: "A", text: "$9$" },
+                    { key: "B", text: "$8$" },
+                    { key: "C", text: "$7$" },
+                    { key: "D", text: "$6$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Pengelompokan Suku Sejenis:</p>
+                    $$\\begin{align}
+                    4x - 2x &= 15 - 3 \\\\
+                    2x &= 12 \\\\
+                    x &= \\mathbf{6}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $6$</p>
+                `
+            },
+
+            /* ------------------ BAGIAN 2: LEVEL MEDIUM (NO 11 - 22) ------------------ */
+            {
+                id: 11,
+                level: "Medium",
+                source: "Operasi Bilangan Bulat",
+                points: 3.333,
+                question: "Hasil dari $-36 : (-3)^2 + 4 \\times (-5) - (-18)$ adalah...",
+                options: [
+                    { key: "A", text: "$6$" },
+                    { key: "B", text: "$-2$" },
+                    { key: "C", text: "$-6$" },
+                    { key: "D", text: "$2$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Hitung perpangkatan terlebih dahulu:</p>
+                    $$(-3)^2 = 9$$
+                    <p class="mb-1">2. Hitung pembagian dan perkalian:</p>
+                    $$-36 : 9 = -4$$
+                    $$4 \\times (-5) = -20$$
+                    <p class="mb-1">3. Hitung keseluruhan:</p>
+                    $$-4 + (-20) - (-18) = -24 + 18 = \\mathbf{-6}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $-6$</p>
+                `
+            },
+            {
+                id: 12,
+                level: "Medium",
+                source: "Operasi Bilangan Pecahan",
+                points: 3.333,
+                question: "Hasil dari $\\left(\\frac{5}{6} - \\frac{1}{4}\\right) : \\left(\\frac{2}{3} + \\frac{1}{2}\\right)$ adalah...",
+                options: [
+                    { key: "A", text: "$\\frac{3}{4}$" },
+                    { key: "B", text: "$\\frac{1}{2}$" },
+                    { key: "C", text: "$\\frac{7}{12}$" },
+                    { key: "D", text: "$\\frac{5}{14}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    $$\\frac{5}{6} - \\frac{1}{4} = \\frac{10 - 3}{12} = \\frac{7}{12}$$
+                    $$\\frac{2}{3} + \\frac{1}{2} = \\frac{4 + 3}{6} = \\frac{7}{6}$$
+                    $$\\frac{7}{12} : \\frac{7}{6} = \\frac{7}{12} \\times \\frac{6}{7} = \\frac{6}{12} = \\mathbf{\\frac{1}{2}}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $\\frac{1}{2}$</p>
+                `
+            },
+            {
+                id: 13,
+                level: "Medium",
+                source: "Operasi Bilangan Pecahan",
+                points: 3.333,
+                question: "Bentuk sederhana dari $\\frac{2\\frac{1}{3} + 1\\frac{1}{2}}{3\\frac{1}{4} - 1\\frac{1}{3}}$ adalah...",
+                options: [
+                    { key: "A", text: "$1$" },
+                    { key: "B", text: "$\\frac{23}{19}$" },
+                    { key: "C", text: "$1\\frac{1}{2}$" },
+                    { key: "D", text: "$2$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">Pembilang:</p>
+                    $$\\frac{7}{3} + \\frac{3}{2} = \\frac{14 + 9}{6} = \\frac{23}{6}$$
+                    <p class="mb-1">Penyebut:</p>
+                    $$\\frac{13}{4} - \\frac{4}{3} = \\frac{39 - 16}{12} = \\frac{23}{12}$$
+                    <p class="mb-1">Pembagian pembilang oleh penyebut:</p>
+                    $$\\frac{23}{6} : \\frac{23}{12} = \\frac{23}{6} \\times \\frac{12}{23} = \\frac{12}{6} = \\mathbf{2}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $2$</p>
+                `
+            },
+            {
+                id: 14,
+                level: "Medium",
+                source: "Persamaan Linear Satu Variabel",
+                points: 3.333,
+                question: "Penyelesaian dari persamaan pecahan $\\frac{2x - 1}{5} = \\frac{x + 2}{3}$ adalah...",
+                options: [
+                    { key: "A", text: "$x = 11$" },
+                    { key: "B", text: "$x = 13$" },
+                    { key: "C", text: "$x = 9$" },
+                    { key: "D", text: "$x = 7$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Perkalian Silang Prosedural:</p>
+                    $$\\begin{align}
+                    3(2x - 1) &= 5(x + 2) \\\\
+                    6x - 3 &= 5x + 10 \\\\
+                    6x - 5x &= 10 + 3 \\\\
+                    x &= \\mathbf{13}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $x = 13$</p>
+                `
+            },
+            {
+                id: 15,
+                level: "Medium",
+                source: "Persamaan Linear Satu Variabel",
+                points: 3.333,
+                question: "Penyelesaian dari persamaan $4(2x - 1) - 3(x + 2) = 15$ adalah $x = p$. Nilai dari $2p - 3$ adalah...",
+                options: [
+                    { key: "A", text: "$7$" },
+                    { key: "B", text: "$9$" },
+                    { key: "C", text: "$11$" },
+                    { key: "D", text: "$5$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    $$\\begin{align}
+                    8x - 4 - 3x - 6 &= 15 \\\\
+                    5x - 10 &= 15 \\\\
+                    5x &= 25 \\\\
+                    x &= 5 \\implies p = 5
+                    \\end{align}$$
+                    <p class="mb-1">Hitung $2p - 3$:</p>
+                    $$2(5) - 3 = 10 - 3 = \\mathbf{7}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $7$</p>
+                `
+            },
+            {
+                id: 16,
+                level: "Medium",
+                source: "Persamaan Linear Satu Variabel",
+                points: 3.333,
+                question: "Nilai $x$ yang memenuhi persamaan $\\frac{3x + 2}{5} - \\frac{x - 3}{2} = 2$ adalah...",
+                options: [
+                    { key: "A", text: "$x = -1$" },
+                    { key: "B", text: "$x = 1$" },
+                    { key: "C", text: "$x = 3$" },
+                    { key: "D", text: "$x = 2$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Kalikan Kedua Ruas dengan KPK (10):</p>
+                    $$10 \\times \\left(\\frac{3x + 2}{5}\\right) - 10 \\times \\left(\\frac{x - 3}{2}\\right) = 10 \\times 2$$
+                    $$2(3x + 2) - 5(x - 3) = 20$$
+                    $$6x + 4 - 5x + 15 = 20$$
+                    $$x + 19 = 20 \\implies x = 20 - 19 = \\mathbf{1}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $x = 1$</p>
+                `
+            },
+            {
+                id: 17,
+                level: "Medium",
+                source: "Persamaan Kuadrat",
+                points: 3.333,
+                question: "Akar-akar penyelesaian dari persamaan kuadrat $x^2 + 3x - 18 = 0$ adalah...",
+                options: [
+                    { key: "A", text: "$x = -3 \\text{ atau } x = 6$" },
+                    { key: "B", text: "$x = 2 \\text{ atau } x = -9$" },
+                    { key: "C", text: "$x = 3 \\text{ atau } x = -6$" },
+                    { key: "D", text: "$x = -2 \\text{ atau } x = 9$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Pemfaktoran Persamaan Kuadrat ($a = 1$):</p>
+                    $$p + q = 3 \\quad \\text{dan} \\quad p \\times q = -18 \\implies p = 6, \\; q = -3$$
+                    $$(x + 6)(x - 3) = 0$$
+                    $$x + 6 = 0 \\implies x = -6 \\quad \\text{atau} \\quad x - 3 = 0 \\implies x = 3$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $x = 3 \\text{ atau } x = -6$</p>
+                `
+            },
+            {
+                id: 18,
+                level: "Medium",
+                source: "Persamaan Kuadrat",
+                points: 3.333,
+                question: "Himpunan penyelesaian dari persamaan kuadrat $x^2 - 8x - 20 = 0$ adalah...",
+                options: [
+                    { key: "A", text: "$\\{-10, 2\\}$" },
+                    { key: "B", text: "$\\{4, -5\\}$" },
+                    { key: "C", text: "$\\{-4, 5\\}$" },
+                    { key: "D", text: "$\\{10, -2\\}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Pemfaktoran Bentuk $x^2 + bx + c = 0$:</p>
+                    $$p + q = -8 \\quad \\text{dan} \\quad p \\times q = -20 \\implies p = -10, \\; q = 2$$
+                    $$(x - 10)(x + 2) = 0$$
+                    $$x - 10 = 0 \\implies x = 10 \\quad \\text{atau} \\quad x + 2 = 0 \\implies x = -2$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $\\{10, -2\\}$</p>
+                `
+            },
+            {
+                id: 19,
+                level: "Medium",
+                source: "Persamaan Kuadrat",
+                points: 3.333,
+                question: "Akar-akar penyelesaian dari persamaan kuadrat $x^2 - 11x + 24 = 0$ adalah...",
+                options: [
+                    { key: "A", text: "$x = 3 \\text{ atau } x = 8$" },
+                    { key: "B", text: "$x = -3 \\text{ atau } x = -8$" },
+                    { key: "C", text: "$x = 4 \\text{ atau } x = 6$" },
+                    { key: "D", text: "$x = -4 \\text{ atau } x = -6$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1">Pemfaktoran:</p>
+                    $$p + q = -11 \\quad \\text{dan} \\quad p \\times q = 24 \\implies p = -3, \\; q = -8$$
+                    $$(x - 3)(x - 8) = 0$$
+                    $$x - 3 = 0 \\implies x = 3 \\quad \\text{atau} \\quad x - 8 = 0 \\implies x = 8$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $x = 3 \\text{ atau } x = 8$</p>
+                `
+            },
+            {
+                id: 20,
+                level: "Medium",
+                source: "Persamaan Kuadrat",
+                points: 3.333,
+                question: "Akar-akar penyelesaian dari persamaan kuadrat $x^2 + 4x - 21 = 0$ adalah...",
+                options: [
+                    { key: "A", text: "$x = -3 \\text{ atau } x = 7$" },
+                    { key: "B", text: "$x = 3 \\text{ atau } x = -7$" },
+                    { key: "C", text: "$x = 1 \\text{ atau } x = -21$" },
+                    { key: "D", text: "$x = -1 \\text{ atau } x = 21$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Pemfaktoran:</p>
+                    $$p + q = 4 \\quad \\text{dan} \\quad p \\times q = -21 \\implies p = 7, \\; q = -3$$
+                    $$(x + 7)(x - 3) = 0$$
+                    $$x + 7 = 0 \\implies x = -7 \\quad \\text{atau} \\quad x - 3 = 0 \\implies x = 3$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $x = 3 \\text{ atau } x = -7$</p>
+                `
+            },
+            {
+                id: 21,
+                level: "Medium",
+                source: "Operasi Bilangan Bulat",
+                points: 3.333,
+                question: "Nilai dari $(-2)^4 - (-3)^3 + (-1)^{100}$ adalah...",
+                options: [
+                    { key: "A", text: "$42$" },
+                    { key: "B", text: "$-10$" },
+                    { key: "C", text: "$44$" },
+                    { key: "D", text: "$10$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Evaluasi Pangkat Bilangan Negatif:</p>
+                    $$(-2)^4 = 16$$
+                    $$(-3)^3 = -27$$
+                    $$(-1)^{100} = 1$$
+                    $$16 - (-27) + 1 = 16 + 27 + 1 = \\mathbf{44}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $44$</p>
+                `
+            },
+            {
+                id: 22,
+                level: "Medium",
+                source: "Persamaan Linear Satu Variabel",
+                points: 3.333,
+                question: "Himpunan penyelesaian dari $\\frac{1}{2}(x - 4) = \\frac{1}{3}(x + 2)$ adalah...",
+                options: [
+                    { key: "A", text: "$x = 14$" },
+                    { key: "B", text: "$x = 12$" },
+                    { key: "C", text: "$x = 10$" },
+                    { key: "D", text: "$x = 16$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Kalikan Kedua Ruas dengan 6:</p>
+                    $$6 \\times \\frac{1}{2}(x - 4) = 6 \\times \\frac{1}{3}(x + 2)$$
+                    $$3(x - 4) = 2(x + 2)$$
+                    $$3x - 12 = 2x + 4$$
+                    $$3x - 2x = 4 + 12 \\implies x = \\mathbf{16}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $x = 16$</p>
+                `
+            },
+
+            /* ------------------ BAGIAN 3: LEVEL SEMI-HOTS PROSEDURAL (NO 23 - 30) ------------------ */
+            {
+                id: 23,
+                level: "Semi-HOTS",
+                source: "Operasi Bilangan Pecahan Bertingkat",
+                points: 3.333,
+                question: "Nilai sederhana dari pecahan bersusun $1 + \\frac{1}{1 + \\frac{1}{1 + \\frac{1}{3}}}$ adalah...",
+                options: [
+                    { key: "A", text: "$\\frac{11}{7}$" },
+                    { key: "B", text: "$\\frac{7}{4}$" },
+                    { key: "C", text: "$\\frac{13}{8}$" },
+                    { key: "D", text: "$\\frac{9}{5}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1">Prosedur Evaluasi dari Tingkat Terbawah:</p>
+                    <p class="mb-1">1. Tingkat 1:</p>
+                    $$1 + \\frac{1}{3} = \\frac{4}{3}$$
+                    <p class="mb-1">2. Tingkat 2:</p>
+                    $$\\frac{1}{\\frac{4}{3}} = \\frac{3}{4} \\implies 1 + \\frac{3}{4} = \\frac{7}{4}$$
+                    <p class="mb-1">3. Tingkat Teratas:</p>
+                    $$1 + \\frac{1}{\\frac{7}{4}} = 1 + \\frac{4}{7} = \\mathbf{\\frac{11}{7}}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $\\frac{11}{7}$</p>
+                `
+            },
+            {
+                id: 24,
+                level: "Semi-HOTS",
+                source: "Persamaan Linear Satu Variabel Bertingkat",
+                points: 3.333,
+                question: "Jika penyelesaian dari persamaan $\\frac{3x + 1}{4} - \\frac{2x - 1}{3} = 1$ adalah $x = m$, maka nilai dari $m^2 - 4m + 3$ adalah...",
+                options: [
+                    { key: "A", text: "$-1$" },
+                    { key: "B", text: "$0$" },
+                    { key: "C", text: "$3$" },
+                    { key: "D", text: "$8$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Kalikan Kedua Ruas dengan KPK (12):</p>
+                    $$12 \\times \\left(\\frac{3x + 1}{4}\\right) - 12 \\times \\left(\\frac{2x - 1}{3}\\right) = 12 \\times 1$$
+                    $$3(3x + 1) - 4(2x - 1) = 12$$
+                    $$9x + 3 - 8x + 4 = 12$$
+                    $$x + 7 = 12 \\implies x = 5 \\implies m = 5$$
+                    <p class="mb-1">Substitusikan nilai $m = 5$ ke $m^2 - 4m + 3$:</p>
+                    $$m^2 - 4m + 3 = 5^2 - 4(5) + 3 = 25 - 20 + 3 = \\mathbf{8}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $8$</p>
+                `
+            },
+            {
+                id: 25,
+                level: "Semi-HOTS",
+                source: "Persamaan Kuadrat Prosedural",
+                points: 3.333,
+                question: "Akar-akar penyelesaian dari persamaan $(x - 4)(x + 2) = 7$ adalah...",
+                options: [
+                    { key: "A", text: "$x = -5 \\text{ atau } x = 3$" },
+                    { key: "B", text: "$x = 5 \\text{ atau } x = -3$" },
+                    { key: "C", text: "$x = 4 \\text{ atau } x = -2$" },
+                    { key: "D", text: "$x = 7 \\text{ atau } x = 1$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Jabarkan ruas kiri dan ubah ke bentuk baku $x^2 + bx + c = 0$:</p>
+                    $$(x - 4)(x + 2) = 7$$
+                    $$x^2 + 2x - 4x - 8 = 7$$
+                    $$x^2 - 2x - 8 - 7 = 0$$
+                    $$x^2 - 2x - 15 = 0$$
+                    <p class="mb-1">2. Faktorkan persamaan kuadrat:</p>
+                    $$(x - 5)(x + 3) = 0$$
+                    $$x - 5 = 0 \\implies x = 5 \\quad \\text{atau} \\quad x + 3 = 0 \\implies x = -3$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $x = 5 \\text{ atau } x = -3$</p>
+                `
+            },
+            {
+                id: 26,
+                level: "Semi-HOTS",
+                source: "Persamaan Kuadrat Prosedural",
+                points: 3.333,
+                question: "Akar-akar penyelesaian dari persamaan $(x + 1)(x - 5) = 7$ adalah...",
+                options: [
+                    { key: "A", text: "$x = -6 \\text{ atau } x = 2$" },
+                    { key: "B", text: "$x = 7 \\text{ atau } x = -1$" },
+                    { key: "C", text: "$x = 6 \\text{ atau } x = -2$" },
+                    { key: "D", text: "$x = -7 \\text{ atau } x = 1$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Jabarkan dan susun dalam bentuk umum:</p>
+                    $$(x + 1)(x - 5) = 7$$
+                    $$x^2 - 5x + x - 5 = 7$$
+                    $$x^2 - 4x - 5 - 7 = 0$$
+                    $$x^2 - 4x - 12 = 0$$
+                    <p class="mb-1">2. Faktorkan:</p>
+                    $$(x - 6)(x + 2) = 0$$
+                    $$x - 6 = 0 \\implies x = 6 \\quad \\text{atau} \\quad x + 2 = 0 \\implies x = -2$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $x = 6 \\text{ atau } x = -2$</p>
+                `
+            },
+            {
+                id: 27,
+                level: "Semi-HOTS",
+                source: "Persamaan Kuadrat Prosedural",
+                points: 3.333,
+                question: "Penyelesaian dari persamaan pecahan aljabar $x + \\frac{12}{x} = 7$ adalah...",
+                options: [
+                    { key: "A", text: "$x = 3 \\text{ atau } x = 4$" },
+                    { key: "B", text: "$x = -3 \\text{ atau } x = -4$" },
+                    { key: "C", text: "$x = 2 \\text{ atau } x = 6$" },
+                    { key: "D", text: "$x = -2 \\text{ atau } x = -6$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Kalikan kedua ruas dengan $x$ ($x \\neq 0$):</p>
+                    $$x(x) + x\\left(\\frac{12}{x}\\right) = 7(x)$$
+                    $$x^2 + 12 = 7x$$
+                    $$x^2 - 7x + 12 = 0$$
+                    <p class="mb-1">2. Faktorkan bentuk kuadrat ($a = 1$):</p>
+                    $$(x - 3)(x - 4) = 0$$
+                    $$x - 3 = 0 \\implies x = 3 \\quad \\text{atau} \\quad x - 4 = 0 \\implies x = 4$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (A) $x = 3 \\text{ atau } x = 4$</p>
+                `
+            },
+            {
+                id: 28,
+                level: "Semi-HOTS",
+                source: "Persamaan Kuadrat Prosedural",
+                points: 3.333,
+                question: "Himpunan penyelesaian dari persamaan $x(x + 2) = 35$ adalah...",
+                options: [
+                    { key: "A", text: "$\\{-5, 7\\}$" },
+                    { key: "B", text: "$\\{5, -7\\}$" },
+                    { key: "C", text: "$\\{3, -5\\}$" },
+                    { key: "D", text: "$\\{-3, 5\\}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold mb-1">Langkah Prosedural:</p>
+                    <p class="mb-1">1. Distribusikan $x$ dan jadikan ruas kanan bernilai nol:</p>
+                    $$x(x + 2) = 35$$
+                    $$x^2 + 2x = 35$$
+                    $$x^2 + 2x - 35 = 0$$
+                    <p class="mb-1">2. Faktorkan ($a = 1$):</p>
+                    $$(x + 7)(x - 5) = 0$$
+                    $$x + 7 = 0 \\implies x = -7 \\quad \\text{atau} \\quad x - 5 = 0 \\implies x = 5$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (B) $\\{5, -7\\}$</p>
+                `
+            },
+            {
+                id: 29,
+                level: "Semi-HOTS",
+                source: "Operasi Deret Bilangan Prosedural",
+                points: 3.333,
+                question: "Hasil dari operasi pengurangan berantai $1 - 2 + 3 - 4 + 5 - 6 + \\dots + 99 - 100$ adalah...",
+                options: [
+                    { key: "A", text: "$50$" },
+                    { key: "B", text: "$-100$" },
+                    { key: "C", text: "$-50$" },
+                    { key: "D", text: "$0$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold mb-1">Pengelompokan Berpasangan:</p>
+                    $$(1 - 2) + (3 - 4) + (5 - 6) + \\dots + (99 - 100)$$
+                    <p class="mb-1">Setiap pasangan menghasilkan nilai $-1$:</p>
+                    $$1 - 2 = -1, \\quad 3 - 4 = -1, \\quad 5 - 6 = -1, \\dots$$
+                    <p class="mb-1">Banyak pasangan dari $100$ bilangan:</p>
+                    $$\\frac{100}{2} = 50\\text{ pasangan}$$
+                    $$\\text{Total} = 50 \\times (-1) = \\mathbf{-50}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (C) $-50$</p>
+                `
+            },
+            {
+                id: 30,
+                level: "Semi-HOTS",
+                source: "Sistem Aljabar Linier Prosedural",
+                points: 3.333,
+                question: "Diketahui persamaan $\\frac{x}{2} + \\frac{x}{3} + \\frac{x}{4} = 26$. Nilai dari $2x - 5$ adalah...",
+                options: [
+                    { key: "A", text: "$39$" },
+                    { key: "B", text: "$48$" },
+                    { key: "C", text: "$45$" },
+                    { key: "D", text: "$43$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold mb-1">Samakan Penyebut dengan KPK (12):</p>
+                    $$\\frac{6x}{12} + \\frac{4x}{12} + \\frac{3x}{12} = 26$$
+                    $$\\frac{13x}{12} = 26$$
+                    $$13x = 26 \\times 12$$
+                    $$x = \\frac{26 \\times 12}{13} = 2 \\times 12 = 24$$
+                    <p class="mb-1">Substitusikan ke $2x - 5$:</p>
+                    $$2(24) - 5 = 48 - 5 = \\mathbf{43}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang tepat adalah (D) $43$</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 60 * 60; // 60 minutes for 30 questions
+        let timerInterval;
+        let isSubmitted = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                
+                // Difficulty Badge styling - Tanpa tulisan "HOTS Kontekstual"
+                let levelBadge = "";
+                if (q.level === "Easy") {
+                    levelBadge = `<span class="bg-emerald-100 text-emerald-800 border-emerald-300 text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">Easy</span>`;
+                } else if (q.level === "Medium") {
+                    levelBadge = `<span class="bg-sky-100 text-sky-800 border-sky-300 text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">Medium</span>`;
+                } else {
+                    levelBadge = `<span class="bg-amber-100 text-amber-800 border-amber-300 text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">Semi-HOTS Prosedural</span>`;
+                }
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-base md:text-lg font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                ${levelBadge}
+                                <span class="bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1 rounded-xl border border-slate-200">${q.source}</span>
+                            </div>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions} (+3.33 Poin)</span>
+                        </div>
+
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[380px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilihlah salah satu kartu opsi untuk menyimpan jawaban.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-10 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (opt.key === key) {
+                    optEl.classList.add('selected');
+                } else {
+                    optEl.classList.remove('selected');
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerText = document.getElementById('timer-text');
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerText.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih terdapat ${unanswered} butir soal yang belum Anda jawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua 30 butir soal sudah terjawab dengan lengkap!</span>`}
+                Apakah Anda yakin ingin mengumpulkan lembar jawaban ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 60 menit telah berakhir. Lembar ujian Anda telah otomatis dikumpulkan.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalScore = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    totalScore += q.points;
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            // Rounding adjustment: exactly 100 if all 30 are correct
+            if (correctCount === totalQuestions) {
+                totalScore = 100;
+            } else {
+                totalScore = Math.min(100, Math.round(correctCount * (100 / 30)));
+            }
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB (0 Poin)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR (+3.33 Poin)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH (0 Poin)</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Pilihan Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Pilihan Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.source} &bull; ${q.level})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Alternatif Solusi & Pembahasan Terstruktur:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
