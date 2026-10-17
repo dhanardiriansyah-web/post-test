@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Ujian Matematika Lanjutan - Matriks (Medium - Hard)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar */
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Selection Style */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.15);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-3xl w-full border-t-8 border-indigo-600 my-auto">
+            <!-- Branding Header on Start Screen -->
+            <div class="flex flex-col items-center justify-center mb-5 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-14 md:h-16 w-auto text-indigo-900 drop-shadow-sm mb-2" fill="none">
+                    <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                    <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                    <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                    <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                    <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                    <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                </svg>
+                <span class="text-xs font-black tracking-widest text-indigo-600 uppercase">Bimbel Spesialis Matematika Online & Mandiri</span>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SMA / UTBK-SNBT</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">SIMAK UI • UM UGM • STIS</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">20 Soal (Medium - Hard)</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI UJIAN MATEMATIKA: MATRIKS</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Tingkat Kesulitan: Medium - Hard (Invers, Determinan, Matriks Ortogonal, Nilai Eigen/Karakteristik & Transformasi Aljabar)</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>20 Butir Pilihan Ganda</strong> (A, B, C, D, E).</li>
+                    <li>Waktu Pengerjaan: <strong>45 Menit</strong> (disertai hitung mundur otomatis).</li>
+                    <li>Bobot Penilaian: Setiap butir soal bernilai <strong>5,0 Poin</strong> (Skor Maksimal: 100 Poin).</li>
+                    <li>Pilihlah salah satu opsi jawaban yang paling tepat.</li>
+                    <li>Gunakan panel kotak nomor untuk melompat bebas ke nomor soal mana pun.</li>
+                    <li>Kunci jawaban lengkap dan uraian pembahasan matematis otomatis dapat diakses setelah ujian diselesaikan.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Topik 1</p>
+                    <p class="text-xs font-black">Matriks Ortogonal & Identitas</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Topik 2</p>
+                    <p class="text-xs font-black">Sifat Invers & Determinan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Topik 3</p>
+                    <p class="text-xs font-black">Pola Pangkat Matriks $A^n$</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Topik 4</p>
+                    <p class="text-xs font-black">Persamaan Matriks Singular</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-7 md:h-8 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MATEMATIKA: MATRIKS TINGKAT LANJUT</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">20 Butir Soal Seleksi PTN (SIMAK UI / UTBK / UM UGM)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            45:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 20 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–20)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 20</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-20 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Multiple Choice options -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-black text-base shadow-sm">
+                            M
+                        </div>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN MATEMATIKA: MATRIKS TINGKAT LANJUT</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">20 Butir Soal Seleksi PTN (SIMAK UI / UTBK / UM UGM)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            60:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 20 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–20)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 20</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-20 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Multiple Choice options -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <span class="font-bold text-slate-800">Simulasi Ujian Matematika Mandiri</span>
+                <span>&bull;</span>
+                <span class="font-medium text-slate-500">Materi Matriks Seleksi Masuk Perguruan Tinggi Negeri</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan lembar ujian ini? Nilai dan seluruh pembahasan lengkap akan segera ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah laporan perolehan nilai dan kunci pembahasan komprehensif 20 butir soal.</p>
+                
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Skor</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Alternatif Pembahasan</h3>
+                        <p class="text-sm text-slate-500">Pelajari rincian rumus dan langkah pengerjaan setiap butir soal berikut.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">20</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 20 Selected Medium - Hard Questions from the provided collection with exact text and solutions
+        const questionsData = [
+            {
+                id: 1,
+                source: "Soal SIMAK UI 2013 Kode 333",
+                topic: "Matriks Ortogonal $3 \\times 3$",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Sebuah matriks dikatakan matriks ortogonal jika $A^{-1}=A^{T}$.<br>Jika diketahui $\\begin{bmatrix}a & \\frac{2}{3} & \\frac{2}{3} \\\\ \\frac{2}{3} & b & \\frac{1}{3} \\\\ -\\frac{2}{3} & -\\frac{1}{3} & c \\end{bmatrix}$ adalah matriks ortogonal, maka $a^{2}+b^{2}+c^{2}=\\cdots$",
+                options: [
+                    { key: "A", text: "$-1$" },
+                    { key: "B", text: "$0$" },
+                    { key: "C", text: "$\\dfrac{1}{9}$" },
+                    { key: "D", text: "$\\dfrac{4}{9}$" },
+                    { key: "E", text: "$1$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p>Sekilas untuk mengerjakan soal di atas, kita harus menghitung invers matriks $3\\times3$ lalu kita samakan dengan transpose matriks sesuai dengan yang didefinisikan sebuah matriks dikatakan matriks ortogonal jika $A^{-1}=A^{T}$.</p>
+                    <p class="mt-2">Tetapi untuk anak SMA, menentukan invers matriks $3\\times3$ adalah masalah baru. Untuk menghindari tercipta masalah baru, kita coba menyelesaikan soal di atas dengan sedikit eksplorasi dan mengikuti definisi matriks ortogonal yaitu $A^{-1}=A^{T}$.</p>
+                    <p class="mt-2">Eksplorasi yang kita lakukan yaitu:</p>
+                    $$\\begin{align}
+                    A^{-1} &= A^{T} \\\\
+                    & \\text{(*kalikan dengan matriks } A \\text{)} \\\\
+                    A \\times A^{-1} &= A \\times A^{T} \\\\
+                    I &= A \\times A^{T}
+                    \\end{align}$$
+                    <p>Sehingga kita peroleh persamaan:</p>
+                    $$\\begin{bmatrix} a & \\frac{2}{3} & \\frac{2}{3} \\\\ \\frac{2}{3} & b & \\frac{1}{3} \\\\ -\\frac{2}{3} & -\\frac{1}{3} & c \\end{bmatrix} \\times \\begin{bmatrix} a & \\frac{2}{3} & -\\frac{2}{3} \\\\ \\frac{2}{3} & b & -\\frac{1}{3} \\\\ \\frac{2}{3} & \\frac{1}{3} & c \\end{bmatrix} = \\begin{bmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$$
+                    <p>Dari perkalian matriks di atas dapat kita peroleh persamaan sebagai berikut:</p>
+                    $$\\begin{align}
+                    a^{2}+\\dfrac{4}{9}+\\dfrac{4}{9} &= 1 \\quad \\cdots \\left( \\text{pers. } 1 \\right) \\\\
+                    \\dfrac{4}{9}+b^{2}+\\dfrac{1}{9} &= 1 \\quad \\cdots \\left( \\text{pers. } 2 \\right) \\\\
+                    \\dfrac{4}{9}+\\dfrac{1}{9}+c^{2} &= 1 \\quad \\cdots \\left( \\text{pers. } 3 \\right)
+                    \\end{align}$$
+                    <p>Apabila persamaan $(1)$, $(2)$, dan $(3)$ kita jumlahkan, maka akan kita peroleh persamaan berikut:</p>
+                    $$\\begin{align}
+                    a^{2}+b^{2}+c^{2}+\\dfrac{18}{9} &= 3 \\\\
+                    a^{2}+b^{2}+c^{2} &= 1
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (E) $1$</p>
+                `
+            },
+            {
+                id: 2,
+                source: "Soal SIMAK UI 2013 Kode 333",
+                topic: "Operasi & Kesamaan Matriks",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Jika $A=\\begin{bmatrix} 4 & 3 \\\\ 2 & 5 \\end{bmatrix}$ dan $A^{2}-xA+yI=\\begin{bmatrix} 0 & 0 \\\\ 0 & 0 \\end{bmatrix}$, maka $x+y=\\cdots$",
+                options: [
+                    { key: "A", text: "$9$" },
+                    { key: "B", text: "$14$" },
+                    { key: "C", text: "$19$" },
+                    { key: "D", text: "$23$" },
+                    { key: "E", text: "$25$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Untuk mencoba menyelesaikan masalah di atas, bisa kita lakukan dengan mengerjakan sedikit demi sedikit apa yang dibutuhkan:</p>
+                    $$\\begin{align}
+                    A^{2} &= A \\times A \\\\
+                    A^{2} &= \\begin{bmatrix} 4 & 3 \\\\ 2 & 5 \\end{bmatrix} \\times \\begin{bmatrix} 4 & 3 \\\\ 2 & 5 \\end{bmatrix} = \\begin{bmatrix} 22 & 27 \\\\ 18 & 31 \\end{bmatrix} \\\\
+                    xA &= \\begin{bmatrix} 4x & 3x \\\\ 2x & 5x \\end{bmatrix} \\\\
+                    yI &= \\begin{bmatrix} y & 0 \\\\ 0 & y \\end{bmatrix}
+                    \\end{align}$$
+                    <p>Apa yang sudah kita ketahui di atas kita substitusi ke persamaan $A^{2}-xA+yI=\\begin{bmatrix} 0 & 0 \\\\ 0 & 0 \\end{bmatrix}$:</p>
+                    $$\\begin{bmatrix} 22 & 27 \\\\ 18 & 31 \\end{bmatrix} - \\begin{bmatrix} 4x & 3x \\\\ 2x & 5x \\end{bmatrix} + \\begin{bmatrix} y & 0 \\\\ 0 & y \\end{bmatrix} = \\begin{bmatrix} 0 & 0 \\\\ 0 & 0 \\end{bmatrix}$$
+                    <p>Dari operasi matriks dan kesamaan matriks di atas, kita dapat beberapa persamaan, diantaranya:</p>
+                    $$\\begin{align}
+                    18-2x+0 &= 0 \\implies 18 = 2x \\implies x = 9 \\\\
+                    31-5x+y &= 0 \\implies 31-45+y = 0 \\implies -14+y = 0 \\implies y = 14 \\\\
+                    x+y &= 9 + 14 = \\mathbf{23}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $23$</p>
+                `
+            },
+            {
+                id: 3,
+                source: "Soal SIMAK UI 2018 Kode 641",
+                topic: "Invers Matriks & Kesamaan Elemen",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Diketahui $A=\\begin{pmatrix} a & -3 \\\\ 1 & d \\end{pmatrix}$. Jika $A=A^{-1}$, nilai $|a-d|$ adalah....",
+                options: [
+                    { key: "A", text: "$0$" },
+                    { key: "B", text: "$1$" },
+                    { key: "C", text: "$2$" },
+                    { key: "D", text: "$3$" },
+                    { key: "E", text: "$4$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    $$\\begin{pmatrix} a & -3 \\\\ 1 & d \\end{pmatrix} = \\dfrac{1}{ad+3}\\begin{pmatrix} d & 3 \\\\ -1 & a \\end{pmatrix}$$
+                    $$\\begin{pmatrix} a & -3 \\\\ 1 & d \\end{pmatrix} = \\begin{pmatrix} \\dfrac{d}{ad+3} & \\dfrac{3}{ad+3} \\\\ \\dfrac{-1}{ad+3} & \\dfrac{a}{ad+3} \\end{pmatrix}$$
+                    <p>Kesimpulan yang bisa kita ambil dari kesamaan matriks di atas adalah:</p>
+                    $$\\begin{align}
+                    \\dfrac{-1}{ad+3} &= 1 \\\\
+                    -1 &= ad+3 \\implies ad = -1-3 = -4
+                    \\end{align}$$
+                    <p>Selanjutnya substitusikan ke baris 1 kolom 1:</p>
+                    $$\\begin{align}
+                    a &= \\dfrac{d}{ad+3} \\\\
+                    a &= \\dfrac{d}{-4+3} \\implies a = -d \\\\
+                    ad &= -4 \\implies (-d)d = -4 \\implies -d^{2} = -4 \\implies d = \\pm \\sqrt{4} = \\pm 2
+                    \\end{align}$$
+                    <p>Untuk $d=2$ maka $a=-2$; untuk $d=-2$ maka $a=2$.</p>
+                    <p>Nilai $|a-d| = |2 - (-2)| = \\mathbf{4}$.</p>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (E) $4$</p>
+                `
+            },
+            {
+                id: 4,
+                source: "Soal SIMAK UI 2009 Kode 931",
+                topic: "Determinan $3 \\times 3$ & Persamaan Garis",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Diketahui $l$ adalah garis yang dinyatakan oleh $\\det(A)=0$ dimana $A=\\begin{pmatrix} 1 & 1 & 2 \\\\ x & y & 1 \\\\ 2 & 1 & 3 \\end{pmatrix}$, persamaan garis yang sejajar $l$ dan melalui titik $(3,4)$ adalah....",
+                options: [
+                    { key: "A", text: "$x+y-7=0$" },
+                    { key: "B", text: "$x-y+7=0$" },
+                    { key: "C", text: "$x-y+1=0$" },
+                    { key: "D", text: "$x+y-1=0$" },
+                    { key: "E", text: "$x+y+1=0$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Untuk mendapatkan persamaan garis $l$ kita mulai dengan menentukan determinan matriks ordo $3 \\times 3$ yang nilainya adalah nol:</p>
+                    $$0 = \\begin{vmatrix} 1 & 1 & 2 \\\\ x & y & 1 \\\\ 2 & 1 & 3 \\end{vmatrix}$$
+                    <p>Persamaan garis $l$ adalah:</p>
+                    $$\\begin{align}
+                    (1 \\cdot y \\cdot 3 + 1 \\cdot 1 \\cdot 2 + 2 \\cdot x \\cdot 1) - (2 \\cdot y \\cdot 2 + 1 \\cdot 1 \\cdot 1 + 1 \\cdot x \\cdot 3) &= 0 \\\\
+                    (3y+2+2x) - (4y+1+3x) &= 0 \\\\
+                    3y+2+2x-4y-1-3x &= 0 \\\\
+                    1-y-x &= 0 \\implies y = -x+1
+                    \\end{align}$$
+                    <p>Persamaan garis yang sejajar ($m_{1}=m_{2}=-1$) dengan garis $l$ melalui $(3,4)$ adalah:</p>
+                    $$\\begin{align}
+                    m &= -1 \\\\
+                    y-y_{1} &= m(x-x_{1}) \\\\
+                    y-4 &= -1(x-3) \\\\
+                    y-4 &= -x+3 \\\\
+                    y &= -x+7 \\implies \\mathbf{x+y-7=0}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $x+y-7=0$</p>
+                `
+            },
+            {
+                id: 5,
+                source: "Soal SIMAK UI 2009 Kode 921",
+                topic: "Determinan Hasil Kali & Garis Singgung",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Diketahui $P=\\begin{pmatrix} 2 & 1 \\\\ 3 & 3 \\end{pmatrix}$, $Q=\\begin{pmatrix} -1 & -2 \\\\ 1 & 0 \\end{pmatrix}$, dan determinan dari matriks $PQ$ adalah $k$. Jika garis $2x-y=4$ dan $3x-2y=5$ berpotongan di $A$, maka persamaan garis yang melalui $A$ dengan gradien $k$ adalah....",
+                options: [
+                    { key: "A", text: "$6x+y-20=0$" },
+                    { key: "B", text: "$2x-3y-6=0$" },
+                    { key: "C", text: "$3x-2y-4=0$" },
+                    { key: "D", text: "$x-6y+16=0$" },
+                    { key: "E", text: "$6x-y-16=0$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p>Unsur-unsur yang dibutuhkan untuk membentuk sebuah persamaan garis adalah sebuah titik dan gradien, $m=k=|PQ|$:</p>
+                    $$\\begin{align}
+                    m &= |PQ| \\\\
+                    &= \\left| \\begin{pmatrix} 2 & 1 \\\\ 3 & 3 \\end{pmatrix} \\begin{pmatrix} -1 & -2 \\\\ 1 & 0 \\end{pmatrix} \\right| \\\\
+                    &= \\begin{vmatrix} -1 & -4 \\\\ 0 & -6 \\end{vmatrix} = 6-0 = 6
+                    \\end{align}$$
+                    <p>Titik $A$ diperoleh dari eliminasi:</p>
+                    $$\\begin{aligned}
+                    2x-y = 4 & \\quad (\\times 2) \\implies 4x-2y = 8 \\\\
+                    3x-2y = 5 & \\quad (\\times 1) \\implies 3x-2y = 5 \\quad (-) \\\\
+                    & \\implies x = 3 \\\\
+                    3(3)-2y = 5 & \\implies 2y = 4 \\implies y = 2 \\implies A(3,2)
+                    \\end{aligned}$$
+                    <p>Persamaan garis melalui $A(3,2)$ dengan $m=6$:</p>
+                    $$\\begin{align}
+                    y-y_{1} &= m(x-x_{1}) \\\\
+                    y-2 &= 6(x-3) \\\\
+                    y-2 &= 6x-18 \\implies \\mathbf{6x-y-16=0}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (E) $6x-y-16=0$</p>
+                `
+            },
+            {
+                id: 6,
+                source: "Soal UM UGM 2014 Kode 522",
+                topic: "Syarat Invers & Bentuk Akar",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Nilai semua $x$ sehingga matriks $\\begin{pmatrix} \\sqrt{x^{2}-1} & 1 \\\\ x & 2 \\end{pmatrix}$, mempunyai invers adalah....",
+                options: [
+                    { key: "A", text: "$x \\neq -\\frac{4}{3}$ dan $x \\neq \\frac{4}{3}$" },
+                    { key: "B", text: "$x \\neq -\\sqrt{\\frac{4}{3}}$ dan $x \\neq \\sqrt{\\frac{4}{3}}$" },
+                    { key: "C", text: "$\\sqrt{\\frac{4}{3}} < x \\leq -1$ atau $1 \\leq x < \\sqrt{\\frac{4}{3}}$" },
+                    { key: "D", text: "$-\\sqrt{\\frac{4}{3}} < x \\leq -1$ atau $1 < x < \\sqrt{\\frac{4}{3}}$" },
+                    { key: "E", text: "$x < -\\sqrt{\\frac{4}{3}}$ atau $-\\sqrt{\\frac{4}{3}} < x \\leq -1$ atau $1 \\leq x < \\sqrt{\\frac{4}{3}}$ atau $x > \\sqrt{\\frac{4}{3}}$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p>Agar sebuah matriks $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ mempunyai invers maka $ad-bc \\neq 0$:</p>
+                    $$\\begin{align}
+                    \\begin{vmatrix} \\sqrt{x^{2}-1} & 1 \\\\ x & 2 \\end{vmatrix} &\\neq 0 \\\\
+                    2 \\sqrt{x^{2}-1} - x &\\neq 0 \\\\
+                    2 \\sqrt{x^{2}-1} &\\neq x \\\\
+                    4x^{2}-4 &\\neq x^{2} \\\\
+                    3x^{2} &\\neq 4 \\implies x^{2} \\neq \\dfrac{4}{3} \\implies x \\neq \\pm \\sqrt{\\dfrac{4}{3}}
+                    \\end{align}$$
+                    <p>Syarat sebuah fungsi bentuk akar $\\sqrt{f(x)}$ mempunyai nilai real adalah $f(x) \\geq 0$.</p>
+                    <p>Agar $\\sqrt{x^{2}-1}$ mempunyai nilai real maka $x^{2}-1 \\geq 0$, nilai $x$ yang memenuhi pertidaksamaan kuadrat $x^{2}-1 \\geq 0$ adalah $x \\leq -1 \\text{ atau } x \\geq 1$.</p>
+                    <p>Jika kita buat irisan antara $x \\neq \\pm \\sqrt{\\dfrac{4}{3}}$ dan $x \\leq -1 \\text{ atau } x \\geq 1$, maka diperoleh gabungan interval:</p>
+                    $$\\mathbf{x < -\\sqrt{\\frac{4}{3}} \\quad \\text{atau} \\quad -\\sqrt{\\frac{4}{3}} < x \\leq -1 \\quad \\text{atau} \\quad 1 \\leq x < \\sqrt{\\frac{4}{3}} \\quad \\text{atau} \\quad x > \\sqrt{\\frac{4}{3}}}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (E)</p>
+                `
+            },
+            {
+                id: 7,
+                source: "Soal UMB-PT 2014 Kode 672",
+                topic: "Persamaan Matriks Simetris $A \\cdot A = A+I$",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Jika matriks $A=\\begin{pmatrix} a & b \\\\ b & a \\end{pmatrix}$, $b \\neq 0$ dan $I=\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ memenuhi $A \\cdot A=A+I$, maka $b^{2}=\\cdots$",
+                options: [
+                    { key: "A", text: "$\\dfrac{5}{4}$" },
+                    { key: "B", text: "$\\dfrac{3}{2}$" },
+                    { key: "C", text: "$\\dfrac{7}{4}$" },
+                    { key: "D", text: "$2$" },
+                    { key: "E", text: "$\\dfrac{9}{4}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Karena matriks $A=\\begin{pmatrix} a & b \\\\ b & a \\end{pmatrix}$ memenuhi persamaan $A \\cdot A=A+I$ sehingga berlaku:</p>
+                    $$\\begin{align}
+                    \\begin{pmatrix} a & b \\\\ b & a \\end{pmatrix} \\cdot \\begin{pmatrix} a & b \\\\ b & a \\end{pmatrix} &= \\begin{pmatrix} a & b \\\\ b & a \\end{pmatrix} + \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\\\
+                    \\begin{pmatrix} a^{2}+b^{2} & ab+ab \\\\ ab+ab & a^{2}+b^{2} \\end{pmatrix} &= \\begin{pmatrix} a+1 & b \\\\ b & a+1 \\end{pmatrix} \\\\
+                    \\begin{pmatrix} a^{2}+b^{2} & 2ab \\\\ 2ab & a^{2}+b^{2} \\end{pmatrix} &= \\begin{pmatrix} a+1 & b \\\\ b & a+1 \\end{pmatrix}
+                    \\end{align}$$
+                    <p>Berdasarkan kesamaan entri:</p>
+                    $$\\begin{align}
+                    2ab &= b \\implies a = \\dfrac{b}{2b} = \\dfrac{1}{2} \\\\
+                    a^{2}+b^{2} &= a+1 \\\\
+                    b^{2} &= a+1-a^{2} \\\\
+                    &= \\dfrac{1}{2}+1-\\left( \\dfrac{1}{2} \\right)^{2} = \\dfrac{3}{2} - \\dfrac{1}{4} = \\mathbf{\\dfrac{5}{4}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $\\dfrac{5}{4}$</p>
+                `
+            },
+            {
+                id: 8,
+                source: "Soal SBMPTN 2014 Kode 643",
+                topic: "Perkalian Matriks & Eliminasi",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Jika $A=\\begin{pmatrix} -1 & -1 & 0 \\\\ -1 & 1 & 2 \\end{pmatrix}$, $B=\\begin{pmatrix} -1 & x \\\\ 1 & y \\\\ 0 & z \\end{pmatrix}$ dan $AB=\\begin{pmatrix} 0 & 2 \\\\ 2 & 4 \\end{pmatrix}$, maka nilai $z-x$ adalah....",
+                options: [
+                    { key: "A", text: "$6$" },
+                    { key: "B", text: "$3$" },
+                    { key: "C", text: "$0$" },
+                    { key: "D", text: "$-3$" },
+                    { key: "E", text: "$-6$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    \\begin{pmatrix} -1 & -1 & 0 \\\\ -1 & 1 & 2 \\end{pmatrix} \\cdot \\begin{pmatrix} -1 & x \\\\ 1 & y \\\\ 0 & z \\end{pmatrix} &= \\begin{pmatrix} 0 & 2 \\\\ 2 & 4 \\end{pmatrix} \\\\
+                    \\begin{pmatrix} 1-1+0 & -x -y+0 \\\\ 1+1+0 & -x+y+2z \\end{pmatrix} &= \\begin{pmatrix} 0 & 2 \\\\ 2 & 4 \\end{pmatrix} \\\\
+                    \\begin{pmatrix} 0 & -x -y \\\\ 2 & -x+y+2z \\end{pmatrix} &= \\begin{pmatrix} 0 & 2 \\\\ 2 & 4 \\end{pmatrix}
+                    \\end{align}$$
+                    <p>Dari kesamaan dua matriks di atas kita peroleh:</p>
+                    $$\\begin{aligned}
+                    -x-y &= 2 \\\\
+                    -x+y+2z &= 4 \\quad (+) \\\\
+                    \\hline
+                    -2x+2z &= 6 \\\\
+                    -x+z &= 3 \\implies \\mathbf{z-x = 3}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $3$</p>
+                `
+            },
+            {
+                id: 9,
+                source: "Soal SBMPTN 2014 Kode 613",
+                topic: "Relasi Invers & Kesamaan Matriks",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Jika $\\begin{pmatrix} y \\\\ x \\end{pmatrix}=\\begin{pmatrix} 2 & 1 \\\\ -1 & x \\end{pmatrix}^{-1} \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix}$ dengan $x \\neq \\dfrac{1}{2}$, maka nilai $\\dfrac{1}{2}x+y=\\cdots$",
+                options: [
+                    { key: "A", text: "$-4$" },
+                    { key: "B", text: "$-2$" },
+                    { key: "C", text: "$0$" },
+                    { key: "D", text: "$2$" },
+                    { key: "E", text: "$4$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Kita mengetahui sifat perkalian matriks yaitu jika $A=B^{-1} \\cdot C$ maka $BA=C$:</p>
+                    $$\\begin{align}
+                    \\begin{pmatrix} y \\\\ x \\end{pmatrix} &= \\begin{pmatrix} 2 & 1 \\\\ -1 & x \\end{pmatrix}^{-1} \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} \\\\
+                    \\begin{pmatrix} 2 & 1 \\\\ -1 & x \\end{pmatrix} \\begin{pmatrix} y \\\\ x \\end{pmatrix} &= \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} \\\\
+                    \\begin{pmatrix} 2y+x \\\\ -y+x^{2} \\end{pmatrix} &= \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix}
+                    \\end{align}$$
+                    <p>Dari kesamaan dua matriks di atas kita peroleh:</p>
+                    $$2y+x = 4 \\implies y+\\dfrac{1}{2}x = 2 \\iff \\mathbf{\\dfrac{1}{2}x+y = 2}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $2$</p>
+                `
+            },
+            {
+                id: 10,
+                source: "Soal SBMPTN 2014 Kode 631",
+                topic: "Sifat Invers Hasil Kali $(AB^{-1})^{-1}$",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Jika $A=\\begin{pmatrix} 2 & 3 \\\\ -1 & 1 \\end{pmatrix}$, $B$ memiliki invers, dan $\\left( AB^{-1} \\right)^{-1}= \\begin{pmatrix} 1 & -1 \\\\ 3 & 0 \\end{pmatrix}$ maka matriks $B=\\cdots$",
+                options: [
+                    { key: "A", text: "$\\begin{pmatrix} 4 & -1 \\\\ 6 & 1 \\end{pmatrix}$" },
+                    { key: "B", text: "$\\begin{pmatrix} 3 & 2 \\\\ 6 & 9 \\end{pmatrix}$" },
+                    { key: "C", text: "$\\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}$" },
+                    { key: "D", text: "$\\begin{pmatrix} 1 & 6 \\\\ 4 & 3 \\end{pmatrix}$" },
+                    { key: "E", text: "$\\begin{pmatrix} 4 & 5 \\\\ 6 & -5 \\end{pmatrix}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Sifat perkalian invers pada matriks berlaku $(AB)^{-1}=B^{-1} \\cdot A^{-1}$:</p>
+                    $$\\begin{align}
+                    \\left( AB^{-1} \\right)^{-1} &= \\begin{pmatrix} 1 & -1 \\\\ 3 & 0 \\end{pmatrix} \\\\
+                    B \\cdot A^{-1} &= \\begin{pmatrix} 1 & -1 \\\\ 3 & 0 \\end{pmatrix} \\\\
+                    B \\cdot A^{-1} \\cdot A &= \\begin{pmatrix} 1 & -1 \\\\ 3 & 0 \\end{pmatrix} \\cdot A \\\\
+                    B &= \\begin{pmatrix} 1 & -1 \\\\ 3 & 0 \\end{pmatrix} \\cdot \\begin{pmatrix} 2 & 3 \\\\ -1 & 1 \\end{pmatrix} \\\\
+                    &= \\begin{pmatrix} 2+1 & 3-1 \\\\ 6+0 & 9+0 \\end{pmatrix} = \\mathbf{\\begin{pmatrix} 3 & 2 \\\\ 6 & 9 \\end{pmatrix}}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B)</p>
+                `
+            },
+            {
+                id: 11,
+                source: "Soal SBMPTN 2014 Kode 673",
+                topic: "Determinan Hasil Kali $AB$",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Diketahui matriks $A=\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$, dan $B= \\begin{pmatrix} 1 & y \\\\ x & 3 \\end{pmatrix}$. Jika determinan $AB$ adalah $10$, maka $xy=\\cdots$",
+                options: [
+                    { key: "A", text: "$4$" },
+                    { key: "B", text: "$6$" },
+                    { key: "C", text: "$8$" },
+                    { key: "D", text: "$10$" },
+                    { key: "E", text: "$12$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    AB &= \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\begin{pmatrix} 1 & y \\\\ x & 3 \\end{pmatrix} = \\begin{pmatrix} 1+2x & y+6 \\\\ 3+4x & 3y+12 \\end{pmatrix} \\\\
+                    |AB| &= \\begin{vmatrix} 1+2x & y+6 \\\\ 3+4x & 3y+12 \\end{vmatrix} \\\\
+                    10 &= (1+2x)(3y+12) - (y+6)(3+4x) \\\\
+                    10 &= 3y+12+6xy+24x - 3y-4xy-18-24x \\\\
+                    10 &= 2xy - 6 \\\\
+                    10+6 &= 2xy \\implies 16 = 2xy \\implies \\mathbf{xy = 8}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $8$</p>
+                `
+            },
+            {
+                id: 12,
+                source: "Soal SBMPTN 2014 Kode 673",
+                topic: "Eliminasi Sistem Parameter Matriks",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Jika $\\begin{pmatrix} a & b \\\\ b & 2a \\end{pmatrix}\\begin{pmatrix} x \\\\ x+y \\end{pmatrix}=\\begin{pmatrix} a \\\\ b \\end{pmatrix}$ dengan $b^{2} \\neq 2a^{2}$, maka $x+y=\\cdots$",
+                options: [
+                    { key: "A", text: "$-2$" },
+                    { key: "B", text: "$-1$" },
+                    { key: "C", text: "$0$" },
+                    { key: "D", text: "$1$" },
+                    { key: "E", text: "$2$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    $$\\begin{align}
+                    \\begin{pmatrix} a & b \\\\ b & 2a \\end{pmatrix}\\begin{pmatrix} x \\\\ x+y \\end{pmatrix} &= \\begin{pmatrix} a \\\\ b \\end{pmatrix} \\\\
+                    \\begin{pmatrix} ax+bx+by \\\\ bx+2ax+2ay \\end{pmatrix} &= \\begin{pmatrix} a \\\\ b \\end{pmatrix}
+                    \\end{align}$$
+                    <p>Dari kesamaan dua matriks di atas kita peroleh:</p>
+                    $$\\begin{aligned}
+                    ax+bx+by = a & \\quad (\\times b) \\implies abx+b^{2}x+b^{2}y = ab \\\\
+                    bx+2ax+2ay = b & \\quad (\\times a) \\implies abx+2a^{2}x+2a^{2}y = ab \\quad (-) \\\\
+                    \\hline
+                    b^{2}x+b^{2}y-2a^{2}x-2a^{2}y &= 0 \\\\
+                    \\left( b^{2}-2a^{2} \\right)x + \\left( b^{2}-2a^{2} \\right)y &= 0 \\\\
+                    \\left( b^{2}-2a^{2} \\right)(x+y) &= 0 \\\\
+                    (x+y) &= \\dfrac{0}{\\left( b^{2}-2a^{2} \\right)} \\implies \\mathbf{x+y = 0}
+                    \\end{aligned}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $0$</p>
+                `
+            },
+            {
+                id: 13,
+                source: "Soal SIMAK UI 2013 Kode 334",
+                topic: "Sistem Persamaan Matriks Baris $1 \\times 2$",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Jumlah semua entri pada matriks $X$ dari sistem persamaan berikut adalah....<br>$3X-2Y=\\begin{bmatrix} 3 & -1 \\end{bmatrix}$<br>$2X-5Y=\\begin{bmatrix} 1 & 2 \\end{bmatrix}$",
+                options: [
+                    { key: "A", text: "$\\dfrac{13}{11}$" },
+                    { key: "B", text: "$\\dfrac{9}{11}$" },
+                    { key: "C", text: "$\\dfrac{8}{11}$" },
+                    { key: "D", text: "$\\dfrac{5}{11}$" },
+                    { key: "E", text: "$\\dfrac{4}{11}$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p>Matriks $X$ dan $Y$ adalah matriks berordo $1 \\times 2$ karena hasil pengurangan matriks tersebut adalah sebuah matriks berordo $1 \\times 2$. Sehingga dapat kita misalkan $X=\\begin{bmatrix} a & b \\end{bmatrix}$ dan $Y=\\begin{bmatrix} c & d \\end{bmatrix}$:</p>
+                    $$\\begin{align}
+                    3X-2Y &= \\begin{bmatrix} 3 & -1 \\end{bmatrix} \\\\
+                    3\\begin{bmatrix} a & b \\end{bmatrix} - 2\\begin{bmatrix} c & d \\end{bmatrix} &= \\begin{bmatrix} 3 & -1 \\end{bmatrix} \\implies \\begin{bmatrix} 3a-2c & 3b-2d \\end{bmatrix} = \\begin{bmatrix} 3 & -1 \\end{bmatrix} \\\\
+                    \\hline
+                    2X-5Y &= \\begin{bmatrix} 1 & 2 \\end{bmatrix} \\\\
+                    2\\begin{bmatrix} a & b \\end{bmatrix} - 5\\begin{bmatrix} c & d \\end{bmatrix} &= \\begin{bmatrix} 1 & 2 \\end{bmatrix} \\implies \\begin{bmatrix} 2a-5c & 2b-5d \\end{bmatrix} = \\begin{bmatrix} 1 & 2 \\end{bmatrix}
+                    \\end{align}$$
+                    <p>Dari kesamaan dua matriks di atas kita peroleh dua sistem persamaan:</p>
+                    $$\\begin{aligned}
+                    3a-2c=3 \\;(\\times 5) &\\implies 15a-10c=15 \\\\
+                    2a-5c=1 \\;(\\times 2) &\\implies 4a-10c=2 \\quad (-) \\implies 11a=13 \\implies a = \\dfrac{13}{11} \\\\[6pt]
+                    3b-2d=-1 \\;(\\times 5) &\\implies 15b-10d=-5 \\\\
+                    2b-5d=2 \\;(\\times 2) &\\implies 4b-10d=4 \\quad (-) \\implies 11b=-9 \\implies b = -\\dfrac{9}{11}
+                    \\end{aligned}$$
+                    <p>Jumlah semua entri pada matriks $X$ adalah:</p>
+                    $$a+b = \\dfrac{13}{11} + \\left(-\\dfrac{9}{11}\\right) = \\mathbf{\\dfrac{4}{11}}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (E) $\\dfrac{4}{11}$</p>
+                `
+            },
+            {
+                id: 14,
+                source: "Soal SIMAK UI 2013 Kode 334",
+                topic: "Pola Pangkat Matriks $A^{2013}$",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Diberikan matriks $A,\\ B,\\ C,\\ \\text{dan}\\ D$ berikut ini.<br>$A=\\begin{bmatrix} 2 & 1 \\\\ 0 & 1 \\end{bmatrix}$; $B=\\begin{bmatrix} 0 & 1 \\\\ 0 & 1 \\end{bmatrix}$; $C=\\begin{bmatrix} 2 & 1 \\\\ 0 & 0 \\end{bmatrix}$; $D=\\begin{bmatrix} 2 & 0 \\\\ 0 & 1 \\end{bmatrix}$. Jika $x,\\ y,\\ z,\\ \\text{dan}\\ w$ secara berurutan adalah jumlah entri-entri pada matriks $A^{2013},\\ B^{2013},\\ C^{2013},\\ \\text{dan}\\ D^{2013}$, pernyataan-pernyataan berikut yang BENAR adalah...<br><br>1) $w-1=y^{2013}$<br>2) $z=3y^{2012}$<br>3) $4z=3x$<br>4) $2w-x=2$",
+                options: [
+                    { key: "A", text: "Pernyataan BENAR hanya (1), (2), dan (3)" },
+                    { key: "B", text: "Pernyataan BENAR hanya (1) dan (3)" },
+                    { key: "C", text: "Pernyataan BENAR hanya (2) dan (4)" },
+                    { key: "D", text: "Pernyataan BENAR hanya (4)" },
+                    { key: "E", text: "Pernyataan BENAR Semua" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p>Sebagai tahap awal kita coba uji nilai untuk pemangkatan masing-masing matriks:</p>
+                    $$\\begin{align}
+                    A^{2} &= \\begin{bmatrix} 4 & 3 \\\\ 0 & 1 \\end{bmatrix} \\implies \\sum = 8 \\\\
+                    A^{3} &= \\begin{bmatrix} 8 & 7 \\\\ 0 & 1 \\end{bmatrix} \\implies \\sum = 16 \\\\
+                    A^{4} &= \\begin{bmatrix} 16 & 15 \\\\ 0 & 1 \\end{bmatrix} \\implies \\sum = 32 \\implies x = 2^{2013+1} = 2^{2014} \\\\[4pt]
+                    B^{2} &= \\begin{bmatrix} 0 & 1 \\\\ 0 & 1 \\end{bmatrix} \\implies \\sum = 2 \\\\
+                    B^{3} &= \\begin{bmatrix} 0 & 1 \\\\ 0 & 1 \\end{bmatrix} \\implies y = 2 \\\\[4pt]
+                    C^{2} &= \\begin{bmatrix} 4 & 2 \\\\ 0 & 0 \\end{bmatrix} \\implies \\sum = 6 \\\\
+                    C^{3} &= \\begin{bmatrix} 8 & 4 \\\\ 0 & 0 \\end{bmatrix} \\implies \\sum = 12 \\\\
+                    C^{4} &= \\begin{bmatrix} 16 & 8 \\\\ 0 & 0 \\end{bmatrix} \\implies \\sum = 24 \\implies z = 2^{2013-1} \\cdot 3 = 3 \\cdot 2^{2012} \\\\[4pt]
+                    D^{2} &= \\begin{bmatrix} 4 & 0 \\\\ 0 & 1 \\end{bmatrix} \\implies \\sum = 5 \\\\
+                    D^{3} &= \\begin{bmatrix} 8 & 0 \\\\ 0 & 1 \\end{bmatrix} \\implies \\sum = 9 \\\\
+                    D^{4} &= \\begin{bmatrix} 16 & 0 \\\\ 0 & 1 \\end{bmatrix} \\implies \\sum = 17 \\implies w = 2^{2013}+1
+                    \\end{align}$$
+                    <p>Dari nilai $x=2^{2014},\\ y=2,\\ z=3 \\cdot 2^{2012},\\ \\text{dan}\\ w=1+2^{2013}$ yang kita peroleh di atas, maka dapat kita simpulkan:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>(1) $w-1 = 2^{2013} = y^{2013}$ <strong>(Benar)</strong></li>
+                        <li>(2) $z = 3 \\cdot 2^{2012} = 3y^{2012}$ <strong>(Benar)</strong></li>
+                        <li>(3) $4z = 4(3 \\cdot 2^{2012}) = 3 \\cdot 2^{2014} = 3x$ <strong>(Benar)</strong></li>
+                        <li>(4) $2w-x = 2(2^{2013}+1) - 2^{2014} = 2^{2014}+2 - 2^{2014} = 2$ <strong>(Benar)</strong></li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (E) Pernyataan BENAR Semua</p>
+                `
+            },
+            {
+                id: 15,
+                source: "Soal UM UNPAD 2009",
+                topic: "Determinan Matriks Transpose Invers",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Apabila transpose dari matriks $X=\\left( \\begin{matrix} 2008 & 2009 \\\\ x & y \\end{matrix} \\right)$ sama dengan invers dari $X$, maka nilai dari determinan $X$ yang mungkin adalah....",
+                options: [
+                    { key: "A", text: "$1$ atau $-1$" },
+                    { key: "B", text: "$\\sqrt{2}$ atau $-\\sqrt{2}$" },
+                    { key: "C", text: "$\\sqrt{3}$ atau $1$" },
+                    { key: "D", text: "$\\sqrt{2}$ atau $-1$" },
+                    { key: "E", text: "$0$ atau $\\sqrt{3}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    X &= \\left( \\begin{matrix} 2008 & 2009 \\\\ x & y \\end{matrix} \\right) \\\\
+                    |X| &= 2008y - 2009x
+                    \\end{align}$$
+                    <p>Seperti yang disampaikan pada soal bahwa jika matriks $X$ kita transpose-kan akan sama dengan invers matriks $X$ atau dapat kita tuliskan menjadi $X^{T}=X^{-1}$.</p>
+                    <p>Berdasarkan sifat determinan matriks $|A^{T}| = |A|$ dan $|A^{-1}| = \\dfrac{1}{|A|}$ dapat kita simpulkan:</p>
+                    $$\\begin{align}
+                    X^{-1} &= X^{T} \\\\
+                    |X^{-1}| &= |X^{T}| \\\\
+                    \\dfrac{1}{|X|} &= |X| \\\\
+                    \\dfrac{1}{(2008y-2009x)} &= (2008y-2009x) \\\\
+                    1 &= (2008y-2009x)^{2} \\\\
+                    \\pm 1 &= 2008y-2009x \\\\
+                    \\pm 1 &= |X|
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $1$ atau $-1$</p>
+                `
+            },
+            {
+                id: 16,
+                source: "Soal UM STIS 2011",
+                topic: "Aljabar Matriks Identitas",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Matriks $B$ adalah invers matriks $A$, matriks $D$ adalah invers matriks $C$ dan $A \\cdot B \\cdot C=D$, maka yang merupakan matriks identitas $(I)$ adalah....",
+                options: [
+                    { key: "A", text: "$A^{2}$" },
+                    { key: "B", text: "$B^{2}$" },
+                    { key: "C", text: "$C^{2}$" },
+                    { key: "D", text: "$A \\cdot D^{2}$" },
+                    { key: "E", text: "$A \\cdot C^{2}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Catatan sifat dasar invers matriks:</p>
+                    <ul class="list-disc list-inside space-y-1 mb-2">
+                        <li>$(A^{-1})^{-1} = A$</li>
+                        <li>$A^{-1} \\cdot A = A \\cdot A^{-1} = I$</li>
+                        <li>$AB = I$ artinya $A$ dan $B$ saling invers ($A^{-1}=B$ dan $B^{-1}=A$)</li>
+                    </ul>
+                    <p>Dari soal diperoleh:</p>
+                    <ul class="list-disc list-inside space-y-1 mb-2">
+                        <li>$B = A^{-1} \\implies B^{-1} = A$</li>
+                        <li>$D = C^{-1} \\implies D^{-1} = C$</li>
+                    </ul>
+                    $$\\begin{align}
+                    A \\cdot B \\cdot C &= D \\\\
+                    A \\cdot A^{-1} \\cdot C &= C^{-1} \\\\
+                    I \\cdot C &= C^{-1} \\\\
+                    C &= C^{-1} \\\\
+                    C \\cdot C &= C^{-1} \\cdot C \\implies \\mathbf{C^{2} = I}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (C) $C^{2}$</p>
+                `
+            },
+            {
+                id: 17,
+                source: "Soal UM STIS 2011",
+                topic: "Invers Matriks $2 \\times 2$ Berparameter",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Jika $\\begin{pmatrix} a-b & -b \\\\ 0 & 1 \\end{pmatrix}^{-1}=\\begin{pmatrix} a & 1 \\\\ -a+2b & 1 \\end{pmatrix}$ maka $ab=\\cdots$",
+                options: [
+                    { key: "A", text: "$2$" },
+                    { key: "B", text: "$1$" },
+                    { key: "C", text: "$-\\dfrac{1}{2}$" },
+                    { key: "D", text: "$-1$" },
+                    { key: "E", text: "$-4$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    $$\\begin{align}
+                    \\begin{pmatrix} a-b & -b \\\\ 0 & 1 \\end{pmatrix}^{-1} &= \\begin{pmatrix} a & 1 \\\\ -a+2b & 1 \\end{pmatrix} \\\\
+                    \\dfrac{1}{(a-b)-0} \\begin{pmatrix} 1 & b \\\\ 0 & a-b \\end{pmatrix} &= \\begin{pmatrix} a & 1 \\\\ -a+2b & 1 \\end{pmatrix} \\\\
+                    \\begin{pmatrix} \\dfrac{1}{a-b} & \\dfrac{b}{a-b} \\\\ 0 & 1 \\end{pmatrix} &= \\begin{pmatrix} a & 1 \\\\ -a+2b & 1 \\end{pmatrix}
+                    \\end{align}$$
+                    <p>Dari kesamaan dua matriks di atas kita peroleh:</p>
+                    $$\\begin{align}
+                    -a+2b &= 0 \\implies a = 2b \\\\
+                    \\dfrac{1}{a-b} &= a \\implies \\dfrac{1}{2b-b} = a \\implies \\dfrac{1}{b} = a \\implies \\mathbf{1 = ab}
+                    \\end{align}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B) $1$</p>
+                `
+            },
+            {
+                id: 18,
+                source: "Soal UM STIS 2011",
+                topic: "Pemetaan Vektor Kolom & Matriks $M^{2}$",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Jika matriks $M$ berordo $2 \\times 2$ sehingga $M \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} =\\begin{pmatrix} -1 \\\\ 5 \\end{pmatrix}$ dan $M \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} =\\begin{pmatrix} 4 \\\\ 7 \\end{pmatrix}$ maka $M^{2}=\\cdots$",
+                options: [
+                    { key: "A", text: "$\\begin{pmatrix} 1 & 2 \\\\ 4 & -1 \\end{pmatrix}$" },
+                    { key: "B", text: "$\\begin{pmatrix} 9 & 0 \\\\ 0 & 9 \\end{pmatrix}$" },
+                    { key: "C", text: "$\\begin{pmatrix} 9 & 0 \\\\ 0 & 7 \\end{pmatrix}$" },
+                    { key: "D", text: "$\\begin{pmatrix} 7 & 0 \\\\ 0 & 9 \\end{pmatrix}$" },
+                    { key: "E", text: "$\\begin{pmatrix} 7 & 0 \\\\ 0 & 7 \\end{pmatrix}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Kita misalkan matriks $M=\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$:</p>
+                    $$\\begin{align}
+                    M \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} &= \\begin{pmatrix} -1 \\\\ 5 \\end{pmatrix} \\implies \\begin{pmatrix} a-b \\\\ c-d \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 5 \\end{pmatrix} \\\\
+                    M \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} &= \\begin{pmatrix} 4 \\\\ 7 \\end{pmatrix} \\implies \\begin{pmatrix} 2a+b \\\\ 2c+d \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 7 \\end{pmatrix}
+                    \\end{align}$$
+                    <p>Dari kesamaan dua matriks di atas kita peroleh eliminasi:</p>
+                    $$\\begin{aligned}
+                    a-b = -1 & \\quad & c-d = 5 \\\\
+                    2a+b = 4 & \\quad (+) & 2c+d = 7 \\quad (+) \\\\
+                    \\hline
+                    3a = 3 \\implies a=1 & \\quad & 3c = 12 \\implies c=4 \\\\
+                    b = 2 & \\quad & d = -1
+                    \\end{aligned}$$
+                    <p>Maka $M=\\begin{pmatrix} 1 & 2 \\\\ 4 & -1 \\end{pmatrix}$.</p>
+                    $$M^{2} = \\begin{pmatrix} 1 & 2 \\\\ 4 & -1 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 4 & -1 \\end{pmatrix} = \\mathbf{\\begin{pmatrix} 9 & 0 \\\\ 0 & 9 \\end{pmatrix}}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (B)</p>
+                `
+            },
+            {
+                id: 19,
+                source: "Soal UTBK-SBMPTN 2019",
+                topic: "Determinan Pemangkatan Matriks $\\det(A^4)$",
+                difficulty: "Medium",
+                points: 5.0,
+                question: "Diketahui matriks $B=\\begin{pmatrix} 1 & -4 \\\\ 5 & -2 \\end{pmatrix}$ dan berlaku persamaan $A^{2}+B=\\begin{pmatrix} 3 & -2 \\\\ 4 & -1 \\end{pmatrix}$. Determinan matriks $A^{4}$ adalah....",
+                options: [
+                    { key: "A", text: "$1$" },
+                    { key: "B", text: "$2$" },
+                    { key: "C", text: "$4$" },
+                    { key: "D", text: "$16$" },
+                    { key: "E", text: "$81$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Berdasarkan informasi pada penjumlahan matriks soal di atas, maka berlaku:</p>
+                    $$\\begin{align}
+                    A^{2}+B &= \\begin{pmatrix} 3 & -2 \\\\ 4 & -1 \\end{pmatrix} \\\\
+                    A^{2} &= \\begin{pmatrix} 3 & -2 \\\\ 4 & -1 \\end{pmatrix} - \\begin{pmatrix} 1 & -4 \\\\ 5 & -2 \\end{pmatrix} = \\begin{pmatrix} 2 & 2 \\\\ -1 & 1 \\end{pmatrix} \\\\
+                    |A^{2}| &= (2)(1) - (-1)(2) = 4
+                    \\end{align}$$
+                    <p>Dengan menggunakan sifat determinan matriks $|A^{n}| = |A|^{n}$ maka:</p>
+                    $$|A^{4}| = |A^{2}|^{2} = 4^{2} = \\mathbf{16}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (D) $16$</p>
+                `
+            },
+            {
+                id: 20,
+                source: "Soal SIMAK UI 2019 Kode 539",
+                topic: "Matriks Singular & Determinan Polinomial",
+                difficulty: "Hard",
+                points: 5.0,
+                question: "Diketahui $A=\\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$ dan $B=\\begin{pmatrix} -1 & 2 \\\\ 1 & 1 \\end{pmatrix}$. Jika $A+tB$ merupakan matriks singular, nilai $t^{2}+3t+2$ adalah....",
+                options: [
+                    { key: "A", text: "$0$" },
+                    { key: "B", text: "$1$" },
+                    { key: "C", text: "$2$" },
+                    { key: "D", text: "$3$" },
+                    { key: "E", text: "$5$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    $$\\begin{align}
+                    A+tB &= \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix} + t\\begin{pmatrix} -1 & 2 \\\\ 1 & 1 \\end{pmatrix} \\\\
+                    &= \\begin{pmatrix} 1-t & 2+2t \\\\ 2+t & 1+t \\end{pmatrix}
+                    \\end{align}$$
+                    <p>Karena matriks singular, determinannya bernilai nol:</p>
+                    $$\\begin{align}
+                    0 &= \\begin{vmatrix} 1-t & 2+2t \\\\ 2+t & 1+t \\end{vmatrix} \\\\
+                    0 &= (1-t^{2}) - (4+6t+2t^{2}) \\\\
+                    0 &= -3t^{2}-6t-3 \\\\
+                    0 &= t^{2}+2t+1 \\\\
+                    0 &= (t+1)^{2} \\implies t = -1
+                    \\end{align}$$
+                    <p>Maka nilai dari $t^{2}+3t+2$ adalah:</p>
+                    $$t^{2}+3t+2 = (-1)^{2}+3(-1)+2 = 1-3+2 = \\mathbf{0}$$
+                    <p class="mt-2 font-semibold text-emerald-700">$\\therefore$ Pilihan yang sesuai adalah (A) $0$</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 45 * 60; // 45 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const badgeClass = q.difficulty === 'Hard' ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-indigo-100 text-indigo-800 border-indigo-200';
+
+                let optionsHTML = '';
+                q.options.forEach(opt => {
+                    optionsHTML += `
+                        <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                            <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                ${opt.key}
+                            </div>
+                            <div class="text-slate-800 text-base font-medium flex-1">
+                                ${opt.text}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.source}</span>
+                                <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200">${q.topic}</span>
+                                <span class="text-xs font-bold px-2 py-0.5 rounded-lg ${q.difficulty === 'Hard' ? 'bg-rose-50 text-rose-600 border border-rose-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}">${q.difficulty}</span>
+                            </div>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">
+                                    ${optionsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilihlah salah satu kartu opsi untuk menjawab.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-10 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (opt.key === key) {
+                    optEl.classList.add('selected');
+                } else {
+                    optEl.classList.remove('selected');
+                }
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) optEl.classList.remove('selected');
+            });
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                navBtn.classList.add('bg-slate-50', 'text-slate-600');
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} butir soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua 20 butir soal sudah terjawab dengan lengkap!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 45 menit telah berakhir. Lembar ujian Anda telah dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalScore = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                const isCorrect = (userAns === q.correctAnswer);
+
+                if (isCorrect) {
+                    totalScore += q.points;
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            // Update Summary Stats
+            const maxScore = 100;
+            const percentage = ((totalScore / maxScore) * 100).toFixed(1);
+            document.getElementById('final-score').innerText = Math.round(totalScore);
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB (0 Poin)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR (+5.0 Poin)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH (0 Poin)</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                q.options.forEach(opt => {
+                    let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                    let mark = '';
+
+                    if (opt.key === q.correctAnswer) {
+                        optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                    }
+                    if (userAns === opt.key && !isCorrect) {
+                        optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                        mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda</span>';
+                    } else if (userAns === opt.key && isCorrect) {
+                        mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda Benar</span>';
+                    }
+
+                    optionsReviewHTML += `
+                        <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                            <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                            <div class="flex-1">${opt.text}</div>
+                            ${mark}
+                        </div>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.source} • ${q.topic})</span>
+                                <span class="text-xs font-bold px-2 py-0.5 rounded-md ${q.difficulty === 'Hard' ? 'bg-rose-100 text-rose-700' : 'bg-amber-100 text-amber-700'}">${q.difficulty}</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
+                                ${optionsReviewHTML}
+                            </div>
+
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
