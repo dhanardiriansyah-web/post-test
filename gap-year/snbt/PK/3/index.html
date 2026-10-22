@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Out SNBT Mandiri (30 Soal HOTS Perbandingan & Skala) - mtkbarengkakdhanar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.2);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+        .checkbox-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.2);
+        }
+        .checkbox-card.selected .checkbox-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+        .matrix-btn.selected-b {
+            background-color: #059669 !important;
+            color: #ffffff !important;
+            border-color: #047857 !important;
+        }
+        .matrix-btn.selected-s {
+            background-color: #e11d48 !important;
+            color: #ffffff !important;
+            border-color: #be123c !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-3xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-900 text-xs font-black rounded-full uppercase tracking-wider">Persiapan SNBT 2026/2027</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-900 text-xs font-black rounded-full uppercase tracking-wider">Penalaran Matematika & PK</span>
+                <span class="px-3 py-1 bg-rose-100 text-rose-900 text-xs font-black rounded-full uppercase tracking-wider">30 Soal HOTS Pilihan</span>
+            </div>
+            
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">
+                TRY OUT SELEKSI NASIONAL BERDASARKAN TES (SNBT)
+            </h1>
+            <p class="text-center text-indigo-900 font-bold mb-1 text-sm md:text-base">
+                Penalaran Matematika: Topik Perbandingan Senilai, Berbalik Nilai, Beban Kerja & Skala Denah
+            </p>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-xs md:text-sm">
+                Penyusun: Dhanardi Riansyah (<span class="text-indigo-700 font-bold">@mtkbarengkakdhanar</span>)
+            </p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-200 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-950 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk & Regulasi Try Out:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>30 Butir Soal Tersulit</strong> (Format SNBT: PG A–E seimbang, Pilihan Ganda Kompleks, Tabel Benar-Salah, & Kuantitas $P$ vs $Q$).</li>
+                    <li>Cakupan Materi: Beban Kerja Terhenti/Sakit, Produktivitas Gabungan, Perbandingan Jamak Bertingkat, Denah & Skala Nyata.</li>
+                    <li>Alokasi Waktu: <strong>80 Menit</strong> (Dilengkapi hitung mundur otomatis).</li>
+                    <li>Sistem Penilaian: Nilai maksimal <strong>100 Poin</strong> (Skor dihitung proporsional).</li>
+                    <li>Mode Penyimpanan: <strong>Offline Mandiri</strong> (Hasil tersimpan di peramban Anda).</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid Modules -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs font-bold mb-6">
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-black">Bagian I</p>
+                    <p class="text-xs font-bold mt-0.5">Proyek & Tenaga Kerja</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-black">Bagian II</p>
+                    <p class="text-xs font-bold mt-0.5">Produktivitas Bersama</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-black">Bagian III</p>
+                    <p class="text-xs font-bold mt-0.5">Perbandingan Jamak</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl">
+                    <p class="text-[10px] uppercase text-indigo-600 font-black">Bagian IV</p>
+                    <p class="text-xs font-bold mt-0.5">Denah, Skala & Luas</p>
+                </div>
+                <div class="p-2.5 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl col-span-2 sm:col-span-1">
+                    <p class="text-[10px] uppercase text-indigo-600 font-black">Bagian V</p>
+                    <p class="text-xs font-bold mt-0.5">Laju & Efisiensi</p>
+                </div>
+            </div>
+
+            <!-- Formulir Identitas Peserta -->
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 mb-6">
+                <h3 class="font-bold text-slate-800 text-sm mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    Data Identitas Peserta Try Out
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1" for="input-nama">Nama Lengkap <span class="text-rose-500">*</span></label>
+                        <input type="text" id="input-nama" placeholder="Contoh: Budi Santoso" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1" for="input-sekolah">Asal Sekolah <span class="text-rose-500">*</span></label>
+                        <input type="text" id="input-sekolah" placeholder="Contoh: SMAN 8 Jakarta" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1" for="input-jurusan">Jurusan Impian <span class="text-rose-500">*</span></label>
+                        <input type="text" id="input-jurusan" placeholder="Contoh: Teknik Sipil / Kedokteran" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1" for="input-univ">Universitas Impian <span class="text-rose-500">*</span></label>
+                        <input type="text" id="input-univ" placeholder="Contoh: ITB / UI / UGM" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                    </div>
+                </div>
+                <p id="form-error-msg" class="text-xs font-bold text-rose-600 mt-3 hidden text-center">
+                    *Harap lengkapi semua kolom identitas peserta di atas sebelum memulai ujian.
+                </p>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Try Out Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">Materi Defantri — Standarisasi SNBT</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-indigo-800 transition bg-indigo-50 hover:bg-indigo-100 px-2.5 py-1 rounded-full border border-indigo-200 text-xs">
+                    <svg class="w-3.5 h-3.5 text-indigo-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">TRY OUT SNBT — PM & PK</h1>
+                            <p id="student-header-info" class="text-xs text-slate-500 font-semibold hidden sm:block">Perbandingan & Skala HOTS</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            80:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 30 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–30)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 30</span>
+                    </div>
+                    <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides injected by JS -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah &bull; Latihan Mandiri SNBT</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-indigo-800 transition bg-indigo-50 hover:bg-indigo-100 px-2.5 py-1 rounded-full border border-indigo-200 text-xs">
+                    <svg class="w-3.5 h-3.5 text-indigo-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-black text-sm">
+                            PM
+                        </div>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">TRY OUT SNBT — PM & PK</h1>
+                            <p id="student-header-info" class="text-xs text-slate-500 font-semibold hidden sm:block">Perbandingan & Skala HOTS</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            75:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 30 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–30)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 30</span>
+                    </div>
+                    <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides injected by JS -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah &bull; Latihan Mandiri SNBT</span>
+            </div>
+        </footer>
+    </div>
+
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan lembar ujian ini?</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL & EVALUASI MANDIRI</h2>
+                <p class="mb-3 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Laporan capaian skor Try Out 30 Soal HOTS Perbandingan & Skala.</p>
+                
+                <div id="sync-status" class="inline-flex items-center gap-2 bg-indigo-500/20 text-indigo-200 border border-indigo-400/40 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>Mode Offline Mandiri (Hasil Tersimpan di Browser)</span>
+                </div>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Skor</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-900 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban & Analisis Pembahasan</h3>
+                        <p class="text-sm text-slate-500">Pelajari rincian logika matematika dan evaluasi jebakan jawaban.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">30</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Dynamic review cards generated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah &bull; Standarisasi SNBT</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-indigo-800 transition bg-indigo-50 hover:bg-indigo-100 px-2.5 py-1 rounded-full border border-indigo-200 text-xs">
+                    <svg class="w-3.5 h-3.5 text-indigo-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        /* =========================================================================
+           KONFIGURASI GOOGLE SPREADSHEET (APPS SCRIPT WEB APP)
+           Tempelkan Web App URL hasil Deploy Google Apps Script Anda di sini.
+           Contoh: const SCRIPT_URL = "https://script.google.com/macros/s/AKfycb.../exec";
+           Jika dikosongkan (""), aplikasi otomatis beralih ke Mode Offline Mandiri.
+           ========================================================================= */
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwaN3I3pOLF8uLyD7FmqvY-O6QutWss0XbXEufvKsuK15UVBVHSxWrwKN9LswdE_UBTgQ/exec"; 
+
+        let studentData = {
+            nama: "",
+            asalSekolah: "",
+            jurusan: "",
+            universitas: ""
+        };
+
+        const questionsData = [
+            // SOAL 1: Proyek Terhenti karena Sakit & Kecelakaan (Kunci: E)
+            {
+                id: 1,
+                type: "single",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "2,0 Menit",
+                question: "Sebuah proyek diperkirakan akan selesai dalam waktu $42$ hari apabila dikerjakan oleh $60$ orang pekerja. Pada hari ke-$21$, ada $17$ orang pekerja sakit dan $3$ orang mengalami kecelakaan ringan, sehingga mereka baru bisa bekerja $2$ hari setelahnya. Agar proyek tersebut selesai tepat waktu, maka berapa tambahan jumlah pekerja yang dibutuhkan?",
+                options: [
+                    { key: "A", text: "$6\\text{ orang}$" },
+                    { key: "B", text: "$5\\text{ orang}$" },
+                    { key: "C", text: "$4\\text{ orang}$" },
+                    { key: "D", text: "$3\\text{ orang}$" },
+                    { key: "E", text: "$2\\text{ orang}$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Analisis Beban Kerja (Satuan Orang-Hari):</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Total beban kerja: $42 \\times 60 = 2.520\\text{ orang-hari}$.</li>
+                        <li>Pekerjaan $20$ hari pertama (lengkap $60$ pekerja): $20 \\times 60 = 1.200\\text{ orang-hari}$.</li>
+                        <li>Pekerjaan $2$ hari berikutnya (ada $17+3=20$ orang absen, sisa $40$ pekerja): $2 \\times 40 = 80\\text{ orang-hari}$.</li>
+                        <li>Total kerja yang sudah selesai selama $22$ hari pertama: $1.200 + 80 = 1.280\\text{ orang-hari}$.</li>
+                        <li>Sisa beban kerja: $2.520 - 1.280 = 1.240\\text{ orang-hari}$.</li>
+                        <li>Sisa waktu pelaksanaan: $42 - 22 = 20\\text{ hari}$.</li>
+                        <li>Kebutuhan pekerja untuk sisa waktu: $\\dfrac{1.240}{20} = 62\\text{ orang}$.</li>
+                        <li>Tambahan pekerja yang dibutuhkan: $62 - 60 = \\mathbf{2\\text{ orang}}$.</li>
+                    </ul>
+                `,
+                trapAnalysis: "Perhatikan bahwa $20$ pekerja yang tidak masuk hanya absen selama $2$ hari, bukan berhenti permanen. Jangan mengalikan sisa hari dengan hanya $40$ orang."
+            },
+
+            // SOAL 2: Proyek Renovasi Gedung - Terhenti Cuaca (Kunci: B)
+            {
+                id: 2,
+                type: "single",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "2,0 Menit",
+                question: `
+                    <div class="mb-3">
+                        <p class="font-bold text-indigo-950 mb-1">Stimulus: Proyek Renovasi Gedung Sekolah</p>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            Proyek renovasi gedung sekolah direncanakan selesai dalam waktu $60$ hari dengan $20$ pekerja. Setelah pekerjaan berjalan $24$ hari, pekerjaan berhenti total selama $12$ hari (tidak ada pekerja yang bekerja) akibat cuaca ekstrem. Manajer proyek menghitung penyesuaian pekerja agar renovasi selesai tepat waktu sesuai kontrak.
+                        </p>
+                        <div class="my-3 text-center">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrBex_NXCkOPzHW7MCgtEmfO-QUMem0CKYcNRe4BCQTMxIJfUFiAPghDnqu2GsJkZRnPnxD9DJ4ysfTkavbrcKsHPMj1h4qgLS2u7eLh7UCYoNJItSv13rv2PiroQSuF2PdHZe0lH4jfWrGhNgJzS6IWb-1OZSPIryfbu7oM_zrclEGS7K4UA-K7P7OOGU/s1600/soal-to-tka-sas-matematika-smp-mts-kelas-9-dan-kunci-jawaban.jpg" alt="Proyek Gedung" class="max-h-52 mx-auto rounded-xl shadow-sm border border-slate-200">
+                        </div>
+                    </div>
+                    Berdasarkan situasi di atas, perhatikan pernyataan berikut:<br>
+                    (1) Sisa waktu efektif yang tersedia untuk menyelesaikan seluruh sisa pekerjaan adalah $24$ hari.<br>
+                    (2) Beban pekerjaan yang masih tersisa setara dengan hasil kerja $20$ orang selama $60$ hari.<br>
+                    (3) Manajer proyek harus menyiapkan total $30$ pegawai agar proyek selesai tepat waktu.<br>
+                    (4) Manajer proyek cukup menambah $5$ orang pegawai dari jumlah semula.<br><br>
+                    Pernyataan yang <strong>BENAR</strong> adalah...
+                `,
+                options: [
+                    { key: "A", text: "Pernyataan (1) dan (2)" },
+                    { key: "B", text: "Pernyataan (1) dan (3)" },
+                    { key: "C", text: "Pernyataan (2) dan (3)" },
+                    { key: "D", text: "Pernyataan (2) dan (4)" },
+                    { key: "E", text: "Pernyataan (3) dan (4)" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Total beban awal: $60 \\times 20 = 1.200\\text{ orang-hari}$.</li>
+                        <li>Selesai dalam $24$ hari: $24 \\times 20 = 480\\text{ orang-hari}$.</li>
+                        <li>Sisa pekerjaan: $1.200 - 480 = 720\\text{ orang-hari}$. Beban ini setara $20$ orang bekerja selama $720/20 = 36$ hari (maka Pernyataan 2 <strong>Salah</strong>).</li>
+                        <li>Sisa waktu pengerjaan: $60 - 24 - 12 = 24\\text{ hari}$ (Pernyataan 1 <strong>Benar</strong>).</li>
+                        <li>Pekerja yang dibutuhkan: $\\dfrac{720}{24} = 30\\text{ pekerja}$ (Pernyataan 3 <strong>Benar</strong>).</li>
+                        <li>Tambahan pekerja yang dibutuhkan: $30 - 20 = 10\\text{ pekerja}$ (bukan $5$ orang, maka Pernyataan 4 <strong>Salah</strong>).</li>
+                    </ul>
+                `,
+                trapAnalysis: "Pernyataan (1) dan (3) benar. Jangan lupa memperhitungkan bahwa selama 12 hari jeda cuaca sama sekali tidak ada kemajuan proyek."
+            },
+
+            // SOAL 3: Analisis Proyek Renovasi - Model Benar/Salah (Kunci: [B, B, S] - tidak seragam)
+            {
+                id: 3,
+                type: "table_bs",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "2,0 Menit",
+                question: "Rencana awal renovasi gedung sekolah dilakukan oleh $15$ pegawai selama $60$ hari. Namun pada $10$ hari pertama hanya $10$ pegawai yang bekerja karena sebagian beristirahat. Setelah hari ke-$10$, seluruh $15$ pegawai kembali bekerja.<br>Tentukan <strong>Benar</strong> atau <strong>Salah</strong> untuk setiap pernyataan berikut!",
+                rows: [
+                    { text: "Sisa pekerjaan yang harus diselesaikan setelah hari ke-10 adalah setara dengan pekerjaan 800 hari penuh yang dikerjakan 1 orang.", correct: "B" },
+                    { text: "Selama 10 hari pertama, proyek mengalami ketertinggalan jadwal yang setara dengan hasil kerja 5 orang selama 10 hari.", correct: "B" },
+                    { text: "Agar renovasi tetap selesai tepat waktu 60 hari, manajer cukup mempekerjakan kembali 15 pegawai semula tanpa perlu menambah tenaga kerja tambahan.", correct: "S" }
+                ],
+                correctAnswer: ["B", "B", "S"],
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Total beban: $60 \\times 15 = 900\\text{ orang-hari}$.</li>
+                        <li>Selesai 10 hari pertama: $10 \\times 10 = 100\\text{ orang-hari}$. Sisa kerja $= 900 - 100 = 800\\text{ orang-hari}$ &rarr; <strong>Benar</strong>.</li>
+                        <li>Seharusnya selesai jika formasi penuh: $10 \\times 15 = 150\\text{ orang-hari}$. Kekurangan: $150 - 100 = 50\\text{ orang-hari} = 5\\text{ orang} \\times 10\\text{ hari}$ &rarr; <strong>Benar</strong>.</li>
+                        <li>Jika hanya $15$ orang yang melanjutkan sisa $800$ orang-hari: waktu yang dibutuhkan adalah $800 / 15 = 53{,}33$ hari. Total durasi menjadi $10 + 53{,}33 = 63{,}33$ hari (melewati batas kontrak 60 hari) sehingga <em>pasti perlu penambahan pekerja</em> &rarr; <strong>Salah</strong>.</li>
+                    </ul>
+                `,
+                trapAnalysis: "Pernyataan (3) salah karena jika tidak menambah pegawai, proyek akan molor sekitar 3 sampai 4 hari dari jadwal kontrak 60 hari."
+            },
+
+            // SOAL 4: Tambahan Pekerja pada Proyek Jalan Terhenti (Kunci: C)
+            {
+                id: 4,
+                type: "single",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "1,5 Menit",
+                question: "Proyek perbaikan jalan harus selesai selama $30$ hari dengan pekerja sebanyak $15$ orang. Setelah $6$ hari pelaksanaan, proyek tersebut dihentikan selama $4$ hari karena suatu hal. Jika kemampuan bekerja setiap orang sama, pekerja tambahan yang diperlukan agar proyek tepat waktu adalah...",
+                options: [
+                    { key: "A", text: "$1\\text{ orang}$" },
+                    { key: "B", text: "$2\\text{ orang}$" },
+                    { key: "C", text: "$3\\text{ orang}$" },
+                    { key: "D", text: "$6\\text{ orang}$" },
+                    { key: "E", text: "$9\\text{ orang}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Perbandingan Berbalik Nilai Sisa Hari:</p>
+                    <p class="text-slate-700">Sisa hari normal: $30 - 6 = 24\\text{ hari}$.<br>
+                    Sisa waktu nyata karena terhenti $4$ hari: $24 - 4 = 20\\text{ hari}$.</p>
+                    <p class="text-slate-700">$$\\frac{15}{x} = \\frac{20}{24} \\implies x = \\frac{15 \\times 24}{20} = 18\\text{ orang}$$</p>
+                    <p class="text-slate-700 mt-1">Tambahan pekerja yang dibutuhkan: $18 - 15 = \\mathbf{3\\text{ orang}}$.</p>
+                `,
+                trapAnalysis: "Pertanyaan menanyakan *tambahan pekerja*, bukan total pekerja. Total pekerja adalah 18 orang, sehingga tambahannya adalah 3 orang."
+            },
+
+            // SOAL 5: Perbandingan Guru dan Murid Wanita (Kunci: D)
+            {
+                id: 5,
+                type: "single",
+                subtopic: "Bagian III: Perbandingan Jamak & Komposisi Fraksi",
+                targetTime: "2,0 Menit",
+                question: "Pada suatu sekolah, perbandingan antara jumlah guru dan murid adalah $1 : 9$. Bila dua pertiga dari semua murid di sekolah itu adalah wanita, dan seperempat dari jumlah guru adalah wanita, maka perbandingan antara jumlah guru wanita bersama murid wanita dengan jumlah keseluruhan guru dan murid di sekolah itu adalah...",
+                options: [
+                    { key: "A", text: "$\\dfrac{11}{24}$" },
+                    { key: "B", text: "$\\dfrac{25}{56}$" },
+                    { key: "C", text: "$\\dfrac{11}{12}$" },
+                    { key: "D", text: "$\\dfrac{5}{8}$" },
+                    { key: "E", text: "$\\dfrac{7}{10}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Metode Pemisalan Proporsi Aljabar:</p>
+                    <p class="text-slate-700">Misalkan jumlah guru $= G$ dan murid $= M = 9G$. Total civitas sekolah $= G + 9G = 10G$.</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Murid wanita: $M_w = \\dfrac{2}{3}M = \\dfrac{2}{3}(9G) = 6G$.</li>
+                        <li>Guru wanita: $G_w = \\dfrac{1}{4}G$.</li>
+                        <li>Total wanita $= 6G + \\dfrac{1}{4}G = \\dfrac{25}{4}G$.</li>
+                    </ul>
+                    <p class="text-slate-700 mt-2">Rasio terhadap keseluruhan sekolah: $$\\text{Rasio} = \\dfrac{\\frac{25}{4}G}{10G} = \\dfrac{25}{40} = \\mathbf{\\dfrac{5}{8}}$$</p>
+                `,
+                trapAnalysis: "Siswa sering terkecoh langsung merata-ratakan pecahan $\\frac{2/3 + 1/4}{2} = \\frac{11}{24}$ (Opsi A), yang salah fatal karena bobot populasi guru dan murid berbeda 9 kali lipat."
+            },
+
+            // SOAL 6: Hubungan Nilai Dua Bilangan yang Diubah (Kunci: A)
+            {
+                id: 6,
+                type: "single",
+                subtopic: "Bagian III: Perbandingan Aljabar Dua Variabel",
+                targetTime: "1,5 Menit",
+                question: "Dua bilangan berbanding $3 : 4$. Apabila bilangan pertama ditambahkan dengan $25$ dan bilangan kedua dikurangi dengan $10$, maka perbandingannya menjadi $2 : 1$. Apabila kedua bilangan mula-mula tersebut dijumlahkan, maka hasilnya adalah...",
+                options: [
+                    { key: "A", text: "$63$" },
+                    { key: "B", text: "$54$" },
+                    { key: "C", text: "$45$" },
+                    { key: "D", text: "$36$" },
+                    { key: "E", text: "$27$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Model Persamaan Linear Perbandingan:</p>
+                    <p class="text-slate-700">Misalkan kedua bilangan adalah $3x$ dan $4x$.</p>
+                    <p class="text-slate-700">$$\\frac{3x + 25}{4x - 10} = \\frac{2}{1} \\implies 3x + 25 = 2(4x - 10) \\implies 3x + 25 = 8x - 20$$</p>
+                    <p class="text-slate-700">$$5x = 45 \\implies x = 9$$</p>
+                    <p class="text-slate-700 mt-1">Jumlah kedua bilangan awal $= 3x + 4x = 7x = 7(9) = \\mathbf{63}$.</p>
+                `,
+                trapAnalysis: "Perhatikan bahwa yang ditanyakan adalah *jumlah kedua bilangan semula*, yaitu $7x = 63$. Jangan menjawab hanya nilai $x$ atau salah satu bilangan."
+            },
+
+            // SOAL 7: Analisis Kuantitas P dan Q (Kunci: A)
+            {
+                id: 7,
+                type: "single",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "1,5 Menit",
+                question: `
+                    Beberapa petani dapat menyelesaikan panen di ladang dalam waktu $10$ hari. Jika panen dapat diselesaikan dalam $8$ hari ketika ada tambahan $4$ orang petani.<br>
+                    <div class="my-3 overflow-hidden rounded-2xl border border-slate-300">
+                        <table class="w-full text-center text-sm">
+                            <thead class="bg-slate-100 font-bold text-slate-700 border-b border-slate-300">
+                                <tr>
+                                    <th class="py-2 px-3 border-r border-slate-300 w-1/2">Kuantitas P</th>
+                                    <th class="py-2 px-3 w-1/2">Kuantitas Q</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr>
+                                    <td class="py-3 px-3 border-r border-slate-300">Jumlah petani mula-mula</td>
+                                    <td class="py-3 px-3">$14\\text{ orang}$</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    Hubungan yang benar antara kuantitas P dan Q adalah...
+                `,
+                options: [
+                    { key: "A", text: "Kuantitas P lebih besar daripada Q" },
+                    { key: "B", text: "Kuantitas Q lebih besar daripada P" },
+                    { key: "C", text: "Kuantitas P sama dengan kuantitas Q" },
+                    { key: "D", text: "Informasi tidak cukup untuk memutuskan" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Perbandingan Berbalik Nilai:</p>
+                    <p class="text-slate-700">Misalkan jumlah petani awal adalah $p$. Beban kerja tetap:</p>
+                    <p class="text-slate-700">$$p \\times 10 = (p + 4) \\times 8 \\implies 10p = 8p + 32 \\implies 2p = 32 \\implies p = 16$$</p>
+                    <p class="text-slate-700 mt-1">Maka nilai kuantitas $P = 16\\text{ orang} > Q = 14\\text{ orang}$, sehingga $\\mathbf{P > Q}$.</p>
+                `,
+                trapAnalysis: "Petani mula-mula adalah 16 orang, bukan 12 orang. Nilai P terbukti lebih tinggi dari Q."
+            },
+
+            // SOAL 8: Jumlah Teknisi Mula-Mula (Kunci: B)
+            {
+                id: 8,
+                type: "single",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "1,5 Menit",
+                question: "Sejumlah teknisi dapat memperbaiki jaringan listrik dalam $15$ hari. Jika perbaikan tersebut dapat diselesaikan dalam waktu $9$ hari setelah ditambah $6$ orang teknisi, berapa jumlah teknisi mula-mula yang bertugas?",
+                options: [
+                    { key: "A", text: "$12\\text{ orang}$" },
+                    { key: "B", text: "$9\\text{ orang}$" },
+                    { key: "C", text: "$8\\text{ orang}$" },
+                    { key: "D", text: "$6\\text{ orang}$" },
+                    { key: "E", text: "$5\\text{ orang}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Perhitungan Berbalik Nilai:</p>
+                    <p class="text-slate-700">Misal teknisi mula-mula $= t$.</p>
+                    <p class="text-slate-700">$$\\frac{t}{t + 6} = \\frac{9}{15} = \\frac{3}{5} \\implies 5t = 3t + 18 \\implies 2t = 18 \\implies t = \\mathbf{9\\text{ orang}}$$</p>
+                `,
+                trapAnalysis: "Perhatikan bahwa rasio dibalik: $t / (t+6) = 9 / 15$. Pengali silang menghasilkan $2t = 18$ atau $t = 9$."
+            },
+
+            // SOAL 9: Produktivitas Bersama Pak Ujang & Pak Deni (Kunci: E)
+            {
+                id: 9,
+                type: "single",
+                subtopic: "Bagian II: Produktivitas Gabungan",
+                targetTime: "1,2 Menit",
+                question: "Pak Ujang dapat membuat sebuah taman dalam waktu $60$ hari, sedangkan Pak Deni dapat menyelesaikan taman yang sama dalam waktu $90$ hari. Jika Pak Ujang dan Pak Deni bekerja bersama-sama secara simultan, mereka dapat menyelesaikan taman tersebut dalam waktu...",
+                options: [
+                    { key: "A", text: "$150\\text{ hari}$" },
+                    { key: "B", text: "$75\\text{ hari}$" },
+                    { key: "C", text: "$45\\text{ hari}$" },
+                    { key: "D", text: "$40\\text{ hari}$" },
+                    { key: "E", text: "$36\\text{ hari}$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Laju Kerja Gabungan per Hari:</p>
+                    <p class="text-slate-700">$$\\frac{1}{T} = \\frac{1}{60} + \\frac{1}{90} = \\frac{3 + 2}{180} = \\frac{5}{180} = \\frac{1}{36}$$</p>
+                    <p class="text-slate-700 mt-1">Maka waktu penyelesaian bersama: $T = \\mathbf{36\\text{ hari}}$.</p>
+                `,
+                trapAnalysis: "Jangan merata-ratakan waktu secara aritmetik $(60+90)/2 = 75$ hari. Bekerja bersama harus menghasilkan waktu yang jauh lebih cepat dari orang tercepat ($< 60$ hari)."
+            },
+
+            // SOAL 10: Produktivitas Pagar Toni & Tono (Kunci: D)
+            {
+                id: 10,
+                type: "single",
+                subtopic: "Bagian II: Produktivitas Gabungan",
+                targetTime: "1,2 Menit",
+                question: "Toni dapat menyelesaikan pemasangan pagar bambu di sekeliling kebun selama $21$ hari, sedangkan Tono dapat menyelesaikan pekerjaan yang sama selama $28$ hari. Jika pekerjaan tersebut dikerjakan secara bersama-sama, maka akan selesai dalam waktu...",
+                options: [
+                    { key: "A", text: "$18\\text{ hari}$" },
+                    { key: "B", text: "$16\\text{ hari}$" },
+                    { key: "C", text: "$14\\text{ hari}$" },
+                    { key: "D", text: "$12\\text{ hari}$" },
+                    { key: "E", text: "$10\\text{ hari}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Rumus Cepat Gabungan Dua Orang: $T = \\dfrac{A \\times B}{A + B}$</p>
+                    <p class="text-slate-700">$$T = \\frac{21 \\times 28}{21 + 28} = \\frac{21 \\times 28}{49} = \\frac{21 \\times 4}{7} = 3 \\times 4 = \\mathbf{12\\text{ hari}}$$</p>
+                `,
+                trapAnalysis: "Sederhanakan pecahan dengan membagi angka pembilang dan penyebut dengan faktor persekutuan 7 sebelum mengalikan angka besar."
+            },
+
+            // SOAL 11: Pengecatan Bersama Bima & Adit (Kunci: C)
+            {
+                id: 11,
+                type: "single",
+                subtopic: "Bagian II: Produktivitas Gabungan",
+                targetTime: "1,0 Menit",
+                question: "Bima dan Adit akan mengecat rumah orang tua mereka. Bima dapat menyelesaikannya sendiri selama $24$ hari, sementara Adit mampu menyelesaikannya dalam $8$ hari. Jika Bima dan Adit bekerja sama, maka rumah itu akan selesai dicat selama...",
+                options: [
+                    { key: "A", text: "$4\\text{ hari}$" },
+                    { key: "B", text: "$5\\text{ hari}$" },
+                    { key: "C", text: "$6\\text{ hari}$" },
+                    { key: "D", text: "$7\\text{ hari}$" },
+                    { key: "E", text: "$8\\text{ hari}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Laju Kerja:</p>
+                    <p class="text-slate-700">$$\\frac{1}{T} = \\frac{1}{24} + \\frac{1}{8} = \\frac{1 + 3}{24} = \\frac{4}{24} = \\frac{1}{6} \\implies T = \\mathbf{6\\text{ hari}}$$</p>
+                `,
+                trapAnalysis: "Adit bekerja 3 kali lebih cepat daripada Bima. Waktu bersama pasti kurang dari 8 hari."
+            },
+
+            // SOAL 12: Evaluasi Produktivitas Multi-Pekerja (Kunci Checkbox: ["1", "2", "4"] - kombinasi bervariasi)
+            {
+                id: 12,
+                type: "multiple_checkbox",
+                subtopic: "Bagian II: Produktivitas Gabungan",
+                targetTime: "2,0 Menit",
+                question: "Pekerja $A$ mampu menyelesaikan proyek dalam 12 hari, $B$ dalam 20 hari, dan $C$ dalam 30 hari. Manakah di antara pernyataan berikut yang bernilai <strong>BENAR</strong>?<br><span class=\"text-xs text-indigo-700 font-bold\">(Pilih semua jawaban yang benar! Jawaban benar lebih dari satu dan tidak semua kotak benar.)</span>",
+                checkboxOptions: [
+                    { key: "1", text: "Jika A dan B bekerja bersama, pekerjaan selesai dalam 7,5 hari." },
+                    { key: "2", text: "Jika B dan C bekerja bersama, pekerjaan selesai dalam 12 hari." },
+                    { key: "3", text: "Jika A, B, dan C bekerja bersama-sama, pekerjaan selesai dalam 8 hari." },
+                    { key: "4", text: "Dalam satu hari bekerja bersama, A, B, dan C menyelesaikan 1/6 bagian pekerjaan." },
+                    { key: "5", text: "Jika hanya A dan C bekerja bersama, pekerjaan selesai dalam 10 hari." }
+                ],
+                correctAnswer: ["1", "2", "4"],
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Kotak [1]: $T_{AB} = (12 \\times 20)/(12 + 20) = 240 / 32 = 7{,}5$ hari &rarr; <strong>Benar</strong>.</li>
+                        <li>Kotak [2]: $T_{BC} = (20 \\times 30)/(20 + 30) = 600 / 50 = 12$ hari &rarr; <strong>Benar</strong>.</li>
+                        <li>Kotak [3]: Laju gabungan $1/12 + 1/20 + 1/30 = 10/60 = 1/6$ bagian/hari, sehingga waktu bersama adalah $6$ hari (bukan 8 hari) &rarr; <strong>Salah</strong>.</li>
+                        <li>Kotak [4]: Dalam sehari ketiga pekerja bersama menyelesaikan $1/6$ bagian &rarr; <strong>Benar</strong>.</li>
+                        <li>Kotak [5]: $T_{AC} = (12 \\times 30)/(12 + 30) = 360 / 42 \\approx 8{,}57$ hari $\\ne 10$ hari &rarr; <strong>Salah</strong>.</li>
+                    </ul>
+                `,
+                trapAnalysis: "Kotak [3] dan [5] salah. Jawaban tepat adalah kotak [1], [2], dan [4]."
+            },
+
+            // SOAL 13: Kecepatan Membaca Kata per Menit (Kunci: E)
+            {
+                id: 13,
+                type: "single",
+                subtopic: "Bagian V: Laju, Waktu & Efisiensi",
+                targetTime: "1,5 Menit",
+                question: "Seseorang membutuhkan waktu $1\\text{ menit}$ untuk membaca $300\\text{ kata}$. Pada kecepatan tersebut, ia membutuhkan waktu $4\\text{ jam}$ untuk menyelesaikan sebuah novel. Jika Fana memiliki kecepatan membaca $400\\text{ kata per menit}$, maka waktu yang dibutuhkan Fana untuk membaca novel yang sama adalah...",
+                options: [
+                    { key: "A", text: "$1{,}5\\text{ jam}$" },
+                    { key: "B", text: "$2\\text{ jam}$" },
+                    { key: "C", text: "$2{,}5\\text{ jam}$" },
+                    { key: "D", text: "$3{,}5\\text{ jam}$" },
+                    { key: "E", text: "$3\\text{ jam}$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Perbandingan Berbalik Nilai (Kecepatan vs Waktu):</p>
+                    <p class="text-slate-700">Karena jumlah kata total dalam novel konstan, perkalian laju baca dan waktu adalah tetap:</p>
+                    <p class="text-slate-700">$$v_1 \\times t_1 = v_2 \\times t_2 \\implies 300 \\times 4\\text{ jam} = 400 \\times t_2$$</p>
+                    <p class="text-slate-700">$$t_2 = \\frac{1.200}{400} = \\mathbf{3\\text{ jam}}$$</p>
+                `,
+                trapAnalysis: "Konversi ke kata total: $300 \\times 240\\text{ menit} = 72.000$ kata. $72.000 / 400 = 180\\text{ menit} = 3\\text{ jam}$."
+            },
+
+            // SOAL 14: Perbandingan Kelereng Bertingkat (Kunci: B)
+            {
+                id: 14,
+                type: "single",
+                subtopic: "Bagian III: Perbandingan Jamak & Selisih",
+                targetTime: "1,0 Menit",
+                question: "Perbandingan kelereng Dito dan Abdul adalah $9 : 5$, sedangkan selisih banyak kelereng mereka adalah $28\\text{ butir}$. Jumlah seluruh kelereng yang dimiliki keduanya adalah...",
+                options: [
+                    { key: "A", text: "$112\\text{ butir}$" },
+                    { key: "B", text: "$98\\text{ butir}$" },
+                    { key: "C", text: "$78\\text{ butir}$" },
+                    { key: "D", text: "$50\\text{ butir}$" },
+                    { key: "E", text: "$44\\text{ butir}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Metode Faktor Selisih:</p>
+                    <p class="text-slate-700">Selisih rasio: $9 - 5 = 4\\text{ bagian} = 28 \\implies 1\\text{ bagian} = 7\\text{ butir}$.</p>
+                    <p class="text-slate-700">Jumlah seluruh kelereng: $(9 + 5) \\times 7 = 14 \\times 7 = \\mathbf{98\\text{ butir}}$.</p>
+                `,
+                trapAnalysis: "Kelereng Dito $= 63$, kelereng Abdul $= 35$. Jumlahnya $63 + 35 = 98$."
+            },
+
+            // SOAL 15: Perbandingan Tiga Subjek (Kania, Lulu, Naurah - Kunci: C)
+            {
+                id: 15,
+                type: "single",
+                subtopic: "Bagian III: Perbandingan Tiga Variabel",
+                targetTime: "1,2 Menit",
+                question: "Perbandingan uang yang dimiliki Kania, Lulu, dan Naurah adalah $2 : 3 : 7$. Jika jumlah uang Kania dan Naurah adalah $\\text{Rp}315.000,00$, maka jumlah uang mereka bertiga adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}350.000,00$" },
+                    { key: "B", text: "$\\text{Rp}385.000,00$" },
+                    { key: "C", text: "$\\text{Rp}420.000,00$" },
+                    { key: "D", text: "$\\text{Rp}455.000,00$" },
+                    { key: "E", text: "$\\text{Rp}490.000,00$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="text-slate-700">Rasio Kania : Naurah $= 2 + 7 = 9\\text{ bagian} = \\text{Rp}315.000,00$.</p>
+                    <p class="text-slate-700">Nilai satu bagian: $x = \\dfrac{315.000}{9} = \\text{Rp}35.000,00$.</p>
+                    <p class="text-slate-700">Jumlah uang bertiga $= (2 + 3 + 7)x = 12 \\times \\text{Rp}35.000,00 = \\mathbf{\\text{Rp}420.000,00}$.</p>
+                `,
+                trapAnalysis: "Perhatikan bahwa uang yang diketahui jumlahnya hanya Kania dan Naurah (9 bagian), bukan ketiganya."
+            },
+
+            // SOAL 16: Perbandingan Tiga Subjek (Verrel, Saffa, Mahesa - Kunci: A)
+            {
+                id: 16,
+                type: "single",
+                subtopic: "Bagian III: Perbandingan Tiga Variabel",
+                targetTime: "1,0 Menit",
+                question: "Perbandingan uang Verrel, Saffa, dan Mahesa adalah $4 : 3 : 2$. Jika jumlah uang Verrel dan Saffa adalah $\\text{Rp}42.000,00$, maka jumlah uang mereka bertiga adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}54.000,00$" },
+                    { key: "B", text: "$\\text{Rp}58.000,00$" },
+                    { key: "C", text: "$\\text{Rp}60.000,00$" },
+                    { key: "D", text: "$\\text{Rp}62.000,00$" },
+                    { key: "E", text: "$\\text{Rp}64.000,00$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="text-slate-700">Bagian Verrel + Saffa $= 4 + 3 = 7\\text{ bagian} = \\text{Rp}42.000,00 \\implies 1\\text{ bagian} = \\text{Rp}6.000,00$.</p>
+                    <p class="text-slate-700">Total mereka bertiga: $(4 + 3 + 2) \\times 6.000 = 9 \\times 6.000 = \\mathbf{\\text{Rp}54.000,00}$.</p>
+                `,
+                trapAnalysis: "Siswa terkadang menjumlahkan pembagi $4+3+2 = 9$ pada uang $\\text{Rp}42.000$, padahal uang tersebut hanya milik 2 orang."
+            },
+
+            // SOAL 17: Perbandingan Tiga Subjek Berdasarkan Selisih (Kunci: D)
+            {
+                id: 17,
+                type: "single",
+                subtopic: "Bagian III: Perbandingan Tiga Variabel",
+                targetTime: "1,0 Menit",
+                question: "Diketahui perbandingan uang Ayu, Budi, dan Cici adalah $1 : 2 : 3$. Selisih uang Budi dan Ayu adalah $\\text{Rp}15.000,00$. Jumlah uang mereka bertiga adalah...",
+                options: [
+                    { key: "A", text: "$\\text{Rp}45.000,00$" },
+                    { key: "B", text: "$\\text{Rp}60.000,00$" },
+                    { key: "C", text: "$\\text{Rp}75.000,00$" },
+                    { key: "D", text: "$\\text{Rp}90.000,00$" },
+                    { key: "E", text: "$\\text{Rp}105.000,00$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="text-slate-700">Selisih rasio Budi dan Ayu: $2 - 1 = 1\\text{ bagian} = \\text{Rp}15.000,00$.</p>
+                    <p class="text-slate-700">Jumlah uang bertiga: $(1 + 2 + 3) \\times \\text{Rp}15.000,00 = 6 \\times \\text{Rp}15.000,00 = \\mathbf{\\text{Rp}90.000,00}$.</p>
+                `,
+                trapAnalysis: "Perhatikan langsung bahwa 1 bagian setara $\\text{Rp}15.000,00$, maka total 6 bagian langsung diperoleh tanpa aljabar rumit."
+            },
+
+            // SOAL 18: Larutan Desinfektan Pembasmi Kuman (Kunci: B)
+            {
+                id: 18,
+                type: "single",
+                subtopic: "Bagian V: Campuran & Rasio Kimia",
+                targetTime: "1,2 Menit",
+                question: "Untuk membuat larutan desinfektan pembasmi kuman, dibutuhkan campuran cairan $A$ dan cairan $B$ dengan perbandingan volume $A : B = 3 : 5$. Jika hanya tersedia $2{,}5\\text{ liter}$ cairan $B$, maka volume maksimum larutan desinfektan yang dapat dibuat adalah...",
+                options: [
+                    { key: "A", text: "$3{,}6\\text{ liter}$" },
+                    { key: "B", text: "$4{,}0\\text{ liter}$" },
+                    { key: "C", text: "$4{,}8\\text{ liter}$" },
+                    { key: "D", text: "$5{,}5\\text{ liter}$" },
+                    { key: "E", text: "$6{,}4\\text{ liter}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="text-slate-700">Rasio $A : B = 3 : 5$. Volume cairan $B = 2{,}5\\text{ liter} = 5x \\implies x = 0{,}5\\text{ liter}$.</p>
+                    <p class="text-slate-700">Cairan $A$ yang diperlukan: $3x = 3(0{,}5) = 1{,}5\\text{ liter}$.</p>
+                    <p class="text-slate-700 mt-1">Total volume larutan: $1{,}5 + 2{,}5 = \\mathbf{4{,}0\\text{ liter}}$.</p>
+                `,
+                trapAnalysis: "Hati-hati dengan pertanyaan: yang ditanyakan adalah *volume larutan total* ($A+B$), bukan hanya volume cairan $A$ ($1{,}5$ liter)."
+            },
+
+            // SOAL 19: Denah Rumah Riri Skala 1:200 Lengkap dengan Gambar (Kunci: C)
+            {
+                id: 19,
+                type: "single",
+                subtopic: "Bagian IV: Denah, Skala & Luas Bangunan",
+                targetTime: "2,0 Menit",
+                question: `
+                    Perhatikan gambar denah rumah Riri dengan skala $1 : 200$ berikut ini:<br>
+                    <div class="my-3 text-center">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgFbkO5NofSUIgMJh7fx0j6JVkHk56gb52bBH4SNegfsomKFlNlAYiBH5gpgEqFrvSVbxjomtd56Mkk8yFL08ebKNSfnndoyhtXhZjYXIx65jGkX5Drq2FxZa8kXGuzcQjq7UPv4HDPESqDPcB0F7O7WcobxZzMAKUQa8nmqpCoxEp727nybmy26rWGpg" alt="Denah Rumah Riri" class="max-h-56 mx-auto rounded-xl shadow-sm border border-slate-200">
+                    </div>
+                    Jika pada denah total panjang adalah $11{,}5\\text{ cm}$ dan total lebar adalah $7\\text{ cm}$, maka luas bangunan rumah Riri yang sebenarnya adalah...
+                `,
+                options: [
+                    { key: "A", text: "$280\\text{ m}^2$" },
+                    { key: "B", text: "$300\\text{ m}^2$" },
+                    { key: "C", text: "$322\\text{ m}^2$" },
+                    { key: "D", text: "$360\\text{ m}^2$" },
+                    { key: "E", text: "$364\\text{ m}^2$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Konversi Ukuran Nyata:</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Panjang sebenarnya: $11{,}5\\text{ cm} \\times 200 = 2.300\\text{ cm} = 23\\text{ m}$.</li>
+                        <li>Lebar sebenarnya: $7\\text{ cm} \\times 200 = 1.400\\text{ cm} = 14\\text{ m}$.</li>
+                        <li>Luas sebenarnya: $23\\text{ m} \\times 14\\text{ m} = \\mathbf{322\\text{ m}^2}$.</li>
+                    </ul>
+                `,
+                trapAnalysis: "Ingat bahwa perbandingan luas berbanding lurus dengan kuadrat faktor skala: $L_{\\text{nyata}} = L_{\\text{denah}} \\times 200^2$. $80{,}5\\text{ cm}^2 \\times 40.000 = 3.220.000\\text{ cm}^2 = 322\\text{ m}^2$."
+            },
+
+            // SOAL 20: Denah Kantor Lengkap dengan Gambar (Kunci: E)
+            {
+                id: 20,
+                type: "single",
+                subtopic: "Bagian IV: Denah, Skala & Luas Bangunan",
+                targetTime: "1,5 Menit",
+                question: `
+                    Perhatikan gambar denah gedung kantor dengan skala $1 : 500$ berikut ini:<br>
+                    <div class="my-3 text-center">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjC7Qwzf74-wTYyfTnBDoJoOewm-o69LoTLiK3Ed63U2KFHPU0MMpiJOQlm7FNQjJ8KGFi93PUJV8Xzc4OEgDpwIbr7b3y2sS6k03BnQhUID3I1N4HtqGC15clGKtHig86f4uAv094a6WxkzP6ILpB_8hrfgFb66kJokWaYtkODVpST1-Sdh7fIAk7foQ" alt="Denah Kantor" class="max-h-56 mx-auto rounded-xl shadow-sm border border-slate-200">
+                    </div>
+                    Pada gambar, panjang kantor total adalah $1 + 3 + 2 = 6\\text{ cm}$ dan lebar kantor total adalah $1 + 2 = 3\\text{ cm}$. Luas kantor yang sebenarnya adalah...
+                `,
+                options: [
+                    { key: "A", text: "$900\\text{ m}^2$" },
+                    { key: "B", text: "$600\\text{ m}^2$" },
+                    { key: "C", text: "$300\\text{ m}^2$" },
+                    { key: "D", text: "$150\\text{ m}^2$" },
+                    { key: "E", text: "$450\\text{ m}^2$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <p class="text-slate-700">Skala $1 : 500$ berarti $1\\text{ cm}$ mewakili $5\\text{ meter}$.</p>
+                    <p class="text-slate-700">Panjang sebenarnya: $6\\text{ cm} \\times 5\\text{ m/cm} = 30\\text{ m}$.</p>
+                    <p class="text-slate-700">Lebar sebenarnya: $3\\text{ cm} \\times 5\\text{ m/cm} = 15\\text{ m}$.</p>
+                    <p class="text-slate-700">Luas kantor sebenarnya: $30\\text{ m} \\times 15\\text{ m} = \\mathbf{450\\text{ m}^2}$.</p>
+                `,
+                trapAnalysis: "Jangan hanya mengalikan $6 \\times 3 = 18$ lalu dikali 500! Mengalikan langsung skala pada luas keliru karena faktor pengali luas adalah $500^2 = 250.000$."
+            },
+
+            // SOAL 21: Denah TKA Arsitektur Terbuka Gambar Asli (Kunci BS: [B, S, S] - tidak seragam)
+            {
+                id: 21,
+                type: "table_bs",
+                subtopic: "Bagian IV: Denah, Skala & Luas Bangunan",
+                targetTime: "2,0 Menit",
+                question: `
+                    Perhatikan denah rumah arsitektural berikut ini (skala $1 : 100$ dan dimensi dalam satuan $\\text{mm}$):<br>
+                    <div class="my-3 text-center">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQAkl1YxXN46sMWEHeE7ZiQ_gkLJFa-_7N8US4OFzSgwA02Kao6M6iEeHOs3yw_DcvTbdk0nDvCOsVPLg8oueRI0KV4ZqFLZKHOMP7-CYogzEEMXEZNcIHfbn8DpgSSeffshuqT_mJChuIM8iL6KX4ZIaX1l1pvbLO-Kttyx2z7SSRPCh5MDH0Vt4_RmfE/s1600/soal-tka-matematika-smp-7.jpg" alt="Denah Rumah Arsitek" class="max-h-60 mx-auto rounded-xl shadow-sm border border-slate-200">
+                    </div>
+                    Tentukan <strong>Benar</strong> atau <strong>Salah</strong> untuk setiap pernyataan di bawah ini!
+                `,
+                rows: [
+                    { text: "Ukuran tanah rumah tersebut sebenarnya adalah 7 m × 10,5 m.", correct: "B" },
+                    { text: "Pemilik rumah ingin memperluas area dapur dengan konsep open kitchen. Luas area dapur setelah diperluas adalah 6 m².", correct: "S" },
+                    { text: "Luas teras depan rumah tersebut sebenarnya adalah 7,5 m².", correct: "S" }
+                ],
+                correctAnswer: ["B", "S", "S"],
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Ukuran denah: $700\\text{ mm} \\times 1050\\text{ mm} = 7\\text{ cm} \\times 10{,}5\\text{ cm}$. Dengan skala $1:100$, ukuran aslinya adalah $7\\text{ m} \\times 10{,}5\\text{ m}$ &rarr; <strong>Benar</strong>.</li>
+                        <li>Dapur diperluas: $3\\text{ cm} \\times 3\\text{ cm}$ pada gambar setara $3\\text{ m} \\times 3\\text{ m} = 9\\text{ m}^2 \\ne 6\\text{ m}^2$ &rarr; <strong>Salah</strong>.</li>
+                        <li>Teras: ukuran gambar $1{,}5\\text{ cm} \\times 7\\text{ cm}$, ukuran sebenarnya $1{,}5\\text{ m} \\times 7\\text{ m} = 10{,}5\\text{ m}^2 \\ne 7{,}5\\text{ m}^2$ &rarr; <strong>Salah</strong>.</li>
+                    </ul>
+                `,
+                trapAnalysis: "Pernyataan 2 mengecoh dengan operasi penjumlahan $3+3=6$ padahal luas adalah perkalian $3 \\times 3 = 9$."
+            },
+
+            // SOAL 22: Analisis Garasi ABCD Gambar Asli (Kunci: A)
+            {
+                id: 22,
+                type: "single",
+                subtopic: "Bagian IV: Denah, Skala & Luas Bangunan",
+                targetTime: "2,0 Menit",
+                question: `
+                    Perhatikan gambar denah rumah berikut (skala $1 : 150$):<br>
+                    <div class="my-3 text-center">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOXGPLFKWq90GHfE_IFm9WMG_mEpMUMm0xPcUEzfhvNxTowndvB2RcHryajJBHbRcAd-RUyQpWBDaUJxhWleFJLu__90ABzo1TWXsNipUY-ZURBnVvvXMku3vaxLwBYhun5pnsxWxylgC7SQfmRk-9WDHb4OW9h30njLTO5dyGe4ZgR1hMisIY3m6ExAZ7/s1600/contoh-soal-tka-matematika-smp-dan-pembahasan.jpg" alt="Denah Garasi" class="max-h-52 mx-auto rounded-xl shadow-sm border border-slate-200">
+                    </div>
+                    Diketahui panjang garasi pada gambar $AB = 5\\text{ cm}$ dan lebar $AD = 3\\text{ cm}$. Perhatikan pernyataan berikut:<br>
+                    (1) Panjang garasi $AB$ sebenarnya adalah $7\\text{ m}$.<br>
+                    (2) Lebar garasi $AD$ sebenarnya adalah $4{,}5\\text{ m}$.<br>
+                    (3) Keliling garasi $ABCD$ sebenarnya adalah $24\\text{ m}$.<br>
+                    (4) Luas garasi $ABCD$ sebenarnya adalah $31{,}5\\text{ m}^2$.<br><br>
+                    Pernyataan yang <strong>BENAR</strong> adalah...
+                `,
+                options: [
+                    { key: "A", text: "Pernyataan (2) dan (3)" },
+                    { key: "B", text: "Pernyataan (1) dan (3)" },
+                    { key: "C", text: "Pernyataan (1) dan (4)" },
+                    { key: "D", text: "Pernyataan (2) dan (4)" },
+                    { key: "E", text: "Pernyataan (3) dan (4)" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>$AB = 5\\text{ cm} \\times 150 = 750\\text{ cm} = 7{,}5\\text{ m}$ (Pernyataan 1 Salah).</li>
+                        <li>$AD = 3\\text{ cm} \\times 150 = 450\\text{ cm} = 4{,}5\\text{ m}$ (Pernyataan 2 Benar).</li>
+                        <li>Keliling $= 2 \\times (7{,}5 + 4{,}5) = 2 \\times 12 = 24\\text{ m}$ (Pernyataan 3 Benar).</li>
+                        <li>Luas $= 7{,}5 \\times 4{,}5 = 33{,}75\\text{ m}^2 \\ne 31{,}5\\text{ m}^2$ (Pernyataan 4 Salah).</li>
+                    </ul>
+                `,
+                trapAnalysis: "Pernyataan (2) dan (3) bernilai benar. Keliling dihitung dari jumlah kedua pasang sisi riil."
+            },
+
+            // SOAL 23: Skala Minimum Kertas Gambar (Kunci: D)
+            {
+                id: 23,
+                type: "single",
+                subtopic: "Bagian IV: Denah, Skala & Luas Bangunan",
+                targetTime: "1,5 Menit",
+                question: "Seorang siswa ingin membuat denah lahan pada kertas gambar berukuran $100\\text{ cm} \\times 70\\text{ cm}$. Ukuran lahan sebenarnya adalah panjang $200\\text{ meter}$ dan lebar $140\\text{ meter}$. Skala standar terkecil yang mungkin dan aman digunakan agar denah termuat penuh di dalam kertas adalah...",
+                options: [
+                    { key: "A", text: "$1 : 50$" },
+                    { key: "B", text: "$1 : 100$" },
+                    { key: "C", text: "$1 : 200$" },
+                    { key: "D", text: "$1 : 250$" },
+                    { key: "E", text: "$1 : 500$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="font-bold text-indigo-900 mb-1">Perhitungan Rasio Batas Ukuran:</p>
+                    <p class="text-slate-700">Rasio panjang: $\\dfrac{100\\text{ cm}}{200\\text{ m}} = \\dfrac{100}{20.000} = \\dfrac{1}{200}$.</p>
+                    <p class="text-slate-700">Rasio lebar: $\\dfrac{70\\text{ cm}}{140\\text{ m}} = \\dfrac{70}{14.000} = \\dfrac{1}{200}$.</p>
+                    <p class="text-slate-700 mt-1">Skala $1 : 200$ adalah batas paling mepet tanpa margin sisa kertas. Agar denah aman dan proporsional digambar di dalam bidang kertas, skala yang memungkinkan adalah $\\mathbf{1 : 250}$.</p>
+                `,
+                trapAnalysis: "Skala seperti $1:100$ atau $1:50$ akan membuat gambar denah menjadi 2x atau 4x lebih besar dari ukuran kertas sehingga kertas tidak muat."
+            },
+
+            // SOAL 24: Selisih Rute Perjalanan Peta Bercabang (Kunci: B)
+            {
+                id: 24,
+                type: "single",
+                subtopic: "Bagian V: Laju, Waktu & Efisiensi",
+                targetTime: "1,5 Menit",
+                question: "Pada peta berskala $1 : 1.500.000$, jarak rute adalah sbb:<br>Kota A ke P = $3\\text{ cm}$, Kota P ke B = $2\\text{ cm}$.<br>Kota A ke Q = $2\\text{ cm}$, Kota Q ke B = $2{,}5\\text{ cm}$.<br>Haikal menempuh rute $A \\to P \\to B$, sedangkan Mondi menempuh rute $A \\to Q \\to B$. Berapakah selisih jarak sebenarnya yang ditempuh Haikal dan Mondi?",
+                options: [
+                    { key: "A", text: "$5\\text{ km}$" },
+                    { key: "B", text: "$7{,}5\\text{ km}$" },
+                    { key: "C", text: "$8\\text{ km}$" },
+                    { key: "D", text: "$9\\text{ km}$" },
+                    { key: "E", text: "$10\\text{ km}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="text-slate-700">Total panjang rute Haikal pada peta: $3 + 2 = 5\\text{ cm}$.</p>
+                    <p class="text-slate-700">Total panjang rute Mondi pada peta: $2 + 2{,}5 = 4{,}5\\text{ cm}$.</p>
+                    <p class="text-slate-700">Selisih panjang di peta: $5 - 4{,}5 = 0{,}5\\text{ cm}$.</p>
+                    <p class="text-slate-700 mt-1">Selisih jarak sebenarnya: $$0{,}5\\text{ cm} \\times 1.500.000 = 750.000\\text{ cm} = \\mathbf{7{,}5\\text{ km}}$$</p>
+                `,
+                trapAnalysis: "Hitung selisih jarak pada peta terlebih dahulu ($0{,}5\\text{ cm}$) sebelum mengalikan dengan skala untuk menghemat waktu ujian."
+            },
+
+            // SOAL 25: Perjalanan Siti dengan Waktu Istirahat (Kunci: E)
+            {
+                id: 25,
+                type: "single",
+                subtopic: "Bagian V: Laju, Waktu & Efisiensi",
+                targetTime: "1,5 Menit",
+                question: "Sebuah peta dibuat dengan skala $1 : 500.000$. Jarak kota A dan B pada peta adalah $18\\text{ cm}$. Siti mengendarai sepeda motor dari kota A menuju B dengan kecepatan rata-rata $40\\text{ km/jam}$. Selama perjalanan ia berhenti $15\\text{ menit}$ untuk mengisi bahan bakar. Jika Siti berangkat pukul $07.00\\text{ WIB}$, ia tiba di kota B pada pukul...",
+                options: [
+                    { key: "A", text: "$09.00\\text{ WIB}$" },
+                    { key: "B", text: "$09.10\\text{ WIB}$" },
+                    { key: "C", text: "$09.15\\text{ WIB}$" },
+                    { key: "D", text: "$09.45\\text{ WIB}$" },
+                    { key: "E", text: "$09.30\\text{ WIB}$" }
+                ],
+                correctAnswer: "E",
+                explanation: `
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li>Jarak riil: $18\\text{ cm} \\times 500.000 = 9.000.000\\text{ cm} = 90\\text{ km}$.</li>
+                        <li>Waktu tempuh berkendara: $t = \\dfrac{90}{40} = 2{,}25\\text{ jam} = 2\\text{ jam } 15\\text{ menit}$.</li>
+                        <li>Waktu istirahat: $15\\text{ menit}$. Total waktu perjalanan $= 2\\text{ jam } 30\\text{ menit}$.</li>
+                        <li>Tiba di tujuan: $07.00 + 02.30 = \\mathbf{09.30\\text{ WIB}}$.</li>
+                    </ul>
+                `,
+                trapAnalysis: "Jangan melupakan waktu istirahat $15$ menit! Tanpa istirahat, siswa akan terkecoh memilih opsi $09.15\\text{ WIB}$."
+            },
+
+            // SOAL 26: Analisis Grafik Perbandingan Senilai Gambar Asli (Kunci: B)
+            {
+                id: 26,
+                type: "single",
+                subtopic: "Bagian V: Laju, Waktu & Efisiensi",
+                targetTime: "1,5 Menit",
+                question: `
+                    Grafik berikut menunjukkan hubungan perbandingan senilai linear:<br>
+                    <div class="my-3 text-center">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBj43g-1OgtJ9J4ftcwRWHCA5Ry74E5_B39Rh9Fc79MaWju9TUMkk9xUvfp4EZtSc15rro4Fg1QJNLkQ9drzqY7B1eRCdClV5XDLTGyg9ppb6SPRDaJAiWiHzVkTEimP11tSdUUZURz7WI5Z8VzhNXWfpXPEVhvqNe12YnR48H_xYgR10rInz5fdCxRw/s1600/garis%20perbandingan%20senilai.jpg" alt="Grafik Perbandingan" class="max-h-52 mx-auto rounded-xl shadow-sm border border-slate-200">
+                    </div>
+                    Jika koordinat yang dilalui adalah $(2, -1)$ dan $(4, -2)$, maka apabila nilai $x = 10$, nilai ordinat $y$ adalah...
+                `,
+                options: [
+                    { key: "A", text: "$-20$" },
+                    { key: "B", text: "$-5$" },
+                    { key: "C", text: "$-10$" },
+                    { key: "D", text: "$5$" },
+                    { key: "E", text: "$20$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="text-slate-700">Persamaan linear melalui titik asal: $\\dfrac{y}{x} = \\dfrac{-1}{2} = -0{,}5$.</p>
+                    <p class="text-slate-700">Untuk $x = 10$: $$y = -0{,}5 \\times 10 = \\mathbf{-5}$$</p>
+                `,
+                trapAnalysis: "Perhatikan tanda negatif pada grafik di kuadran IV. Nilai ordinat $y$ bernilai $-5$, bukan $+5$."
+            },
+
+            // SOAL 27: Kecepatan Mobil Berbanding Terbalik Waktu (Kunci: C)
+            {
+                id: 27,
+                type: "single",
+                subtopic: "Bagian V: Laju, Waktu & Efisiensi",
+                targetTime: "1,0 Menit",
+                question: "Sebuah mobil menempuh jarak kota A ke B dalam waktu $1{,}6\\text{ jam}$ dengan kecepatan rata-rata $75\\text{ km/jam}$. Jika mobil tersebut ingin menempuh jarak yang sama dalam waktu tepat $1\\text{ jam}$, maka kecepatan rata-rata yang harus dicapai adalah...",
+                options: [
+                    { key: "A", text: "$90\\text{ km/jam}$" },
+                    { key: "B", text: "$100\\text{ km/jam}$" },
+                    { key: "C", text: "$120\\text{ km/jam}$" },
+                    { key: "D", text: "$110\\text{ km/jam}$" },
+                    { key: "E", text: "$130\\text{ km/jam}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p class="text-slate-700">Jarak tempuh tetap: $s = v_1 \\times t_1 = 75 \\times 1{,}6 = 120\\text{ km}$.</p>
+                    <p class="text-slate-700">Kecepatan untuk waktu $t_2 = 1\\text{ jam}$: $$v_2 = \\frac{s}{t_2} = \\frac{120\\text{ km}}{1\\text{ jam}} = \\mathbf{120\\text{ km/jam}}$$</p>
+                `,
+                trapAnalysis: "Waktu berkurang dari 1,6 jam ke 1 jam, sehingga kecepatan harus ditingkatkan menjadi 120 km/jam."
+            },
+
+            // SOAL 28: Persediaan Beras Keluarga (Kunci: D)
+            {
+                id: 28,
+                type: "single",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "1,2 Menit",
+                question: "Sebuah keluarga memiliki persediaan beras yang cukup untuk $15\\text{ hari}$ bagi $6\\text{ orang}$. Jika $2\\text{ orang}$ anggota keluarga pergi ke luar kota, maka persediaan beras tersebut akan cukup untuk berapa hari bagi anggota keluarga yang tersisa?",
+                options: [
+                    { key: "A", text: "$18\\text{ hari}$" },
+                    { key: "B", text: "$20\\text{ hari}$" },
+                    { key: "C", text: "$24\\text{ hari}$" },
+                    { key: "D", text: "$22{,}5\\text{ hari}$" },
+                    { key: "E", text: "$25\\text{ hari}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p class="text-slate-700">Sisa anggota keluarga: $6 - 2 = 4\\text{ orang}$.</p>
+                    <p class="text-slate-700">Perbandingan berbalik nilai: $$\\frac{6}{4} = \\frac{x}{15} \\implies 4x = 90 \\implies x = \\mathbf{22{,}5\\text{ hari}}$$</p>
+                `,
+                trapAnalysis: "Jangan membagi dengan 2 (orang yang pergi), tetapi bagilah dengan 4 (orang yang tersisa)."
+            },
+
+            // SOAL 29: Konsumsi Baterai Mobil Listrik (Kunci: B)
+            {
+                id: 29,
+                type: "single",
+                subtopic: "Bagian V: Laju, Waktu & Efisiensi",
+                targetTime: "1,0 Menit",
+                question: "Sebanyak $25\\%$ kapasitas baterai sebuah mobil listrik dapat digunakan untuk menempuh jarak $80\\text{ km}$. Jika mobil tersebut telah menggunakan $50\\%$ daya baterainya, berapa jarak lagi yang masih dapat ditempuh dengan sisa daya yang tersedia?",
+                options: [
+                    { key: "A", text: "$120\\text{ km}$" },
+                    { key: "B", text: "$160\\text{ km}$" },
+                    { key: "C", text: "$100\\text{ km}$" },
+                    { key: "D", text: "$80\\text{ km}$" },
+                    { key: "E", text: "$200\\text{ km}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p class="text-slate-700">Baterai yang tersisa: $100\\% - 50\\% = 50\\%$.</p>
+                    <p class="text-slate-700">Karena $25\\%$ setara $80\\text{ km}$, maka $50\\%$ setara: $$2 \\times 80\\text{ km} = \\mathbf{160\\text{ km}}$$</p>
+                `,
+                trapAnalysis: "Perhatikan teks soal asli yang sempat salah cetak satuan; jarak dinyatakan dalam kilometer ($160\\text{ km}$)."
+            },
+
+            // SOAL 30: Penambahan Pekerja Cepat (Kunci: A)
+            {
+                id: 30,
+                type: "single",
+                subtopic: "Bagian I: Proyek & Beban Kerja Terhenti",
+                targetTime: "1,5 Menit",
+                question: "Pembangunan sebuah jembatan direncanakan selesai dalam waktu $132\\text{ hari}$ oleh $72\\text{ pekerja}$. Sebelum pekerjaan dimulai, mandor menambah $24\\text{ orang}$ pekerja baru. Waktu yang dibutuhkan untuk menyelesaikan pembangunan jembatan tersebut sekarang menjadi...",
+                options: [
+                    { key: "A", text: "$99\\text{ hari}$" },
+                    { key: "B", text: "$108\\text{ hari}$" },
+                    { key: "C", text: "$114\\text{ hari}$" },
+                    { key: "D", text: "$120\\text{ hari}$" },
+                    { key: "E", text: "$126\\text{ hari}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p class="text-slate-700">Jumlah pekerja baru: $72 + 24 = 96\\text{ orang}$.</p>
+                    <p class="text-slate-700">Perbandingan berbalik nilai: $$\\frac{72}{96} = \\frac{x}{132} \\implies \\frac{3}{4} = \\frac{x}{132} \\implies x = \\frac{3 \\times 132}{4} = 3 \\times 33 = \\mathbf{99\\text{ hari}}$$</p>
+                `,
+                trapAnalysis: "Sederhanakan rasio pekerja $72/96 = 3/4$ agar perhitungan menjadi perkalian sederhana $3 \\times 33 = 99$ hari."
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 80 * 60; // 80 menit
+        let timerInterval = null;
+        let isSubmitted = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                let interactionHTML = '';
+
+                if (q.type === "single") {
+                    let optionsHTML = '';
+                    const gridColsClass = q.options.length <= 4 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2";
+                    q.options.forEach(opt => {
+                        optionsHTML += `
+                            <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/40 transition-all flex items-center gap-3.5 group">
+                                <div class="option-indicator w-9 h-9 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400 shrink-0">
+                                    ${opt.key}
+                                </div>
+                                <div class="text-slate-800 text-sm md:text-base font-medium flex-1">
+                                    ${opt.text}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    interactionHTML = `<div class="grid ${gridColsClass} gap-3" id="options-group-${qNum}">${optionsHTML}</div>`;
+                } else if (q.type === "multiple_checkbox") {
+                    let checkboxesHTML = '';
+                    q.checkboxOptions.forEach(opt => {
+                        checkboxesHTML += `
+                            <div onclick="toggleCheckbox(${qNum}, '${opt.key}')" id="chk-box-${qNum}-${opt.key}" class="checkbox-card cursor-pointer p-3.5 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/40 transition-all flex items-center gap-3.5 group">
+                                <div class="checkbox-indicator w-8 h-8 rounded-lg border-2 border-slate-300 bg-slate-100 text-slate-600 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400 shrink-0">
+                                    <svg class="w-4 h-4 check-svg hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="box-num">[${opt.key}]</span>
+                                </div>
+                                <div class="text-slate-800 text-sm md:text-base font-medium flex-1">
+                                    ${opt.text}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    interactionHTML = `<div class="space-y-2.5 max-w-2xl" id="checkbox-group-${qNum}">${checkboxesHTML}</div>`;
+                } else if (q.type === "table_bs") {
+                    let rowsHTML = '';
+                    q.rows.forEach((row, rIdx) => {
+                        rowsHTML += `
+                            <tr class="border-b border-slate-200 hover:bg-slate-50/60 transition">
+                                <td class="py-3 px-3 md:px-4 text-sm md:text-base text-slate-800 font-medium">
+                                    ${row.text}
+                                </td>
+                                <td class="py-3 px-2 text-center w-24">
+                                    <button type="button" onclick="selectTableMatrix(${qNum}, ${rIdx}, 'B')" id="matrix-btn-${qNum}-${rIdx}-B" class="matrix-btn w-full py-2 px-2.5 rounded-xl border border-slate-300 bg-slate-100 text-slate-700 font-bold text-xs hover:bg-emerald-100 hover:text-emerald-800 transition cursor-pointer">
+                                        Benar
+                                    </button>
+                                </td>
+                                <td class="py-3 px-2 text-center w-24">
+                                    <button type="button" onclick="selectTableMatrix(${qNum}, ${rIdx}, 'S')" id="matrix-btn-${qNum}-${rIdx}-S" class="matrix-btn w-full py-2 px-2.5 rounded-xl border border-slate-300 bg-slate-100 text-slate-700 font-bold text-xs hover:bg-rose-100 hover:text-rose-800 transition cursor-pointer">
+                                        Salah
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    interactionHTML = `
+                        <div class="overflow-x-auto rounded-2xl border border-slate-300 shadow-sm bg-white">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-indigo-50/70 border-b border-slate-300 text-indigo-950 font-bold text-xs md:text-sm">
+                                        <th class="py-3 px-3 md:px-4">Pernyataan</th>
+                                        <th class="py-3 px-2 text-center w-24">Benar</th>
+                                        <th class="py-3 px-2 text-center w-24">Salah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rowsHTML}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                }
+
+                let instructionNote = "*Pilih salah satu opsi jawaban.";
+                if (q.type === "multiple_checkbox") instructionNote = "*Centang semua kotak jawaban yang bernilai benar.";
+                if (q.type === "table_bs") instructionNote = "*Tentukan status 'Benar' atau 'Salah' untuk setiap baris.";
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <!-- Top Header Info -->
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-indigo-100 text-indigo-900 border-indigo-200 border text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide">${q.subtopic}</span>
+                                <span class="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-lg">Target: ${q.targetTime}</span>
+                            </div>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions}</span>
+                        </div>
+
+                        <!-- Question & Choices Card -->
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                ${interactionHTML}
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>${instructionNote}</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-9 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (optEl) {
+                    if (opt.key === key) optEl.classList.add('selected');
+                    else optEl.classList.remove('selected');
+                }
+            });
+
+            updateNavAndStatus(qNum);
+        }
+
+        function toggleCheckbox(qNum, key) {
+            if (isSubmitted) return;
+            if (!Array.isArray(userAnswers[qNum])) {
+                userAnswers[qNum] = [];
+            }
+            
+            const arr = userAnswers[qNum];
+            const idx = arr.indexOf(key);
+            if (idx > -1) {
+                arr.splice(idx, 1);
+            } else {
+                arr.push(key);
+                arr.sort();
+            }
+
+            const card = document.getElementById(`chk-box-${qNum}-${key}`);
+            if (card) {
+                const checkSvg = card.querySelector('.check-svg');
+                const boxNum = card.querySelector('.box-num');
+                if (arr.includes(key)) {
+                    card.classList.add('selected');
+                    if (checkSvg) checkSvg.classList.remove('hidden');
+                    if (boxNum) boxNum.classList.add('hidden');
+                } else {
+                    card.classList.remove('selected');
+                    if (checkSvg) checkSvg.classList.add('hidden');
+                    if (boxNum) boxNum.classList.remove('hidden');
+                }
+            }
+
+            if (arr.length === 0) {
+                delete userAnswers[qNum];
+            }
+
+            updateNavAndStatus(qNum);
+        }
+
+        function selectTableMatrix(qNum, rowIdx, choice) {
+            if (isSubmitted) return;
+            if (!userAnswers[qNum] || typeof userAnswers[qNum] !== 'object') {
+                userAnswers[qNum] = {};
+            }
+
+            userAnswers[qNum][rowIdx] = choice;
+
+            const btnB = document.getElementById(`matrix-btn-${qNum}-${rowIdx}-B`);
+            const btnS = document.getElementById(`matrix-btn-${qNum}-${rowIdx}-S`);
+
+            if (choice === 'B') {
+                if (btnB) btnB.classList.add('selected-b');
+                if (btnS) btnS.classList.remove('selected-s');
+            } else {
+                if (btnS) btnS.classList.add('selected-s');
+                if (btnB) btnB.classList.remove('selected-b');
+            }
+
+            updateNavAndStatus(qNum);
+        }
+
+        function updateNavAndStatus(qNum) {
+            const q = questionsData[qNum - 1];
+            const ans = userAnswers[qNum];
+            let isComplete = false;
+
+            if (q.type === 'single') {
+                isComplete = Boolean(ans);
+            } else if (q.type === 'multiple_checkbox') {
+                isComplete = Array.isArray(ans) && ans.length > 0;
+            } else if (q.type === 'table_bs') {
+                isComplete = ans && typeof ans === 'object' && Object.keys(ans).length === q.rows.length;
+            }
+
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                if (isComplete) {
+                    navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+                } else {
+                    navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+            }
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                if (isComplete) {
+                    if (q.type === 'single') statusEl.innerText = `Pilihan: (${ans})`;
+                    else if (q.type === 'multiple_checkbox') statusEl.innerText = `Terpilih: [${ans.join(', ')}]`;
+                    else if (q.type === 'table_bs') statusEl.innerText = `Lengkap Diisi`;
+                    statusEl.classList.remove('hidden');
+                } else {
+                    statusEl.classList.add('hidden');
+                }
+            }
+
+            const answeredCount = Object.keys(userAnswers).filter(k => {
+                const qItem = questionsData[k - 1];
+                const a = userAnswers[k];
+                if (qItem.type === 'table_bs') return a && Object.keys(a).length === qItem.rows.length;
+                return Boolean(a);
+            }).length;
+
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            const q = questionsData[qNum - 1];
+            delete userAnswers[qNum];
+
+            if (q.type === 'single') {
+                q.options.forEach(opt => {
+                    const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                    if (optEl) optEl.classList.remove('selected');
+                });
+            } else if (q.type === 'multiple_checkbox') {
+                q.checkboxOptions.forEach(opt => {
+                    const card = document.getElementById(`chk-box-${qNum}-${opt.key}`);
+                    if (card) {
+                        card.classList.remove('selected');
+                        const checkSvg = card.querySelector('.check-svg');
+                        const boxNum = card.querySelector('.box-num');
+                        if (checkSvg) checkSvg.classList.add('hidden');
+                        if (boxNum) boxNum.classList.remove('hidden');
+                    }
+                });
+            } else if (q.type === 'table_bs') {
+                q.rows.forEach((_, rIdx) => {
+                    const btnB = document.getElementById(`matrix-btn-${qNum}-${rIdx}-B`);
+                    const btnS = document.getElementById(`matrix-btn-${qNum}-${rIdx}-S`);
+                    if (btnB) btnB.classList.remove('selected-b');
+                    if (btnS) btnS.classList.remove('selected-s');
+                });
+            }
+
+            updateNavAndStatus(qNum);
+        }
+
+        function startQuiz() {
+            const nama = document.getElementById('input-nama').value.trim();
+            const sekolah = document.getElementById('input-sekolah').value.trim();
+            const jurusan = document.getElementById('input-jurusan').value.trim();
+            const univ = document.getElementById('input-univ').value.trim();
+
+            const errorMsg = document.getElementById('form-error-msg');
+            if (!nama || !sekolah || !jurusan || !univ) {
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+            errorMsg.classList.add('hidden');
+
+            studentData = {
+                nama: nama,
+                asalSekolah: sekolah,
+                jurusan: jurusan,
+                universitas: univ
+            };
+
+            const headerInfo = document.getElementById('student-header-info');
+            if (headerInfo) {
+                headerInfo.innerText = `${nama} (${sekolah}) • Target: ${jurusan} - ${univ}`;
+            }
+
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} soal yang belum dijawab!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua 30 butir soal telah terjawab!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi pengerjaan Try Out SNBT ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Try Out Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Alokasi waktu 80 menit telah berakhir. Lembar ujian dikumpulkan otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Hasil & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function sendDataToGoogleSheets(totalScore, correctCount, incorrectCount) {
+            const syncStatusEl = document.getElementById('sync-status');
+            if (!syncStatusEl) return;
+
+            // Jika URL belum diset, tetap tampilkan status offline mandiri
+            if (!SCRIPT_URL || SCRIPT_URL.trim() === "") {
+                syncStatusEl.className = "inline-flex items-center gap-2 bg-indigo-500/20 text-indigo-200 border border-indigo-400/40 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6";
+                syncStatusEl.innerHTML = `
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>Mode Offline Mandiri (Hasil Tersimpan di Browser)</span>
+                `;
+                return;
+            }
+
+            // Tampilkan status proses kirim
+            syncStatusEl.className = "inline-flex items-center gap-2 bg-amber-500/20 text-amber-200 border border-amber-400/40 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6";
+            syncStatusEl.innerHTML = `
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                <span>Menyinkronkan data ke Google Spreadsheet...</span>
+            `;
+
+            // Format jawaban 1-30 agar mudah dibaca di baris spreadsheet
+            const formattedAnswers = {};
+            for (let i = 1; i <= totalQuestions; i++) {
+                const ans = userAnswers[i];
+                if (ans === undefined || ans === null) {
+                    formattedAnswers[`No_${i}`] = "-";
+                } else if (Array.isArray(ans)) {
+                    formattedAnswers[`No_${i}`] = `[${ans.join(', ')}]`;
+                } else if (typeof ans === 'object') {
+                    formattedAnswers[`No_${i}`] = Object.entries(ans).map(([r, val]) => `P${parseInt(r)+1}:${val}`).join('; ');
+                } else {
+                    formattedAnswers[`No_${i}`] = ans;
+                }
+            }
+
+            const payload = {
+                timestamp: new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" }),
+                nama: studentData.nama || "-",
+                asalSekolah: studentData.asalSekolah || "-",
+                jurusan: studentData.jurusan || "-",
+                universitas: studentData.universitas || "-",
+                finalScore: totalScore,
+                correctCount: correctCount,
+                incorrectCount: incorrectCount,
+                answers: formattedAnswers
+            };
+
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8"
+                },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                syncStatusEl.className = "inline-flex items-center gap-2 bg-emerald-500/25 text-emerald-200 border border-emerald-400 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6";
+                syncStatusEl.innerHTML = `
+                    <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Data nilai & jawaban berhasil tersimpan di Google Spreadsheet!</span>
+                `;
+            }).catch((err) => {
+                console.error("Gagal menyinkronkan data:", err);
+                syncStatusEl.className = "inline-flex items-center gap-2 bg-rose-500/25 text-rose-200 border border-rose-400 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6";
+                syncStatusEl.innerHTML = `
+                    <svg class="w-4 h-4 text-rose-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <span>Gagal mengirim ke Google Spreadsheet (Periksa koneksi).</span>
+                `;
+            });
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                let isCorrect = false;
+
+                if (q.type === 'single') {
+                    isCorrect = (userAns === q.correctAnswer);
+                } else if (q.type === 'multiple_checkbox') {
+                    if (Array.isArray(userAns)) {
+                        const sortedUser = [...userAns].sort();
+                        const sortedKey = [...q.correctAnswer].sort();
+                        isCorrect = (sortedUser.length === sortedKey.length && sortedUser.every((v, i) => v === sortedKey[i]));
+                    }
+                } else if (q.type === 'table_bs') {
+                    if (userAns && typeof userAns === 'object') {
+                        isCorrect = q.rows.every((row, rIdx) => userAns[rIdx] === row.correct);
+                    }
+                }
+
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            // Skor skala 100
+            const finalScore = Math.round((correctCount / totalQuestions) * 100);
+            const percentage = `${finalScore}%`;
+
+            document.getElementById('final-score').innerText = finalScore;
+            document.getElementById('final-percentage').innerText = percentage;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            // Panggil pengiriman otomatis ke Google Spreadsheet
+            sendDataToGoogleSheets(finalScore, correctCount, incorrectCount);
+
+            renderReviewCards('all');
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH</span>`;
+                }
+
+                let reviewInteractionHTML = '';
+
+                if (q.type === 'single') {
+                    let optsHTML = '';
+                    q.options.forEach(opt => {
+                        let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                        let mark = '';
+
+                        if (opt.key === q.correctAnswer) {
+                            optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                            mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                        }
+                        if (userAns === opt.key && !isCorrect) {
+                            optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                            mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Pilihan Anda</span>';
+                        } else if (userAns === opt.key && isCorrect) {
+                            mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Pilihan Anda Tepat</span>';
+                        }
+
+                        optsHTML += `
+                            <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                                <span class="w-7 h-7 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                                <div class="flex-1">${opt.text}</div>
+                                ${mark}
+                            </div>
+                        `;
+                    });
+                    reviewInteractionHTML = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">${optsHTML}</div>`;
+                } else if (q.type === 'multiple_checkbox') {
+                    let chksHTML = '';
+                    const userChecked = Array.isArray(userAns) ? userAns : [];
+                    q.checkboxOptions.forEach(opt => {
+                        const isMustBeChecked = q.correctAnswer.includes(opt.key);
+                        const isUserChecked = userChecked.includes(opt.key);
+
+                        let cardClass = 'border-slate-200 bg-slate-50 text-slate-700';
+                        let badge = '';
+
+                        if (isMustBeChecked && isUserChecked) {
+                            cardClass = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                            badge = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Tepat Dicentang</span>';
+                        } else if (isMustBeChecked && !isUserChecked) {
+                            cardClass = 'border-amber-500 bg-amber-50 text-amber-900 font-bold';
+                            badge = '<span class="text-xs bg-amber-600 text-white px-2 py-0.5 rounded-md ml-auto">Harusnya Dicentang</span>';
+                        } else if (!isMustBeChecked && isUserChecked) {
+                            cardClass = 'border-rose-500 bg-rose-50 text-rose-900 font-bold';
+                            badge = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Keliru Dicentang</span>';
+                        }
+
+                        chksHTML += `
+                            <div class="p-3 rounded-xl border ${cardClass} flex items-center gap-3 text-sm">
+                                <span class="w-6 h-6 rounded-md bg-white border border-slate-300 flex items-center justify-center font-black text-xs shrink-0">
+                                    ${isUserChecked ? '✓' : ''}
+                                </span>
+                                <div class="flex-1">[Kotak ${opt.key}] ${opt.text}</div>
+                                ${badge}
+                            </div>
+                        `;
+                    });
+                    reviewInteractionHTML = `<div class="space-y-2.5 my-4 max-w-2xl">${chksHTML}</div>`;
+                } else if (q.type === 'table_bs') {
+                    let rowsReviewHTML = '';
+                    q.rows.forEach((row, rIdx) => {
+                        const userChoice = userAns && userAns[rIdx] ? userAns[rIdx] : null;
+                        const isRowCorrect = (userChoice === row.correct);
+
+                        rowsReviewHTML += `
+                            <tr class="border-b border-slate-200 text-sm">
+                                <td class="py-2.5 px-3 font-medium text-slate-800">${row.text}</td>
+                                <td class="py-2.5 px-2 text-center">
+                                    <span class="px-2 py-1 rounded-md text-xs font-bold ${row.correct === 'B' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-400'}">
+                                        Benar
+                                    </span>
+                                </td>
+                                <td class="py-2.5 px-2 text-center">
+                                    <span class="px-2 py-1 rounded-md text-xs font-bold ${row.correct === 'S' ? 'bg-rose-600 text-white' : 'bg-slate-100 text-slate-400'}">
+                                        Salah
+                                    </span>
+                                </td>
+                                <td class="py-2.5 px-2 text-center text-xs font-bold ${isRowCorrect ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'}">
+                                    ${userChoice ? (userChoice === 'B' ? 'Pilihan: Benar' : 'Pilihan: Salah') : 'Tidak diisi'}
+                                    ${isRowCorrect ? ' (✓ Tepat)' : ' (✗ Keliru)'}
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                    reviewInteractionHTML = `
+                        <div class="overflow-x-auto rounded-2xl border border-slate-300 shadow-sm bg-white my-4">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-300 text-slate-700 font-bold text-xs">
+                                        <th class="py-2 px-3">Pernyataan</th>
+                                        <th class="py-2 px-2 text-center w-20">Kunci: B</th>
+                                        <th class="py-2 px-2 text-center w-20">Kunci: S</th>
+                                        <th class="py-2 px-2 text-center w-36">Evaluasi Jawaban Anda</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rowsReviewHTML}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                }
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <!-- Card Header -->
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.subtopic})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            <!-- Pilihan Jawaban Review Sesuai Tipe Asli -->
+                            ${reviewInteractionHTML}
+
+                            <!-- Explanation Box -->
+                            <div class="bg-indigo-50/60 rounded-2xl p-5 border border-indigo-200 mt-4 space-y-4">
+                                <div>
+                                    <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-2">
+                                        <svg class="w-4 h-4 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                        Pembahasan Matematis & Cara Cepat:
+                                    </h4>
+                                    <div class="text-sm text-slate-700 leading-relaxed">
+                                        ${q.explanation}
+                                    </div>
+                                </div>
+
+                                <!-- Trap Analysis Box -->
+                                <div class="bg-rose-50/80 rounded-xl p-4 border border-rose-200 text-xs sm:text-sm text-rose-950 space-y-1">
+                                    <h5 class="font-black text-rose-900 flex items-center gap-1.5 uppercase tracking-wide text-xs mb-1">
+                                        <svg class="w-4 h-4 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                        Catatan & Evaluasi Pengecoh:
+                                    </h5>
+                                    <div class="space-y-1">
+                                        ${q.trapAnalysis}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
