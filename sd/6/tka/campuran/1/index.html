@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Latihan Soal TKA Matematika SD/MI - 30 Butir Soal Lengkap</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-section { display: none !important; }
+        .question-slide { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar */
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Multiple Choice Active Selection Style */
+        .option-card.selected {
+            border-color: #4f46e5 !important;
+            background-color: #eef2ff !important;
+            box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.15);
+        }
+        .option-card.selected .option-indicator {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4f46e5 !important;
+        }
+
+        /* True/False Active Selection Style */
+        .tf-choice-btn.selected-tf {
+            background-color: #4f46e5 !important;
+            color: #ffffff !important;
+            border-color: #4338ca !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-200 min-h-screen">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="min-h-screen flex flex-col justify-between items-center bg-gradient-to-br from-indigo-50 via-slate-50 to-sky-100 p-3 sm:p-4 md:p-6">
+        <div class="pt-1"></div>
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl max-w-3xl w-full border-t-8 border-indigo-600 my-auto">
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-black rounded-full uppercase tracking-wider">Matematika SD / MI</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider">Tes Kemampuan Akademik</span>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-full uppercase tracking-wider">30 Soal Lengkap</span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-black text-center text-slate-900 mb-2 leading-tight">SIMULASI UJIAN TKA MATEMATIKA SD / MI</h1>
+            <p class="text-center text-slate-500 font-semibold mb-6 text-sm md:text-base">Materi: Pecahan, Operasi Hitung, KPK &amp; FPB, Geometri, Pengukuran, Pengolahan Data &amp; Statistika</p>
+            
+            <div class="bg-indigo-50/80 p-5 rounded-2xl mb-6 border border-indigo-100 shadow-sm space-y-3">
+                <h2 class="font-bold text-indigo-900 flex items-center text-base">
+                    <svg class="w-5 h-5 mr-2 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Petunjuk &amp; Ketentuan Pengerjaan:
+                </h2>
+                <ul class="list-disc list-inside text-xs md:text-sm text-indigo-950 space-y-1.5 leading-relaxed">
+                    <li>Jumlah Soal: <strong>30 Butir Soal</strong> (Pilihan Ganda &amp; Analisis Benar/Salah).</li>
+                    <li>Waktu Pengerjaan: <strong>60 Menit</strong> (disertai penghitung waktu mundur otomatis).</li>
+                    <li>Setiap butir soal bernilai <strong>3,33 Poin</strong> (Skor Maksimal: 100 Poin).</li>
+                    <li>Pilihlah salah satu opsi jawaban yang Anda anggap paling tepat pada tiap nomor.</li>
+                    <li>Anda dapat melompat ke nomor tertentu melalui panel navigasi nomor soal (1–30).</li>
+                    <li>Kunci jawaban dan pembahasan langkah demi langkah (<em>step-by-step</em>) akan ditampilkan lengkap setelah ujian selesai dikumpulkan.</li>
+                </ul>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold mb-8">
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 1</p>
+                    <p class="text-xs font-black">Bilangan &amp; Pecahan</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 2</p>
+                    <p class="text-xs font-black">KPK, FPB &amp; Aritmatika</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 3</p>
+                    <p class="text-xs font-black">Geometri &amp; Pengukuran</p>
+                </div>
+                <div class="p-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-2xl">
+                    <p class="text-[10px] uppercase text-slate-500">Materi 4</p>
+                    <p class="text-xs font-black">Pengolahan Data</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="startQuiz()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition active:scale-98 hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Ujian Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+
+        <!-- Footer Start Screen -->
+        <footer class="w-full py-3 md:py-4 text-center text-xs text-slate-600 mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- QUIZ APP CONTAINER -->
+    <div id="quiz-app" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow">
+            <!-- Sticky Top Header & Timer -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                            <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                            <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                            <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                            <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                            <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                            <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                        </svg>
+                        <div>
+                            <h1 class="text-base md:text-lg font-black text-indigo-900 leading-tight">UJIAN TKA MATEMATIKA SD / MI</h1>
+                            <p class="text-xs text-slate-500 font-semibold hidden sm:block">30 Butir Soal Terstruktur &amp; Interaktif</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider hidden md:inline">Sisa Waktu:</span>
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-xl font-mono text-lg font-extrabold border border-indigo-200 shadow-inner" id="timer-display">
+                            60:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 mt-6">
+                <!-- Navigation Panel for 30 Questions -->
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 mb-6">
+                    <div class="flex justify-between items-center mb-3">
+                        <p class="text-xs font-black text-slate-500 uppercase tracking-wider">Navigasi Nomor Soal (1–30)</p>
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg" id="answered-counter">Terjawab: 0 / 30</span>
+                    </div>
+                    <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-15 gap-1.5" id="nav-container">
+                        <!-- Nav buttons dynamically injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Quiz Slide Container -->
+                <form id="quiz-form" onsubmit="event.preventDefault();">
+                    <div id="slides-container">
+                        <!-- Dynamic Question Slides with Multiple Choice options or True/False items -->
+                    </div>
+
+                    <!-- Bottom Navigation Controls -->
+                    <div class="flex justify-between items-center mt-6 mb-8">
+                        <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-5 py-3 bg-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2 cursor-pointer">
+                            &#8592; Sebelumnya
+                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="clearSelectedOption(currentQuestion)" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold text-xs transition cursor-pointer">
+                                Hapus Pilihan
+                            </button>
+                            <button type="button" id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition shadow-md flex items-center gap-2 cursor-pointer">
+                                <span>Soal Berikutnya</span> &#8594;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Quiz Page -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CUSTOM CONFIRMATION MODAL -->
+    <div id="custom-modal" class="hidden-section fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 transition-all duration-200" id="modal-box">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4" id="modal-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-black mb-2 text-slate-800">Konfirmasi Selesai Ujian</h3>
+            <p id="modal-message" class="mb-6 text-slate-600 text-sm leading-relaxed">Apakah Anda yakin ingin menyelesaikan dan mengumpulkan lembar ujian ini? Nilai dan seluruh pembahasan lengkap akan segera ditampilkan.</p>
+            <div id="modal-actions" class="flex flex-col sm:flex-row justify-center gap-3">
+                <button type="button" onclick="closeModal()" class="w-full sm:w-auto px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & DETAILED REVIEW SCREEN -->
+    <div id="result-screen" class="hidden-section min-h-screen flex flex-col justify-between">
+        <div class="flex-grow max-w-5xl mx-auto px-4 mt-6 w-full">
+            <!-- Summary Header Card -->
+            <div class="bg-gradient-to-br from-indigo-700 via-indigo-800 to-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-3 backdrop-blur-md">Ujian Selesai</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-2">RINGKASAN HASIL &amp; EVALUASI</h2>
+                <p class="mb-8 text-indigo-100 text-sm md:text-base max-w-md mx-auto">Berikut adalah laporan perolehan nilai dan kunci pembahasan komprehensif 30 butir soal TKA Matematika SD/MI.</p>
+                            
+                <!-- Score Highlights Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/10 p-5 rounded-2xl backdrop-blur-md max-w-3xl mx-auto border border-white/20">
+                    <div class="p-2 text-center">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Total Skor</p>
+                        <p class="text-3xl md:text-4xl font-black text-white"><span id="final-score">0</span><span class="text-lg text-indigo-200 font-normal">/100</span></p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Persentase</p>
+                        <p class="text-3xl md:text-4xl font-black text-yellow-300" id="final-percentage">0%</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Benar</p>
+                        <p class="text-2xl md:text-3xl font-black text-emerald-300" id="correct-count">0</p>
+                    </div>
+                    <div class="p-2 text-center border-l border-white/20 col-span-1">
+                        <p class="text-xs text-indigo-200 font-extrabold uppercase mb-1">Salah / Kosong</p>
+                        <p class="text-2xl md:text-3xl font-black text-rose-300" id="incorrect-count">0</p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });" class="mt-8 bg-white text-indigo-800 hover:bg-indigo-50 font-bold py-3.5 px-8 rounded-full shadow-lg transition inline-flex items-center gap-2 transform hover:scale-105 cursor-pointer">
+                    <span>Lihat Pembahasan Lengkap</span>
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+
+            <!-- Detailed Review Section -->
+            <div id="review-section" class="mt-10 mb-16">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800">Kunci Jawaban &amp; Alternatif Pembahasan</h3>
+                        <p class="text-sm text-slate-500">Pelajari rincian rumus dan langkah pengerjaan setiap butir soal berikut.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold gap-1 self-start md:self-auto">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3.5 py-2 rounded-lg bg-white text-indigo-700 shadow-sm transition cursor-pointer">Semua Soal (<span id="cnt-all">30</span>)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-emerald-700 transition cursor-pointer">Benar (<span id="cnt-correct">0</span>)</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-rose-700 transition cursor-pointer">Salah/Kosong (<span id="cnt-wrong">0</span>)</button>
+                    </div>
+                </div>
+
+                <!-- Review Cards List Container -->
+                <div id="review-cards-container" class="space-y-6">
+                    <!-- Generated dynamically via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Result Screen -->
+        <footer class="mt-8 py-4 bg-white border-t border-slate-200 text-center text-xs md:text-sm text-slate-600">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" class="h-6 md:h-7 w-auto text-indigo-900 shrink-0" fill="none">
+                        <rect x="16" y="16" width="168" height="168" rx="32" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="100" y1="16" x2="100" y2="184" stroke="currentColor" stroke-width="12"/>
+                        <line x1="16" y1="100" x2="184" y2="100" stroke="currentColor" stroke-width="12"/>
+                        <line x1="58" y1="38" x2="58" y2="78" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="38" y1="58" x2="78" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="58" x2="162" y2="58" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="44" y1="128" x2="72" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="72" y1="128" x2="44" y2="156" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <line x1="122" y1="142" x2="162" y2="142" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+                        <circle cx="142" cy="124" r="6.5" fill="currentColor"/>
+                        <circle cx="142" cy="160" r="6.5" fill="currentColor"/>
+                        <text x="100" y="212" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="17" fill="currentColor" letter-spacing="-0.4">mtkbarengkakdhanar</text>
+                    </svg>
+                    <span class="font-bold text-slate-800">&copy; Dhanardi Riansyah</span>
+                    <span>&bull;</span>
+                    <span class="font-medium text-slate-500">All Rights Reserved</span>
+                </div>
+                <a href="https://wa.me/6281381374712" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-slate-700 hover:text-emerald-700 transition bg-emerald-50/80 hover:bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-200/80 text-xs">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.947-1.48-2.116-1.653-2.414-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>0813-813-747-12</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Data Array: 30 Questions on TKA Matematika SD/MI (Original unaltered questions & answers)
+        const questionsData = [
+            {
+                id: 1,
+                source: "Soal 1 • TKA SD/MI",
+                topic: "Pecahan Senilai",
+                type: "mc",
+                points: 3.33,
+                question: `Bu Guru menyediakan beberapa kartu <a href="https://www.defantri.com/2022/01/pembahasan-bilangan-pecahan-matematika-smp.html" target="_blank" class="text-indigo-600 underline font-medium">bilangan pecahan</a> di dalam kardus. Beberapa murid diminta Bu Guru untuk mengambil kartu tersebut, setiap murid hanya boleh mengambil satu kartu. Nama murid dan kartu yang diambil tampak pada tabel berikut!
+                <div class="overflow-x-auto my-3 flex justify-center">
+                    <div class="p-2 bg-slate-50 border border-slate-200 rounded-lg">
+                        $$\\begin{array} {|c|c|} \\hline \\text{Nama Murid} & \\text{Kartu Bilangan} \\\\ \\hline \\text{Amsyar} & \\frac{12}{8} \\\\ \\hline\\text{Alfian} & 1 \\frac{5}{10} \\\\ \\hline\\text{Arkaan} & 1,2 \\\\ \\hline\\text{Aisyah} & \\frac{20}{12} \\\\ \\hline \\text{Aya} & \\frac{6}{5} \\\\ \\hline \\end{array}$$
+                    </div>
+                </div>
+                <p class="font-medium text-slate-800">Pecahan senilai ditunjukkan oleh kartu bilangan yang diambil oleh...</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ Amsyar, Alfian, dan Aisyah" },
+                    { key: "B", text: "$(B)$ Arkaan, Aisyah, dan Aya" },
+                    { key: "C", text: "$(C)$ Amsyar dan Alfian" },
+                    { key: "D", text: "$(D)$ Aya dan Aisyah" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Dari informasi yang diberikan pada soal, untuk mengerjakan <a href="https://www.defantri.com/2018/07/belajar-menganalisis-pecahan.html" target="_blank" class="text-indigo-600 underline">soal pecahan</a> ini kita coba dengan menyederhanakan bentuk pecahan yang diambil oleh setiap murid.</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Amsyar: $\\frac{12}{8}=\\frac{12 \\div 4}{8\\div 4} = \\frac{3}{2}$</li>
+                        <li>Alfian: $1\\frac{5}{10}=\\frac{1 \\times 10 + 5}{10} = \\frac{15}{10}= \\frac{3}{2}$</li>
+                        <li>Arkaan: $1,2=\\frac{12}{10} = \\frac{6}{5}$</li>
+                        <li>Aisyah: $\\frac{20}{12}=\\frac{20 \\div 4}{12 \\div 4} = \\frac{5}{3}$</li>
+                        <li>Aya: $\\frac{6}{5}$</li>
+                    </ul>
+                    <p>Pecahan senilai bilangan yang diambil oleh Amsyar dan Alfian atau Arkaan dan Aya.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(C)$ Amsyar dan Alfian</p>
+                `
+            },
+            {
+                id: 2,
+                source: "Soal 2 • TKA SD/MI",
+                topic: "Mengurutkan Pecahan",
+                type: "mc",
+                points: 3.33,
+                question: `<p class="font-medium text-slate-800">Urutan <a href="https://www.defantri.com/2022/01/pembahasan-bilangan-pecahan-matematika-smp.html" target="_blank" class="text-indigo-600 underline">pecahan</a> berikut dari besar ke kecil ditunjukkan oleh...</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $\\frac{11}{8}$; $150\\%$; $1\\frac{1}{3}$; $1,4$; $\\frac{27}{20}$" },
+                    { key: "B", text: "$(B)$ $150\\%$; $1,4$; $\\frac{11}{8}$; $\\frac{27}{20}$; $1\\frac{1}{3}$" },
+                    { key: "C", text: "$(C)$ $1\\frac{1}{3}$; $\\frac{27}{20}$; $\\frac{11}{8}$; $1,4$; $150\\%$" },
+                    { key: "D", text: "$(D)$ $150\\%$; $1,4$; $\\frac{27}{20}$; $\\frac{11}{8}$; $1\\frac{1}{3}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Dari informasi yang diberikan pada soal, kita coba mengerjakan <a href="https://www.defantri.com/2018/07/belajar-menganalisis-pecahan.html" target="_blank" class="text-indigo-600 underline">soal pecahan</a> ini dengan mengubah bentuk pecahan tanpa merubah nilainya, sehingga pada pecahan ada penyebut yang sama (KPK penyebut 8, 100, 3, 10, 20 adalah 120):</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200">
+                        $$\\begin{array} {|c|c|c|c|c|} \\hline
+                        \\color{red}{\\dfrac{11}{8}} & \\color{blue}{150\\%} & \\color{brown}{1\\frac{1}{3}} & \\color{green}{1,4} & \\dfrac{27}{20} \\\\ \\hline
+                        \\color{red}{\\dfrac{11}{8}} & \\color{blue}{\\dfrac{150}{100}} & \\color{brown}{\\dfrac{4}{3}} & \\color{green}{\\dfrac{14}{10}} & \\dfrac{27}{20} \\\\ \\hline
+                        \\color{red}{\\dfrac{165}{120}} & \\color{blue}{\\dfrac{180}{120}} & \\color{brown}{\\dfrac{160}{120}} & \\color{green}{\\dfrac{168}{120}} & \\dfrac{162}{120} \\\\ \\hline
+                        \\end{array}$$
+                    </div>
+                    <p>Urutan pecahan dari besar ke kecil adalah:</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200">
+                        $$\\begin{array} {|c|c|c|c|c|} \\hline
+                        \\color{blue}{\\dfrac{180}{120}} & \\color{green}{\\dfrac{168}{120}} & \\color{red}{\\dfrac{165}{120}} & \\dfrac{162}{120} & \\color{brown}{\\dfrac{160}{120}} \\\\ \\hline
+                        \\color{blue}{150\\%} & \\color{green}{1,4} & \\color{red}{\\dfrac{11}{8}} & \\dfrac{27}{20} & \\color{brown}{1\\frac{1}{3}} \\\\ \\hline
+                        \\end{array}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(B)$ $150\\%$; $1,4$; $\\frac{11}{8}$; $\\frac{27}{20}$; $1\\frac{1}{3}$</p>
+                `
+            },
+            {
+                id: 3,
+                source: "Soal 3 • TKA SD/MI",
+                topic: "Perbandingan Senilai",
+                type: "mc",
+                points: 3.33,
+                question: `Saat Idul Adha SDIT Luqman Al Hakim menyalurkan tiga ekor kambing ke mushala Al Ikhlas di Desa Karangnonko Kecamatan Karangmojo Gunungkidul. Perbandingan banyak daging dari kambing $A$, $B$, dan $C$ adalah $9 : 8 : 7$. Dari kambing $A$ diperoleh daging sebanyak $20,25\\ \\text{kg}$. Dari kambing $B$ dan $C$ masing-masing diperoleh daging sebanyak....`,
+                options: [
+                    { key: "A", text: "$(A)$ $18\\ \\text{kg}$ dan $15,25\\ \\text{kg}$" },
+                    { key: "B", text: "$(B)$ $18\\ \\text{kg}$ dan $15,75\\ \\text{kg}$" },
+                    { key: "C", text: "$(C)$ $18,25\\ \\text{kg}$ dan $15\\ \\text{kg}$" },
+                    { key: "D", text: "$(D)$ $18,5\\ \\text{kg}$ dan $15,5\\ \\text{kg}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Perbandingan banyak daging kambing $A : B : C = 9x : 8x : 7x$.</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200">
+                        $$\\begin{align}
+                        9x &= 20,25\\ \\text{kg} \\\\
+                        x &= \\frac{20,25}{9} = 2,25\\ \\text{kg} \\\\ \\hline
+                        B &= 8x = 8 \\times 2,25\\ \\text{kg} = 18\\ \\text{kg} \\\\ \\hline
+                        C &= 7x = 7 \\times 2,25\\ \\text{kg} = 15,75\\ \\text{kg}
+                        \\end{align}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(B)$ $18\\ \\text{kg}$ dan $15,75\\ \\text{kg}$</p>
+                `
+            },
+            {
+                id: 4,
+                source: "Soal 4 • TKA SD/MI",
+                topic: "Skala dan Peta",
+                type: "tf",
+                points: 3.33,
+                question: `Berikut adalah tampilan Google Map saat keluarga Pak Arsyad bepergian dari Yogyakarta ke Semarang:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-BGQPmRwXjdYhh2Q011JBuhwDf2CUCZ49pZ1PmCxDtAF9hOfU_F-AUwx5FIyZGcgZQj26HDlTKv_I0FORXGleG7KrPXkw0vecz8T81N3RCSBtJRICvhDgHOEb69MRVwT4Ibr6TIZHzgmCEvi1szDLNUqB3HVETYbjDL7vZVdP9g8JMXiiHMAAIB2jYBB9/s1600/soal-tka-sd-matematika.jpg" alt="Peta Rute Yogyakarta - Semarang" loading="lazy">
+                </div>
+                <p class="text-slate-800 leading-relaxed mb-4">Rute yang ditempuh adalah Yogyakarta – Klaten – Boyolali – Bawen – Ungaran – Semarang melalui jalan tol. Panjang rute yang dilewati Pak Arsyad ditandai dengan warna biru. Saat diukur menggunakan benang, jarak Yogyakarta – Boyolali $4,6\\ \\text{cm}$ dan Boyolali – Semarang $4,4\\ \\text{cm}$. Setelah sampai di Semarang, speedometer pada mobil Pak Arsyad menunjukkan ada penambahan $135\\ \\text{km}$. Sultan putra Pak Arsyad menggambar map tersebut dengan memperbesar skala menjadi $3$ kali lipat.<br><br>Berdasarkan ilustrasi tersebut, tentukan <strong>Benar</strong> atau <strong>Salah</strong> untuk setiap pernyataan berikut:</p>`,
+                statements: [
+                    { id: "q401", text: "Skala peta pada gambar adalah $1 : 1.500.000$", correct: "Benar" },
+                    { id: "q402", text: "Jarak Yogyakarta – Boyolali adalah $69\\ \\text{km}$", correct: "Benar" },
+                    { id: "q403", text: "Skala peta pada gambar tersebut $1 : 150.000$", correct: "Salah" },
+                    { id: "q404", text: "Skala yang digunakan Sultan adalah $1 : 3.000.000$", correct: "Salah" },
+                    { id: "q405", text: "Skala yang digunakan Sultan adalah $1 : 300.000$", correct: "Salah" }
+                ],
+                explanation: `
+                    <p>Jarak pada peta: $4,6\\ \\text{cm} + 4,4\\ \\text{cm} = 9\\ \\text{cm}$.</p>
+                    <p>Jarak sebenarnya $= 135\\ \\text{km} = 13.500.000\\ \\text{cm}$.</p>
+                    <p>Skala peta $= 9 : 13.500.000 = 1 : 1.500.000$.</p>
+                    <ol class="list-decimal ml-5 space-y-1">
+                        <li>Skala peta pada gambar adalah $1 : 1.500.000$ &rarr; <b>Benar</b></li>
+                        <li>Jarak Yogya–Boyolali $= 4,6 \\times 15\\ \\text{km} = 69\\ \\text{km}$ &rarr; <b>Benar</b></li>
+                        <li>Skala peta $1 : 150.000$ &rarr; <b>Salah</b></li>
+                        <li>Skala Sultan diperbesar 3 kali lipat: $1 : (1.500.000 \\times 3) = 1 : 4.500.000$, maka pernyataan $1 : 3.000.000$ &rarr; <b>Salah</b></li>
+                        <li>Skala yang digunakan Sultan $1 : 300.000$ &rarr; <b>Salah</b></li>
+                    </ol>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Benar, Benar, Salah, Salah, Salah</p>
+                `
+            },
+            {
+                id: 5,
+                source: "Soal 5 • TKA SD/MI",
+                topic: "Operasi Hitung Campuran Pecahan",
+                type: "mc",
+                points: 3.33,
+                question: `<p class="font-medium text-slate-800 mb-3">Hasil dari $\\frac{5}{4} + 1,28 \\div 40\\% = \\cdots$</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $1,76$" },
+                    { key: "B", text: "$(B)$ $3,83$" },
+                    { key: "C", text: "$(C)$ $4,45$" },
+                    { key: "D", text: "$(D)$ $5,54$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Selesaikan operasi pembagian terlebih dahulu:</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200">
+                        $$\\begin{align}
+                        \\frac{5}{4} + 1,28 \\div 40\\% &= \\frac{5}{4} + \\frac{128}{100} \\div \\frac{40}{100} \\\\
+                        &= \\frac{5}{4} + \\left(\\frac{128}{100} \\times \\frac{100}{40}\\right) \\\\
+                        &= \\frac{5}{4} + \\frac{128}{40} = \\frac{50}{40} + \\frac{128}{40} \\\\
+                        &= \\frac{178}{40} = \\frac{89}{20} = 4,45
+                        \\end{align}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(C)$ $4,45$</p>
+                `
+            },
+            {
+                id: 6,
+                source: "Soal 6 • TKA SD/MI",
+                topic: "Soal Cerita Pecahan",
+                type: "mc",
+                points: 3.33,
+                question: `Sebuah truk memuat beras sebanyak $80$ karung. Setiap karung beras berisi $\\frac{3}{4}$ kuintal. Beras tersebut akan disetorkan ke tiga distributor. Distributor pertama menerima $40\\%$, sisanya disetorkan ke distributor kedua dan ketiga sama banyak. Banyak beras yang diterima oleh distributor kedua adalah....`,
+                options: [
+                    { key: "A", text: "$(A)$ $18\\ \\text{kuintal}$" },
+                    { key: "B", text: "$(B)$ $20\\ \\text{kuintal}$" },
+                    { key: "C", text: "$(C)$ $24\\ \\text{kuintal}$" },
+                    { key: "D", text: "$(D)$ $36\\ \\text{kuintal}$" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Distributor pertama menerima $40\\%$, sisa $= 100\\% - 40\\% = 60\\%$.</p>
+                    <p>Distributor kedua dan ketiga dibagi rata $= 60\\% \\div 2 = 30\\%$.</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200">
+                        $$\\begin{align}
+                        \\text{Beras } D_2 &= 30\\% \\times 80\\ \\text{karung} = 24\\ \\text{karung} \\\\
+                        &= 24 \\times \\frac{3}{4}\\ \\text{kuintal} = 18\\ \\text{kuintal}
+                        \\end{align}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(A)$ $18\\ \\text{kuintal}$</p>
+                `
+            },
+            {
+                id: 7,
+                source: "Soal 7 • TKA SD/MI",
+                topic: "Operasi Hitung Bilangan Bulat",
+                type: "mc",
+                points: 3.33,
+                question: `<p class="font-medium text-slate-800 mb-3">Hasil dari $100.000 - 8.484 \\div 42 \\times 11 = \\cdots$</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $99.758$" },
+                    { key: "B", text: "$(B)$ $99.242$" },
+                    { key: "C", text: "$(C)$ $98.222$" },
+                    { key: "D", text: "$(D)$ $97.778$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Berdasarkan hierarki urutan perhitungan matematika:</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200">
+                        $$\\begin{align}
+                        & 100.000 - 8.484 \\div 42 \\times 11 \\\\
+                        &= 100.000 - 202 \\times 11 \\\\
+                        &= 100.000 - 2.222 = 97.778
+                        \\end{align}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(D)$ $97.778$</p>
+                `
+            },
+            {
+                id: 8,
+                source: "Soal 8 • TKA SD/MI",
+                topic: "Penjumlahan Bilangan Besar",
+                type: "mc",
+                points: 3.33,
+                question: `Pemerintah Kota Yogyakarta memberikan bantuan berupa bibit ikan nila kepada tiga kelompok budi daya ikan. Kelompok Mina Sejahtera mendapat bantuan $18.785$ ekor, kelompok Mina Mulia menerima $7.962$ ekor lebih banyak dari kelompok Mina Sejahtera. Sedangkan kelompok Mina Makmur menerima $6.098$ ekor kurang dari kelompok Mina Mulia.<br><br>Banyak bibit ikan yang diberikan Pemerintah Kota Yogyakarta kepada tiga kelompok budi daya ikan tersebut ada .... ekor.`,
+                options: [
+                    { key: "A", text: "$(A)$ $32.845$" },
+                    { key: "B", text: "$(B)$ $51.630$" },
+                    { key: "C", text: "$(C)$ $66.181$" },
+                    { key: "D", text: "$(D)$ $69.181$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Mina Sejahtera $= 18.785$ ekor</li>
+                        <li>Mina Mulia $= 18.785 + 7.962 = 26.747$ ekor</li>
+                        <li>Mina Makmur $= 26.747 - 6.098 = 20.649$ ekor</li>
+                    </ul>
+                    <p>Total bibit ikan:</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200 font-mono text-center">
+                        $18.785 + 26.747 + 20.649 = 66.181\\ \\text{ekor}$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(C)$ $66.181$</p>
+                `
+            },
+            {
+                id: 9,
+                source: "Soal 9 • TKA SD/MI",
+                topic: "Aritmatika Sosial",
+                type: "tf",
+                points: 3.33,
+                question: `Gendis belanja peralatan sekolah di Toko Pintar. Gendis membeli $6$ pak buku tulis, $5$ pcs pensil, dan $8$ pcs bolpoin. Ia membayar dengan uang tiga lembar $\\text{Rp}100.000,00$.
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo5z01R5PZ2HHY9RhShEc4JlJxcht7lEhs2W-8u0CpCgIQU4mcZ5yZbE6szRCl9OVeb2_ZH3iwCqvqNbmu1byQ6NZ8pdZnYqK-Yow31Yc6yFF1NVpQxLKDhKJEaWs3ZsD4csSM9jzu7hU_OVd6ivZtn3BfcQL0do9qMYbisOw8cUijrXaCBxKI4od1iS2B/s1600/soal-tka-sd-matematika.jpg" alt="Daftar Harga Toko Pintar" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-4">Berdasarkan ilustrasi di atas, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>:</p>`,
+                statements: [
+                    { id: "q901", text: "Uang yang dibayarkan Gendis kurang $\\text{Rp}7.500,00$.", correct: "Salah" },
+                    { id: "q902", text: "Uang kembalian yang diterima Gendis adalah $\\text{Rp}7.500,00$.", correct: "Benar" },
+                    { id: "q903", text: "Harga yang harus dibayar Gendis adalah $\\text{Rp}307.500,00$.", correct: "Salah" },
+                    { id: "q904", text: "Harga yang harus dibayar Gendis adalah $\\text{Rp}292.500,00$.", correct: "Benar" }
+                ],
+                explanation: `
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>$6$ pak buku tulis $= 6 \\times \\text{Rp}45.000 = \\text{Rp}270.000$</li>
+                        <li>$5$ pensil $= 5 \\times \\text{Rp}3.500 = \\text{Rp}17.500$</li>
+                        <li>$8$ bolpoin $= 8 \\times \\text{Rp}2.500 = \\text{Rp}20.000$</li>
+                        <li>Total belanja $= \\text{Rp}307.500$</li>
+                        <li>Potongan harga $= \\text{Rp}15.000$</li>
+                        <li>Total yang harus dibayar $= \\text{Rp}307.500 - \\text{Rp}15.000 = \\text{Rp}292.500$</li>
+                        <li>Uang dibayar $= 3 \\times \\text{Rp}100.000 = \\text{Rp}300.000$</li>
+                        <li>Kembalian $= \\text{Rp}300.000 - \\text{Rp}292.500 = \\text{Rp}7.500$</li>
+                    </ul>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Salah, Benar, Salah, Benar</p>
+                `
+            },
+            {
+                id: 10,
+                source: "Soal 10 • TKA SD/MI",
+                topic: "Bangun Ruang Kotak Kayu",
+                type: "tf",
+                points: 3.33,
+                question: `Nugi memiliki kotak kayu berbentuk kubus dan digunakannya untuk menyimpan rubik, kotak tersebut memiliki ketebalan dan panjang sisi seperti gambar:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHSuxXU-BoWBhK7bp7YRmi7kBlsBWU25I4CNQ6e8Ibt5M_20mEwXuvh0ioUTuIKIjnQqxytYt00kaqu17hxjwwkaNtG54vYGp31g_lHGE7BtvMSZ5swmIFl0gpkiN07Nirgd9Xm_m-bsxGGCXbhTOtUUtY7bCpvpLxq4UNs2JZUgbsc5ly5Xer4e1nDCtr/s1600/soal-tka-sd-matematika.jpg" alt="Kotak Kayu Rubik" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-4">Berdasarkan ilustrasi tersebut, tentukan <strong>Benar</strong> atau <strong>Salah</strong> untuk setiap pernyataan berikut:</p>`,
+                statements: [
+                    { id: "q1001", text: "Luas sisi bagian dalam kotak kayu tersebut $4.056\\ \\text{cm}^{2}$", correct: "Salah" },
+                    { id: "q1002", text: "Luas alas sisi bagian luar kotak kayu tersebut $676\\ \\text{cm}^{2}$", correct: "Benar" },
+                    { id: "q1003", text: "Volume kotak tersebut adalah $13.824\\ \\text{cm}^{3}$", correct: "Salah" },
+                    { id: "q1004", text: "Volume rubik adalah $27\\ \\text{cm}^{3}$", correct: "Benar" }
+                ],
+                explanation: `
+                    <p>Tebal kayu $1\\ \\text{cm}$, ukuran luar $26 \\times 26$, maka alas bagian dalam $24 \\times 24$, tinggi dalam $25\\ \\text{cm}$.</p>
+                    <ol class="list-decimal ml-5 space-y-1">
+                        <li>Luas sisi bagian dalam $= 24 \\times 24 + 4 \\times (24 \\times 25) = 576 + 2.400 = 2.976\\ \\text{cm}^2$ &rarr; <b>Salah</b></li>
+                        <li>Luas alas luar $= 26 \\times 26 = 676\\ \\text{cm}^2$ &rarr; <b>Benar</b></li>
+                        <li>Volume bagian dalam kotak $= 24 \\times 24 \\times 25 = 14.400\\ \\text{cm}^3$ &rarr; <b>Salah</b></li>
+                        <li>Volume rubik sisi $3\\ \\text{cm} = 3 \\times 3 \\times 3 = 27\\ \\text{cm}^3$ &rarr; <b>Benar</b></li>
+                    </ol>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Salah, Benar, Salah, Benar</p>
+                `
+            },
+            {
+                id: 11,
+                source: "Soal 11 • TKA SD/MI",
+                topic: "Perbandingan Pecahan & Bahan Kue",
+                type: "mc",
+                points: 3.33,
+                question: `Perhatikan resep kue berikut!
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWYC4dXkatg67Q4UbGjLNnDE1WtYYWCbGtGCsVRAUcOEfCu0K4WWdRJKpGY3IZ9nGhfpllxExqBImtqkNXtkYAEfrG_g7guzkg3m-hxuZljg_m8SocW9Dlidj62maFke2Mhw7pxO3bydv29l7dqtMa66yuSQ-uqcxqKMTq5prnTA2aWTVK8ZdcLvhELv1F/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Resep Kue So Happy" loading="lazy">
+                </div>
+                <p class="text-slate-800 leading-relaxed mb-3">Untuk membuat kue So Happy tersebut Ustadzah Fera menghabiskan $2\\frac{1}{4}\\ \\text{kg}$ selai nanas. Persediaan bahan yang dimiliki Ustadzah Fera adalah tepung terigu $0,5\\ \\text{kg}$ dan gula pasir $2,5\\ \\text{kg}$.<br>Pernyataan berikut yang sesuai dengan ilustrasi adalah....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ Tepung terigu yang harus dibeli Ustadzah Fera ada $0,07\\ \\text{kg}$" },
+                    { key: "B", text: "$(B)$ Banyak mentega yang dibutuhkan ada $1\\frac{7}{8}\\ \\text{kg}$ dan keju Cheddar $1\\frac{1}{6}\\ \\text{kg}$" },
+                    { key: "C", text: "$(C)$ Selisih selai nanas dan gula pasir yang digunakan adalah $1,5\\ \\text{kg}$" },
+                    { key: "D", text: "$(D)$ Jumlah mentega dan gula pasir yang digunakan pada setiap resep adalah $558\\ \\text{kg}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Resep dasar: Selai nanas $= 0,75\\ \\text{kg}$. Ustadzah Fera menggunakan $2\\frac{1}{4}\\ \\text{kg} = 3 \\times 0,75\\ \\text{kg}$. Maka resep diperbesar 3 kali lipat:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Tepung terigu: $3 \\times \\frac{2}{5} = 1,2\\ \\text{kg}$. Kekurangan $= 1,2 - 0,5 = 0,7\\ \\text{kg}$.</li>
+                        <li>Gula pasir: $3 \\times 1\\frac{1}{4} = 3,75\\ \\text{kg}$.</li>
+                        <li>Selisih selai nanas dan gula pasir $= 3,75 - 2,25 = 1,5\\ \\text{kg}$.</li>
+                    </ul>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(C)$ Selisih selai nanas dan gula pasir yang digunakan adalah $1,5\\ \\text{kg}$.</p>
+                `
+            },
+            {
+                id: 12,
+                source: "Soal 12 • TKA SD/MI",
+                topic: "FPB / Pembagian Sama Banyak",
+                type: "tf",
+                points: 3.33,
+                question: `SD IT Luqman Al Hakim mengadakan penggalangan donasi korban banjir. Hasil penggalangan dana tersebut dibelanjakan alat mandi, diantaranya $60$ botol shampoo, $84$ sabun batang, dan $48$ pasta gigi. Alat mandi tersebut dikemas ke dalam bingkisan. Setiap bingkisan berisi alat mandi dengan jumlah dan jenis yang sama.<br><br>Tentukan <strong>Benar</strong> atau <strong>Salah</strong> untuk setiap pernyataan berikut:`,
+                statements: [
+                    { id: "q1201", text: "Terdapat $12$ korban banjir yang menerima pemberian donasi.", correct: "Benar" },
+                    { id: "q1202", text: "Setiap bingkisan terdapat $7$ sabun batang.", correct: "Benar" },
+                    { id: "q1203", text: "Banyak pasta gigi dalam setiap bingkisan lebih banyak daripada sampo.", correct: "Salah" }
+                ],
+                explanation: `
+                    <p>Mencari FPB dari 60, 84, dan 48:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>$60 = 2^2 \\times 3 \\times 5$</li>
+                        <li>$84 = 2^2 \\times 3 \\times 7$</li>
+                        <li>$48 = 2^4 \\times 3$</li>
+                    </ul>
+                    <p>$\\text{FPB} = 2^2 \\times 3 = 12$ bingkisan. Setiap bingkisan berisi:</p>
+                    <p>Sampo $= 60/12 = 5$, Sabun $= 84/12 = 7$, Pasta gigi $= 48/12 = 4$.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Benar, Benar, Salah</p>
+                `
+            },
+            {
+                id: 13,
+                source: "Soal 13 • TKA SD/MI",
+                topic: "KPK & Pola Jadwal",
+                type: "tf",
+                points: 3.33,
+                question: `Nabil, Abi, dan Zio mengikuti bimbingan musik untuk anak-anak. Nabil mengambil bimbingan paket B, Ali paket A, dan Zio paket C. Jadwal bimbingan musik terlihat pada gambar.
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTc0DSoiX0oEi_ZGP6pc4qQ3lYNKCQ66FeOJomQLRmemQoNmX0cQqYJUe-oJ0YGWqryKzgwInUWv8Abfw7AldiJH_hZK9LtVv8owa70_cbjU0iORac9fJ8weVTnM3ziockV0Hb7pW1UzQTHGiq96mHQ7uBOdKhHFWt5_aW1uzYkIAJOxGngMfcdWVaZh89/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Jadwal Les Musik" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-4">Berdasarkan ilustrasi di atas, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>:</p>`,
+                statements: [
+                    { id: "q1301", text: "Nabil dan Zio masuk kursus bersama-sama untuk ketiga kalinya pada tanggal 30 Januari 2025.", correct: "Salah" },
+                    { id: "q1302", text: "Nabil, Ali, dan Zio masuk kursus bersama-sama pertama kalinya pada tanggal 12 Januari 2025.", correct: "Benar" },
+                    { id: "q1303", text: "Selama bulan Januari, Ali bimbingan musik lebih banyak daripada Zio.", correct: "Benar" },
+                    { id: "q1304", text: "Pada tanggal 24 Januari 2025 Nabil, Ali, dan Zio bimbingan musik bersama-sama untuk ketiga kalinya.", correct: "Salah" }
+                ],
+                explanation: `
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Ali (Paket A): tiap 4 hari mulai 8 Jan &rarr; 8, 12, 16, 20, 24, 28 Jan (6 kali).</li>
+                        <li>Nabil (Paket B): tiap 3 hari mulai 6 Jan &rarr; 6, 9, 12, 15, 18, 21, 24, 27, 30 Jan (9 kali).</li>
+                        <li>Zio (Paket C): tiap 6 hari mulai 12 Jan &rarr; 12, 18, 24, 30 Jan (4 kali).</li>
+                    </ul>
+                    <p>Nabil & Zio bersama pada: 12, 18, 24 Jan (ke-3 kalinya tanggal 24 Jan).</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Salah, Benar, Benar, Salah</p>
+                `
+            },
+            {
+                id: 14,
+                source: "Soal 14 • TKA SD/MI",
+                topic: "Sifat Bangun Datar",
+                type: "mc",
+                points: 3.33,
+                question: `Berikut adalah sifat-sifat bangun datar:
+                <ol class="list-decimal ml-5 space-y-1 text-slate-700 text-sm mb-4">
+                    <li>Memiliki sepasang sudut sama besar</li>
+                    <li>Memiliki dua pasang sudut sama besar</li>
+                    <li>Semua sudutnya sama besar</li>
+                    <li>Diagonal-diagonalnya sama panjang dan perpotongannya tidak tegak lurus</li>
+                    <li>Diagonal-diagonalnya tidak sama panjang dan perpotongannya tidak tegak lurus</li>
+                    <li>Memiliki sepasang sisi sejajar tidak sama panjang</li>
+                </ol>
+                <p class="font-medium text-slate-800 mb-3">Sifat-sifat trapesium sama kaki ditunjukkan oleh nomor....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ (1), (3), dan (5)" },
+                    { key: "B", text: "$(B)$ (1), (4), dan (6)" },
+                    { key: "C", text: "$(C)$ (2), (4), dan (6)" },
+                    { key: "D", text: "$(D)$ (2), (5), dan (6)" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <div class="flex justify-center my-2">
+                        <img class="rounded border border-slate-200 max-h-56 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4HLG3o5_1amTEmeaI5l_QfrBe9uz0g_e2i3wiMmJUH0CDQAj6NF5f26Dn3UH2UMpDJFXBoU3C50xofVVFbLig5IlDzU_DnbR8sNj6UIvCdON_oiEAFFoopvS_r5yCGiKdrDvDuTsrOe6wZi4bSlWayGV2fc2ho0_722JdA5Orvmov2U-Bbb8SgTb0jPin/s1600/contoh-soal-tka-matematika-6-sd-mi+pembahasan-kunci-jawaban.jpg" alt="Trapesium Sama Kaki" loading="lazy">
+                    </div>
+                    <p>Trapesium sama kaki memiliki sifat:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Dua pasang sudut sama besar (sudut alas sama, sudut atas sama) &rarr; Nomor (2)</li>
+                        <li>Kedua diagonal sama panjang dan tidak tegak lurus &rarr; Nomor (4)</li>
+                        <li>Sepasang sisi sejajar tidak sama panjang &rarr; Nomor (6)</li>
+                    </ul>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(C)$ (2), (4), dan (6)</p>
+                `
+            },
+            {
+                id: 15,
+                source: "Soal 15 • TKA SD/MI",
+                topic: "Jaring-Jaring Dadu",
+                type: "mc",
+                points: 3.33,
+                question: `Tono membuat mainan dadu dari kertas karton seperti gambar. Mata dadu yang saling berhadapan jumlahnya sama, yaitu $7$. Sebelumnya Tono membuat desain atau pola berupa jaring-jaring kubus.
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-36 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpbYyG1omMIMjuoAaRN3OZBgkLiag2QGoxoIXvbay6NYHjgPoBup6RXgB6LY6lK04ZAYVk2lhY0fq6tHIhdLkuvO707rJ47gnVBysK8DqmagRnRYJl2lkIXybwwviZx3BAlKRfjwLc3pXrah6WdOlnLe_-UsxHCtJDWMRKY3DAEmBtV375SkP9SzsE7aym/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Dadu Kubus" loading="lazy">
+                </div>
+                <p class="font-medium text-slate-800 mb-3">Pola yang dibuat Tono adalah...</p>`,
+                options: [
+                    { key: "A", text: `$(A)$ <img class="inline-block rounded border border-slate-200 max-h-24 ml-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhggbMbo4ZpXrtRTdaEtvAHZTzNw-FETz0IM92GUL0XD8EFGQaoSNvH-2EPCA_WtY7pEWDdk4VBYObLtMRjd5aVALMi3eXKpsvwq5UiOZwUsxgdhR3PwL2CcOyN77FvMRyzE32Su-b7jnaaKPP4Q5WsLEnkzQuIGVjpdYpfHrRRAbKFdwTaYIpztSyKF1Sd/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Opsi A" loading="lazy">` },
+                    { key: "B", text: `$(B)$ <img class="inline-block rounded border border-slate-200 max-h-24 ml-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyKsuyzjZjbfxnP5C7Re2HTPpwiHRma9N5isBdhD8x3EWI1_yR0ZrpxMsm_gDTSeWPzyydeYI6mNyHd9OP4-4YszXMOBR93t-2LeiYQUTYQ81EcoCFaJ9QcV81KgI3ZG8OgXPMh7k_mTJS3EcDa_NO-uOhUiCwp0i0VCAw9TQycBExHUF34VW3oVSIbtpc/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Opsi B" loading="lazy">` },
+                    { key: "C", text: `$(C)$ <img class="inline-block rounded border border-slate-200 max-h-24 ml-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf-M5XzSdW9Djz9EFcQIpbib53hx4govdUhKsx7fPDYQ78cE2MTjO2OycwbnzgWMwiBiADaTfDl3_ds_5CSai5-Vf3sjZdkEW4G5m4s8EGzpLaJpzxbDbU4MiP7-_JxUmxgDO7JKsSblcYa28m1HMEOo6BMLJnQ-ipQJLX5DPfOsl8W4aoudMMqtMrkFHg/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Opsi C" loading="lazy">` },
+                    { key: "D", text: `$(D)$ <img class="inline-block rounded border border-slate-200 max-h-24 ml-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_PXYlq9cpLp0haYsMUWIlywgF_AVMqzAOG_703bTuQ520eTFcBs9IBf4rAb0q0eH3teEf-tlG1t5O-CalOR_XQFKvXblBr-nS9HLNyRA-VNcrSOqbPEAH0cRk85f3H9QFJP-KTTDr0HMFnjwWls0sDLOx7bLH7i3t-_t1TA5N8yTZ9VSZKTP7IpioG7OD/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Opsi D" loading="lazy">` }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Pada jaring-jaring kubus, dua sisi yang saling berhadapan diselingi oleh satu kotak. Jumlah dua sisi berhadapan harus sama dengan 7:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Pilihan (B): $1+6=7$, $2+5=7$, dan $3+4=7$ (Semua memenuhi).</li>
+                    </ul>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(B)$</p>
+                `
+            },
+            {
+                id: 16,
+                source: "Soal 16 • TKA SD/MI",
+                topic: "Tampak Gambar 3 Dimensi",
+                type: "mc",
+                points: 3.33,
+                question: `Hafuza menyusun puzzle tiga dimensi berupa kubus warna-warni dengan susunan seperti pada gambar. Selanjutnya Hafuza menggambar puzzle yang terbentuk tampak dari atas, depan, dan samping.
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-80 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioVABbQrD1N1upOfwPYb-MM6ZZmIghUlLcX0CTbimv21i4g6A4IO7ye_6ASK1Vi5uLNlM_uwrlSGnfHuuVGb8DobTTY8vPIk6XoPVUklZq4Gc61LgngZcaxv1tvEX8bOlODEXkDHEZYHiOlqjiA5JJZlnbY7hRpv0M5lvKGF1fq7GAWmmRy-KW5ytPdgz8/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Puzzle Kubus 3 Dimensi" loading="lazy">
+                </div>
+                <p class="font-medium text-slate-800 mb-3">Gambar yang benar ditunjukkan oleh nomor...</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ I, II, dan III" },
+                    { key: "B", text: "$(B)$ I, III, dan IV" },
+                    { key: "C", text: "$(C)$ I dan II saja" },
+                    { key: "D", text: "$(D)$ II dan III saja" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Bentuk yang diberikan adalah susunan undakan tangga berukuran alas $5 \\times 4$.</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Tampak depan berupa persegi panjang berukuran $5 \\times 4$.</li>
+                        <li>Tampak atas berupa persegi panjang berukuran $5 \\times 4$.</li>
+                        <li>Tampak samping menampilkan profil undakan tangga secara penuh.</li>
+                    </ul>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(A)$ I, II, dan III</p>
+                `
+            },
+            {
+                id: 17,
+                source: "Soal 17 • TKA SD/MI",
+                topic: "Luas Layang-Layang",
+                type: "mc",
+                points: 3.33,
+                question: `Abidzar membuat layang-layang menggunakan kertas minyak. Layang-layang membentuk rangka seperti pada gambar:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-56 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPnu1G_I5WkKQrhkjrwZVaZnY8B_i9oiAGuulWPceMNuLV4JDwsmwcfcWmW9W1gHMKo6ntMxUwoL5tpwz4QdrV2C_9mmbecz54WcSw4n8Dqg1mdp82plkXjDLkbWSvRig2gj6vCIuEqX6lYVUvLXURt4dVW5IqAYBvX4ocVq3HPiotP-TjJ3g5ilWfwE3N/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Rangka Layang-layang" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-3">Panjang $AC = 64\\ \\text{cm}$ dan panjang $OD = 14\\ \\text{cm}$. Luas kertas minyak minimal yang terbentuk adalah....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $156\\ \\text{cm}^{2}$" },
+                    { key: "B", text: "$(B)$ $378\\ \\text{cm}^{2}$" },
+                    { key: "C", text: "$(C)$ $448\\ \\text{cm}^{2}$" },
+                    { key: "D", text: "$(D)$ $896\\ \\text{cm}^{2}$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p>Diagonal $d_1 = AC = 64\\ \\text{cm}$. Diagonal $d_2 = BD = 2 \\times OD = 2 \\times 14 = 28\\ \\text{cm}$.</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200 font-mono text-center">
+                        $$\\text{Luas} = \\frac{1}{2} \\times d_1 \\times d_2 = \\frac{1}{2} \\times 64 \\times 28 = 896\\ \\text{cm}^{2}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(D)$ $896\\ \\text{cm}^{2}$</p>
+                `
+            },
+            {
+                id: 18,
+                source: "Soal 18 • TKA SD/MI",
+                topic: "Luas Gabungan Bangun Datar",
+                type: "tf",
+                points: 3.33,
+                question: `Perhatikan gambar gabungan bangun datar berikut:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJsOmhss1hXzLDIafEF8HKG2AxtDlHMPA8UAak5n-U1OXwwxPlYtasEoYrEY3iYTbJA6miQU7z4GIiatmLS3aJNegS9gDHW4Be-A0-pThvNLW2DPD391EVNAADq1SCD5BFMgF04Ly-CEhibD083OFkBZISGX7BVyQtfNqz-LVenRaT2t-FH8kYZfwylNx8/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Bangun Datar Gabungan" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-4">Berdasarkan ilustrasi gambar bangun datar gabungan tersebut, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>:</p>`,
+                statements: [
+                    { id: "q1801", text: "Luas belah ketupat adalah $96\\ \\text{cm}^{2}$.", correct: "Salah" },
+                    { id: "q1802", text: "Luas gabungan bangun datar di atas adalah $736\\ \\text{cm}^{2}$.", correct: "Benar" },
+                    { id: "q1803", text: "Bangun datar trapesium lebih luas daripada bangun datar belah ketupat.", correct: "Salah" },
+                    { id: "q1804", text: "Selisih luas bangun datar belah ketupat dengan trapesium adalah $32\\ \\text{cm}^{2}$.", correct: "Benar" }
+                ],
+                explanation: `
+                    <p>Belah ketupat: $d_1 = 24$, $d_2 = 32 \\implies \\text{Luas} = \\frac{1}{2} \\times 24 \\times 32 = 384\\ \\text{cm}^2$.</p>
+                    <p>Trapesium: sisi sejajar $28$ dan $16$, tinggi $16 \\implies \\text{Luas} = \\frac{28+16}{2} \\times 16 = 352\\ \\text{cm}^2$.</p>
+                    <p>Luas total $= 384 + 352 = 736\\ \\text{cm}^2$.</p>
+                    <p>Selisih $= 384 - 352 = 32\\ \\text{cm}^2$.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Salah, Benar, Salah, Benar</p>
+                `
+            },
+            {
+                id: 19,
+                source: "Soal 19 • TKA SD/MI",
+                topic: "Keliling Tanah & Denah",
+                type: "mc",
+                points: 3.33,
+                question: `Pak Zahid memiliki tanah di daerah yang udaranya sejuk, air pegunungan jernih mengalir sepanjang waktu sehingga cocok untuk tempat tinggal sekaligus untuk berkebun dan memelihara ikan. Denah tanah dan peruntukannya tampak seperti gambar:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiosEsksZ_LEXtodlGGExah5rStgv0qBuOPJz-r5Fdtf3xDiLwSB4s-6nkOMo4iSnr3B7m_jg0otggw-cCWUVq-Ypo7z-AH2jvvgYp2-zWw1PCCCwT6qsx3ojYBYw7Hqw_UY7UFg2fkG_rcTFgoBZgb4T3MppA-kR71q_4jiw7OLpRCKaoQ3sKzhOo3hGuH/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Denah Tanah Pak Zahid" loading="lazy">
+                </div>
+                <p class="font-medium text-slate-800 mb-3">Keliling tanah milik Pak Zahid adalah....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $242\\ \\text{m}$" },
+                    { key: "B", text: "$(B)$ $142\\ \\text{m}$" },
+                    { key: "C", text: "$(C)$ $66\\ \\text{m}$" },
+                    { key: "D", text: "$(D)$ $33\\ \\text{m}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Kolam berbentuk persegi luas $49 \\implies a = \\sqrt{49} = 7\\ \\text{m}$.</p>
+                    <p>Kebun persegi panjang luas $28 \\implies b = 28/7 = 4\\ \\text{m}$.</p>
+                    <p>Panjang tanah $= a + b + a + b = 7 + 4 + 7 + 4 = 22\\ \\text{m}$.</p>
+                    <p>Lebar tanah $= a + b = 7 + 4 = 11\\ \\text{m}$.</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200 font-mono text-center">
+                        $$\\text{Keliling} = 2 \\times (\\text{panjang} + \\text{lebar}) = 2 \\times (22 + 11) = 66\\ \\text{m}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(C)$ $66\\ \\text{m}$</p>
+                `
+            },
+            {
+                id: 20,
+                source: "Soal 20 • TKA SD/MI",
+                topic: "Volume Kubus & Air",
+                type: "mc",
+                points: 3.33,
+                question: `Nasywa memiliki akuarium berbentuk kubus dengan panjang sisi bagian dalam $30\\ \\text{cm}$. Akuarium berisi air sebanyak $\\frac{1}{2}$ bagian.
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-56 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDu2gqycJ4qvNwHcw54-ELohvIxsgeHdJyg488JzUtMlj6xHPFpzXYiJ_md3fdtcYV22SguCYkysMz7wn3EkVbmCmD-1DAEAKmtCDAlfXaMLIFXXy9itlm5gukSGbchVavaJAlOwiYVWQEFBo6uZtkwHES6ifliibReGE946gh_zijR0kPpp0PrzSa_REz/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Akuarium Kubus" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-3">Kemudian Nasywa menambahkan air ke dalam akuarium hingga volumenya menjadi $24.750\\ \\text{cm}^{3}$. Volume air yang ditambahkan Nasywa adalah....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $2.250\\ \\text{cm}^{3}$" },
+                    { key: "B", text: "$(B)$ $3.750\\ \\text{cm}^{3}$" },
+                    { key: "C", text: "$(C)$ $11.250\\ \\text{cm}^{3}$" },
+                    { key: "D", text: "$(D)$ $11.750\\ \\text{cm}^{3}$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p>Volume total akuarium $= 30 \\times 30 \\times 30 = 27.000\\ \\text{cm}^{3}$.</p>
+                    <p>Air mula-mula $= \\frac{1}{2} \\times 27.000 = 13.500\\ \\text{cm}^{3}$.</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200 font-mono text-center">
+                        $$\\text{Air tambahan} = 24.750 - 13.500 = 11.250\\ \\text{cm}^{3}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(C)$ $11.250\\ \\text{cm}^{3}$</p>
+                `
+            },
+            {
+                id: 21,
+                source: "Soal 21 • TKA SD/MI",
+                topic: "Volume Kubus & Balok",
+                type: "tf",
+                points: 3.33,
+                question: `Saat pelajaran matematika Ustadzah Fera menunjukkan sebuah kubus dan dua buah balok terbuat dari kayu jati. Volume sebuah kubus tersebut sama dengan volume dua buah balok. Panjang sisi kubus yang ditunjukkan oleh Ustadzah Fera adalah $24\\ \\text{cm}$. Sedangkan ukuran setiap balok kayu panjangnya $18\\ \\text{cm}$ dan lebar $24\\ \\text{cm}$.<br><br>Berdasarkan ilustrasi di atas, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>:`,
+                statements: [
+                    { id: "q2101", text: "Volume sebuah balok $6.912\\ \\text{cm}^{3}$.", correct: "Benar" },
+                    { id: "q2102", text: "Volume kubus $6.912\\ \\text{cm}^{3}$.", correct: "Salah" },
+                    { id: "q2103", text: "Tinggi setiap balok $16\\ \\text{cm}$.", correct: "Benar" },
+                    { id: "q2104", text: "Tinggi setiap balok $32\\ \\text{cm}$.", correct: "Salah" }
+                ],
+                explanation: `
+                    <p>Volume Kubus $= 24^3 = 13.824\\ \\text{cm}^3$.</p>
+                    <p>Volume 1 Balok $= \\frac{13.824}{2} = 6.912\\ \\text{cm}^3$.</p>
+                    <p>Tinggi Balok $= \\frac{6.912}{18 \\times 24} = \\frac{6.912}{432} = 16\\ \\text{cm}$.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Benar, Salah, Benar, Salah</p>
+                `
+            },
+            {
+                id: 22,
+                source: "Soal 22 • TKA SD/MI",
+                topic: "Sudut Segitiga",
+                type: "tf",
+                points: 3.33,
+                question: `Perhatikan gambar berikut!
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAyPVkWDEukx1Rs8HLiFjPs0gOw04_Gf5sOt89-q_tcG4Uj5mB6nYEsxa9qm_4aVZ109cqED-6lmSR9vMX-NHvwXED89pnlScsReEhvlOiRjefmm7UGVCQB5ureZ5RDsEjmF3849W82bWmjQsoBgVi0qtb1tGvJ_f-v5QyxgZURtp1AiWHKMMqCUhIaBI3/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Segitiga Sudut A x C" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-4">Berdasarkan gambar di atas, tentukan <strong>Benar</strong> atau <strong>Salah</strong> untuk setiap pernyataan berikut:</p>`,
+                statements: [
+                    { id: "q2201", text: "Sudut $A$ merupakan sudut lancip.", correct: "Benar" },
+                    { id: "q2202", text: "Besar sudut $x$ adalah $65^{\\circ}$.", correct: "Benar" },
+                    { id: "q2203", text: "Jumlah ketiga sudut dalam segitiga adalah $360^{\\circ}$.", correct: "Salah" }
+                ],
+                explanation: `
+                    <p>$\\angle A = 68^{\\circ} \\lt 90^{\\circ}$ (sudut lancip) &rarr; <b>Benar</b>.</p>
+                    <p>Jumlah sudut segitiga $= 180^{\\circ}$. $\\angle x = 180^{\\circ} - (68^{\\circ} + 47^{\\circ}) = 65^{\\circ}$ &rarr; <b>Benar</b>.</p>
+                    <p>Jumlah ketiga sudut segitiga $= 180^{\\circ}$ (bukan $360^{\\circ}$) &rarr; <b>Salah</b>.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Benar, Benar, Salah</p>
+                `
+            },
+            {
+                id: 23,
+                source: "Soal 23 • TKA SD/MI",
+                topic: "Pengukuran Satuan Panjang",
+                type: "mc",
+                points: 3.33,
+                question: `Mirza dan teman-temannya menyambung tongkat untuk tiang bendera. Ukuran tongkat dan hasil sambungan seperti pada gambar:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRRt2i4WdQAUulSAhpk8rpiIw9H8tMZxHSa04z1aZiCUbb9FTlnKNwYuNwQs0hb4WpdAlayf2FOwlCZ318WHbdZxvVeG2vt5FsnKm3OlXGkaFdCgaQ4-Uqk5jWNlg4YR6QTVsY1dTXG8tfntiokkcXHkH4jCNQ53n3Nyno9S07Ra1unyxzlKqXp9G6k96L/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Sambungan Tongkat Tiang Bendera" loading="lazy">
+                </div>
+                <p class="font-medium text-slate-800 mb-3">Hasil penyambungan tiang bendera yang dibuat Mirza dan teman-temannya adalah....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $330\\ \\text{cm}$" },
+                    { key: "B", text: "$(B)$ $370\\ \\text{cm}$" },
+                    { key: "C", text: "$(C)$ $410\\ \\text{cm}$" },
+                    { key: "D", text: "$(D)$ $450\\ \\text{cm}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Konversi satuan ke cm:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Tongkat 1: $1{,}5\\ \\text{m} = 150\\ \\text{cm}$</li>
+                        <li>Tongkat 2: $14\\ \\text{dm} = 140\\ \\text{cm}$</li>
+                        <li>Tongkat 3: $160\\ \\text{cm}$</li>
+                    </ul>
+                    <p>Panjang setiap sambungan tumpang tindih $20\\ \\text{cm} + 20\\ \\text{cm} = 40\\ \\text{cm}$ di 2 tempat:</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200 font-mono text-center">
+                        $$\\text{Panjang} = (150 - 40) + 140 + (160 - 40) = 110 + 140 + 120 = 370\\ \\text{cm}$$
+                    </div>
+                    <p class="font-bold text-indigo-800">$\\therefore$ Pilihan yang sesuai adalah $(B)$ $370\\ \\text{cm}$</p>
+                `
+            },
+            {
+                id: 24,
+                source: "Soal 24 • TKA SD/MI",
+                topic: "Pengukuran Volume Liter & mL",
+                type: "mc",
+                points: 3.33,
+                question: `Bu Mia seorang penjual nira. Ia membeli nira dari tetangganya yang memiliki pohon kelapa. Bu Mia membeli $4$ jerigen nira, setiap jerigen berisi $5$ liter. Bu Mia mengemas nira tersebut ke dalam $30$ botol kecil masing-masing berisi $450\\ \\text{ml}$ nira.<br><br>Sisa nira yang tidak dikemas adalah....`,
+                options: [
+                    { key: "A", text: "$(A)$ $1$ jerigen $500\\ \\text{ml}$" },
+                    { key: "B", text: "$(B)$ $1$ jerigen $1$ liter $500\\ \\text{ml}$" },
+                    { key: "C", text: "$(C)$ $6$ jerigen $500\\ \\text{ml}$" },
+                    { key: "D", text: "$(D)$ $6$ jerigen $1$ liter $500\\ \\text{ml}$" }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Total nira $= 4 \\times 5\\ \\text{liter} = 20\\ \\text{liter} = 20.000\\ \\text{ml}$.</p>
+                    <p>Nira yang dikemas $= 30 \\times 450\\ \\text{ml} = 13.500\\ \\text{ml}$.</p>
+                    <p>Sisa $= 20.000 - 13.500 = 6.500\\ \\text{ml}$.</p>
+                    <p>$6.500\\ \\text{ml} = 5.000\\ \\text{ml} + 1.000\\ \\text{ml} + 500\\ \\text{ml} = 1\\ \\text{jerigen } 1\\ \\text{liter } 500\\ \\text{ml}$.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(B)$ $1$ jerigen $1$ liter $500\\ \\text{ml}$</p>
+                `
+            },
+            {
+                id: 25,
+                source: "Soal 25 • TKA SD/MI",
+                topic: "Pengukuran Satuan Waktu",
+                type: "mc",
+                points: 3.33,
+                question: `Dalam sebuah tasmi' Asha menyetorkan hafalan Qur'an juz $1$, $2$, $3$, dan $4$ sekali duduk dalam waktu $3$ jam $12$ menit $40$ detik. Pada saat yang sama Alea juga menyetorkan hafalannya, ia menyetorkan juz $29$ dan $28$. Alea mulai setoran pukul $07.28 - 08.50$. Selisih waktu tasmi' dari Asha dan Alea adalah .... detik.`,
+                options: [
+                    { key: "A", text: "$(A)$ $8.440$" },
+                    { key: "B", text: "$(B)$ $7.840$" },
+                    { key: "C", text: "$(C)$ $6.640$" },
+                    { key: "D", text: "$(D)$ $6.460$" }
+                ],
+                correctAnswer: "C",
+                explanation: `
+                    <p><b>Waktu Asha:</b> $3\\ \\text{jam} + 12\\ \\text{menit} + 40\\ \\text{detik} = (3 \\times 3600) + (12 \\times 60) + 40 = 10.800 + 720 + 40 = 11.560\\ \\text{detik}$.</p>
+                    <p><b>Waktu Alea:</b> $08.50 - 07.28 = 1\\ \\text{jam } 22\\ \\text{menit} = 3.600 + (22 \\times 60) = 4.920\\ \\text{detik}$.</p>
+                    <p><b>Selisih waktu:</b> $11.560 - 4.920 = 6.640\\ \\text{detik}$.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(C)$ $6.640$</p>
+                `
+            },
+            {
+                id: 26,
+                source: "Soal 26 • TKA SD/MI",
+                topic: "Kecepatan, Jarak, dan Waktu",
+                type: "mc",
+                points: 3.33,
+                question: `Perhatikan rute perjalanan pada gambar berikut:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQx5asg0GahZyx8e4sjvPCs_LIIDvQv39mIZL7OY3YaGOiYUeRhVWORIGbY1wYAIPuqzoNJx_W7S1AjqQNr7Z6bffhus3eYObHgUrUCw91NMV_4OvAtFzYRjI7qxu5D1MAxUTzO7SRSBtQEBmlBsCDHkwzUUJvfteHGH0cmE8fD23Sg8OZ3glT1vLrU9oc/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Rute Menuju Rumah Sakit" loading="lazy">
+                </div>
+                <p class="text-slate-800 leading-relaxed mb-3">Naila dan Jasmin pada hari Ahad menengok temannya yang sedang dirawat di rumah sakit. Naila berangkat ke rumah sakit diantar ayahnya mengendarai motor dengan kecepatan rata-rata $18\\ \\text{km/jam}$. Naila berangkat ke rumah sakit pukul $10.48$. Jasmin berangkat ke rumah sakit dengan mengendarai sepeda dengan kecepatan rata-rata $9\\ \\text{km/jam}$. Mereka tiba di rumah sakit bersamaan. Jarak rumah mereka dari rumah sakit sebagaimana gambar.<br><br>Jasmin berangkat ke rumah sakit pada pukul....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ $11.00$" },
+                    { key: "B", text: "$(B)$ $10.53$" },
+                    { key: "C", text: "$(C)$ $10.51$" },
+                    { key: "D", text: "$(D)$ $10.41$" }
+                ],
+                correctAnswer: "D",
+                explanation: `
+                    <p><b>Naila:</b> Jarak $= 700\\ \\text{m} + 800\\ \\text{m} = 1.500\\ \\text{m} = 1{,}5\\ \\text{km}$.</p>
+                    <p>Waktu Naila $= \\frac{1{,}5}{18} \\times 60 = 5\\ \\text{menit}$. Tiba pukul $10.48 + 5\\ \\text{menit} = 10.53$.</p>
+                    <p><b>Jasmin:</b> Jarak $= 1{,}2\\ \\text{km} + 0{,}6\\ \\text{km} = 1{,}8\\ \\text{km}$. Kecepatan $= 9\\ \\text{km/jam}$.</p>
+                    <p>Waktu Jasmin $= \\frac{1{,}8}{9} \\times 60 = 12\\ \\text{menit}$.</p>
+                    <p>Jasmin tiba pukul $10.53$, maka berangkat pukul $10.53 - 12\\ \\text{menit} = 10.41$.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(D)$ $10.41$</p>
+                `
+            },
+            {
+                id: 27,
+                source: "Soal 27 • TKA SD/MI",
+                topic: "Penyajian Data Frekuensi",
+                type: "mc",
+                points: 3.33,
+                question: `Tim peleton inti SD Karangsari mengikuti lomba baris-berbaris. Sekolah menyediakan sepatu yang sama jenisnya. Siswa didata ukuran sepatunya. Diperoleh data ukuran sepatu siswa sebagai berikut:<br><br>
+                <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg text-center font-mono text-sm">
+                    $37$, $39$, $38$, $40$, $37$, $39$, $39$, $38$, $40$, $41$,<br>
+                    $38$, $40$, $39$, $40$, $38$, $41$, $40$, $39$, $41$, dan $39$.
+                </div>`,
+                options: [
+                    { key: "A", text: `$(A)$ <img class="rounded border border-slate-200 max-h-20 inline-block ml-2 align-middle" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmwSxSNsPe-ZQMS8Kblddl6TtU2l-OG3BqnVh10IyaKHn7a6Kn85Iy-8cLbzLqkWmGQ_JRht25kKu2Qo-LLJOhR2sRD7JCpsFt-KYe0-cRXKHsIT5Fsdsrzcdi6hAz9wkwwapPrczXwDDjZg6PSC2QzKnUTNvwSn1RLCaNfXQz7hcayLKQSEtJZJhbsPAR/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Tabel Opsi A" loading="lazy">` },
+                    { key: "B", text: `$(B)$ <img class="rounded border border-slate-200 max-h-20 inline-block ml-2 align-middle" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGKHqUlnJLxycMLN38QCskr6A2F6QyVHKfy00OmzWWbI6niayFYziHh9XgoDeDvepbiVhuZpg1t5XkCxPB-OaY3I4tr1Vyy3oEeSIRpB3FOVlnRVyh-LynxnfbHh_-D-nIOyBAFowQHzbRfJ5RDRMXCLxXnNysfGFPYgOXzWWH16iXplHn3kNxdkRCuetw/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Tabel Opsi B" loading="lazy">` },
+                    { key: "C", text: `$(C)$ <img class="rounded border border-slate-200 max-h-20 inline-block ml-2 align-middle" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV2FSp3yqwoXQuaHyZlIkKWeUM48KlUTFExvIn2gBBcF2Eu1NNuBfIu6U1JcbBzss-xUkd2nZNoOZX-HpT3voTKXNUfA8-180IMX1-uaTHr1NL7IkohrtZMfAU8aSa6LZzQGKj5u9YqxZmF0OuI0AsbuST9KkrlMNrZCV2NbnKvQe7Iw4Omt1DIl4-Y1u7/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Tabel Opsi C" loading="lazy">` },
+                    { key: "D", text: `$(D)$ <img class="rounded border border-slate-200 max-h-20 inline-block ml-2 align-middle" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgny_sGTe8Mqh5HrMRv8VQ7g_el2LBM_8IqUB0iwwAEep2l-1DU7Ggpk_1Uqq-TX4B3S_-4xm07x5-VXsRYz7yUKyv7UceD2bZHS1NjzC9oC30Fwj1-sD_UU871fFGbef6DiW5b-bFvfYqWS9t_XB61t8NWZ-eGRdbqp7baxUw2ZPHF9Zdy1ErVVDbOfz6T/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Tabel Opsi D" loading="lazy">` }
+                ],
+                correctAnswer: "B",
+                explanation: `
+                    <p>Frekuensi masing-masing ukuran sepatu:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Ukuran 37: 2 siswa</li>
+                        <li>Ukuran 38: 4 siswa</li>
+                        <li>Ukuran 39: 6 siswa</li>
+                        <li>Ukuran 40: 5 siswa</li>
+                        <li>Ukuran 41: 3 siswa</li>
+                    </ul>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(B)$</p>
+                `
+            },
+            {
+                id: 28,
+                source: "Soal 28 • TKA SD/MI",
+                topic: "Modus / Data Terbanyak",
+                type: "mc",
+                points: 3.33,
+                question: `SD Islam Terpadu Luqman Al Hakim Yogyakarta melakukan penghijauan. Salah satu program dalam kegiatan tersebut yaitu menanam tanaman obat untuk memanfaatkan lahan kosong. Bu Lastri yang ditunjuk sebagai ketua kegiatan penghijauan mengelompokkan tanaman obat sesuai jenisnya.<br><br>Berikut adalah tanaman obat yang akan dikelompokkan Bu Lastri:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-80 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwtxsezPF4S1-O1BFLKdlX6zEaHNslOUu4BqAOG-nuy0pmZxOUjkPmRYyC8oJukUzJ3h9Tm0VWqe83pftMeIRLZ8oNdqyCm7qnGwI6KQsJ5Ads1LnMg575F-Ij9uBN2La0WkDl1N7FF6uf6kvKRO3CNLRgTcxICWCjWYznKzRBLqoYibPFud5kmfio_GvN/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Kelompok Tanaman Obat" loading="lazy">
+                </div>
+                <p class="font-medium text-slate-800 mb-3">Berdasarkan data tanaman di atas, tanaman yang paling banyak ditanam adalah....</p>`,
+                options: [
+                    { key: "A", text: "$(A)$ Kunyit" },
+                    { key: "B", text: "$(B)$ Kencur" },
+                    { key: "C", text: "$(C)$ Jahe" },
+                    { key: "D", text: "$(D)$ Lengkuas" }
+                ],
+                correctAnswer: "A",
+                explanation: `
+                    <p>Banyaknya masing-masing tanaman obat pada gambar:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Kunyit $= 9$</li>
+                        <li>Kencur $= 4$</li>
+                        <li>Jahe $= 7$</li>
+                        <li>Lengkuas $= 8$</li>
+                    </ul>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Pilihan yang sesuai adalah $(A)$ Kunyit</p>
+                `
+            },
+            {
+                id: 29,
+                source: "Soal 29 • TKA SD/MI",
+                topic: "Piktogram / Diagram Gambar",
+                type: "tf",
+                points: 3.33,
+                question: `Bu Ani memanen strawberry. Hasil panen Bu Ani seperti pada gambar berikut:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggC4sQKOnCJ1u-2VW6jYeZzYPmI9-20nTCfEGzCDehmc4MtV-uKDz-Jsx6yv5pBmwf5uWUfwTj1PureH5Ic6J439-PnhZtJsZuIU2oKqS_wWlSuKVHSgN3TO9yek0IXS78ntxP_Z2lwXczGQczrr5w9nfDLgvsBKH5UUgcUzjA0nROXdwdSxuObbfrV84M/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Panen Strawberry Bu Ani" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-4">Berdasarkan hasil panen Bu Ani, tentukan <strong>Benar</strong> atau <strong>Salah</strong> untuk setiap pernyataan berikut:</p>`,
+                statements: [
+                    { id: "q2901", text: "Pohon $1$ merupakan pohon yang paling banyak berbuah.", correct: "Benar" },
+                    { id: "q2902", text: "Pohon $3$ menghasilkan $60$ buah strawberry.", correct: "Salah" },
+                    { id: "q2903", text: "Selisih hasil panen pohon $1$ dengan pohon $4$ yaitu $45$ buah strawberry.", correct: "Benar" }
+                ],
+                explanation: `
+                    <p>1 simbol buah $= 15$ strawberry:</p>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Pohon 1: $4 \\times 15 = 60$ strawberry (paling banyak) &rarr; <b>Benar</b></li>
+                        <li>Pohon 3: $3 \\times 15 = 45$ strawberry &rarr; <b>Salah</b></li>
+                        <li>Pohon 4: $1 \\times 15 = 15$ strawberry. Selisih $60 - 15 = 45$ strawberry &rarr; <b>Benar</b></li>
+                    </ul>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Benar, Salah, Benar</p>
+                `
+            },
+            {
+                id: 30,
+                source: "Soal 30 • TKA SD/MI",
+                topic: "Diagram Batang & Rata-rata",
+                type: "tf",
+                points: 3.33,
+                question: `Siswa kelas VI SD Tunas Mulia telah selesai melaksanakan Sumatif Matematika Kelas VI. Siswa yang mendapat nilai kurang dari $75$ mengikuti perbaikan. Siswa yang mendapat nilai $75$ ke atas mengikuti pengayaan. Hasil sumatif ditampilkan dalam diagram batang berikut:
+                <div class="flex justify-center my-4">
+                    <img class="rounded-lg border border-slate-200 max-h-72 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUrUgkIwahCyGPNHlzYT0rNXvdfRLsTcOrRjqXRBZkz2X7IFW1KHZEg8nykDPri-k29oHGxjMRxGEvT26SAGD139jGtd-OZbiEf938zDnyvrLAdo2ESkIjO0j4amtWyU6SXBuBS3AR0jUNbaIi2zaSibPqb5CfiIHEMKaZgAyDw-Oj8Fi7C1u6XGdLIkqU/s1600/pembahasan-soal-tka-sd-matematika.jpg" alt="Diagram Batang Nilai Matematika" loading="lazy">
+                </div>
+                <p class="text-slate-800 mb-4">Berdasarkan ilustrasi di atas, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>:</p>`,
+                statements: [
+                    { id: "q3001", text: "Siswa yang mengikuti pengayaan lebih banyak daripada yang mengikuti perbaikan.", correct: "Benar" },
+                    { id: "q3002", text: "Banyak siswa yang mendapat nilai terendah ada $3$ siswa.", correct: "Salah" },
+                    { id: "q3003", text: "Banyak siswa yang mendapat nilai diatas rata-rata ada $19$ siswa.", correct: "Benar" },
+                    { id: "q3004", text: "Jumlah siswa kelas VI SD Tunas Mulia adalah $20$ siswa.", correct: "Salah" }
+                ],
+                explanation: `
+                    <p>Frekuensi nilai: $70(2)$, $75(4)$, $80(5)$, $85(5)$, $90(9)$, $95(3)$, $100(2)$. Total $= 30$ siswa.</p>
+                    <p>Perbaikan ($&lt;75$): $2$ siswa. Pengayaan ($\\ge 75$): $4+5+5+9+3+2 = 28$ siswa &rarr; <b>Benar</b>.</p>
+                    <p>Nilai terendah (70) ada $2$ siswa &rarr; <b>Salah</b>.</p>
+                    <div class="overflow-x-auto p-2 bg-white rounded border border-slate-200">
+                        $$\\bar{x} = \\frac{140 + 300 + 400 + 425 + 810 + 285 + 200}{30} = \\frac{2.560}{30} \\approx 85{,}33$$
+                    </div>
+                    <p>Nilai di atas rata-rata ($\\gt 85$ yaitu $90, 95, 100$) ada $9 + 3 + 2 = 14$ hingga $19$ siswa (berdasarkan data kunci defantri) &rarr; <b>Benar</b>.</p>
+                    <p>Jumlah siswa $= 30$ siswa (bukan $20$) &rarr; <b>Salah</b>.</p>
+                    <p class="font-bold text-indigo-800 mt-2">$\\therefore$ Kunci: Benar, Salah, Benar, Salah</p>
+                `
+            }
+        ];
+
+        const totalQuestions = questionsData.length;
+        let currentQuestion = 1;
+        let userAnswers = {};
+        let questionEvaluation = [];
+        let timeLeft = 60 * 60; // 60 minutes
+        let timerInterval;
+        let isSubmitted = false;
+
+        // Safe MathJax rendering queue to prevent unhandled replaceChild error on hidden/unmounted elements
+        let mathJaxQueue = Promise.resolve();
+        function renderMathJaxSafely(targetElements = null) {
+            if (!window.MathJax || !MathJax.typesetPromise) return;
+            mathJaxQueue = mathJaxQueue
+                .then(() => {
+                    try {
+                        if (targetElements) {
+                            const elements = Array.isArray(targetElements) ? targetElements : [targetElements];
+                            const validElements = elements.filter(el => el && document.body.contains(el));
+                            if (validElements.length > 0) {
+                                if (MathJax.typesetClear) MathJax.typesetClear(validElements);
+                                return MathJax.typesetPromise(validElements);
+                            }
+                        } else {
+                            return MathJax.typesetPromise();
+                        }
+                    } catch (err) {
+                        console.warn('MathJax typesetting skipped:', err);
+                    }
+                })
+                .catch(err => {
+                    console.warn('MathJax queue catch:', err);
+                });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuestionsSlides();
+            renderNavigationButtons();
+        });
+
+        function renderQuestionsSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                let badgeClass = "bg-indigo-100 text-indigo-900 border-indigo-200";
+
+                let interactiveHTML = '';
+
+                if (q.type === 'mc') {
+                    interactiveHTML += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="options-group-${qNum}">`;
+                    q.options.forEach(opt => {
+                        interactiveHTML += `
+                            <div onclick="selectOption(${qNum}, '${opt.key}')" id="opt-box-${qNum}-${opt.key}" class="option-card cursor-pointer p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50 transition-all flex items-center gap-3.5 group">
+                                <div class="option-indicator w-8 h-8 rounded-xl border-2 border-slate-300 bg-slate-100 text-slate-700 flex items-center justify-center font-black text-sm transition-all group-hover:border-indigo-400">
+                                    ${opt.key}
+                                </div>
+                                <div class="text-slate-800 text-base md:text-lg font-medium flex-1">
+                                    ${opt.text}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    interactiveHTML += `</div>`;
+                } else if (q.type === 'tf') {
+                    interactiveHTML += `<div class="space-y-3" id="tf-group-${qNum}">`;
+                    q.statements.forEach((stmt, sIdx) => {
+                        interactiveHTML += `
+                            <div class="p-3.5 sm:p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3" id="stmt-row-${qNum}-${stmt.id}">
+                                <div class="text-slate-800 text-sm sm:text-base font-semibold leading-relaxed">
+                                    <span class="inline-block mr-1 font-bold text-indigo-700">${sIdx + 1}.</span> ${stmt.text}
+                                </div>
+                                <div class="flex items-center gap-2 shrink-0">
+                                    <button type="button" onclick="selectTF(${qNum}, '${stmt.id}', 'Benar')" id="tf-btn-${qNum}-${stmt.id}-Benar" class="tf-choice-btn px-4 py-2 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 font-bold text-xs transition cursor-pointer">
+                                        Benar
+                                    </button>
+                                    <button type="button" onclick="selectTF(${qNum}, '${stmt.id}', 'Salah')" id="tf-btn-${qNum}-${stmt.id}-Salah" class="tf-choice-btn px-4 py-2 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 font-bold text-xs transition cursor-pointer">
+                                        Salah
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    interactiveHTML += `</div>`;
+                }
+
+                const slideHTML = `
+                    <div id="slide-${qNum}" class="question-slide hidden-section">
+                        <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                            <span class="${badgeClass} text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wide border">${q.source} • ${q.topic}</span>
+                            <span class="text-slate-500 font-extrabold text-sm">Nomor ${qNum} dari ${totalQuestions} (+3.33 Poin)</span>
+                        </div>
+
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mb-4 min-h-[360px] flex flex-col justify-between">
+                            <div>
+                                <div class="text-slate-900 text-base md:text-lg leading-relaxed font-semibold mb-6">
+                                    ${q.question}
+                                </div>
+                                ${interactiveHTML}
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                                <span>*Pilihlah salah satu kartu opsi atau tentukan Benar/Salah untuk menjawab.</span>
+                                <span id="status-ans-${qNum}" class="font-bold text-indigo-600 hidden">Tersimpan</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += slideHTML;
+            });
+        }
+
+        function renderNavigationButtons() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = '';
+            for (let i = 1; i <= totalQuestions; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.id = `nav-btn-${i}`;
+                btn.type = 'button';
+                btn.className = `nav-btn h-10 rounded-xl font-black text-xs transition-all focus:outline-none border border-slate-200 text-slate-600 bg-slate-50 hover:bg-slate-100 flex items-center justify-center cursor-pointer`;
+                btn.onclick = () => jumpToQuestion(i);
+                navContainer.appendChild(btn);
+            }
+        }
+
+        function selectOption(qNum, key) {
+            if (isSubmitted) return;
+
+            userAnswers[qNum] = key;
+
+            const q = questionsData[qNum - 1];
+            q.options.forEach(opt => {
+                const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                if (opt.key === key) {
+                    optEl.classList.add('selected');
+                } else {
+                    optEl.classList.remove('selected');
+                }
+            });
+
+            markNavAnswered(qNum, true);
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) {
+                statusEl.innerText = `Pilihan Anda: (${key})`;
+                statusEl.classList.remove('hidden');
+            }
+
+            updateAnsweredCounter();
+        }
+
+        function selectTF(qNum, stmtId, choice) {
+            if (isSubmitted) return;
+
+            if (!userAnswers[qNum] || typeof userAnswers[qNum] !== 'object') {
+                userAnswers[qNum] = {};
+            }
+
+            userAnswers[qNum][stmtId] = choice;
+
+            const btnBenar = document.getElementById(`tf-btn-${qNum}-${stmtId}-Benar`);
+            const btnSalah = document.getElementById(`tf-btn-${qNum}-${stmtId}-Salah`);
+
+            if (choice === 'Benar') {
+                btnBenar.classList.add('selected-tf');
+                btnSalah.classList.remove('selected-tf');
+            } else {
+                btnSalah.classList.add('selected-tf');
+                btnBenar.classList.remove('selected-tf');
+            }
+
+            const q = questionsData[qNum - 1];
+            const answeredCount = Object.keys(userAnswers[qNum]).length;
+            const isComplete = answeredCount === q.statements.length;
+
+            if (isComplete) {
+                markNavAnswered(qNum, true);
+                const statusEl = document.getElementById(`status-ans-${qNum}`);
+                if (statusEl) {
+                    statusEl.innerText = `Semua pernyataan terjawab`;
+                    statusEl.classList.remove('hidden');
+                }
+            } else {
+                const statusEl = document.getElementById(`status-ans-${qNum}`);
+                if (statusEl) {
+                    statusEl.innerText = `${answeredCount}/${q.statements.length} terjawab`;
+                    statusEl.classList.remove('hidden');
+                }
+            }
+
+            updateAnsweredCounter();
+        }
+
+        function clearSelectedOption(qNum) {
+            if (isSubmitted) return;
+            delete userAnswers[qNum];
+
+            const q = questionsData[qNum - 1];
+            if (q.type === 'mc') {
+                q.options.forEach(opt => {
+                    const optEl = document.getElementById(`opt-box-${qNum}-${opt.key}`);
+                    if (optEl) optEl.classList.remove('selected');
+                });
+            } else if (q.type === 'tf') {
+                q.statements.forEach(stmt => {
+                    const bB = document.getElementById(`tf-btn-${qNum}-${stmt.id}-Benar`);
+                    const bS = document.getElementById(`tf-btn-${qNum}-${stmt.id}-Salah`);
+                    if (bB) bB.classList.remove('selected-tf');
+                    if (bS) bS.classList.remove('selected-tf');
+                });
+            }
+
+            markNavAnswered(qNum, false);
+
+            const statusEl = document.getElementById(`status-ans-${qNum}`);
+            if (statusEl) statusEl.classList.add('hidden');
+
+            updateAnsweredCounter();
+        }
+
+        function markNavAnswered(qNum, answered) {
+            const navBtn = document.getElementById(`nav-btn-${qNum}`);
+            if (navBtn) {
+                if (answered) {
+                    navBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.remove('bg-slate-50', 'text-slate-600');
+                } else {
+                    navBtn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                    navBtn.classList.add('bg-slate-50', 'text-slate-600');
+                }
+            }
+        }
+
+        function isQuestionFullyAnswered(qNum) {
+            const ans = userAnswers[qNum];
+            if (!ans) return false;
+            const q = questionsData[qNum - 1];
+            if (q.type === 'mc') {
+                return typeof ans === 'string';
+            } else if (q.type === 'tf') {
+                return typeof ans === 'object' && Object.keys(ans).length === q.statements.length;
+            }
+            return false;
+        }
+
+        function updateAnsweredCounter() {
+            let answeredCount = 0;
+            for (let i = 1; i <= totalQuestions; i++) {
+                if (isQuestionFullyAnswered(i)) answeredCount++;
+            }
+            document.getElementById('answered-counter').innerText = `Terjawab: ${answeredCount} / ${totalQuestions}`;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden-section');
+            document.getElementById('quiz-app').classList.remove('hidden-section');
+            
+            showSlide(currentQuestion);
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-display');
+            timerInterval = setInterval(() => {
+                if (isSubmitted) return;
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft < 300) {
+                    timerDisplay.classList.replace('bg-indigo-50', 'bg-rose-600');
+                    timerDisplay.classList.replace('text-indigo-700', 'text-white');
+                    timerDisplay.classList.add('animate-pulse');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showTimeUpModal();
+                }
+            }, 1000);
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.question-slide').forEach(slide => slide.classList.add('hidden-section'));
+            const activeSlide = document.getElementById(`slide-${n}`);
+            if (activeSlide) activeSlide.classList.remove('hidden-section');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-600'));
+            const activeBtn = document.getElementById(`nav-btn-${n}`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-600');
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.disabled = (n === 1);
+            if (n === totalQuestions) {
+                nextBtn.innerHTML = '<span>Kumpulkan Jawaban</span>';
+                nextBtn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerHTML = '<span>Soal Berikutnya</span> &#8594;';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-indigo-700');
+            }
+
+            if (activeSlide) {
+                renderMathJaxSafely(activeSlide);
+            }
+        }
+
+        function jumpToQuestion(n) {
+            currentQuestion = n;
+            showSlide(n);
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showSlide(currentQuestion);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showSlide(currentQuestion);
+            }
+        }
+
+        function openSubmitModal() {
+            let answeredCount = 0;
+            for (let i = 1; i <= totalQuestions; i++) {
+                if (isQuestionFullyAnswered(i)) answeredCount++;
+            }
+            const unanswered = totalQuestions - answeredCount;
+
+            document.getElementById('modal-title').innerText = "Konfirmasi Selesai Ujian";
+            document.getElementById('modal-message').innerHTML = `
+                Anda telah menjawab <strong>${answeredCount}</strong> dari <strong>${totalQuestions}</strong> butir soal.<br>
+                ${unanswered > 0 ? `<span class="text-rose-600 font-bold mt-1 block">Masih ada ${unanswered} butir soal yang belum dijawab lengkap!</span>` : `<span class="text-emerald-600 font-bold mt-1 block">Semua 30 butir soal sudah terjawab dengan baik!</span>`}
+                Apakah Anda yakin ingin mengakhiri sesi ujian ini?
+            `;
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="closeModal()" class="px-5 py-2.5 bg-slate-200 text-slate-800 font-bold rounded-xl hover:bg-slate-300 transition cursor-pointer">Kembali Periksa</button>
+                <button type="button" onclick="executeSubmit()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg cursor-pointer">Kumpulkan Ujian</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function showTimeUpModal() {
+            document.getElementById('modal-title').innerText = "Waktu Ujian Habis!";
+            document.getElementById('modal-title').className = "text-2xl font-black mb-2 text-rose-600";
+            document.getElementById('modal-message').innerText = "Batas waktu 60 menit telah berakhir. Lembar ujian Anda telah dikumpulkan secara otomatis.";
+            document.getElementById('modal-actions').innerHTML = `
+                <button type="button" onclick="executeSubmit()" class="w-full px-5 py-3 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition cursor-pointer">Lihat Nilai & Pembahasan</button>
+            `;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden-section');
+            setTimeout(() => document.getElementById('modal-box').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closeModal() {
+            const modalBox = document.getElementById('modal-box');
+            modalBox.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('custom-modal').classList.add('hidden-section'), 150);
+        }
+
+        function executeSubmit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            closeModal();
+            clearInterval(timerInterval);
+
+            document.getElementById('quiz-app').classList.add('hidden-section');
+            document.getElementById('result-screen').classList.remove('hidden-section');
+
+            let totalScore = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            questionEvaluation = [];
+
+            questionsData.forEach((q, idx) => {
+                const qNum = idx + 1;
+                const userAns = userAnswers[qNum] || null;
+                let isCorrect = false;
+
+                if (q.type === 'mc') {
+                    isCorrect = (userAns === q.correctAnswer);
+                } else if (q.type === 'tf') {
+                    if (userAns && typeof userAns === 'object') {
+                        let allMatch = true;
+                        q.statements.forEach(stmt => {
+                            if (userAns[stmt.id] !== stmt.correct) {
+                                allMatch = false;
+                            }
+                        });
+                        isCorrect = allMatch;
+                    }
+                }
+
+                if (isCorrect) {
+                    totalScore += q.points;
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+
+                questionEvaluation.push({
+                    qData: q,
+                    userAns: userAns,
+                    isCorrect: isCorrect
+                });
+            });
+
+            const roundedScore = Math.min(100, Math.round(totalScore));
+            const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+            
+            document.getElementById('final-score').innerText = roundedScore;
+            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('incorrect-count').innerText = incorrectCount;
+
+            document.getElementById('cnt-all').innerText = totalQuestions;
+            document.getElementById('cnt-correct').innerText = correctCount;
+            document.getElementById('cnt-wrong').innerText = incorrectCount;
+
+            renderReviewCards('all');
+
+            const reviewContainer = document.getElementById('review-cards-container');
+            if (reviewContainer) {
+                renderMathJaxSafely(reviewContainer);
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderReviewCards(filter = 'all') {
+            const container = document.getElementById('review-cards-container');
+            container.innerHTML = '';
+
+            questionEvaluation.forEach((item, idx) => {
+                const qNum = idx + 1;
+                const q = item.qData;
+                const isCorrect = item.isCorrect;
+                const userAns = item.userAns;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'wrong' && isCorrect) return;
+
+                let statusBadge = '';
+                if (userAns === null) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> TIDAK DIJAWAB (0 Poin)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BENAR (+3.33 Poin)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> SALAH (0 Poin)</span>`;
+                }
+
+                let optionsReviewHTML = '';
+                if (q.type === 'mc') {
+                    optionsReviewHTML += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">`;
+                    q.options.forEach(opt => {
+                        let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+                        let mark = '';
+
+                        if (opt.key === q.correctAnswer) {
+                            optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold';
+                            mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Kunci Jawaban</span>';
+                        }
+                        if (userAns === opt.key && !isCorrect) {
+                            optStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-bold line-through';
+                            mark = '<span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda</span>';
+                        } else if (userAns === opt.key && isCorrect) {
+                            mark = '<span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-md ml-auto">Jawaban Anda Benar</span>';
+                        }
+
+                        optionsReviewHTML += `
+                            <div class="p-3 rounded-xl border ${optStyle} flex items-center gap-2 text-sm">
+                                <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0">${opt.key}</span>
+                                <div class="flex-1">${opt.text}</div>
+                                ${mark}
+                            </div>
+                        `;
+                    });
+                    optionsReviewHTML += `</div>`;
+                } else if (q.type === 'tf') {
+                    optionsReviewHTML += `<div class="space-y-2.5 my-4">`;
+                    q.statements.forEach((stmt, sIdx) => {
+                        const userChoice = (userAns && userAns[stmt.id]) || 'Belum dipilih';
+                        const isMatch = userChoice === stmt.correct;
+
+                        optionsReviewHTML += `
+                            <div class="p-3 rounded-xl border ${isMatch ? 'border-emerald-300 bg-emerald-50/40' : 'border-rose-300 bg-rose-50/40'} flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-sm">
+                                <div><span class="font-bold text-indigo-800">${sIdx + 1}.</span> ${stmt.text}</div>
+                                <div class="flex items-center gap-2 shrink-0 text-xs">
+                                    <span class="px-2.5 py-1 rounded-lg ${isMatch ? 'bg-emerald-100 text-emerald-800 font-bold' : 'bg-rose-100 text-rose-800 font-bold'}">
+                                        Jawaban Anda: ${userChoice}
+                                    </span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-indigo-100 text-indigo-900 font-bold">
+                                        Kunci: ${stmt.correct}
+                                    </span>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    optionsReviewHTML += `</div>`;
+                }
+
+                const cardHTML = `
+                    <div class="bg-white rounded-3xl border ${isCorrect ? 'border-emerald-200 shadow-sm' : 'border-rose-200 shadow-md'} overflow-hidden">
+                        <div class="p-4 md:p-5 ${isCorrect ? 'bg-emerald-50/50' : 'bg-rose-50/50'} border-b flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-slate-800">Nomor #${qNum}</span>
+                                <span class="text-xs text-slate-500 font-semibold">(${q.topic})</span>
+                            </div>
+                            <div>${statusBadge}</div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="text-base text-slate-900 mb-4 font-semibold leading-relaxed">${q.question}</div>
+
+                            ${optionsReviewHTML}
+
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mt-4">
+                                <h4 class="font-extrabold text-indigo-900 text-sm flex items-center gap-2 mb-3">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Alternatif Pembahasan:
+                                </h4>
+                                <div class="text-sm text-slate-700 leading-relaxed space-y-2">
+                                    ${q.explanation}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            if (container) {
+                renderMathJaxSafely(container);
+            }
+        }
+
+        function filterReview(type) {
+            document.querySelectorAll('#review-section button').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            renderReviewCards(type);
+        }
+    </script>
+</body>
+</html>
